@@ -1,4 +1,5 @@
 // Automatic FlutterFlow imports
+import '../../backend/backend.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom widgets
@@ -131,7 +132,7 @@ class _PlayerState extends State<Player> {
                 color: Color(iconColor),
                 onPressed: () {
                   if (isPlaying == false) {
-                    player.play(AssetSource(audio));
+                    player.play(AssetSource(widget.audio));
                   }
                   isPlaying = true;
                 },

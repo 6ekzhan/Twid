@@ -1,3 +1,4 @@
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -43,230 +44,265 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
         ),
       );
     }
-    return Scaffold(
-      key: scaffoldKey,
-      resizeToAvoidBottomInset: false,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            shape: BoxShape.rectangle,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(
-                child: FlutterFlowGoogleMap(
-                  controller: googleMapsController,
-                  onCameraIdle: (latLng) => googleMapsCenter = latLng,
-                  initialLocation: googleMapsCenter ??=
-                      currentUserLocationValue!,
-                  markerColor: GoogleMarkerColor.violet,
-                  mapType: MapType.normal,
-                  style: GoogleMapStyle.standard,
-                  initialZoom: 14,
-                  allowInteraction: true,
-                  allowZoom: false,
-                  showZoomControls: false,
-                  showLocation: true,
-                  showCompass: false,
-                  showMapToolbar: false,
-                  showTraffic: true,
-                  centerMapOnMarkerTap: true,
-                ),
+    return StreamBuilder<List<LocationRecord>>(
+      stream: queryLocationRecord(
+        singleRecord: true,
+      ),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Center(
+            child: SizedBox(
+              width: 50,
+              height: 50,
+              child: CircularProgressIndicator(
+                color: FlutterFlowTheme.of(context).primaryColor,
               ),
-              Column(
+            ),
+          );
+        }
+        List<LocationRecord> mainNavigatorPageLocationRecordList =
+            snapshot.data!;
+        // Return an empty Container when the document does not exist.
+        if (snapshot.data!.isEmpty) {
+          return Container();
+        }
+        final mainNavigatorPageLocationRecord =
+            mainNavigatorPageLocationRecordList.isNotEmpty
+                ? mainNavigatorPageLocationRecordList.first
+                : null;
+        return Scaffold(
+          key: scaffoldKey,
+          resizeToAvoidBottomInset: false,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          body: GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+              ),
+              child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 16),
-                    child: FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        'gnh6m1of' /* ПОЕХАЛИ! */,
-                      ),
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 20),
-                        color: FlutterFlowTheme.of(context).primaryColor,
-                        textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Metal',
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.normal,
-                                  useGoogleFonts: false,
-                                ),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                  Expanded(
+                    child: FlutterFlowGoogleMap(
+                      controller: googleMapsController,
+                      onCameraIdle: (latLng) => googleMapsCenter = latLng,
+                      initialLocation: googleMapsCenter ??=
+                          currentUserLocationValue!,
+                      markerColor: GoogleMarkerColor.violet,
+                      mapType: MapType.normal,
+                      style: GoogleMapStyle.standard,
+                      initialZoom: 14,
+                      allowInteraction: true,
+                      allowZoom: false,
+                      showZoomControls: false,
+                      showLocation: true,
+                      showCompass: false,
+                      showMapToolbar: false,
+                      showTraffic: true,
+                      centerMapOnMarkerTap: true,
                     ),
                   ),
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Color(0x00D9DCDE),
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0),
-                        bottomRight: Radius.circular(0),
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 16),
+                        child: FFButtonWidget(
+                          onPressed: () {
+                            print('Button pressed ...');
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'gnh6m1of' /* ПОЕХАЛИ! */,
+                          ),
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 20),
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            textStyle:
+                                FlutterFlowTheme.of(context).subtitle2.override(
+                                      fontFamily: 'Metal',
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.normal,
+                                      useGoogleFonts: false,
+                                    ),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
                       ),
-                      border: Border.all(
-                        color: FlutterFlowTheme.of(context).lineColor,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 20),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Expanded(
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
-                              child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'kfr798l2' /* ИНФОРМАЦИЯ О МЕСТЕ */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: double.infinity,
-                                  height: 48,
-                                  color: Color(0x00F4472B),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
-                                      .override(
-                                        fontFamily: 'Inter',
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Color(0x00D9DCDE),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(0),
+                            bottomRight: Radius.circular(0),
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                          ),
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).lineColor,
+                          ),
+                        ),
+                        child: Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(16, 16, 16, 20),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 8, 0),
+                                  child: FFButtonWidget(
+                                    onPressed: () {
+                                      print('Button pressed ...');
+                                    },
+                                    text: FFLocalizations.of(context).getText(
+                                      'kfr798l2' /* ИНФОРМАЦИЯ О МЕСТЕ */,
+                                    ),
+                                    options: FFButtonOptions(
+                                      width: double.infinity,
+                                      height: 48,
+                                      color: Color(0x00F4472B),
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .subtitle2
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryColor,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                      borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
+                                        width: 0.5,
                                       ),
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    width: 0.5,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
-                                  borderRadius: BorderRadius.circular(10),
                                 ),
                               ),
-                            ),
-                          ),
-                          FlutterFlowIconButton(
-                            borderColor:
-                                FlutterFlowTheme.of(context).primaryColor,
-                            borderRadius: 16,
-                            borderWidth: 0.5,
-                            buttonSize: 48,
-                            fillColor: Color(0x00BE7C71),
-                            icon: Icon(
-                              FFIcons.karrowForward,
-                              color: FlutterFlowTheme.of(context).primaryColor,
-                              size: 24,
-                            ),
-                            onPressed: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 0),
-                                  reverseDuration: Duration(milliseconds: 0),
-                                  child: MainNavigatorPage2Widget(),
+                              FlutterFlowIconButton(
+                                borderColor:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                borderRadius: 16,
+                                borderWidth: 0.5,
+                                buttonSize: 48,
+                                fillColor: Color(0x00BE7C71),
+                                icon: Icon(
+                                  FFIcons.karrowForward,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                  size: 24,
                                 ),
-                              );
-                            },
+                                onPressed: () async {
+                                  await Navigator.push(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                      reverseDuration:
+                                          Duration(milliseconds: 0),
+                                      child: MainNavigatorPage2Widget(),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      color: Color(0x00D9DCDE),
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0),
-                        bottomRight: Radius.circular(0),
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                      border: Border.all(
-                        color: FlutterFlowTheme.of(context).secondaryColor,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          FlutterFlowIconButton(
-                            borderColor: Color(0x00F4472B),
-                            borderRadius: 16,
-                            borderWidth: 0,
-                            buttonSize: 48,
-                            fillColor: Color(0x00BE7C71),
-                            icon: Icon(
-                              FFIcons.kquestion,
-                              color: FlutterFlowTheme.of(context).lineColor,
-                              size: 24,
-                            ),
-                            onPressed: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 0),
-                                  reverseDuration: Duration(milliseconds: 0),
-                                  child: HelpWidget(),
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: Color(0x00D9DCDE),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(0),
+                            bottomRight: Radius.circular(0),
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                          ),
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).secondaryColor,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              FlutterFlowIconButton(
+                                borderColor: Color(0x00F4472B),
+                                borderRadius: 16,
+                                borderWidth: 0,
+                                buttonSize: 48,
+                                fillColor: Color(0x00BE7C71),
+                                icon: Icon(
+                                  FFIcons.kquestion,
+                                  color: FlutterFlowTheme.of(context).lineColor,
+                                  size: 24,
                                 ),
-                              );
-                            },
-                          ),
-                          FlutterFlowIconButton(
-                            borderColor: Color(0x00F4472B),
-                            borderRadius: 16,
-                            buttonSize: 48,
-                            fillColor: Color(0x00BE7C71),
-                            icon: Icon(
-                              FFIcons.ksettings,
-                              color: FlutterFlowTheme.of(context).lineColor,
-                              size: 24,
-                            ),
-                            onPressed: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 0),
-                                  reverseDuration: Duration(milliseconds: 0),
-                                  child: SettingsWidget(),
+                                onPressed: () async {
+                                  await Navigator.push(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                      reverseDuration:
+                                          Duration(milliseconds: 0),
+                                      child: HelpWidget(),
+                                    ),
+                                  );
+                                },
+                              ),
+                              FlutterFlowIconButton(
+                                borderColor: Color(0x00F4472B),
+                                borderRadius: 16,
+                                buttonSize: 48,
+                                fillColor: Color(0x00BE7C71),
+                                icon: Icon(
+                                  FFIcons.ksettings,
+                                  color: FlutterFlowTheme.of(context).lineColor,
+                                  size: 24,
                                 ),
-                              );
-                            },
+                                onPressed: () async {
+                                  await Navigator.push(
+                                    context,
+                                    PageTransition(
+                                      type: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                      reverseDuration:
+                                          Duration(milliseconds: 0),
+                                      child: SettingsWidget(),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

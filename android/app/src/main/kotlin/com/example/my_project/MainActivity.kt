@@ -1,4 +1,4 @@
-package com.mycompany.twid
+package com.weloveflutterflow.twid
 
 import io.flutter.embedding.android.FlutterActivity
 
