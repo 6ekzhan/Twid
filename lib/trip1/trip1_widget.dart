@@ -1,6 +1,11 @@
+import '../about_place/about_place_widget.dart';
+import '../calendar/calendar_widget.dart';
+import '../car/car_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_timer.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../instructions010/instructions010_widget.dart';
+import '../takea_car/takea_car_widget.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -59,7 +64,9 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
                         child: Text(
-                          'Ваше путешествие начнется через:',
+                          FFLocalizations.of(context).getText(
+                            '7b7tfv87' /* Ваше путешествие начнется чере... */,
+                          ),
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .bodyText1
@@ -76,57 +83,68 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Container(
-                          width: 100,
-                          height: 112,
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            borderRadius: BorderRadius.circular(16),
-                            shape: BoxShape.rectangle,
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).primaryColor,
-                              width: 0.5,
+                        InkWell(
+                          onTap: () async {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Instructions010Widget(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: 100,
+                            height: 112,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              borderRadius: BorderRadius.circular(16),
+                              shape: BoxShape.rectangle,
+                              border: Border.all(
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                width: 0.5,
+                              ),
                             ),
-                          ),
-                          alignment: AlignmentDirectional(0, 0),
-                          child: FlutterFlowTimer(
-                            timerValue: timerValue ??=
-                                StopWatchTimer.getDisplayTime(
-                              timerMilliseconds ??= 10,
-                              hours: true,
-                              minute: true,
-                              second: true,
-                              milliSecond: false,
+                            alignment: AlignmentDirectional(0, 0),
+                            child: FlutterFlowTimer(
+                              timerValue: timerValue ??=
+                                  StopWatchTimer.getDisplayTime(
+                                timerMilliseconds ??= 10,
+                                hours: true,
+                                minute: true,
+                                second: true,
+                                milliSecond: false,
+                              ),
+                              timer: timerController ??= StopWatchTimer(
+                                mode: StopWatchMode.countDown,
+                                presetMillisecond: timerMilliseconds ??= 10,
+                                onChange: (value) {
+                                  setState(() {
+                                    timerMilliseconds = value;
+                                    timerValue = StopWatchTimer.getDisplayTime(
+                                      value,
+                                      hours: true,
+                                      minute: true,
+                                      second: true,
+                                      milliSecond: false,
+                                    );
+                                  });
+                                },
+                              ),
+                              textAlign: TextAlign.start,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Metal',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                    fontSize: 50,
+                                    fontWeight: FontWeight.normal,
+                                    useGoogleFonts: false,
+                                  ),
+                              onEnded: () {},
                             ),
-                            timer: timerController ??= StopWatchTimer(
-                              mode: StopWatchMode.countDown,
-                              presetMillisecond: timerMilliseconds ??= 10,
-                              onChange: (value) {
-                                setState(() {
-                                  timerMilliseconds = value;
-                                  timerValue = StopWatchTimer.getDisplayTime(
-                                    value,
-                                    hours: true,
-                                    minute: true,
-                                    second: true,
-                                    milliSecond: false,
-                                  );
-                                });
-                              },
-                            ),
-                            textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText1
-                                .override(
-                                  fontFamily: 'Metal',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                  fontSize: 50,
-                                  fontWeight: FontWeight.normal,
-                                  useGoogleFonts: false,
-                                ),
-                            onEnded: () {},
                           ),
                         ),
                         Padding(
@@ -147,18 +165,32 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12, 0, 0, 0),
-                                    child: Text(
-                                      '10 октября — 12 октября, 2022',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .tertiaryColor,
-                                            fontWeight: FontWeight.normal,
-                                            decoration:
-                                                TextDecoration.underline,
+                                    child: InkWell(
+                                      onTap: () async {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                CalendarWidget(),
                                           ),
+                                        );
+                                      },
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'wzbafwa9' /* 10 октября — 12 октября, 2022 */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiaryColor,
+                                              fontWeight: FontWeight.normal,
+                                              decoration:
+                                                  TextDecoration.underline,
+                                            ),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -178,19 +210,31 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12, 0, 0, 0),
-                                      child: Text(
-                                        'Porsche 911 Carrera GTS',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .tertiaryColor,
-                                              fontWeight: FontWeight.normal,
-                                              decoration:
-                                                  TextDecoration.underline,
+                                      child: InkWell(
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => CarWidget(),
                                             ),
+                                          );
+                                        },
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'hy6dw4ym' /* Porsche 911 Carrera GTS */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiaryColor,
+                                                fontWeight: FontWeight.normal,
+                                                decoration:
+                                                    TextDecoration.underline,
+                                              ),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -210,7 +254,9 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 24, 0, 16),
                             child: Text(
-                              'Cabo da Roca — Nazare. Portugal',
+                              FFLocalizations.of(context).getText(
+                                'okjp83oo' /* Cabo da Roca — Nazare. Portuga... */,
+                              ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -224,32 +270,44 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                                   ),
                             ),
                           ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                FFIcons.kmap,
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                size: 24,
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                                child: Text(
-                                  'More journey details',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .tertiaryColor,
-                                        fontWeight: FontWeight.normal,
-                                        decoration: TextDecoration.underline,
-                                      ),
+                          InkWell(
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AboutPlaceWidget(),
                                 ),
-                              ),
-                            ],
+                              );
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Icon(
+                                  FFIcons.kmap,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  size: 24,
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12, 0, 0, 0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'fll91hyi' /* More journey details */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .tertiaryColor,
+                                          fontWeight: FontWeight.normal,
+                                          decoration: TextDecoration.underline,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -307,18 +365,30 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                           ),
                           child: Align(
                             alignment: AlignmentDirectional(0, 0),
-                            child: Text(
-                              'Как забрать машину?',
-                              textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .tertiaryColor,
-                                    fontWeight: FontWeight.normal,
-                                    decoration: TextDecoration.underline,
+                            child: InkWell(
+                              onTap: () async {
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => TakeaCarWidget(),
                                   ),
+                                );
+                              },
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'ocefep6i' /* Как забрать машину? */,
+                                ),
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                      fontWeight: FontWeight.normal,
+                                      decoration: TextDecoration.underline,
+                                    ),
+                              ),
                             ),
                           ),
                         ),

@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
+import '../main_navigator_page/main_navigator_page_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -44,10 +45,17 @@ class _TripStartWidgetState extends State<TripStartWidget> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MainNavigatorPageWidget(),
+                              ),
+                            );
                           },
-                          text: 'НАЧАТЬ ПУТЕШЕСТВИЕ',
+                          text: FFLocalizations.of(context).getText(
+                            '3c87wq81' /* НАЧАТЬ ПУТЕШЕСТВИЕ */,
+                          ),
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 112,
@@ -78,7 +86,9 @@ class _TripStartWidgetState extends State<TripStartWidget> {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 278, 0, 24),
                         child: Text(
-                          'Как забрать машину',
+                          FFLocalizations.of(context).getText(
+                            'adl2jnc3' /* Как забрать машину */,
+                          ),
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .bodyText1

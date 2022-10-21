@@ -27,7 +27,9 @@ class _SearchWidgetState extends State<SearchWidget> {
           ),
         );
       },
-      text: 'OK',
+      text: FFLocalizations.of(context).getText(
+        '1nw9pklc' /* OK */,
+      ),
       options: FFButtonOptions(
         width: 236,
         height: 48,

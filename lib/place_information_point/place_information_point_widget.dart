@@ -46,7 +46,9 @@ class _PlaceInformationPointWidgetState
                         Align(
                           alignment: AlignmentDirectional(0, 0),
                           child: Text(
-                            'POINT 2 (OF 6)',
+                            FFLocalizations.of(context).getText(
+                              '2uxvi0iv' /* POINT 2 (OF 6) */,
+                            ),
                             style: TextStyle(
                               fontFamily: 'SF Compact',
                               color: FlutterFlowTheme.of(context).primaryColor,
@@ -55,7 +57,9 @@ class _PlaceInformationPointWidgetState
                           ),
                         ),
                         Text(
-                          'NEW POINT',
+                          FFLocalizations.of(context).getText(
+                            'r20f6faw' /* NEW POINT */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .bodyText1
                               .override(
@@ -70,7 +74,9 @@ class _PlaceInformationPointWidgetState
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                           child: Text(
-                            'PORTUGAL',
+                            FFLocalizations.of(context).getText(
+                              'yn1gzi9t' /* PORTUGAL */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Inter',
@@ -98,7 +104,9 @@ class _PlaceInformationPointWidgetState
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Text(
-                                'OLD CASTLE',
+                                FFLocalizations.of(context).getText(
+                                  'njcgxhas' /* OLD CASTLE */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .title1
                                     .override(
@@ -115,7 +123,9 @@ class _PlaceInformationPointWidgetState
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Text(
-                                'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. Repudiandae ea et modi veniam.',
+                                FFLocalizations.of(context).getText(
+                                  'eq6bg4hv' /* Libero et saepe ipsa cum. Recu... */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -172,7 +182,9 @@ class _PlaceInformationPointWidgetState
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Text(
-                                'Listen audio',
+                                FFLocalizations.of(context).getText(
+                                  'mt3k8scy' /* Listen audio */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -207,7 +219,9 @@ class _PlaceInformationPointWidgetState
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Text(
-                                'OCEANARIUM',
+                                FFLocalizations.of(context).getText(
+                                  'fx5ab5ue' /* OCEANARIUM */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .title1
                                     .override(
@@ -224,7 +238,9 @@ class _PlaceInformationPointWidgetState
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Text(
-                                'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Aut deserunt a laborum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. ',
+                                FFLocalizations.of(context).getText(
+                                  'kgw33dh9' /* Pariatur reprehenderit asperio... */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -281,7 +297,9 @@ class _PlaceInformationPointWidgetState
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Text(
-                                'Listen audio',
+                                FFLocalizations.of(context).getText(
+                                  'dqpkzpnq' /* Listen audio */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -371,7 +389,10 @@ class _PlaceInformationPointWidgetState
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
-                                        text: 'BACK TO NAVIGATOR',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'ewex2sak' /* BACK TO NAVIGATOR */,
+                                        ),
                                         options: FFButtonOptions(
                                           width: double.infinity,
                                           height: 48,

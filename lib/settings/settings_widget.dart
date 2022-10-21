@@ -46,7 +46,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
           },
         ),
         title: Text(
-          'НАСТРОЙКИ',
+          FFLocalizations.of(context).getText(
+            'cagfldgq' /* НАСТРОЙКИ */,
+          ),
           style: TextStyle(
             fontFamily: 'SF Compact',
             color: FlutterFlowTheme.of(context).primaryColor,
@@ -109,7 +111,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24, 0, 0, 0),
                                   child: Text(
-                                    'ВЫБОР ЯЗЫКА ПРИЛОЖЕНИЯ',
+                                    FFLocalizations.of(context).getText(
+                                      'uzw2kehf' /* ВЫБОР ЯЗЫКА ПРИЛОЖЕНИЯ */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .title1
                                         .override(
@@ -152,14 +156,27 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                             0, 16, 0, 0),
                                         child: FlutterFlowRadioButton(
                                           options: [
-                                            'Английский',
-                                            'Русский',
-                                            'Испанский',
-                                            'Японский',
-                                            'Арабский'
+                                            FFLocalizations.of(context).getText(
+                                              '7eff3dtj' /* Английский */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'te8i8jd0' /* Русский */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '30ibg7dz' /* Испанский */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'vnwel0j8' /* Японский */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '81a03krw' /* Арабский */,
+                                            )
                                           ].toList(),
-                                          onChanged: (val) => setState(
-                                              () => radioButtonValue1 = val),
+                                          onChanged: (val) async {
+                                            setState(
+                                                () => radioButtonValue1 = val);
+                                            setAppLanguage(context, 'en');
+                                          },
                                           optionHeight: 20,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
@@ -226,7 +243,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24, 0, 0, 0),
                                   child: Text(
-                                    'ЯЗЫК НАВИГАТОРА',
+                                    FFLocalizations.of(context).getText(
+                                      'iai55qdh' /* ЯЗЫК НАВИГАТОРА */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .title1
                                         .override(
@@ -269,11 +288,21 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                             0, 16, 0, 0),
                                         child: FlutterFlowRadioButton(
                                           options: [
-                                            'Английский',
-                                            'Русский',
-                                            'Испанский',
-                                            'Японский',
-                                            'Арабский'
+                                            FFLocalizations.of(context).getText(
+                                              '11g8kkae' /* Английский */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '9xt338pe' /* Русский */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'kci3jkuz' /* Испанский */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'srgao15l' /* Японский */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'n8x63939' /* Арабский */,
+                                            )
                                           ].toList(),
                                           onChanged: (val) => setState(
                                               () => radioButtonValue2 = val),
@@ -343,7 +372,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24, 0, 0, 0),
                                   child: Text(
-                                    'ГОЛОС НАВИГАТОРА',
+                                    FFLocalizations.of(context).getText(
+                                      'by9hot10' /* ГОЛОС НАВИГАТОРА */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .title1
                                         .override(
@@ -385,8 +416,14 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 16, 0, 0),
                                         child: FlutterFlowRadioButton(
-                                          options:
-                                              ['Женский', 'Мужской'].toList(),
+                                          options: [
+                                            FFLocalizations.of(context).getText(
+                                              '3o9qytw9' /* Женский */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'aorcgqkz' /* Мужской */,
+                                            )
+                                          ].toList(),
                                           onChanged: (val) => setState(
                                               () => radioButtonValue3 = val),
                                           optionHeight: 20,
@@ -455,7 +492,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24, 0, 0, 0),
                                   child: Text(
-                                    'ЗВУКОВЫЕ ПОДСКАЗКИ',
+                                    FFLocalizations.of(context).getText(
+                                      '444v7pyd' /* ЗВУКОВЫЕ ПОДСКАЗКИ */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .title1
                                         .override(
@@ -497,8 +536,14 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 16, 0, 0),
                                         child: FlutterFlowRadioButton(
-                                          options: ['Включить', 'Выключить']
-                                              .toList(),
+                                          options: [
+                                            FFLocalizations.of(context).getText(
+                                              'vbc2hxtl' /* Включить */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              'o8t074vk' /* Выключить */,
+                                            )
+                                          ].toList(),
                                           onChanged: (val) => setState(
                                               () => radioButtonValue4 = val),
                                           optionHeight: 20,
@@ -567,7 +612,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24, 0, 0, 0),
                                   child: Text(
-                                    'ВИД НАВИГАТОРА',
+                                    FFLocalizations.of(context).getText(
+                                      'o8kc2usy' /* ВИД НАВИГАТОРА */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .title1
                                         .override(
@@ -609,8 +656,14 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 16, 0, 0),
                                         child: FlutterFlowRadioButton(
-                                          options:
-                                              ['Светлый', 'Темный'].toList(),
+                                          options: [
+                                            FFLocalizations.of(context).getText(
+                                              '1hyve95p' /* Светлый */,
+                                            ),
+                                            FFLocalizations.of(context).getText(
+                                              '77fpmbyt' /* Темный */,
+                                            )
+                                          ].toList(),
                                           onChanged: (val) => setState(
                                               () => radioButtonValue5 = val),
                                           optionHeight: 20,
@@ -667,7 +720,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                 onPressed: () {
                   print('Button pressed ...');
                 },
-                text: 'ЭКСТРЕННЫЙ ВЫЗОВ',
+                text: FFLocalizations.of(context).getText(
+                  'dkztsz1p' /* ЭКСТРЕННЫЙ ВЫЗОВ */,
+                ),
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 56,

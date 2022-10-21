@@ -87,7 +87,9 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
                       onPressed: () {
                         print('Button pressed ...');
                       },
-                      text: 'ПОЕХАЛИ!',
+                      text: FFLocalizations.of(context).getText(
+                        'gnh6m1of' /* ПОЕХАЛИ! */,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 20),
@@ -136,7 +138,9 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
                                 onPressed: () {
                                   print('Button pressed ...');
                                 },
-                                text: 'ИНФОРМАЦИЯ О МЕСТЕ',
+                                text: FFLocalizations.of(context).getText(
+                                  'kfr798l2' /* ИНФОРМАЦИЯ О МЕСТЕ */,
+                                ),
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 48,

@@ -146,7 +146,9 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                                   onPressed: () {
                                     print('Button pressed ...');
                                   },
-                                  text: 'POINT INFORMATION',
+                                  text: FFLocalizations.of(context).getText(
+                                    'bf5ij9cc' /* POINT INFORMATION */,
+                                  ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 48,

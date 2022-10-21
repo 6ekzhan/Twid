@@ -2,6 +2,7 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../main_navigator_page/main_navigator_page_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -105,7 +106,9 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16, 13, 16, 20),
                                   child: Text(
-                                    'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы легко можете перейти от одной точки назначения до другой или вернуться назад.  ',
+                                    FFLocalizations.of(context).getText(
+                                      'pz4ro1we' /* Кнопки на экране навигатора по... */,
+                                    ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
@@ -130,10 +133,18 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16, 0, 16, 0),
                                   child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                    onPressed: () async {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              MainNavigatorPageWidget(),
+                                        ),
+                                      );
                                     },
-                                    text: 'ОК. ДАЛЬШЕ',
+                                    text: FFLocalizations.of(context).getText(
+                                      'vin93ofb' /* ОК. ДАЛЬШЕ */,
+                                    ),
                                     options: FFButtonOptions(
                                       width: double.infinity,
                                       height: 48,
@@ -211,7 +222,9 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           16, 13, 16, 20),
                                       child: Text(
-                                        'По достижении новой точки навигатор подскажет о наличии интересной информации, которую мы для вас тщательно подобрали. Кликните Point Information. ',
+                                        FFLocalizations.of(context).getText(
+                                          'kuswjwgq' /* По достижении новой точки нави... */,
+                                        ),
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
@@ -239,7 +252,10 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
-                                        text: 'ОК. ДАЛЬШЕ',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'ncaulhea' /* ОК. ДАЛЬШЕ */,
+                                        ),
                                         options: FFButtonOptions(
                                           width: double.infinity,
                                           height: 48,
@@ -336,7 +352,9 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16, 13, 16, 20),
                                   child: Text(
-                                    'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы легко можете перейти от одной точки назначения до другой или вернуться назад.  ',
+                                    FFLocalizations.of(context).getText(
+                                      'c3bdx0kk' /* Кнопки на экране навигатора по... */,
+                                    ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
@@ -364,7 +382,9 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                     onPressed: () {
                                       print('Button pressed ...');
                                     },
-                                    text: 'ОК. ДАЛЬШЕ',
+                                    text: FFLocalizations.of(context).getText(
+                                      'ioa7i7qj' /* ОК. ДАЛЬШЕ */,
+                                    ),
                                     options: FFButtonOptions(
                                       width: double.infinity,
                                       height: 48,

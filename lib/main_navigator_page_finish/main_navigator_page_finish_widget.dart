@@ -88,7 +88,9 @@ class _MainNavigatorPageFinishWidgetState
                       onPressed: () {
                         print('Button pressed ...');
                       },
-                      text: 'ФИНИШ',
+                      text: FFLocalizations.of(context).getText(
+                        'lm18fn7u' /* ФИНИШ */,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 20),
@@ -161,7 +163,9 @@ class _MainNavigatorPageFinishWidgetState
                                 onPressed: () {
                                   print('Button pressed ...');
                                 },
-                                text: 'ИНФОРМАЦИЯ О МЕСТЕ',
+                                text: FFLocalizations.of(context).getText(
+                                  'kiuoxc9a' /* ИНФОРМАЦИЯ О МЕСТЕ */,
+                                ),
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 48,

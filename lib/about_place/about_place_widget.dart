@@ -67,7 +67,9 @@ class _AboutPlaceWidgetState extends State<AboutPlaceWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                           child: Text(
-                            'Cabo da Roca — Nazare. Portugal',
+                            FFLocalizations.of(context).getText(
+                              'stgexjii' /* Cabo da Roca — Nazare. Portuga... */,
+                            ),
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Metal',
                                   color:
@@ -97,7 +99,9 @@ class _AboutPlaceWidgetState extends State<AboutPlaceWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12, 0, 0, 0),
                                     child: Text(
-                                      '10 октября — 12 октября, 2022',
+                                      FFLocalizations.of(context).getText(
+                                        'a0jpj9v9' /* 10 октября — 12 октября, 2022 */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
@@ -128,7 +132,9 @@ class _AboutPlaceWidgetState extends State<AboutPlaceWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12, 0, 0, 0),
                                       child: Text(
-                                        'Porsche 911 Carrera GTS',
+                                        FFLocalizations.of(context).getText(
+                                          '5yrehsu0' /* Porsche 911 Carrera GTS */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -172,7 +178,9 @@ class _AboutPlaceWidgetState extends State<AboutPlaceWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                           child: Text(
-                            'CABO DA ROCE',
+                            FFLocalizations.of(context).getText(
+                              '8q31xc2m' /* CABO DA ROCE */,
+                            ),
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Metal',
                                   color:
@@ -186,7 +194,9 @@ class _AboutPlaceWidgetState extends State<AboutPlaceWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                           child: Text(
-                            'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. Repudiandae ea et modi veniam.',
+                            FFLocalizations.of(context).getText(
+                              '4glnwve2' /* Libero et saepe ipsa cum. Recu... */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Inter',
@@ -240,7 +250,9 @@ class _AboutPlaceWidgetState extends State<AboutPlaceWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                           child: Text(
-                            'Listen audio',
+                            FFLocalizations.of(context).getText(
+                              '3ua4z7tm' /* Listen audio */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyText1
                                 .override(

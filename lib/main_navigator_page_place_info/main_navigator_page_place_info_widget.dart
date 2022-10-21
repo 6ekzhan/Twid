@@ -166,7 +166,9 @@ class _MainNavigatorPagePlaceInfoWidgetState
                                   onPressed: () {
                                     print('Button pressed ...');
                                   },
-                                  text: 'POINT INFORMATION',
+                                  text: FFLocalizations.of(context).getText(
+                                    'pbolbx7o' /* POINT INFORMATION */,
+                                  ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 48,

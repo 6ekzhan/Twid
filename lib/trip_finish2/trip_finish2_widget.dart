@@ -58,7 +58,11 @@ class _TripFinish2WidgetState extends State<TripFinish2Widget> {
                       onPressed: () {
                         print('Button pressed ...');
                       },
-                      text: 'НАЧАТЬ НОВОЕ \nПУТЕШЕСТВИЕ',
+                      text: FFLocalizations.of(context).getText(
+                        'n2heetyi' /* НАЧАТЬ НОВОЕ 
+ПУТЕШЕСТВИЕ */
+                        ,
+                      ),
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 112,
@@ -92,7 +96,9 @@ class _TripFinish2WidgetState extends State<TripFinish2Widget> {
                           padding:
                               EdgeInsetsDirectional.fromSTEB(16, 180, 16, 24),
                           child: Text(
-                            'Чтобы не пропустить интересные маршруты, новые машины, ачивки, или горячие предложения подписывайтесь на соцсети twid!',
+                            FFLocalizations.of(context).getText(
+                              'f56kaj7j' /* Чтобы не пропустить интересные... */,
+                            ),
                             textAlign: TextAlign.center,
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(

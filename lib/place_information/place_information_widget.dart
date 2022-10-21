@@ -44,7 +44,9 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                         Align(
                           alignment: AlignmentDirectional(0, 0),
                           child: Text(
-                            'STARTING POINT',
+                            FFLocalizations.of(context).getText(
+                              '4wv1lfde' /* STARTING POINT */,
+                            ),
                             style: TextStyle(
                               fontFamily: 'SF Compact',
                               color: FlutterFlowTheme.of(context).primaryColor,
@@ -53,7 +55,9 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                           ),
                         ),
                         Text(
-                          'CASCAIS',
+                          FFLocalizations.of(context).getText(
+                            '7rhxdpfg' /* CASCAIS */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .bodyText1
                               .override(
@@ -68,7 +72,9 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                           child: Text(
-                            'PORTUGAL',
+                            FFLocalizations.of(context).getText(
+                              'xg8a54gn' /* PORTUGAL */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Inter',
@@ -96,7 +102,9 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Text(
-                                'LIGHTHOUSE',
+                                FFLocalizations.of(context).getText(
+                                  'zkpybfkk' /* LIGHTHOUSE */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .title1
                                     .override(
@@ -113,7 +121,9 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Text(
-                                'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. Repudiandae ea et modi veniam.',
+                                FFLocalizations.of(context).getText(
+                                  'bjc02soe' /* Libero et saepe ipsa cum. Recu... */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -170,7 +180,9 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Text(
-                                'Listen audio',
+                                FFLocalizations.of(context).getText(
+                                  '2apx1aol' /* Listen audio */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -201,7 +213,9 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Text(
-                                'SEASHORE',
+                                FFLocalizations.of(context).getText(
+                                  '0gd3jgil' /* SEASHORE */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .title1
                                     .override(
@@ -218,7 +232,9 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Text(
-                                'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Aut deserunt a laborum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. ',
+                                FFLocalizations.of(context).getText(
+                                  'xopfntch' /* Pariatur reprehenderit asperio... */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -275,7 +291,9 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                               child: Text(
-                                'Listen audio',
+                                FFLocalizations.of(context).getText(
+                                  'gwcp83bs' /* Listen audio */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -335,7 +353,10 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
-                                        text: 'BACK TO NAVIGATOR',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'quefzvnq' /* BACK TO NAVIGATOR */,
+                                        ),
                                         options: FFButtonOptions(
                                           width: double.infinity,
                                           height: 48,

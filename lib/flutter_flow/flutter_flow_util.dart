@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:from_css_color/from_css_color.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 import 'package:json_path/json_path.dart';
@@ -14,20 +15,31 @@ import 'lat_lng.dart';
 
 export 'lat_lng.dart';
 export 'place.dart';
+export '../app_state.dart';
 export 'dart:math' show min, max;
 export 'dart:convert' show jsonEncode, jsonDecode;
 export 'package:intl/intl.dart';
 export 'package:page_transition/page_transition.dart';
 export 'custom_icons.dart' show FFIcons;
+export 'internationalization.dart' show FFLocalizations;
 
 T valueOrDefault<T>(T? value, T defaultValue) =>
     (value is String && value.isEmpty) || value == null ? defaultValue : value;
+
+void _setTimeagoLocales() {
+  timeago.setLocaleMessages('ru', timeago.RuMessages());
+  timeago.setLocaleMessages('en', timeago.EnMessages());
+  timeago.setLocaleMessages('es', timeago.EsMessages());
+  timeago.setLocaleMessages('ko', timeago.KoMessages());
+  timeago.setLocaleMessages('ar', timeago.ArMessages());
+}
 
 String dateTimeFormat(String format, DateTime? dateTime, {String? locale}) {
   if (dateTime == null) {
     return '';
   }
   if (format == 'relative') {
+    _setTimeagoLocales();
     return timeago.format(dateTime, locale: locale);
   }
   return DateFormat(format).format(dateTime);
@@ -40,6 +52,13 @@ Future launchURL(String url) async {
   } catch (e) {
     throw 'Could not launch $uri: $e';
   }
+}
+
+Color colorFromCssString(String color, {Color? defaultColor}) {
+  try {
+    return fromCssColor(color);
+  } catch (_) {}
+  return defaultColor ?? Colors.black;
 }
 
 enum FormatType {

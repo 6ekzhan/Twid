@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
 import '../settings/settings_widget.dart';
+import '../trip2/trip2_widget.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,7 +30,9 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
         title: Align(
           alignment: AlignmentDirectional(0, 0),
           child: Text(
-            'Пожалуйста, ознакомьтесь с правилами',
+            FFLocalizations.of(context).getText(
+              'igmpnhzd' /* Пожалуйста, ознакомьтесь с пра... */,
+            ),
             style: GoogleFonts.getFont(
               'Inter',
               color: Color(0xFFD9DCDE),
@@ -92,7 +95,9 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24, 0, 0, 0),
                                   child: Text(
-                                    'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+                                    FFLocalizations.of(context).getText(
+                                      '5paztg0h' /* ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИ... */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .title1
                                         .override(
@@ -134,7 +139,9 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 8, 0, 8),
                                         child: Text(
-                                          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+                                          FFLocalizations.of(context).getText(
+                                            'ymjci8j5' /* 1. Qui exercitationem esse nis... */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
@@ -189,7 +196,9 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24, 0, 0, 0),
                                   child: Text(
-                                    'ПРАВИЛА СТРАХОВАНИЯ',
+                                    FFLocalizations.of(context).getText(
+                                      'iu1sb52u' /* ПРАВИЛА СТРАХОВАНИЯ */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .title1
                                         .override(
@@ -231,7 +240,9 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 8, 0, 8),
                                         child: Text(
-                                          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+                                          FFLocalizations.of(context).getText(
+                                            'nva1bsz7' /* 1. Qui exercitationem esse nis... */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
@@ -286,7 +297,9 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24, 0, 0, 0),
                                   child: Text(
-                                    'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
+                                    FFLocalizations.of(context).getText(
+                                      'e19nqw8s' /* ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОС... */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .title1
                                         .override(
@@ -328,7 +341,9 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 8, 0, 8),
                                         child: Text(
-                                          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+                                          FFLocalizations.of(context).getText(
+                                            'ajpti0h9' /* 1. Qui exercitationem esse nis... */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
@@ -383,7 +398,9 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24, 0, 0, 0),
                                   child: Text(
-                                    'ПРАВИЛА БЕЗОПАСНОСТИ',
+                                    FFLocalizations.of(context).getText(
+                                      'g6degmim' /* ПРАВИЛА БЕЗОПАСНОСТИ */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .title1
                                         .override(
@@ -425,7 +442,9 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 8, 0, 8),
                                         child: Text(
-                                          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+                                          FFLocalizations.of(context).getText(
+                                            '3s63quou' /* 1. Qui exercitationem esse nis... */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
@@ -480,7 +499,9 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24, 0, 0, 0),
                                   child: Text(
-                                    'ЭКСТРЕННАЯ СВЯЗЬ',
+                                    FFLocalizations.of(context).getText(
+                                      '3e6mr48m' /* ЭКСТРЕННАЯ СВЯЗЬ */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .title1
                                         .override(
@@ -522,7 +543,9 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 8, 0, 8),
                                         child: Text(
-                                          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+                                          FFLocalizations.of(context).getText(
+                                            '58ws4c12' /* 1. Qui exercitationem esse nis... */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
@@ -562,10 +585,17 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 28),
               child: FFButtonWidget(
-                onPressed: () {
-                  print('Button pressed ...');
+                onPressed: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Trip2Widget(),
+                    ),
+                  );
                 },
-                text: 'ПРОЧИТАЛ. СОГЛАСЕН',
+                text: FFLocalizations.of(context).getText(
+                  'rjiw6puk' /* ПРОЧИТАЛ. СОГЛАСЕН */,
+                ),
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 56,

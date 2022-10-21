@@ -75,7 +75,9 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                       child: Text(
-                        'Как забрать машину?',
+                        FFLocalizations.of(context).getText(
+                          '6svfki8i' /* Как забрать машину? */,
+                        ),
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Metal',
@@ -94,14 +96,18 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '1.',
+                            FFLocalizations.of(context).getText(
+                              '6ssfhhxv' /* 1. */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyText1,
                           ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(24, 0, 5, 0),
                             child: Text(
-                              'Qui exercitationem esse nisi neque. Culpa \natque aliquam ad dolorem nisi molestiae \nsint voluptatem.',
+                              FFLocalizations.of(context).getText(
+                                'u7nhlxdg' /* Qui exercitationem esse nisi n... */,
+                              ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -121,14 +127,18 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '2.',
+                            FFLocalizations.of(context).getText(
+                              'fdj7mntn' /* 2. */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyText1,
                           ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(24, 0, 5, 0),
                             child: Text(
-                              'Qui exercitationem esse nisi neque. Culpa \natque aliquam ad dolorem nisi molestiae \nsint voluptatem.',
+                              FFLocalizations.of(context).getText(
+                                '5u4e5qvb' /* Qui exercitationem esse nisi n... */,
+                              ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -148,14 +158,18 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '3.',
+                            FFLocalizations.of(context).getText(
+                              'b9quzzbu' /* 3. */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyText1,
                           ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(24, 0, 5, 0),
                             child: Text(
-                              'Qui exercitationem esse nisi neque. Culpa \natque aliquam ad dolorem nisi molestiae \nsint voluptatem.',
+                              FFLocalizations.of(context).getText(
+                                '99k6tb6g' /* Qui exercitationem esse nisi n... */,
+                              ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -175,14 +189,18 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '4.',
+                            FFLocalizations.of(context).getText(
+                              'au7ammyh' /* 4. */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyText1,
                           ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(24, 0, 5, 0),
                             child: Text(
-                              'Qui exercitationem esse nisi neque. Culpa \natque aliquam ad dolorem nisi molestiae \nsint voluptatem.',
+                              FFLocalizations.of(context).getText(
+                                'xed7h1y4' /* Qui exercitationem esse nisi n... */,
+                              ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -198,7 +216,9 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                       child: Text(
-                        'Как вернуть машину?',
+                        FFLocalizations.of(context).getText(
+                          'umam7q00' /* Как вернуть машину? */,
+                        ),
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Metal',
@@ -217,14 +237,18 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '1.',
+                            FFLocalizations.of(context).getText(
+                              'eqq3go5j' /* 1. */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyText1,
                           ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(24, 0, 5, 0),
                             child: Text(
-                              'Qui exercitationem esse nisi neque. Culpa \natque aliquam ad dolorem nisi molestiae \nsint voluptatem.',
+                              FFLocalizations.of(context).getText(
+                                'g0otsgq7' /* Qui exercitationem esse nisi n... */,
+                              ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -244,14 +268,18 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '2.',
+                            FFLocalizations.of(context).getText(
+                              'u9qkifgy' /* 2. */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyText1,
                           ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(24, 0, 5, 0),
                             child: Text(
-                              'Qui exercitationem esse nisi neque. Culpa \natque aliquam ad dolorem nisi molestiae \nsint voluptatem.',
+                              FFLocalizations.of(context).getText(
+                                '76idyil3' /* Qui exercitationem esse nisi n... */,
+                              ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -271,14 +299,18 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '2.',
+                            FFLocalizations.of(context).getText(
+                              '82oj8u5k' /* 2. */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyText1,
                           ),
                           Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(24, 0, 5, 0),
                             child: Text(
-                              'Qui exercitationem esse nisi neque. Culpa \natque aliquam ad dolorem nisi molestiae \nsint voluptatem.',
+                              FFLocalizations.of(context).getText(
+                                'gugd0pvv' /* Qui exercitationem esse nisi n... */,
+                              ),
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1

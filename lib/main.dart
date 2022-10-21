@@ -9,6 +9,8 @@ import 'index.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  FFAppState(); // Initialize FFAppState
+
   runApp(MyApp());
 }
 
@@ -52,7 +54,13 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       locale: _locale,
-      supportedLocales: const [Locale('en', '')],
+      supportedLocales: const [
+        Locale('ru'),
+        Locale('en'),
+        Locale('es'),
+        Locale('ko'),
+        Locale('ar'),
+      ],
       theme: ThemeData(brightness: Brightness.light),
       themeMode: _themeMode,
       home: displaySplashImage
@@ -65,7 +73,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
             )
-          : HomePageErrorWidget(),
+          : HelpWidget(),
     );
   }
 }

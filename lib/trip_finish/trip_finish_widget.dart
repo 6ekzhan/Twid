@@ -40,7 +40,9 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'Ваше путешествие окончено.  Надеемся оно прошло прекрасно и вам понравился выбранный маршрут.',
+                      FFLocalizations.of(context).getText(
+                        '60w182x5' /* Ваше путешествие окончено.  На... */,
+                      ),
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Inter',
@@ -51,7 +53,9 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                       child: Text(
-                        'Если у вас есть какие-то пожелания или замечания, будем рады, если вы напишите нам на почту contact@twid.com',
+                        FFLocalizations.of(context).getText(
+                          'c1gc858g' /* Если у вас есть какие-то пожел... */,
+                        ),
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Inter',
@@ -78,7 +82,9 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                           onPressed: () {
                             print('Button pressed ...');
                           },
-                          text: 'НАЧАТЬ ПУТЕШЕСТВИЕ',
+                          text: FFLocalizations.of(context).getText(
+                            'enga795w' /* НАЧАТЬ ПУТЕШЕСТВИЕ */,
+                          ),
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 112,
@@ -124,7 +130,9 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           24, 0, 0, 0),
                                       child: Text(
-                                        'Вы проехали 3260 км. ',
+                                        FFLocalizations.of(context).getText(
+                                          'tjf8529p' /* Вы проехали 3260 км.  */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -156,7 +164,9 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           24, 0, 0, 0),
                                       child: Text(
-                                        'Получена ачивка «Путешественник»',
+                                        FFLocalizations.of(context).getText(
+                                          'mu0hqk53' /* Получена ачивка «Путешественни... */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -188,7 +198,9 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           24, 0, 0, 0),
                                       child: Text(
-                                        'Доступны новые маршруты',
+                                        FFLocalizations.of(context).getText(
+                                          'b6np5bk2' /* Доступны новые маршруты */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -220,7 +232,9 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           24, 0, 0, 0),
                                       child: Text(
-                                        'Прокод на скидку 15% — twidrive',
+                                        FFLocalizations.of(context).getText(
+                                          '461vgj7g' /* Прокод на скидку 15% — twidriv... */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -245,7 +259,9 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 100, 0, 24),
                             child: Text(
-                              'Как забрать машину',
+                              FFLocalizations.of(context).getText(
+                                'xklsqefy' /* Как забрать машину */,
+                              ),
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -273,7 +289,9 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                                 ),
                               );
                             },
-                            text: 'ВЕРНУТЬСЯ К МАРШРУТУ',
+                            text: FFLocalizations.of(context).getText(
+                              'it29tisu' /* ВЕРНУТЬСЯ К МАРШРУТУ */,
+                            ),
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 48,

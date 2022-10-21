@@ -1,7 +1,6 @@
-import '../components/search_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../trip1/trip1_widget.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,7 +18,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController(text: 'ВВЕДИТЕ НОМЕР БРОНИРОВАНИЯ');
+    textController = TextEditingController();
   }
 
   @override
@@ -33,172 +32,131 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).primaryBackground,
-              ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 47, 16, 0),
+      body: SafeArea(
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                 child: Image.asset(
                   'assets/images/logo.png',
-                  width: 100,
+                  width: MediaQuery.of(context).size.width * 3.58,
                   height: 76,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16, 216, 16, 0),
-              child: Container(
-                width: double.infinity,
-                height: 80,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(0, 0),
-                          child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
-                            child: Container(
-                              width: double.infinity,
-                              child: TextFormField(
-                                controller: textController,
-                                onFieldSubmitted: (_) async {
-                                  await Navigator.push(
-                                    context,
-                                    PageTransition(
-                                      type: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 0),
-                                      reverseDuration:
-                                          Duration(milliseconds: 0),
-                                      child: Trip1Widget(),
-                                    ),
-                                  );
-                                },
-                                autofocus: true,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelStyle: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                  hintStyle: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        lineHeight: 1,
-                                      ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      width: 0.5,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      width: 0.5,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  errorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 0.5,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  focusedErrorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 0.5,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  filled: true,
-                                  fillColor: Color(0x00FFFFFF),
-                                  contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
-                                          0, 16, 0, 16),
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      letterSpacing: 1,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                textAlign: TextAlign.center,
-                                keyboardType: TextInputType.number,
-                              ),
-                            ),
-                          ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(16, 216, 16, 8),
+                child: TextFormField(
+                  controller: textController,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    hintText: FFLocalizations.of(context).getText(
+                      'jkiwjbqf' /* Введите номер бронирования  */,
+                    ),
+                    hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
+                          fontFamily: 'Inter',
+                          color: Color(0xFFD9DCDE),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
                         ),
-                        SearchWidget(),
-                      ],
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 187, 0, 24),
-                      child: Text(
-                        'Если вы еще не выбрали маршрут для путешествия перейдите на сайт',
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context).tertiaryColor,
-                              fontWeight: FontWeight.normal,
-                            ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0xFFF4472B),
+                        width: 0.5,
                       ),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 24),
-                        child: Text(
-                          'Как использовать приложение?',
-                          textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyText1
-                              .override(
-                                fontFamily: 'Inter',
-                                color:
-                                    FlutterFlowTheme.of(context).tertiaryColor,
-                                fontWeight: FontWeight.normal,
-                                decoration: TextDecoration.underline,
-                              ),
-                        ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0xFFF4472B),
+                        width: 0.5,
                       ),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                  ],
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0x00000000),
+                        width: 0.5,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0x00000000),
+                        width: 0.5,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Inter',
+                        color: Color(0xFFD9DCDE),
+                        fontSize: 50,
+                        fontWeight: FontWeight.normal,
+                      ),
+                  textAlign: TextAlign.center,
+                  keyboardType: TextInputType.number,
                 ),
               ),
-            ),
-          ],
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                child: FFButtonWidget(
+                  onPressed: () {
+                    print('Button pressed ...');
+                  },
+                  text: FFLocalizations.of(context).getText(
+                    'ypfz29i7' /* OK */,
+                  ),
+                  options: FFButtonOptions(
+                    width: 236,
+                    height: 48,
+                    color: Color(0xFF002532),
+                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                          fontFamily: 'Inter',
+                          color: Colors.white,
+                        ),
+                    borderSide: BorderSide(
+                      color: Color(0xFFA5AAAD),
+                      width: 0.5,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 148, 0, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    '2eqpkck1' /* Если вы еще не выбрали маршрут... */,
+                  ),
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Inter',
+                        color: Color(0xFFD9DCDE),
+                      ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 45, 0, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    'b0eqhtut' /* Как использовать приложение? */,
+                  ),
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Inter',
+                        color: Color(0xFFD9DCDE),
+                      ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

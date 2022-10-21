@@ -4,7 +4,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
-import '../questions/questions_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -83,6 +82,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                       color: FlutterFlowTheme.of(context).lineColor,
                       fontWeight: FontWeight.bold,
                     ),
+                    locale: FFLocalizations.of(context).languageCode,
                   ),
                 ),
                 Column(
@@ -92,7 +92,9 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 8),
                       child: Text(
-                        'Ваше путешествие начнется 10 октября в 11:00 в Кабо да Рока и закончится 12 октября в Назаре. ',
+                        FFLocalizations.of(context).getText(
+                          '5bul3epj' /* Ваше путешествие начнется 10 о... */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context).tertiaryColor,
@@ -116,7 +118,9 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Text(
-                              'Для вас забронирован двухместный номер \nв отеле Belmond Delux в городе Тратата. \nЗаселение в отель 11 октября в 20:00, \nчекаут 12 октября в 12:00. В проживание \nвключен завтрак.',
+                              FFLocalizations.of(context).getText(
+                                '15wx4hjx' /* Для вас забронирован двухместн... */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
@@ -133,7 +137,9 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 8),
                       child: Text(
-                        'Установить напоминание',
+                        FFLocalizations.of(context).getText(
+                          'ijy45luh' /* Установить напоминание */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context)
@@ -147,17 +153,11 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(16, 24, 16, 36),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          await Navigator.push(
-                            context,
-                            PageTransition(
-                              type: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 0),
-                              reverseDuration: Duration(milliseconds: 0),
-                              child: QuestionsWidget(),
-                            ),
-                          );
+                          Navigator.pop(context);
                         },
-                        text: 'BACK',
+                        text: FFLocalizations.of(context).getText(
+                          'aiihtg6z' /* BACK */,
+                        ),
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 48,

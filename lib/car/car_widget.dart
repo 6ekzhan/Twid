@@ -40,7 +40,9 @@ class _CarWidgetState extends State<CarWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'PORSCHE',
+                      FFLocalizations.of(context).getText(
+                        'se982brr' /* PORSCHE */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Metal',
                             color: FlutterFlowTheme.of(context).tertiaryColor,
@@ -52,7 +54,9 @@ class _CarWidgetState extends State<CarWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                       child: Text(
-                        '911 CARRERA GTS',
+                        FFLocalizations.of(context).getText(
+                          '4itqy889' /* 911 CARRERA GTS */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context).tertiaryColor,
@@ -82,7 +86,9 @@ class _CarWidgetState extends State<CarWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 8),
                       child: Text(
-                        'The Porsche 911 has 2 Petrol Engine on offer. It is available with Manual & Automatic transmission. The 911 is a 4 seater 6 cylinder car and has length of 4519 mm, width of 1852 mm and a wheelbase of 2450 mm.',
+                        FFLocalizations.of(context).getText(
+                          '73d3z6ux' /* The Porsche 911 has 2 Petrol E... */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
                               fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context).tertiaryColor,
@@ -97,7 +103,9 @@ class _CarWidgetState extends State<CarWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Fuel Type ',
+                            FFLocalizations.of(context).getText(
+                              'ejghvpv0' /* Fuel Type  */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Inter',
@@ -108,38 +116,9 @@ class _CarWidgetState extends State<CarWidget> {
                                     ),
                           ),
                           Text(
-                            'Petrol',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Max Power (bhp@rpm)',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                          ),
-                          Text(
-                            '641.00bhp@6500',
+                            FFLocalizations.of(context).getText(
+                              'zn9mef4k' /* Petrol */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Inter',
@@ -159,7 +138,9 @@ class _CarWidgetState extends State<CarWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Seating Capacity',
+                            FFLocalizations.of(context).getText(
+                              'dezaokwk' /* Max Power (bhp@rpm) */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Inter',
@@ -170,38 +151,9 @@ class _CarWidgetState extends State<CarWidget> {
                                     ),
                           ),
                           Text(
-                            '2',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Transmission Type',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                          ),
-                          Text(
-                            'Automatic',
+                            FFLocalizations.of(context).getText(
+                              'fte8qpws' /* 641.00bhp@6500 */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Inter',
@@ -221,7 +173,9 @@ class _CarWidgetState extends State<CarWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Tank Capacity',
+                            FFLocalizations.of(context).getText(
+                              'qfav8hk6' /* Seating Capacity */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Inter',
@@ -232,7 +186,79 @@ class _CarWidgetState extends State<CarWidget> {
                                     ),
                           ),
                           Text(
-                            '64.0',
+                            FFLocalizations.of(context).getText(
+                              '5d25xzjn' /* 2 */,
+                            ),
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              '3frqgzej' /* Transmission Type */,
+                            ),
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                          ),
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'r5lepaf7' /* Automatic */,
+                            ),
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'ibx5jke2' /* Tank Capacity */,
+                            ),
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                          ),
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'b599lfqg' /* 64.0 */,
+                            ),
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Inter',
@@ -261,7 +287,9 @@ class _CarWidgetState extends State<CarWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: Text(
-                              'Перед началом путешествия машина\nзаправлена до полного бака.',
+                              FFLocalizations.of(context).getText(
+                                'iddzjb26' /* Перед началом путешествия маши... */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(
@@ -289,7 +317,9 @@ class _CarWidgetState extends State<CarWidget> {
                             ),
                           );
                         },
-                        text: 'BACK',
+                        text: FFLocalizations.of(context).getText(
+                          'ar9hcqzj' /* BACK */,
+                        ),
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 48,
