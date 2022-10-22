@@ -19,15 +19,15 @@ class MainNavigatorPage2Widget extends StatefulWidget {
 }
 
 class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
-  LatLng? currentUserLocationValue;
+  LatLong? currentUserLocationValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? googleMapsCenter;
+  LatLong? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
 
   @override
   void initState() {
     super.initState();
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+    getCurrentUserLocation(defaultLocation: LatLong(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
   }
 
