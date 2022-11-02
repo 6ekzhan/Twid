@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
 import '../main_navigator_page/main_navigator_page_widget.dart';
 import '../settings/settings_widget.dart';
+import '../takea_car/takea_car_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -85,20 +86,29 @@ class _TripStartWidgetState extends State<TripStartWidget> {
                       alignment: AlignmentDirectional(0, 0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 278, 0, 24),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            'adl2jnc3' /* Как забрать машину */,
-                          ),
-                          textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyText1
-                              .override(
-                                fontFamily: 'Inter',
-                                color:
-                                    FlutterFlowTheme.of(context).tertiaryColor,
-                                fontWeight: FontWeight.normal,
-                                decoration: TextDecoration.underline,
+                        child: InkWell(
+                          onTap: () async {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TakeaCarWidget(),
                               ),
+                            );
+                          },
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              'adl2jnc3' /* Как забрать машину */,
+                            ),
+                            textAlign: TextAlign.center,
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiaryColor,
+                                      fontWeight: FontWeight.normal,
+                                      decoration: TextDecoration.underline,
+                                    ),
+                          ),
                         ),
                       ),
                     ),

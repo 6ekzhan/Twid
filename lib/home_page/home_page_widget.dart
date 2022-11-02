@@ -1,7 +1,8 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../main_navigator_page/main_navigator_page_widget.dart';
+import '../trip1/trip1_widget.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,19 +14,13 @@ class HomePageWidget extends StatefulWidget {
 }
 
 class _HomePageWidgetState extends State<HomePageWidget> {
-  TextEditingController? textController;
+  TextEditingController? pinCodeController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    textController?.dispose();
-    super.dispose();
+    pinCodeController = TextEditingController();
   }
 
   @override
@@ -37,7 +32,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -51,58 +46,72 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 216, 16, 8),
-                child: TextFormField(
-                  controller: textController,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    isDense: true,
-                    hintText: FFLocalizations.of(context).getText(
-                      'jkiwjbqf' /* Введите номер бронирования  */,
-                    ),
-                    hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
-                          fontFamily: 'Inter',
-                          color: Color(0xFFD9DCDE),
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF4472B),
-                        width: 0.5,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFFF4472B),
-                        width: 0.5,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 0.5,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 0.5,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
+                padding: EdgeInsetsDirectional.fromSTEB(16, 210, 16, 0),
+                child: Container(
+                  width: double.infinity,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: Color(0xFFF4472B),
                     ),
                   ),
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Inter',
-                        color: Color(0xFFD9DCDE),
-                        fontSize: 50,
-                        fontWeight: FontWeight.normal,
+                  child: Stack(
+                    children: [
+                      Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: SelectionArea(
+                            child: Text(
+                          FFLocalizations.of(context).getText(
+                            'qx8u6kmq' /* Введите номер бронирования  */,
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Inter',
+                                    color: Color(0xFFD9DCDE),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        )),
                       ),
-                  textAlign: TextAlign.center,
-                  keyboardType: TextInputType.number,
+                      Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: PinCodeTextField(
+                          appContext: context,
+                          length: 6,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .subtitle2
+                              .override(
+                                fontFamily: 'Inter',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryColor,
+                              ),
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          enableActiveFill: true,
+                          autoFocus: false,
+                          showCursor: true,
+                          cursorColor:
+                              FlutterFlowTheme.of(context).primaryColor,
+                          obscureText: false,
+                          pinTheme: PinTheme(
+                            fieldHeight: 40,
+                            fieldWidth: 50,
+                            borderWidth: 2,
+                            borderRadius: BorderRadius.circular(12),
+                            shape: PinCodeFieldShape.underline,
+                            activeColor: Color(0x00000000),
+                            inactiveColor: Color(0x00000000),
+                            selectedColor: Color(0x00000000),
+                            activeFillColor: Color(0x00000000),
+                            inactiveFillColor: Color(0x00000000),
+                            selectedFillColor: Color(0x00000000),
+                          ),
+                          controller: pinCodeController,
+                          onChanged: (_) => {},
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Padding(
@@ -112,7 +121,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MainNavigatorPageWidget(),
+                        builder: (context) => Trip1Widget(),
                       ),
                     );
                   },

@@ -1,4 +1,5 @@
 // Automatic FlutterFlow imports
+import '../../backend/backend.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom widgets
@@ -43,7 +44,7 @@ class _PlayerState extends State<Player> {
     /*
     if (isPlaying == false) //убрать комменты чтобы воспроизведение было по нажатию кнопки
       {
-        player.play(AssetSource(fileName));
+        player.play(AssetSource('widget.audio'));
         isPlaying = true;
       }
      */
@@ -79,78 +80,80 @@ class _PlayerState extends State<Player> {
 
   Widget build(BuildContext context) {
     return Container(
+        width: widget.width,
+        height: widget.height,
         child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        InkWell(
-          onTap: _handleTap, //изменение состояния плеера
-          child: Text(
-            'Listen audio',
-            style: GoogleFonts.inter(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFFF4472B),
-                decoration: TextDecoration.underline),
-            textAlign: TextAlign.left,
-          ),
-        ),
-        AnimatedOpacity(
-          opacity: _buttonOnPressed ? 1.0 : 0.0,
-          duration: const Duration(milliseconds: 500),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                iconSize: 24,
-                splashRadius: 15,
-                icon: Icon(CupertinoIcons.gobackward_10),
-                color: Color(iconColor),
-                onPressed: () {
-                  position = position - Duration(seconds: 10);
-                  if (position < Duration.zero) {
-                    position = Duration.zero;
-                  }
-                  player.seek(position);
-                  print(position);
-                },
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            InkWell(
+              onTap: _handleTap, //изменение состояния плеера
+              child: Text(
+                'Listen audio',
+                style: GoogleFonts.inter(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFFF4472B),
+                    decoration: TextDecoration.underline),
+                textAlign: TextAlign.left,
               ),
-              IconButton(
-                iconSize: 24,
-                splashRadius: 15,
-                icon: Icon(CupertinoIcons.stop),
-                color: Color(iconColor),
-                onPressed: () {
-                  player.pause();
-                  isPlaying = false;
-                },
+            ),
+            AnimatedOpacity(
+              opacity: _buttonOnPressed ? 1.0 : 0.0,
+              duration: const Duration(milliseconds: 500),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    iconSize: 22,
+                    splashRadius: 15,
+                    icon: Icon(CupertinoIcons.gobackward_10),
+                    color: Color(iconColor),
+                    onPressed: () {
+                      position = position - Duration(seconds: 10);
+                      if (position < Duration.zero) {
+                        position = Duration.zero;
+                      }
+                      player.seek(position);
+                      print(position);
+                    },
+                  ),
+                  IconButton(
+                    iconSize: 22,
+                    splashRadius: 15,
+                    icon: Icon(CupertinoIcons.stop),
+                    color: Color(iconColor),
+                    onPressed: () {
+                      player.pause();
+                      isPlaying = false;
+                    },
+                  ),
+                  IconButton(
+                    iconSize: 22,
+                    splashRadius: 15,
+                    icon: Icon(CupertinoIcons.play_arrow),
+                    color: Color(iconColor),
+                    onPressed: () {
+                      if (isPlaying == false) {
+                        player.play(UrlSource(widget.audio), volume: 1);
+                      }
+                      isPlaying = true;
+                    },
+                  ),
+                  IconButton(
+                    iconSize: 22,
+                    splashRadius: 15,
+                    icon: Icon(CupertinoIcons.goforward_10),
+                    color: Color(iconColor),
+                    onPressed: () {
+                      position = position + Duration(seconds: 10);
+                      player.seek(position);
+                      print(position);
+                    },
+                  ),
+                ],
               ),
-              IconButton(
-                iconSize: 24,
-                splashRadius: 15,
-                icon: Icon(CupertinoIcons.play_arrow),
-                color: Color(iconColor),
-                onPressed: () {
-                  if (isPlaying == false) {
-                    player.play(AssetSource(widget.audio));
-                  }
-                  isPlaying = true;
-                },
-              ),
-              IconButton(
-                iconSize: 24,
-                splashRadius: 15,
-                icon: Icon(CupertinoIcons.goforward_10),
-                color: Color(iconColor),
-                onPressed: () {
-                  position = position + Duration(seconds: 10);
-                  player.seek(position);
-                  print(position);
-                },
-              ),
-            ],
-          ),
-        )
-      ],
-    ));
+            )
+          ],
+        ));
   }
 }

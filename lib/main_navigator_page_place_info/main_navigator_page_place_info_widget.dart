@@ -6,6 +6,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
 import '../main_navigator_page2/main_navigator_page2_widget.dart';
 import '../main_navigator_page_finish/main_navigator_page_finish_widget.dart';
+import '../place_information_point/place_information_point_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -98,16 +99,27 @@ class _MainNavigatorPagePlaceInfoWidgetState
                       alignment: AlignmentDirectional(0, 0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.92,
-                          height: 61,
-                          decoration: BoxDecoration(
-                            color: Color(0x00D9DCDE),
-                            image: DecorationImage(
-                              fit: BoxFit.contain,
-                              image: Image.asset(
-                                'assets/images/new_point2.png',
-                              ).image,
+                        child: InkWell(
+                          onTap: () async {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    PlaceInformationPointWidget(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.92,
+                            height: 61,
+                            decoration: BoxDecoration(
+                              color: Color(0x00D9DCDE),
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: Image.asset(
+                                  'assets/images/new_point2.png',
+                                ).image,
+                              ),
                             ),
                           ),
                         ),
@@ -163,8 +175,14 @@ class _MainNavigatorPagePlaceInfoWidgetState
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                                 child: FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                                  onPressed: () async {
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            PlaceInformationPointWidget(),
+                                      ),
+                                    );
                                   },
                                   text: FFLocalizations.of(context).getText(
                                     'pbolbx7o' /* POINT INFORMATION */,

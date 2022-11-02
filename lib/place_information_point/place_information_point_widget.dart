@@ -386,8 +386,8 @@ class _PlaceInformationPointWidgetState
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           8, 0, 8, 0),
                                       child: FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
+                                        onPressed: () async {
+                                          Navigator.pop(context);
                                         },
                                         text:
                                             FFLocalizations.of(context).getText(

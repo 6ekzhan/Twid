@@ -3,7 +3,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
-import '../questions/questions_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -307,15 +306,7 @@ class _CarWidgetState extends State<CarWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(16, 24, 16, 36),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          await Navigator.push(
-                            context,
-                            PageTransition(
-                              type: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 0),
-                              reverseDuration: Duration(milliseconds: 0),
-                              child: QuestionsWidget(),
-                            ),
-                          );
+                          Navigator.pop(context);
                         },
                         text: FFLocalizations.of(context).getText(
                           'ar9hcqzj' /* BACK */,

@@ -7,6 +7,7 @@ import '../settings/settings_widget.dart';
 import '../support/support_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class QuestionsWidget extends StatefulWidget {
   const QuestionsWidget({Key? key}) : super(key: key);
@@ -289,6 +290,18 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
+                              await launchUrl(Uri(
+                                  scheme: 'mailto',
+                                  path: '1e56ek.6ekzhan@gmail.com',
+                                  query: {
+                                    'subject':
+                                        '${textController1!.text}${textController2!.text}',
+                                    'body': textController3!.text,
+                                  }
+                                      .entries
+                                      .map((MapEntry<String, String> e) =>
+                                          '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+                                      .join('&')));
                               await Navigator.push(
                                 context,
                                 MaterialPageRoute(

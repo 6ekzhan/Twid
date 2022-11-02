@@ -350,8 +350,8 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 0, 8, 0),
                                       child: FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
+                                        onPressed: () async {
+                                          Navigator.pop(context);
                                         },
                                         text:
                                             FFLocalizations.of(context).getText(

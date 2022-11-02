@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
 import '../main_navigator_page2/main_navigator_page2_widget.dart';
+import '../place_information/place_information_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -84,8 +85,13 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 16),
                     child: FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MainNavigatorPage2Widget(),
+                          ),
+                        );
                       },
                       text: FFLocalizations.of(context).getText(
                         'gnh6m1of' /* ПОЕХАЛИ! */,
@@ -135,8 +141,14 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          PlaceInformationWidget(),
+                                    ),
+                                  );
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'kfr798l2' /* ИНФОРМАЦИЯ О МЕСТЕ */,

@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
 import '../main_navigator_page_place_info/main_navigator_page_place_info_widget.dart';
+import '../place_information_point/place_information_point_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -160,8 +161,14 @@ class _MainNavigatorPageFinishWidgetState
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
                               child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          PlaceInformationPointWidget(),
+                                    ),
+                                  );
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'kiuoxc9a' /* ИНФОРМАЦИЯ О МЕСТЕ */,

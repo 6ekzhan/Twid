@@ -2,11 +2,10 @@ import '../about_place/about_place_widget.dart';
 import '../calendar/calendar_widget.dart';
 import '../car/car_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_timer.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../instructions010/instructions010_widget.dart';
 import '../takea_car/takea_car_widget.dart';
-import 'package:stop_watch_timer/stop_watch_timer.dart';
+import '../custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,24 +17,8 @@ class Trip1Widget extends StatefulWidget {
 }
 
 class _Trip1WidgetState extends State<Trip1Widget> {
-  StopWatchTimer? timerController;
-  String? timerValue;
-  int? timerMilliseconds;
   PageController? pageViewController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  @override
-  void initState() {
-    super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
-  }
-
-  @override
-  void dispose() {
-    timerController?.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -107,43 +90,19 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                               ),
                             ),
                             alignment: AlignmentDirectional(0, 0),
-                            child: FlutterFlowTimer(
-                              timerValue: timerValue ??=
-                                  StopWatchTimer.getDisplayTime(
-                                timerMilliseconds ??= 10,
-                                hours: true,
-                                minute: true,
-                                second: true,
-                                milliSecond: false,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15, 15, 15, 15),
+                              child: Container(
+                                width: double.infinity,
+                                height: double.infinity,
+                                child: custom_widgets.CustomTimer(
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  date: FFAppState().aa!,
+                                  color: Color(0xFF002532),
+                                ),
                               ),
-                              timer: timerController ??= StopWatchTimer(
-                                mode: StopWatchMode.countDown,
-                                presetMillisecond: timerMilliseconds ??= 10,
-                                onChange: (value) {
-                                  setState(() {
-                                    timerMilliseconds = value;
-                                    timerValue = StopWatchTimer.getDisplayTime(
-                                      value,
-                                      hours: true,
-                                      minute: true,
-                                      second: true,
-                                      milliSecond: false,
-                                    );
-                                  });
-                                },
-                              ),
-                              textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Metal',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    fontSize: 50,
-                                    fontWeight: FontWeight.normal,
-                                    useGoogleFonts: false,
-                                  ),
-                              onEnded: () {},
                             ),
                           ),
                         ),
@@ -153,56 +112,20 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Icon(
-                                    FFIcons.kcalendar,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    size: 24,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12, 0, 0, 0),
-                                    child: InkWell(
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                CalendarWidget(),
-                                          ),
-                                        );
-                                      },
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'wzbafwa9' /* 10 октября — 12 октября, 2022 */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .tertiaryColor,
-                                              fontWeight: FontWeight.normal,
-                                              decoration:
-                                                  TextDecoration.underline,
-                                            ),
-                                      ),
+                              InkWell(
+                                onTap: () async {
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => CalendarWidget(),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                                  );
+                                },
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Icon(
-                                      FFIcons.kcar,
+                                      FFIcons.kcalendar,
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       size: 24,
@@ -215,13 +138,14 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                                           await Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                              builder: (context) => CarWidget(),
+                                              builder: (context) =>
+                                                  CalendarWidget(),
                                             ),
                                           );
                                         },
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'hy6dw4ym' /* Porsche 911 Carrera GTS */,
+                                            'wzbafwa9' /* 10 октября — 12 октября, 2022 */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
@@ -238,6 +162,62 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                                       ),
                                     ),
                                   ],
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                                child: InkWell(
+                                  onTap: () async {
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => CarWidget(),
+                                      ),
+                                    );
+                                  },
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Icon(
+                                        FFIcons.kcar,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        size: 24,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12, 0, 0, 0),
+                                        child: InkWell(
+                                          onTap: () async {
+                                            await Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    CarWidget(),
+                                              ),
+                                            );
+                                          },
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'hy6dw4ym' /* Porsche 911 Carrera GTS */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .tertiaryColor,
+                                                  fontWeight: FontWeight.normal,
+                                                  decoration:
+                                                      TextDecoration.underline,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],

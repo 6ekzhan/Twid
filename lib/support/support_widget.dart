@@ -4,7 +4,6 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
 import '../settings/settings_widget.dart';
-import '../trip2/trip2_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -127,7 +126,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                       await Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Trip2Widget(),
+                          builder: (context) => HelpWidget(),
                         ),
                       );
                     },
