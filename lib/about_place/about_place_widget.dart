@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../help/help_widget.dart';
 import '../settings/settings_widget.dart';
+import '../custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -227,21 +228,14 @@ class _AboutPlaceWidgetState extends State<AboutPlaceWidget> {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              '3ua4z7tm' /* Listen audio */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText1
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                  fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.underline,
-                                ),
+                        Container(
+                          width: double.infinity,
+                          height: 100,
+                          child: custom_widgets.Player(
+                            width: double.infinity,
+                            height: 100,
+                            audio:
+                                'https://filesamples.com/samples/audio/mp3/sample3.mp3',
                           ),
                         ),
                       ],

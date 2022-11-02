@@ -993,13 +993,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ko':
           'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis Inventore는 Inventore adipisci itaque nostrum을 휘젓습니다. Repudiandae ea et modi veniam.',
     },
-    '3ua4z7tm': {
-      'ru': 'Listen audio',
-      'ar': 'استمع الصوت',
-      'en': 'listen audio',
-      'es': 'escuchar audio',
-      'ko': '오디오를 듣다',
-    },
     'wc13eicg': {
       'ru': 'Home',
       'ar': 'مسكن',
