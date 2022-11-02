@@ -34,6 +34,35 @@ class _AboutPlaceWidgetState extends State<AboutPlaceWidget> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 10, 46, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        InkWell(
+                          onTap: () async {
+                            Navigator.pop(context);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Color(0xFF002532),
+                              borderRadius: BorderRadius.circular(4),
+                              border: Border.all(
+                                color: Color(0xFFF4472B),
+                              ),
+                            ),
+                            child: Icon(
+                              FFIcons.karrowBack2,
+                              color: Color(0xFFF4472B),
+                              size: 30,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(16, 6, 16, 8),
                     child: Text(
                       FFLocalizations.of(context).getText(

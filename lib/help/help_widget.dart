@@ -36,8 +36,8 @@ class _HelpWidgetState extends State<HelpWidget> {
             color: FlutterFlowTheme.of(context).primaryColor,
             size: 30,
           ),
-          onPressed: () {
-            print('IconButton pressed ...');
+          onPressed: () async {
+            Navigator.pop(context);
           },
         ),
         title: Text(

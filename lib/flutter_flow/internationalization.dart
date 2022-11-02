@@ -674,6 +674,34 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ko': '집',
     },
   },
+  // TripFinish2
+  {
+    'n2heetyi': {
+      'ru': 'НАЧАТЬ НОВОЕ \nПУТЕШЕСТВИЕ',
+      'ar': 'ابدأ رحلة جديدة',
+      'en': 'START A NEW JOURNEY',
+      'es': 'EMPIEZA UN NUEVO VIAJE',
+      'ko': '새로운 여정을 시작하세요',
+    },
+    'f56kaj7j': {
+      'ru':
+          'Чтобы не пропустить интересные маршруты, новые машины, ачивки, или горячие предложения подписывайтесь на соцсети twid!',
+      'ar':
+          'حتى لا تفوت الطرق المثيرة للاهتمام أو السيارات الجديدة أو الإنجازات أو العروض الساخنة ، اشترك في شبكات التواصل الاجتماعي twid!',
+      'en':
+          'In order not to miss interesting routes, new cars, achievements, or hot offers, subscribe to twid social networks!',
+      'es':
+          '¡Para no perderse rutas interesantes, autos nuevos, logros u ofertas interesantes, suscríbase a las redes sociales twid!',
+      'ko': '흥미로운 경로, 새 자동차, 업적 또는 인기 상품을 놓치지 않으려면 twid 소셜 네트워크에 가입하세요!',
+    },
+    '2rovny6s': {
+      'ru': 'Home',
+      'ar': 'مسكن',
+      'en': 'Home',
+      'es': 'Hogar',
+      'ko': '집',
+    },
+  },
   // TripFinish
   {
     '60w182x5': {
@@ -748,34 +776,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ko': '경로로 돌아가기',
     },
     'sp0ifsrs': {
-      'ru': 'Home',
-      'ar': 'مسكن',
-      'en': 'Home',
-      'es': 'Hogar',
-      'ko': '집',
-    },
-  },
-  // TripFinish2
-  {
-    'n2heetyi': {
-      'ru': 'НАЧАТЬ НОВОЕ \nПУТЕШЕСТВИЕ',
-      'ar': 'ابدأ رحلة جديدة',
-      'en': 'START A NEW JOURNEY',
-      'es': 'EMPIEZA UN NUEVO VIAJE',
-      'ko': '새로운 여정을 시작하세요',
-    },
-    'f56kaj7j': {
-      'ru':
-          'Чтобы не пропустить интересные маршруты, новые машины, ачивки, или горячие предложения подписывайтесь на соцсети twid!',
-      'ar':
-          'حتى لا تفوت الطرق المثيرة للاهتمام أو السيارات الجديدة أو الإنجازات أو العروض الساخنة ، اشترك في شبكات التواصل الاجتماعي twid!',
-      'en':
-          'In order not to miss interesting routes, new cars, achievements, or hot offers, subscribe to twid social networks!',
-      'es':
-          '¡Para no perderse rutas interesantes, autos nuevos, logros u ofertas interesantes, suscríbase a las redes sociales twid!',
-      'ko': '흥미로운 경로, 새 자동차, 업적 또는 인기 상품을 놓치지 않으려면 twid 소셜 네트워크에 가입하세요!',
-    },
-    '2rovny6s': {
       'ru': 'Home',
       'ar': 'مسكن',
       'en': 'Home',

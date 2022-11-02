@@ -99,8 +99,8 @@ final pageBuilderMap = <String, Future<Widget> Function(Map<String, dynamic>)>{
   'MainNavigatorPagePlaceInfo': (data) async =>
       MainNavigatorPagePlaceInfoWidget(),
   'MainNavigatorPageFinish': (data) async => MainNavigatorPageFinishWidget(),
-  'TripFinish': (data) async => TripFinishWidget(),
   'TripFinish2': (data) async => TripFinish2Widget(),
+  'TripFinish': (data) async => TripFinishWidget(),
   'CALENDAR': (data) async => CalendarWidget(),
   'CAR': (data) async => CarWidget(),
   'AboutPlace': (data) async => AboutPlaceWidget(),

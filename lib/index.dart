@@ -17,8 +17,8 @@ export 'main_navigator_page_place_info/main_navigator_page_place_info_widget.dar
     show MainNavigatorPagePlaceInfoWidget;
 export 'main_navigator_page_finish/main_navigator_page_finish_widget.dart'
     show MainNavigatorPageFinishWidget;
-export 'trip_finish/trip_finish_widget.dart' show TripFinishWidget;
 export 'trip_finish2/trip_finish2_widget.dart' show TripFinish2Widget;
+export 'trip_finish/trip_finish_widget.dart' show TripFinishWidget;
 export 'calendar/calendar_widget.dart' show CalendarWidget;
 export 'car/car_widget.dart' show CarWidget;
 export 'about_place/about_place_widget.dart' show AboutPlaceWidget;
