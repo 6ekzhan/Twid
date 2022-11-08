@@ -1,3 +1,6 @@
+import 'package:twid/index.dart';
+import 'package:twid/main_navigator_page/main_navigator222.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -109,12 +112,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MainNavigatorPageWidget(),
-                      ),
-                    );
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Trip1Widget()));
                   },
                   text: FFLocalizations.of(context).getText(
                     'ypfz29i7' /* OK */,

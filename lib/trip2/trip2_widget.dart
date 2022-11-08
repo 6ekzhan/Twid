@@ -1,13 +1,20 @@
+import 'dart:typed_data';
+
+import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../main_navigator_page/main_navigator222.dart';
 import '../main_navigator_page/main_navigator_page_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:ui' as ui;
 
 class Trip2Widget extends StatefulWidget {
   const Trip2Widget({Key? key}) : super(key: key);
@@ -19,6 +26,31 @@ class Trip2Widget extends StatefulWidget {
 class _Trip2WidgetState extends State<Trip2Widget> {
   PageController? pageViewController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  List<String> images = ['assets/images/marker222.png'];
+  Future<Uint8List> getImages(String path, int width) async {
+    ByteData data = await rootBundle.load(path);
+    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
+        targetHeight: width);
+    ui.FrameInfo fi = await codec.getNextFrame();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
+        .buffer
+        .asUint8List();
+  }
+
+  Uint8List? markIcons;
+  BitmapDescriptor? iconn;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadData();
+  }
+
+  void loadData() async {
+    markIcons = await getImages(images[0], 90);
+    iconn = BitmapDescriptor.fromBytes(markIcons!);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,30 +73,52 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                         PageController(initialPage: 0),
                     scrollDirection: Axis.horizontal,
                     children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height * 1,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 32, 0, 0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 8, 0),
-                                        child: FlutterFlowIconButton(
+                      SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: MediaQuery.of(context).size.height * 1,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 32, 0, 0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 0, 8, 0),
+                                          child: FlutterFlowIconButton(
+                                            borderColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primaryColor,
+                                            borderRadius: 10,
+                                            borderWidth: 1,
+                                            buttonSize: 48,
+                                            icon: Icon(
+                                              FFIcons.karrowBack,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              size: 30,
+                                            ),
+                                            onPressed: () {
+                                              print('IconButton pressed ...');
+                                            },
+                                          ),
+                                        ),
+                                        FlutterFlowIconButton(
                                           borderColor:
                                               FlutterFlowTheme.of(context)
                                                   .primaryColor,
@@ -72,7 +126,7 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                           borderWidth: 1,
                                           buttonSize: 48,
                                           icon: Icon(
-                                            FFIcons.karrowBack,
+                                            FFIcons.karrowForward,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryColor,
                                             size: 30,
@@ -81,95 +135,83 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                             print('IconButton pressed ...');
                                           },
                                         ),
-                                      ),
-                                      FlutterFlowIconButton(
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primaryColor,
-                                        borderRadius: 10,
-                                        borderWidth: 1,
-                                        buttonSize: 48,
-                                        icon: Icon(
-                                          FFIcons.karrowForward,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                          size: 30,
-                                        ),
-                                        onPressed: () {
-                                          print('IconButton pressed ...');
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 13, 16, 20),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'pz4ro1we' /* Кнопки на экране навигатора по... */,
+                                      ],
                                     ),
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.normal,
-                                        ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 20),
-                                  child: Image.asset(
-                                    'assets/images/Silver1.png',
-                                    width: 222,
-                                    height: 450,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 16, 0),
-                                  child: FFButtonWidget(
-                                    onPressed: () async {
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              MainNavigatorPageWidget(),
-                                        ),
-                                      );
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      'vin93ofb' /* ОК. ДАЛЬШЕ */,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: double.infinity,
-                                      height: 48,
-                                      color: Color(0x00F4472B),
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .subtitle2
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16, 13, 16, 20),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'pz4ro1we' /* Кнопки на экране навигатора по... */,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
-                                            fontWeight: FontWeight.bold,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.normal,
                                           ),
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
-                                        width: 0.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
-                                ),
-                              ],
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 20),
+                                    child: Image.asset(
+                                      'assets/images/Silver1.png',
+                                      width: 222,
+                                      height: 450,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16, 0, 16, 0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                NavigationScreen(
+                                                    50.96945060011596,
+                                                    71.358997664587,
+                                                    0,
+                                                    iconn!),
+                                          ),
+                                        );
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        'vin93ofb' /* ОК. ДАЛЬШЕ */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: double.infinity,
+                                        height: 48,
+                                        color: Color(0x00F4472B),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .subtitle2
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          width: 0.5,
+                                        ),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
