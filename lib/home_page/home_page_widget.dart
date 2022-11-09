@@ -63,6 +63,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       Align(
                         alignment: AlignmentDirectional(0, 0),
                         child: PinCodeTextField(
+                          obscuringCharacter: "-",
+                          hintCharacter: "PIN",
                           appContext: context,
                           length: 6,
                           textStyle: FlutterFlowTheme.of(context)

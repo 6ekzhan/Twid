@@ -96,11 +96,22 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                               child: Container(
                                 width: double.infinity,
                                 height: double.infinity,
-                                child: custom_widgets.CustomTimer(
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                  date: FFAppState().aa!,
-                                  color: Color(0xFF002532),
+                                child: GestureDetector(
+                                  onTap: () async {
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            Instructions010Widget(),
+                                      ),
+                                    );
+                                  },
+                                  child: custom_widgets.CustomTimer(
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    date: FFAppState().aa!,
+                                    color: Color(0xFF002532),
+                                  ),
                                 ),
                               ),
                             ),
