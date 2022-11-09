@@ -32,6 +32,12 @@ class _$TourRecordSerializer implements StructuredSerializer<TourRecord> {
         ..add('Timer')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.pinput;
+    if (value != null) {
+      result
+        ..add('pinput')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -62,6 +68,10 @@ class _$TourRecordSerializer implements StructuredSerializer<TourRecord> {
           result.timer = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'pinput':
+          result.pinput = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -81,12 +91,15 @@ class _$TourRecord extends TourRecord {
   @override
   final int? timer;
   @override
+  final int? pinput;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$TourRecord([void Function(TourRecordBuilder)? updates]) =>
       (new TourRecordBuilder()..update(updates))._build();
 
-  _$TourRecord._({this.calendar, this.timer, this.ffRef}) : super._();
+  _$TourRecord._({this.calendar, this.timer, this.pinput, this.ffRef})
+      : super._();
 
   @override
   TourRecord rebuild(void Function(TourRecordBuilder) updates) =>
@@ -101,13 +114,15 @@ class _$TourRecord extends TourRecord {
     return other is TourRecord &&
         calendar == other.calendar &&
         timer == other.timer &&
+        pinput == other.pinput &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, calendar.hashCode), timer.hashCode), ffRef.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, calendar.hashCode), timer.hashCode), pinput.hashCode),
+        ffRef.hashCode));
   }
 
   @override
@@ -115,6 +130,7 @@ class _$TourRecord extends TourRecord {
     return (newBuiltValueToStringHelper(r'TourRecord')
           ..add('calendar', calendar)
           ..add('timer', timer)
+          ..add('pinput', pinput)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -131,6 +147,10 @@ class TourRecordBuilder implements Builder<TourRecord, TourRecordBuilder> {
   int? get timer => _$this._timer;
   set timer(int? timer) => _$this._timer = timer;
 
+  int? _pinput;
+  int? get pinput => _$this._pinput;
+  set pinput(int? pinput) => _$this._pinput = pinput;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -144,6 +164,7 @@ class TourRecordBuilder implements Builder<TourRecord, TourRecordBuilder> {
     if ($v != null) {
       _calendar = $v.calendar;
       _timer = $v.timer;
+      _pinput = $v.pinput;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -166,7 +187,8 @@ class TourRecordBuilder implements Builder<TourRecord, TourRecordBuilder> {
 
   _$TourRecord _build() {
     final _$result = _$v ??
-        new _$TourRecord._(calendar: calendar, timer: timer, ffRef: ffRef);
+        new _$TourRecord._(
+            calendar: calendar, timer: timer, pinput: pinput, ffRef: ffRef);
     replace(_$result);
     return _$result;
   }

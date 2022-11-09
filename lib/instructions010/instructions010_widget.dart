@@ -70,515 +70,522 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
               ),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            FFIcons.kcar,
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            size: 24,
-                          ),
-                          Container(
-                            width: 320,
-                            color: Color(0x00FFFFFF),
-                            child: ExpandableNotifier(
-                              initialExpanded: false,
-                              child: ExpandablePanel(
-                                header: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24, 0, 0, 0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '5paztg0h' /* ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИ... */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .title1
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
-                                ),
-                                collapsed: Container(
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Padding(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              FFIcons.kcar,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: 24,
+                            ),
+                            Container(
+                              width: 320,
+                              color: Color(0x00FFFFFF),
+                              child: ExpandableNotifier(
+                                initialExpanded: false,
+                                child: ExpandablePanel(
+                                  header: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 8, 0, 0),
+                                        24, 0, 0, 0),
                                     child: Text(
-                                      '',
+                                      FFLocalizations.of(context).getText(
+                                        '5paztg0h' /* ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИ... */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .title1
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: Color(0x8A000000),
-                                            fontSize: 0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                     ),
                                   ),
-                                ),
-                                expanded: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 0, 0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 8),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'ymjci8j5' /* 1. Qui exercitationem esse nis... */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                fontSize: 12,
-                                              ),
-                                        ),
+                                  collapsed: Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 8, 0, 0),
+                                      child: Text(
+                                        '',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color: Color(0x8A000000),
+                                              fontSize: 0,
+                                            ),
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                                theme: ExpandableThemeData(
-                                  tapHeaderToExpand: true,
-                                  tapBodyToExpand: true,
-                                  tapBodyToCollapse: true,
-                                  headerAlignment:
-                                      ExpandablePanelHeaderAlignment.center,
-                                  hasIcon: false,
+                                  expanded: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16, 0, 0, 0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 8, 0, 8),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'ymjci8j5' /* 1. Qui exercitationem esse nis... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  fontSize: 12,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  theme: ExpandableThemeData(
+                                    tapHeaderToExpand: true,
+                                    tapBodyToExpand: true,
+                                    tapBodyToCollapse: true,
+                                    headerAlignment:
+                                        ExpandablePanelHeaderAlignment.center,
+                                    hasIcon: false,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Divider(
-                      thickness: 0.5,
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            FFIcons.klist,
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            size: 24,
-                          ),
-                          Container(
-                            width: 320,
-                            color: Color(0x00FFFFFF),
-                            child: ExpandableNotifier(
-                              initialExpanded: false,
-                              child: ExpandablePanel(
-                                header: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24, 0, 0, 0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'iu1sb52u' /* ПРАВИЛА СТРАХОВАНИЯ */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .title1
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
-                                ),
-                                collapsed: Container(
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Padding(
+                      Divider(
+                        thickness: 0.5,
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              FFIcons.klist,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: 24,
+                            ),
+                            Container(
+                              width: 320,
+                              color: Color(0x00FFFFFF),
+                              child: ExpandableNotifier(
+                                initialExpanded: false,
+                                child: ExpandablePanel(
+                                  header: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 8, 0, 0),
+                                        24, 0, 0, 0),
                                     child: Text(
-                                      '',
+                                      FFLocalizations.of(context).getText(
+                                        'iu1sb52u' /* ПРАВИЛА СТРАХОВАНИЯ */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .title1
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: Color(0x8A000000),
-                                            fontSize: 0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                     ),
                                   ),
-                                ),
-                                expanded: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 0, 0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 8),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'nva1bsz7' /* 1. Qui exercitationem esse nis... */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                fontSize: 12,
-                                              ),
-                                        ),
+                                  collapsed: Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 8, 0, 0),
+                                      child: Text(
+                                        '',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color: Color(0x8A000000),
+                                              fontSize: 0,
+                                            ),
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                                theme: ExpandableThemeData(
-                                  tapHeaderToExpand: true,
-                                  tapBodyToExpand: true,
-                                  tapBodyToCollapse: true,
-                                  headerAlignment:
-                                      ExpandablePanelHeaderAlignment.center,
-                                  hasIcon: false,
+                                  expanded: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16, 0, 0, 0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 8, 0, 8),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'nva1bsz7' /* 1. Qui exercitationem esse nis... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  fontSize: 12,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  theme: ExpandableThemeData(
+                                    tapHeaderToExpand: true,
+                                    tapBodyToExpand: true,
+                                    tapBodyToCollapse: true,
+                                    headerAlignment:
+                                        ExpandablePanelHeaderAlignment.center,
+                                    hasIcon: false,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Divider(
-                      thickness: 0.5,
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            FFIcons.kbed,
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            size: 24,
-                          ),
-                          Container(
-                            width: 320,
-                            color: Color(0x00FFFFFF),
-                            child: ExpandableNotifier(
-                              initialExpanded: false,
-                              child: ExpandablePanel(
-                                header: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24, 0, 0, 0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'e19nqw8s' /* ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОС... */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .title1
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
-                                ),
-                                collapsed: Container(
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Padding(
+                      Divider(
+                        thickness: 0.5,
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              FFIcons.kbed,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: 24,
+                            ),
+                            Container(
+                              width: 320,
+                              color: Color(0x00FFFFFF),
+                              child: ExpandableNotifier(
+                                initialExpanded: false,
+                                child: ExpandablePanel(
+                                  header: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 8, 0, 0),
+                                        24, 0, 0, 0),
                                     child: Text(
-                                      '',
+                                      FFLocalizations.of(context).getText(
+                                        'e19nqw8s' /* ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОС... */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .title1
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: Color(0x8A000000),
-                                            fontSize: 0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                     ),
                                   ),
-                                ),
-                                expanded: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 0, 0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 8),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'ajpti0h9' /* 1. Qui exercitationem esse nis... */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                fontSize: 12,
-                                              ),
-                                        ),
+                                  collapsed: Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 8, 0, 0),
+                                      child: Text(
+                                        '',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color: Color(0x8A000000),
+                                              fontSize: 0,
+                                            ),
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                                theme: ExpandableThemeData(
-                                  tapHeaderToExpand: true,
-                                  tapBodyToExpand: true,
-                                  tapBodyToCollapse: true,
-                                  headerAlignment:
-                                      ExpandablePanelHeaderAlignment.center,
-                                  hasIcon: false,
+                                  expanded: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16, 0, 0, 0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 8, 0, 8),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'ajpti0h9' /* 1. Qui exercitationem esse nis... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  fontSize: 12,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  theme: ExpandableThemeData(
+                                    tapHeaderToExpand: true,
+                                    tapBodyToExpand: true,
+                                    tapBodyToCollapse: true,
+                                    headerAlignment:
+                                        ExpandablePanelHeaderAlignment.center,
+                                    hasIcon: false,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Divider(
-                      thickness: 0.5,
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            FFIcons.kshield,
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            size: 24,
-                          ),
-                          Container(
-                            width: 320,
-                            color: Color(0x00FFFFFF),
-                            child: ExpandableNotifier(
-                              initialExpanded: false,
-                              child: ExpandablePanel(
-                                header: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24, 0, 0, 0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'g6degmim' /* ПРАВИЛА БЕЗОПАСНОСТИ */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .title1
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
-                                ),
-                                collapsed: Container(
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Padding(
+                      Divider(
+                        thickness: 0.5,
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              FFIcons.kshield,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: 24,
+                            ),
+                            Container(
+                              width: 320,
+                              color: Color(0x00FFFFFF),
+                              child: ExpandableNotifier(
+                                initialExpanded: false,
+                                child: ExpandablePanel(
+                                  header: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 8, 0, 0),
+                                        24, 0, 0, 0),
                                     child: Text(
-                                      '',
+                                      FFLocalizations.of(context).getText(
+                                        'g6degmim' /* ПРАВИЛА БЕЗОПАСНОСТИ */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .title1
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: Color(0x8A000000),
-                                            fontSize: 0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                     ),
                                   ),
-                                ),
-                                expanded: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 0, 0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 8),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            '3s63quou' /* 1. Qui exercitationem esse nis... */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                fontSize: 12,
-                                              ),
-                                        ),
+                                  collapsed: Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 8, 0, 0),
+                                      child: Text(
+                                        '',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color: Color(0x8A000000),
+                                              fontSize: 0,
+                                            ),
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                                theme: ExpandableThemeData(
-                                  tapHeaderToExpand: true,
-                                  tapBodyToExpand: true,
-                                  tapBodyToCollapse: true,
-                                  headerAlignment:
-                                      ExpandablePanelHeaderAlignment.center,
-                                  hasIcon: false,
+                                  expanded: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16, 0, 0, 0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 8, 0, 8),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              '3s63quou' /* 1. Qui exercitationem esse nis... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  fontSize: 12,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  theme: ExpandableThemeData(
+                                    tapHeaderToExpand: true,
+                                    tapBodyToExpand: true,
+                                    tapBodyToCollapse: true,
+                                    headerAlignment:
+                                        ExpandablePanelHeaderAlignment.center,
+                                    hasIcon: false,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Divider(
-                      thickness: 0.5,
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            FFIcons.kcall,
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            size: 24,
-                          ),
-                          Container(
-                            width: 320,
-                            color: Color(0x00FFFFFF),
-                            child: ExpandableNotifier(
-                              initialExpanded: false,
-                              child: ExpandablePanel(
-                                header: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24, 0, 0, 0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '3e6mr48m' /* ЭКСТРЕННАЯ СВЯЗЬ */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .title1
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
-                                ),
-                                collapsed: Container(
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Padding(
+                      Divider(
+                        thickness: 0.5,
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              FFIcons.kcall,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: 24,
+                            ),
+                            Container(
+                              width: 320,
+                              color: Color(0x00FFFFFF),
+                              child: ExpandableNotifier(
+                                initialExpanded: false,
+                                child: ExpandablePanel(
+                                  header: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 8, 0, 0),
+                                        24, 0, 0, 0),
                                     child: Text(
-                                      '',
+                                      FFLocalizations.of(context).getText(
+                                        '3e6mr48m' /* ЭКСТРЕННАЯ СВЯЗЬ */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .title1
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: Color(0x8A000000),
-                                            fontSize: 0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                     ),
                                   ),
-                                ),
-                                expanded: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 0, 0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 8),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            '58ws4c12' /* 1. Qui exercitationem esse nis... */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                fontSize: 12,
-                                              ),
-                                        ),
+                                  collapsed: Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 8, 0, 0),
+                                      child: Text(
+                                        '',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color: Color(0x8A000000),
+                                              fontSize: 0,
+                                            ),
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                                theme: ExpandableThemeData(
-                                  tapHeaderToExpand: true,
-                                  tapBodyToExpand: true,
-                                  tapBodyToCollapse: true,
-                                  headerAlignment:
-                                      ExpandablePanelHeaderAlignment.center,
-                                  hasIcon: false,
+                                  expanded: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16, 0, 0, 0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 8, 0, 8),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              '58ws4c12' /* 1. Qui exercitationem esse nis... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  fontSize: 12,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  theme: ExpandableThemeData(
+                                    tapHeaderToExpand: true,
+                                    tapBodyToExpand: true,
+                                    tapBodyToCollapse: true,
+                                    headerAlignment:
+                                        ExpandablePanelHeaderAlignment.center,
+                                    hasIcon: false,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Divider(
-                      thickness: 0.5,
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                    ),
-                  ],
+                      Divider(
+                        thickness: 0.5,
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

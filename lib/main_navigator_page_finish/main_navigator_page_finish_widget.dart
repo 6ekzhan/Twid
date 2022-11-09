@@ -7,6 +7,7 @@ import '../help/help_widget.dart';
 import '../main_navigator_page_place_info/main_navigator_page_place_info_widget.dart';
 import '../place_information_point/place_information_point_widget.dart';
 import '../settings/settings_widget.dart';
+import '../trip_finish/trip_finish_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -86,8 +87,13 @@ class _MainNavigatorPageFinishWidgetState
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 16),
                     child: FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TripFinishWidget(),
+                          ),
+                        );
                       },
                       text: FFLocalizations.of(context).getText(
                         'lm18fn7u' /* ФИНИШ */,

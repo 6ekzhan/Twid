@@ -1,6 +1,8 @@
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../instructions010/instructions010_widget.dart';
 import '../trip1/trip1_widget.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
@@ -60,22 +62,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     children: [
                       Align(
                         alignment: AlignmentDirectional(0, 0),
-                        child: SelectionArea(
-                            child: Text(
-                          FFLocalizations.of(context).getText(
-                            'qx8u6kmq' /* Введите номер бронирования  */,
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Inter',
-                                    color: Color(0xFFD9DCDE),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                        )),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(0, 0),
                         child: PinCodeTextField(
                           appContext: context,
                           length: 6,
@@ -116,32 +102,94 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Trip1Widget(),
+                child: StreamBuilder<List<TourRecord>>(
+                  stream: queryTourRecord(
+                    singleRecord: true,
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50,
+                          height: 50,
+                          child: CircularProgressIndicator(
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                          ),
+                        ),
+                      );
+                    }
+                    List<TourRecord> buttonTourRecordList = snapshot.data!;
+                    final buttonTourRecord = buttonTourRecordList.isNotEmpty
+                        ? buttonTourRecordList.first
+                        : null;
+                    return FFButtonWidget(
+                      onPressed: () async {
+                        if (pinCodeController!.text != null &&
+                            pinCodeController!.text != '') {
+                          if (pinCodeController!.text ==
+                              buttonTourRecord!.pinput.toString()) {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Trip1Widget(),
+                              ),
+                            );
+                          } else {
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  content: Text('incorrect pin'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          }
+                        } else {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return AlertDialog(
+                                content: Text('empty field'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        }
+                      },
+                      text: FFLocalizations.of(context).getText(
+                        'ypfz29i7' /* OK */,
+                      ),
+                      options: FFButtonOptions(
+                        width: 236,
+                        height: 48,
+                        color: Color(0xFF002532),
+                        textStyle:
+                            FlutterFlowTheme.of(context).subtitle2.override(
+                                  fontFamily: 'Inter',
+                                  color: Colors.white,
+                                ),
+                        borderSide: BorderSide(
+                          color: Color(0xFFA5AAAD),
+                          width: 0.5,
+                        ),
+                        borderRadius: BorderRadius.circular(8),
                       ),
                     );
                   },
-                  text: FFLocalizations.of(context).getText(
-                    'ypfz29i7' /* OK */,
-                  ),
-                  options: FFButtonOptions(
-                    width: 236,
-                    height: 48,
-                    color: Color(0xFF002532),
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                          fontFamily: 'Inter',
-                          color: Colors.white,
-                        ),
-                    borderSide: BorderSide(
-                      color: Color(0xFFA5AAAD),
-                      width: 0.5,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
                 ),
               ),
               Padding(
@@ -159,15 +207,25 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 45, 0, 0),
-                child: Text(
-                  FFLocalizations.of(context).getText(
-                    'b0eqhtut' /* Как использовать приложение? */,
-                  ),
-                  textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Inter',
-                        color: Color(0xFFD9DCDE),
+                child: InkWell(
+                  onTap: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Instructions010Widget(),
                       ),
+                    );
+                  },
+                  child: Text(
+                    FFLocalizations.of(context).getText(
+                      'b0eqhtut' /* Как использовать приложение? */,
+                    ),
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Inter',
+                          color: Color(0xFFD9DCDE),
+                        ),
+                  ),
                 ),
               ),
             ],

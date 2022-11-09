@@ -4,10 +4,10 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
+import '../custom_code/actions/index.dart' as actions;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SettingsWidget extends StatefulWidget {
   const SettingsWidget({Key? key}) : super(key: key);
@@ -42,7 +42,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   scrollDirection: Axis.vertical,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 0, 46, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 46, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -727,10 +727,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          await launchUrl(Uri(
-                            scheme: 'tel',
-                            path: '',
-                          ));
+                          await actions.emergencyCall();
                         },
                         text: FFLocalizations.of(context).getText(
                           's7zcsmgi' /* ЭКСТРЕННЫЙ ВЫЗОВ */,

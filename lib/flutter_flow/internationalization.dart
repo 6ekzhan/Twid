@@ -113,13 +113,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // HomePage
   {
-    'qx8u6kmq': {
-      'ru': 'Введите номер бронирования ',
-      'ar': 'أدخل رقم الحجز الخاص بك',
-      'en': 'Enter your booking number',
-      'es': 'Introduce tu número de reserva',
-      'ko': '예약 번호를 입력하세요',
-    },
     'ypfz29i7': {
       'ru': 'OK',
       'ar': 'نعم',
@@ -674,34 +667,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ko': '집',
     },
   },
-  // TripFinish2
-  {
-    'n2heetyi': {
-      'ru': 'НАЧАТЬ НОВОЕ \nПУТЕШЕСТВИЕ',
-      'ar': 'ابدأ رحلة جديدة',
-      'en': 'START A NEW JOURNEY',
-      'es': 'EMPIEZA UN NUEVO VIAJE',
-      'ko': '새로운 여정을 시작하세요',
-    },
-    'f56kaj7j': {
-      'ru':
-          'Чтобы не пропустить интересные маршруты, новые машины, ачивки, или горячие предложения подписывайтесь на соцсети twid!',
-      'ar':
-          'حتى لا تفوت الطرق المثيرة للاهتمام أو السيارات الجديدة أو الإنجازات أو العروض الساخنة ، اشترك في شبكات التواصل الاجتماعي twid!',
-      'en':
-          'In order not to miss interesting routes, new cars, achievements, or hot offers, subscribe to twid social networks!',
-      'es':
-          '¡Para no perderse rutas interesantes, autos nuevos, logros u ofertas interesantes, suscríbase a las redes sociales twid!',
-      'ko': '흥미로운 경로, 새 자동차, 업적 또는 인기 상품을 놓치지 않으려면 twid 소셜 네트워크에 가입하세요!',
-    },
-    '2rovny6s': {
-      'ru': 'Home',
-      'ar': 'مسكن',
-      'en': 'Home',
-      'es': 'Hogar',
-      'ko': '집',
-    },
-  },
   // TripFinish
   {
     '60w182x5': {
@@ -776,6 +741,34 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ko': '경로로 돌아가기',
     },
     'sp0ifsrs': {
+      'ru': 'Home',
+      'ar': 'مسكن',
+      'en': 'Home',
+      'es': 'Hogar',
+      'ko': '집',
+    },
+  },
+  // TripFinish2
+  {
+    'n2heetyi': {
+      'ru': 'НАЧАТЬ НОВОЕ \nПУТЕШЕСТВИЕ',
+      'ar': 'ابدأ رحلة جديدة',
+      'en': 'START A NEW JOURNEY',
+      'es': 'EMPIEZA UN NUEVO VIAJE',
+      'ko': '새로운 여정을 시작하세요',
+    },
+    'f56kaj7j': {
+      'ru':
+          'Чтобы не пропустить интересные маршруты, новые машины, ачивки, или горячие предложения подписывайтесь на соцсети twid!',
+      'ar':
+          'حتى لا تفوت الطرق المثيرة للاهتمام أو السيارات الجديدة أو الإنجازات أو العروض الساخنة ، اشترك في شبكات التواصل الاجتماعي twid!',
+      'en':
+          'In order not to miss interesting routes, new cars, achievements, or hot offers, subscribe to twid social networks!',
+      'es':
+          '¡Para no perderse rutas interesantes, autos nuevos, logros u ofertas interesantes, suscríbase a las redes sociales twid!',
+      'ko': '흥미로운 경로, 새 자동차, 업적 또는 인기 상품을 놓치지 않으려면 twid 소셜 네트워크에 가입하세요!',
+    },
+    '2rovny6s': {
       'ru': 'Home',
       'ar': 'مسكن',
       'en': 'Home',
@@ -929,7 +922,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ko': '64.0',
     },
     'iddzjb26': {
-      'ru': 'Перед началом путешествия машина\nзаправлена до полного бака.',
+      'ru': 'Перед началом путешествия машина заправлена до полного бака.',
       'ar': 'قبل بدء الرحلة ، تمتلئ السيارة إلى خزان ممتلئ.',
       'en': 'Before starting the trip, the car is filled up to a full tank.',
       'es':
@@ -1322,6 +1315,58 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ko': '긴급 전화',
     },
   },
+  // Questions
+  {
+    'a1n3jhbi': {
+      'ru': 'Задать вопрос',
+      'ar': '',
+      'en': '',
+      'es': '',
+      'ko': '',
+    },
+    'orhcvxy9': {
+      'ru': 'Ваше имя',
+      'ar': 'اسمك',
+      'en': 'Your name',
+      'es': 'Su nombre',
+      'ko': '당신의 이름',
+    },
+    '86qwtp9a': {
+      'ru': 'Email',
+      'ar': 'البريد الإلكتروني',
+      'en': 'Email',
+      'es': 'Correo electrónico',
+      'ko': '이메일',
+    },
+    'u9oeq7w1': {
+      'ru': 'Начните писать',
+      'ar': 'ابدأ الكتابة',
+      'en': 'start writing',
+      'es': 'Empieza a escribir',
+      'ko': '쓰기 시작',
+    },
+    'wxepaaij': {
+      'ru': 'SEND',
+      'ar': 'إرسال',
+      'en': 'SEND',
+      'es': 'ENVIAR',
+      'ko': '보내다',
+    },
+    '1hd7ebwe': {
+      'ru': 'Ответ на ваш вопрос мы отправим на e-mail',
+      'ar': 'سنرسل إجابة سؤالك عبر البريد الإلكتروني',
+      'en': 'We will send the answer to your question by e-mail',
+      'es': 'Le enviaremos la respuesta a su pregunta por correo electrónico.',
+      'ko': '질문에 대한 답변을 이메일로 보내드립니다',
+    },
+    'wsofpb41': {
+      'ru': 'Home',
+      'ar': 'مسكن',
+      'en': 'Home',
+      'es': 'Hogar',
+      'ko': '집',
+    },
+  },
   // Help
   {
     '4mk47x8w': {
@@ -1470,58 +1515,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'ASK A QUESTION',
       'es': 'HACER UNA PREGUNTA',
       'ko': '질문하기',
-    },
-  },
-  // Questions
-  {
-    'a1n3jhbi': {
-      'ru': 'Задать вопрос',
-      'ar': '',
-      'en': '',
-      'es': '',
-      'ko': '',
-    },
-    'orhcvxy9': {
-      'ru': 'Ваше имя',
-      'ar': 'اسمك',
-      'en': 'Your name',
-      'es': 'Su nombre',
-      'ko': '당신의 이름',
-    },
-    '86qwtp9a': {
-      'ru': 'Email',
-      'ar': 'البريد الإلكتروني',
-      'en': 'Email',
-      'es': 'Correo electrónico',
-      'ko': '이메일',
-    },
-    'u9oeq7w1': {
-      'ru': 'Начните писать',
-      'ar': 'ابدأ الكتابة',
-      'en': 'start writing',
-      'es': 'Empieza a escribir',
-      'ko': '쓰기 시작',
-    },
-    'wxepaaij': {
-      'ru': 'SEND',
-      'ar': 'إرسال',
-      'en': 'SEND',
-      'es': 'ENVIAR',
-      'ko': '보내다',
-    },
-    '1hd7ebwe': {
-      'ru': 'Ответ на ваш вопрос мы отправим на e-mail',
-      'ar': 'سنرسل إجابة سؤالك عبر البريد الإلكتروني',
-      'en': 'We will send the answer to your question by e-mail',
-      'es': 'Le enviaremos la respuesta a su pregunta por correo electrónico.',
-      'ko': '질문에 대한 답변을 이메일로 보내드립니다',
-    },
-    'wsofpb41': {
-      'ru': 'Home',
-      'ar': 'مسكن',
-      'en': 'Home',
-      'es': 'Hogar',
-      'ko': '집',
     },
   },
   // SUPPORT

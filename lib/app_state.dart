@@ -29,6 +29,8 @@ class FFAppState {
   bool hasBeenPressed5 = false;
 
   DateTime? aa = DateTime.fromMillisecondsSinceEpoch(1667424060000);
+
+  String phone = '+7-707-396-3155';
 }
 
 LatLng? _latLngFromString(String? val) {

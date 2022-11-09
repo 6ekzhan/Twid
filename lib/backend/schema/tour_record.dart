@@ -15,12 +15,15 @@ abstract class TourRecord implements Built<TourRecord, TourRecordBuilder> {
   @BuiltValueField(wireName: 'Timer')
   int? get timer;
 
+  int? get pinput;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
-  static void _initializeBuilder(TourRecordBuilder builder) =>
-      builder..timer = 0;
+  static void _initializeBuilder(TourRecordBuilder builder) => builder
+    ..timer = 0
+    ..pinput = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Tour');
@@ -45,13 +48,15 @@ abstract class TourRecord implements Built<TourRecord, TourRecordBuilder> {
 Map<String, dynamic> createTourRecordData({
   DateTime? calendar,
   int? timer,
+  int? pinput,
 }) {
   final firestoreData = serializers.toFirestore(
     TourRecord.serializer,
     TourRecord(
       (t) => t
         ..calendar = calendar
-        ..timer = timer,
+        ..timer = timer
+        ..pinput = pinput,
     ),
   );
 
