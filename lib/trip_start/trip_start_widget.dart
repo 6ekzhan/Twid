@@ -1,13 +1,17 @@
+import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
+import '../main_navigator_page/main_navigator222.dart';
 import '../main_navigator_page/main_navigator_page_widget.dart';
 import '../settings/settings_widget.dart';
 import '../takea_car/takea_car_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart' show ByteData, Uint8List, rootBundle;
+import 'dart:ui' as ui;
 
 class TripStartWidget extends StatefulWidget {
   const TripStartWidget({Key? key}) : super(key: key);
@@ -18,6 +22,25 @@ class TripStartWidget extends StatefulWidget {
 
 class _TripStartWidgetState extends State<TripStartWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  List<String> images = ['assets/images/marker222.png'];
+  Future<Uint8List> getImages(String path, int width) async {
+    ByteData data = await rootBundle.load(path);
+    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
+        targetHeight: width);
+    ui.FrameInfo fi = await codec.getNextFrame();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))!
+        .buffer
+        .asUint8List();
+  }
+
+  Uint8List? markIcons;
+  BitmapDescriptor? iconn;
+
+  loadData() async {
+    markIcons = await getImages(images[0], 80);
+    iconn = BitmapDescriptor.fromBytes(markIcons!);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +73,11 @@ class _TripStartWidgetState extends State<TripStartWidget> {
                             await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => MainNavigatorPageWidget(),
+                                builder: (context) => NavigationScreen(
+                                    50.96945060011596,
+                                    71.358997664587,
+                                    0,
+                                    iconn!),
                               ),
                             );
                           },
