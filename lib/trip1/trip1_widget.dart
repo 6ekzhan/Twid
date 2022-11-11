@@ -17,7 +17,6 @@ class Trip1Widget extends StatefulWidget {
 }
 
 class _Trip1WidgetState extends State<Trip1Widget> {
-  PageController? pageViewController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -96,22 +95,11 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                               child: Container(
                                 width: double.infinity,
                                 height: double.infinity,
-                                child: GestureDetector(
-                                  onTap: () async {
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            Instructions010Widget(),
-                                      ),
-                                    );
-                                  },
-                                  child: custom_widgets.CustomTimer(
-                                    width: double.infinity,
-                                    height: double.infinity,
-                                    date: FFAppState().aa!,
-                                    color: Color(0xFF002532),
-                                  ),
+                                child: custom_widgets.CustomTimer(
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  date: FFAppState().aa!,
+                                  color: Color(0xFF002532),
                                 ),
                               ),
                             ),
@@ -303,46 +291,16 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
-                      child: Container(
-                        width: 316,
-                        height: 218,
-                        child: PageView(
-                          controller: pageViewController ??=
-                              PageController(initialPage: 0),
-                          scrollDirection: Axis.horizontal,
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.network(
-                                'https://34travel.me/media/posts/574ea1881fb9f-Beautiful-Tuscany.jpg',
-                                width: 316,
-                                height: 218,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(16),
-                              child: Image.network(
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLvWBgKZEop6jqXll5PWKOaNnloCFbpp9HQQ&usqp=CAU',
-                                width: 100,
-                                height: 100,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(16),
-                              child: Image.network(
-                                'https://mktravelclub.ru/media/pages/blogs/toskana-italija-kolybel-geniev-i-koroleva-krasnogo-vina/ad1c01563d-1612533121/pic_15.jpg',
-                                width: 100,
-                                height: 100,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ],
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Image.network(
+                          'https://picsum.photos/seed/692/600',
+                          width: 316,
+                          height: 218,
+                          fit: BoxFit.cover,
                         ),
-                      ),
+                      ],
                     ),
                     Column(
                       mainAxisSize: MainAxisSize.max,

@@ -39,9 +39,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0, 96, 0, 0),
                 child: Text(
                   FFLocalizations.of(context).getText(
-                    'z258brx9' /* Please choose a 
-language */
-                    ,
+                    'z258brx9' /* Please choose a language */,
                   ),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyText1.override(

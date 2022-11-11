@@ -17,13 +17,25 @@ abstract class TourRecord implements Built<TourRecord, TourRecordBuilder> {
 
   int? get pinput;
 
+  @BuiltValueField(wireName: 'Images1')
+  BuiltList<String>? get images1;
+
+  @BuiltValueField(wireName: 'Images2')
+  BuiltList<String>? get images2;
+
+  @BuiltValueField(wireName: 'Images3')
+  BuiltList<String>? get images3;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(TourRecordBuilder builder) => builder
     ..timer = 0
-    ..pinput = 0;
+    ..pinput = 0
+    ..images1 = ListBuilder()
+    ..images2 = ListBuilder()
+    ..images3 = ListBuilder();
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Tour');
@@ -56,7 +68,10 @@ Map<String, dynamic> createTourRecordData({
       (t) => t
         ..calendar = calendar
         ..timer = timer
-        ..pinput = pinput,
+        ..pinput = pinput
+        ..images1 = null
+        ..images2 = null
+        ..images3 = null,
     ),
   );
 

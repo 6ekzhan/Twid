@@ -213,7 +213,6 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                           child: TextFormField(
                             controller: textController3,
-                            autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: FFLocalizations.of(context).getText(
@@ -302,11 +301,12 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                       .map((MapEntry<String, String> e) =>
                                           '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
                                       .join('&')));
-                              await Navigator.push(
+                              await Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => SupportWidget(),
                                 ),
+                                (r) => false,
                               );
                             },
                             text: FFLocalizations.of(context).getText(

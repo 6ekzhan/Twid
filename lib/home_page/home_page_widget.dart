@@ -2,7 +2,7 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../instructions010/instructions010_widget.dart';
+import '../instructions010_copy/instructions010_copy_widget.dart';
 import '../trip1/trip1_widget.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
@@ -63,8 +63,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       Align(
                         alignment: AlignmentDirectional(0, 0),
                         child: PinCodeTextField(
-                          obscuringCharacter: "-",
-                          hintCharacter: "PIN",
                           appContext: context,
                           length: 6,
                           textStyle: FlutterFlowTheme.of(context)
@@ -214,7 +212,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Instructions010Widget(),
+                        builder: (context) => Instructions010CopyWidget(),
                       ),
                     );
                   },

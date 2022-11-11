@@ -38,6 +38,30 @@ class _$TourRecordSerializer implements StructuredSerializer<TourRecord> {
         ..add('pinput')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.images1;
+    if (value != null) {
+      result
+        ..add('Images1')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.images2;
+    if (value != null) {
+      result
+        ..add('Images2')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.images3;
+    if (value != null) {
+      result
+        ..add('Images3')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -72,6 +96,24 @@ class _$TourRecordSerializer implements StructuredSerializer<TourRecord> {
           result.pinput = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'Images1':
+          result.images1.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'Images2':
+          result.images2.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'Images3':
+          result.images3.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -93,12 +135,25 @@ class _$TourRecord extends TourRecord {
   @override
   final int? pinput;
   @override
+  final BuiltList<String>? images1;
+  @override
+  final BuiltList<String>? images2;
+  @override
+  final BuiltList<String>? images3;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$TourRecord([void Function(TourRecordBuilder)? updates]) =>
       (new TourRecordBuilder()..update(updates))._build();
 
-  _$TourRecord._({this.calendar, this.timer, this.pinput, this.ffRef})
+  _$TourRecord._(
+      {this.calendar,
+      this.timer,
+      this.pinput,
+      this.images1,
+      this.images2,
+      this.images3,
+      this.ffRef})
       : super._();
 
   @override
@@ -115,13 +170,23 @@ class _$TourRecord extends TourRecord {
         calendar == other.calendar &&
         timer == other.timer &&
         pinput == other.pinput &&
+        images1 == other.images1 &&
+        images2 == other.images2 &&
+        images3 == other.images3 &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, calendar.hashCode), timer.hashCode), pinput.hashCode),
+        $jc(
+            $jc(
+                $jc(
+                    $jc($jc($jc(0, calendar.hashCode), timer.hashCode),
+                        pinput.hashCode),
+                    images1.hashCode),
+                images2.hashCode),
+            images3.hashCode),
         ffRef.hashCode));
   }
 
@@ -131,6 +196,9 @@ class _$TourRecord extends TourRecord {
           ..add('calendar', calendar)
           ..add('timer', timer)
           ..add('pinput', pinput)
+          ..add('images1', images1)
+          ..add('images2', images2)
+          ..add('images3', images3)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -151,6 +219,21 @@ class TourRecordBuilder implements Builder<TourRecord, TourRecordBuilder> {
   int? get pinput => _$this._pinput;
   set pinput(int? pinput) => _$this._pinput = pinput;
 
+  ListBuilder<String>? _images1;
+  ListBuilder<String> get images1 =>
+      _$this._images1 ??= new ListBuilder<String>();
+  set images1(ListBuilder<String>? images1) => _$this._images1 = images1;
+
+  ListBuilder<String>? _images2;
+  ListBuilder<String> get images2 =>
+      _$this._images2 ??= new ListBuilder<String>();
+  set images2(ListBuilder<String>? images2) => _$this._images2 = images2;
+
+  ListBuilder<String>? _images3;
+  ListBuilder<String> get images3 =>
+      _$this._images3 ??= new ListBuilder<String>();
+  set images3(ListBuilder<String>? images3) => _$this._images3 = images3;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -165,6 +248,9 @@ class TourRecordBuilder implements Builder<TourRecord, TourRecordBuilder> {
       _calendar = $v.calendar;
       _timer = $v.timer;
       _pinput = $v.pinput;
+      _images1 = $v.images1?.toBuilder();
+      _images2 = $v.images2?.toBuilder();
+      _images3 = $v.images3?.toBuilder();
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -186,9 +272,32 @@ class TourRecordBuilder implements Builder<TourRecord, TourRecordBuilder> {
   TourRecord build() => _build();
 
   _$TourRecord _build() {
-    final _$result = _$v ??
-        new _$TourRecord._(
-            calendar: calendar, timer: timer, pinput: pinput, ffRef: ffRef);
+    _$TourRecord _$result;
+    try {
+      _$result = _$v ??
+          new _$TourRecord._(
+              calendar: calendar,
+              timer: timer,
+              pinput: pinput,
+              images1: _images1?.build(),
+              images2: _images2?.build(),
+              images3: _images3?.build(),
+              ffRef: ffRef);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'images1';
+        _images1?.build();
+        _$failedField = 'images2';
+        _images2?.build();
+        _$failedField = 'images3';
+        _images3?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'TourRecord', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

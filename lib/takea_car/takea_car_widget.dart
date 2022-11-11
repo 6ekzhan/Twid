@@ -24,9 +24,9 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            scrollDirection: Axis.vertical,
             children: [
               Column(
                 mainAxisSize: MainAxisSize.min,
@@ -71,6 +71,7 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: Container(
                       width: double.infinity,
+                      height: MediaQuery.of(context).size.height * 1,
                       decoration: BoxDecoration(
                         color: Color(0x00D9DCDE),
                         image: DecorationImage(
@@ -88,297 +89,299 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  '6svfki8i' /* Как забрать машину? */,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    '6svfki8i' /* Как забрать машину? */,
+                                  ),
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Metal',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.normal,
+                                        useGoogleFonts: false,
+                                      ),
                                 ),
-                                textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Metal',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.normal,
-                                      useGoogleFonts: false,
-                                    ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      '6ssfhhxv' /* 1. */,
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        '6ssfhhxv' /* 1. */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 5, 0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'u7nhlxdg' /* Qui exercitationem esse nisi n... */,
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            24, 0, 5, 0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'u7nhlxdg' /* Qui exercitationem esse nisi n... */,
+                                          ),
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontWeight: FontWeight.normal,
+                                              ),
                                         ),
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              fontWeight: FontWeight.normal,
-                                            ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'fdj7mntn' /* 2. */,
-                                    ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 5, 0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '5u4e5qvb' /* Qui exercitationem esse nisi n... */,
-                                        ),
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'b9quzzbu' /* 3. */,
-                                    ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 5, 0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '99k6tb6g' /* Qui exercitationem esse nisi n... */,
-                                        ),
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'au7ammyh' /* 4. */,
-                                    ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 5, 0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'xed7h1y4' /* Qui exercitationem esse nisi n... */,
-                                        ),
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'umam7q00' /* Как вернуть машину? */,
+                                  ],
                                 ),
-                                textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Metal',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      fontSize: 25,
-                                      fontWeight: FontWeight.normal,
-                                      useGoogleFonts: false,
-                                    ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'eqq3go5j' /* 1. */,
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'fdj7mntn' /* 2. */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 5, 0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'g0otsgq7' /* Qui exercitationem esse nisi n... */,
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            24, 0, 5, 0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '5u4e5qvb' /* Qui exercitationem esse nisi n... */,
+                                          ),
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontWeight: FontWeight.normal,
+                                              ),
                                         ),
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              fontWeight: FontWeight.normal,
-                                            ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'u9qkifgy' /* 2. */,
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'b9quzzbu' /* 3. */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 5, 0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '76idyil3' /* Qui exercitationem esse nisi n... */,
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            24, 0, 5, 0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '99k6tb6g' /* Qui exercitationem esse nisi n... */,
+                                          ),
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontWeight: FontWeight.normal,
+                                              ),
                                         ),
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              fontWeight: FontWeight.normal,
-                                            ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      '82oj8u5k' /* 2. */,
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'au7ammyh' /* 4. */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
-                                  ),
-                                  Expanded(
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 5, 0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'gugd0pvv' /* Qui exercitationem esse nisi n... */,
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            24, 0, 5, 0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'xed7h1y4' /* Qui exercitationem esse nisi n... */,
+                                          ),
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontWeight: FontWeight.normal,
+                                              ),
                                         ),
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              fontWeight: FontWeight.normal,
-                                            ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'umam7q00' /* Как вернуть машину? */,
+                                  ),
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Metal',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        fontSize: 25,
+                                        fontWeight: FontWeight.normal,
+                                        useGoogleFonts: false,
+                                      ),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'eqq3go5j' /* 1. */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            24, 0, 5, 0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'g0otsgq7' /* Qui exercitationem esse nisi n... */,
+                                          ),
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'u9qkifgy' /* 2. */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            24, 0, 5, 0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '76idyil3' /* Qui exercitationem esse nisi n... */,
+                                          ),
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        '82oj8u5k' /* 2. */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                    ),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            24, 0, 5, 0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'gugd0pvv' /* Qui exercitationem esse nisi n... */,
+                                          ),
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

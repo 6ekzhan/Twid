@@ -123,12 +123,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(16, 24, 16, 0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HelpWidget(),
-                        ),
-                      );
+                      Navigator.pop(context);
                     },
                     text: FFLocalizations.of(context).getText(
                       'ddyicczm' /* OK */,

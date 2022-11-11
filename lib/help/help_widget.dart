@@ -875,11 +875,12 @@ class _HelpWidgetState extends State<HelpWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 40),
               child: FFButtonWidget(
                 onPressed: () async {
-                  await Navigator.push(
+                  await Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
                       builder: (context) => QuestionsWidget(),
                     ),
+                    (r) => false,
                   );
                 },
                 text: FFLocalizations.of(context).getText(

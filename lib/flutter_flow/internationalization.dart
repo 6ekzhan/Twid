@@ -33,8 +33,14 @@ class FFLocalizationsDelegate extends LocalizationsDelegate<FFLocalizations> {
   const FFLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) =>
-      FFLocalizations.languages().contains(locale.toString());
+  bool isSupported(Locale locale) {
+    final language = locale.toString();
+    return FFLocalizations.languages().contains(
+      language.endsWith('_')
+          ? language.substring(0, language.length - 1)
+          : language,
+    );
+  }
 
   @override
   Future<FFLocalizations> load(Locale locale) =>
@@ -55,7 +61,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Language
   {
     'z258brx9': {
-      'ru': 'Please choose a \nlanguage',
+      'ru': 'Please choose a language',
       'ar': 'Please choose a language',
       'en': 'Please choose a language',
       'es': 'Please choose a language',
@@ -314,6 +320,125 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ko': '집',
     },
   },
+  // Instructions010Copy
+  {
+    '3pyezc82': {
+      'ru': 'Пожалуйста, ознакомьтесь с правилами',
+      'ar': 'يرجى قراءة القواعد',
+      'en': 'Please read the rules',
+      'es': 'Por favor lea las reglas',
+      'ko': '규칙을 읽어주세요',
+    },
+    'tlqo0pqx': {
+      'ru': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+      'ar': 'قواعد استخدام السيارة',
+      'en': 'RULES FOR USE OF THE CAR',
+      'es': 'NORMAS PARA EL USO DEL COCHE',
+      'ko': '자동차 사용 규칙',
+    },
+    'xvbgxdia': {
+      'ru':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ar':
+          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'en':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'es':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ko':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+    },
+    'w2b0id5m': {
+      'ru': 'ПРАВИЛА СТРАХОВАНИЯ',
+      'ar': 'قواعد التأمين',
+      'en': 'INSURANCE RULES',
+      'es': 'REGLAS DE SEGURO',
+      'ko': '보험 규정',
+    },
+    '0mdcyrnh': {
+      'ru':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ar':
+          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'en':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'es':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ko':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+    },
+    'nnk9b77d': {
+      'ru': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
+      'ar': 'شروط وأحكام حجز الفنادق',
+      'en': 'HOTEL BOOKING TERMS AND CONDITIONS',
+      'es': 'TÉRMINOS Y CONDICIONES DE RESERVA DE HOTELES',
+      'ko': '호텔 예약 약관',
+    },
+    'h0ainlja': {
+      'ru':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ar':
+          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'en':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'es':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ko':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+    },
+    '1t3dlas0': {
+      'ru': 'ПРАВИЛА БЕЗОПАСНОСТИ',
+      'ar': 'لوائح السلامة',
+      'en': 'SAFETY REGULATIONS',
+      'es': 'REGULACIONES DE SEGURIDAD',
+      'ko': '안전 규정',
+    },
+    'ys7bpctk': {
+      'ru':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ar':
+          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'en':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'es':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ko':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+    },
+    'jifvqzcd': {
+      'ru': 'ЭКСТРЕННАЯ СВЯЗЬ',
+      'ar': 'حالة طوارئ',
+      'en': 'EMERGENCY',
+      'es': 'EMERGENCIA',
+      'ko': '비상',
+    },
+    '9eymjye9': {
+      'ru':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ar':
+          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'en':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'es':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ko':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+    },
+    'l0642ab5': {
+      'ru': 'ПРОЧИТАЛ. СОГЛАСЕН',
+      'ar': 'قرأ. أنا موافق',
+      'en': 'READ. I AGREE',
+      'es': 'LEER. ESTOY DE ACUERDO',
+      'ko': '읽다. 동의한다',
+    },
+    'gptmy2lb': {
+      'ru': 'Home',
+      'ar': 'مسكن',
+      'en': 'Home',
+      'es': 'Hogar',
+      'ko': '집',
+    },
+  },
   // Trip2
   {
     'pz4ro1we': {
@@ -383,15 +508,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // TripStart
   {
-    '3c87wq81': {
+    'tm8bffsz': {
       'ru': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
-      'ar': 'بداية رحلة',
-      'en': 'START A JOURNEY',
-      'es': 'COMENZAR UN VIAJE',
-      'ko': '여행을 시작하세요',
+      'ar': '',
+      'en': '',
+      'es': '',
+      'ko': '',
     },
     'adl2jnc3': {
-      'ru': 'Как забрать машину',
+      'ru': 'Как забрать машину?',
       'ar': 'كيف تلتقط سيارة',
       'en': 'How to pick up a car',
       'es': 'Cómo recoger un coche',

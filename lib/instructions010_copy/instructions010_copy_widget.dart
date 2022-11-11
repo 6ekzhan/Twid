@@ -4,19 +4,19 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
 import '../settings/settings_widget.dart';
-import '../trip2/trip2_widget.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Instructions010Widget extends StatefulWidget {
-  const Instructions010Widget({Key? key}) : super(key: key);
+class Instructions010CopyWidget extends StatefulWidget {
+  const Instructions010CopyWidget({Key? key}) : super(key: key);
 
   @override
-  _Instructions010WidgetState createState() => _Instructions010WidgetState();
+  _Instructions010CopyWidgetState createState() =>
+      _Instructions010CopyWidgetState();
 }
 
-class _Instructions010WidgetState extends State<Instructions010Widget> {
+class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -31,7 +31,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
           alignment: AlignmentDirectional(0, 0),
           child: Text(
             FFLocalizations.of(context).getText(
-              'igmpnhzd' /* Пожалуйста, ознакомьтесь с пра... */,
+              '3pyezc82' /* Пожалуйста, ознакомьтесь с пра... */,
             ),
             style: GoogleFonts.getFont(
               'Inter',
@@ -97,7 +97,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                         24, 0, 0, 0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        '5paztg0h' /* ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИ... */,
+                                        'tlqo0pqx' /* ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИ... */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .title1
@@ -142,7 +142,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                                   0, 8, 0, 8),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'ymjci8j5' /* 1. Qui exercitationem esse nis... */,
+                                              'xvbgxdia' /* 1. Qui exercitationem esse nis... */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
@@ -199,7 +199,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                         24, 0, 0, 0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'iu1sb52u' /* ПРАВИЛА СТРАХОВАНИЯ */,
+                                        'w2b0id5m' /* ПРАВИЛА СТРАХОВАНИЯ */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .title1
@@ -244,7 +244,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                                   0, 8, 0, 8),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'nva1bsz7' /* 1. Qui exercitationem esse nis... */,
+                                              '0mdcyrnh' /* 1. Qui exercitationem esse nis... */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
@@ -301,7 +301,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                         24, 0, 0, 0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'e19nqw8s' /* ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОС... */,
+                                        'nnk9b77d' /* ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОС... */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .title1
@@ -346,7 +346,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                                   0, 8, 0, 8),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              'ajpti0h9' /* 1. Qui exercitationem esse nis... */,
+                                              'h0ainlja' /* 1. Qui exercitationem esse nis... */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
@@ -403,7 +403,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                         24, 0, 0, 0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'g6degmim' /* ПРАВИЛА БЕЗОПАСНОСТИ */,
+                                        '1t3dlas0' /* ПРАВИЛА БЕЗОПАСНОСТИ */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .title1
@@ -448,7 +448,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                                   0, 8, 0, 8),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              '3s63quou' /* 1. Qui exercitationem esse nis... */,
+                                              'ys7bpctk' /* 1. Qui exercitationem esse nis... */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
@@ -505,7 +505,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                         24, 0, 0, 0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        '3e6mr48m' /* ЭКСТРЕННАЯ СВЯЗЬ */,
+                                        'jifvqzcd' /* ЭКСТРЕННАЯ СВЯЗЬ */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .title1
@@ -550,7 +550,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                                   0, 8, 0, 8),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
-                                              '58ws4c12' /* 1. Qui exercitationem esse nis... */,
+                                              '9eymjye9' /* 1. Qui exercitationem esse nis... */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
@@ -593,15 +593,10 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
               padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 28),
               child: FFButtonWidget(
                 onPressed: () async {
-                  await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Trip2Widget(),
-                    ),
-                  );
+                  Navigator.pop(context);
                 },
                 text: FFLocalizations.of(context).getText(
-                  'rjiw6puk' /* ПРОЧИТАЛ. СОГЛАСЕН */,
+                  'l0642ab5' /* ПРОЧИТАЛ. СОГЛАСЕН */,
                 ),
                 options: FFButtonOptions(
                   width: double.infinity,
@@ -652,7 +647,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                         size: 24,
                       ),
                       onPressed: () async {
-                        await Navigator.pushReplacement(
+                        await Navigator.push(
                           context,
                           PageTransition(
                             type: PageTransitionType.fade,

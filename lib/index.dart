@@ -3,6 +3,8 @@ export 'language/language_widget.dart' show LanguageWidget;
 export 'home_page/home_page_widget.dart' show HomePageWidget;
 export 'trip1/trip1_widget.dart' show Trip1Widget;
 export 'instructions010/instructions010_widget.dart' show Instructions010Widget;
+export 'instructions010_copy/instructions010_copy_widget.dart'
+    show Instructions010CopyWidget;
 export 'trip2/trip2_widget.dart' show Trip2Widget;
 export 'trip_start/trip_start_widget.dart' show TripStartWidget;
 export 'main_navigator_page/main_navigator_page_widget.dart'
