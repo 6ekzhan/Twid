@@ -7,6 +7,7 @@ import '../settings/settings_widget.dart';
 import '../support/support_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class QuestionsWidget extends StatefulWidget {
@@ -28,14 +29,6 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
     textController1 = TextEditingController();
     textController2 = TextEditingController();
     textController3 = TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
-          textController1?.text = FFLocalizations.of(context).getText(
-            'orhcvxy9' /* Ваше имя */,
-          );
-          textController2?.text = FFLocalizations.of(context).getText(
-            '86qwtp9a' /* Email */,
-          );
-        }));
   }
 
   @override
@@ -48,6 +41,8 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -63,7 +58,7 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 0, 46, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 15, 46, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -80,10 +75,15 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                 color: Color(0xFFF4472B),
                               ),
                             ),
-                            child: Icon(
-                              FFIcons.karrowBack2,
-                              color: Color(0xFFF4472B),
-                              size: 30,
+                            child: InkWell(
+                              onTap: () async {
+                                Navigator.pop(context);
+                              },
+                              child: Icon(
+                                FFIcons.karrowBack2,
+                                color: Color(0xFFF4472B),
+                                size: 30,
+                              ),
                             ),
                           ),
                         ),
@@ -117,11 +117,14 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                           controller: textController1,
                           obscureText: false,
                           decoration: InputDecoration(
+                            hintText: FFLocalizations.of(context).getText(
+                              '97l7zg5g' /* Ваше имя */,
+                            ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
-                                width: 0.5,
+                                width: 1,
                               ),
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -129,21 +132,21 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                               borderSide: BorderSide(
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
-                                width: 0.5,
+                                width: 1,
                               ),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 0.5,
+                                width: 1,
                               ),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 0.5,
+                                width: 1,
                               ),
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -166,11 +169,14 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                             controller: textController2,
                             obscureText: false,
                             decoration: InputDecoration(
+                              hintText: FFLocalizations.of(context).getText(
+                                'rak6fjv6' /* Email */,
+                              ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
-                                  width: 0.5,
+                                  width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -178,21 +184,21 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                                 borderSide: BorderSide(
                                   color:
                                       FlutterFlowTheme.of(context).primaryColor,
-                                  width: 0.5,
+                                  width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               errorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
-                                  width: 0.5,
+                                  width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               focusedErrorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
-                                  width: 0.5,
+                                  width: 1,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),

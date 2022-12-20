@@ -5,6 +5,7 @@ import '../help/help_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class TakeaCarWidget extends StatefulWidget {
   const TakeaCarWidget({Key? key}) : super(key: key);
@@ -18,60 +19,63 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child: ListView(
-            padding: EdgeInsets.zero,
-            scrollDirection: Axis.vertical,
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 10, 46, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          onTap: () async {
-                            Navigator.pop(context);
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Color(0xFF002532),
-                              borderRadius: BorderRadius.circular(4),
-                              border: Border.all(
-                                color: Color(0xFFF4472B),
-                              ),
-                            ),
-                            child: Icon(
-                              FFIcons.karrowBack2,
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 1,
+            decoration: BoxDecoration(),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(16, 10, 46, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      InkWell(
+                        onTap: () async {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xFF002532),
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all(
                               color: Color(0xFFF4472B),
-                              size: 30,
                             ),
                           ),
-                        ),
-                        Expanded(
                           child: Icon(
-                            FFIcons.kcar,
+                            FFIcons.karrowBack2,
                             color: Color(0xFFF4472B),
                             size: 30,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                      Expanded(
+                        child: Icon(
+                          FFIcons.kcar,
+                          color: Color(0xFFF4472B),
+                          size: 30,
+                        ),
+                      ),
+                    ],
                   ),
-                  Padding(
+                ),
+                Expanded(
+                  child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                     child: Container(
                       width: double.infinity,
-                      height: MediaQuery.of(context).size.height * 1,
                       decoration: BoxDecoration(
                         color: Color(0x00D9DCDE),
                         image: DecorationImage(
@@ -222,7 +226,7 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                               ),
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                    EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -347,14 +351,14 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                               ),
                               Padding(
                                 padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                    EdgeInsetsDirectional.fromSTEB(0, 8, 0, 24),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        '82oj8u5k' /* 2. */,
+                                        '82oj8u5k' /* 3. */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1,
@@ -386,78 +390,78 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                       ),
                     ),
                   ),
-                ],
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  color: Color(0x00D9DCDE),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(0),
-                    bottomRight: Radius.circular(0),
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    color: Color(0x00D9DCDE),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(0),
+                      bottomRight: Radius.circular(0),
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                    border: Border.all(
+                      color: FlutterFlowTheme.of(context).secondaryColor,
+                    ),
                   ),
-                  border: Border.all(
-                    color: FlutterFlowTheme.of(context).secondaryColor,
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        FlutterFlowIconButton(
+                          borderColor: Color(0x00F4472B),
+                          borderRadius: 16,
+                          borderWidth: 0,
+                          buttonSize: 48,
+                          fillColor: Color(0x00BE7C71),
+                          icon: Icon(
+                            FFIcons.kquestion,
+                            color: FlutterFlowTheme.of(context).lineColor,
+                            size: 24,
+                          ),
+                          onPressed: () async {
+                            await Navigator.push(
+                              context,
+                              PageTransition(
+                                type: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
+                                reverseDuration: Duration(milliseconds: 0),
+                                child: HelpWidget(),
+                              ),
+                            );
+                          },
+                        ),
+                        FlutterFlowIconButton(
+                          borderColor: Color(0x00F4472B),
+                          borderRadius: 16,
+                          buttonSize: 48,
+                          fillColor: Color(0x00BE7C71),
+                          icon: Icon(
+                            FFIcons.ksettings,
+                            color: FlutterFlowTheme.of(context).lineColor,
+                            size: 24,
+                          ),
+                          onPressed: () async {
+                            await Navigator.push(
+                              context,
+                              PageTransition(
+                                type: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
+                                reverseDuration: Duration(milliseconds: 0),
+                                child: SettingsWidget(),
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      FlutterFlowIconButton(
-                        borderColor: Color(0x00F4472B),
-                        borderRadius: 16,
-                        borderWidth: 0,
-                        buttonSize: 48,
-                        fillColor: Color(0x00BE7C71),
-                        icon: Icon(
-                          FFIcons.kquestion,
-                          color: FlutterFlowTheme.of(context).lineColor,
-                          size: 24,
-                        ),
-                        onPressed: () async {
-                          await Navigator.push(
-                            context,
-                            PageTransition(
-                              type: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 0),
-                              reverseDuration: Duration(milliseconds: 0),
-                              child: HelpWidget(),
-                            ),
-                          );
-                        },
-                      ),
-                      FlutterFlowIconButton(
-                        borderColor: Color(0x00F4472B),
-                        borderRadius: 16,
-                        buttonSize: 48,
-                        fillColor: Color(0x00BE7C71),
-                        icon: Icon(
-                          FFIcons.ksettings,
-                          color: FlutterFlowTheme.of(context).lineColor,
-                          size: 24,
-                        ),
-                        onPressed: () async {
-                          await Navigator.push(
-                            context,
-                            PageTransition(
-                              type: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 0),
-                              reverseDuration: Duration(milliseconds: 0),
-                              child: SettingsWidget(),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

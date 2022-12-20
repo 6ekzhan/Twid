@@ -6,9 +6,10 @@ import 'index.dart'; // Imports other custom widgets
 import '../actions/index.dart'; // Imports custom actions
 import 'package:flutter/material.dart';
 // Begin custom widget code
+// DO NOT REMOVE OR MODIFY THE CODE ABOVE!
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class Player extends StatefulWidget {

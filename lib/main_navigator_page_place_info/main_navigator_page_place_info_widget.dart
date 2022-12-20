@@ -10,6 +10,7 @@ import '../place_information_point/place_information_point_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class MainNavigatorPagePlaceInfoWidget extends StatefulWidget {
   const MainNavigatorPagePlaceInfoWidget({Key? key}) : super(key: key);
@@ -35,17 +36,22 @@ class _MainNavigatorPagePlaceInfoWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     if (currentUserLocationValue == null) {
-      return Center(
-        child: SizedBox(
-          width: 50,
-          height: 50,
-          child: CircularProgressIndicator(
-            color: FlutterFlowTheme.of(context).primaryColor,
+      return Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: Center(
+          child: SizedBox(
+            width: 50,
+            height: 50,
+            child: CircularProgressIndicator(
+              color: FlutterFlowTheme.of(context).primaryColor,
+            ),
           ),
         ),
       );
     }
+
     return Scaffold(
       key: scaffoldKey,
       resizeToAvoidBottomInset: false,

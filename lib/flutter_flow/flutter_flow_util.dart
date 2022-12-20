@@ -29,10 +29,10 @@ T valueOrDefault<T>(T? value, T defaultValue) =>
     (value is String && value.isEmpty) || value == null ? defaultValue : value;
 
 void _setTimeagoLocales() {
-  timeago.setLocaleMessages('ru', timeago.RuMessages());
   timeago.setLocaleMessages('en', timeago.EnMessages());
+  timeago.setLocaleMessages('ru', timeago.RuMessages());
   timeago.setLocaleMessages('es', timeago.EsMessages());
-  timeago.setLocaleMessages('ko', timeago.KoMessages());
+  timeago.setLocaleMessages('ja', timeago.JaMessages());
   timeago.setLocaleMessages('ar', timeago.ArMessages());
 }
 
@@ -168,6 +168,10 @@ dynamic getJsonField(
 bool get isAndroid => !kIsWeb && Platform.isAndroid;
 bool get isiOS => !kIsWeb && Platform.isIOS;
 bool get isWeb => kIsWeb;
+
+const kMobileWidthCutoff = 479.0;
+bool isMobileWidth(BuildContext context) =>
+    MediaQuery.of(context).size.width < kMobileWidthCutoff;
 bool responsiveVisibility({
   required BuildContext context,
   bool phone = true,
@@ -176,7 +180,7 @@ bool responsiveVisibility({
   bool desktop = true,
 }) {
   final width = MediaQuery.of(context).size.width;
-  if (width < 479) {
+  if (width < kMobileWidthCutoff) {
     return phone;
   } else if (width < 767) {
     return tablet;
@@ -191,7 +195,7 @@ const kTextValidatorUsernameRegex = r'^[a-zA-Z][a-zA-Z0-9_-]{2,16}$';
 const kTextValidatorEmailRegex =
     r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
 const kTextValidatorWebsiteRegex =
-    r'(https?:\/\/)?(www\.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)|(https?:\/\/)?(www\.)?(?!ww)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)';
+    r'(https?:\/\/)?(www\.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)|(https?:\/\/)?(www\.)?(?!ww)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)';
 
 LatLng? cachedUserLocation;
 Future<LatLng> getCurrentUserLocation(

@@ -10,6 +10,7 @@ import '../settings/settings_widget.dart';
 import '../trip_finish/trip_finish_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class MainNavigatorPageFinishWidget extends StatefulWidget {
   const MainNavigatorPageFinishWidget({Key? key}) : super(key: key);
@@ -35,17 +36,22 @@ class _MainNavigatorPageFinishWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     if (currentUserLocationValue == null) {
-      return Center(
-        child: SizedBox(
-          width: 50,
-          height: 50,
-          child: CircularProgressIndicator(
-            color: FlutterFlowTheme.of(context).primaryColor,
+      return Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: Center(
+          child: SizedBox(
+            width: 50,
+            height: 50,
+            child: CircularProgressIndicator(
+              color: FlutterFlowTheme.of(context).primaryColor,
+            ),
           ),
         ),
       );
     }
+
     return Scaffold(
       key: scaffoldKey,
       resizeToAvoidBottomInset: false,

@@ -7,6 +7,7 @@ import '../settings/settings_widget.dart';
 import '../takea_car/takea_car_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class TripStartWidget extends StatefulWidget {
   const TripStartWidget({Key? key}) : super(key: key);
@@ -20,6 +21,8 @@ class _TripStartWidgetState extends State<TripStartWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,

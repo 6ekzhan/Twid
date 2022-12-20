@@ -18,10 +18,10 @@
 	<string>APPL</string>
 	<key>CFBundleLocalizations</key>
 	<array>
-		<string>ru</string>
 		<string>en</string>
+		<string>ru</string>
 		<string>es</string>
-		<string>ko</string>
+		<string>ja</string>
 		<string>ar</string>
 	</array>
 

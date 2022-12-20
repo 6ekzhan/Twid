@@ -5,6 +5,7 @@ import '../home_page/home_page_widget.dart';
 import '../custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class LanguageWidget extends StatefulWidget {
   const LanguageWidget({Key? key}) : super(key: key);
@@ -18,6 +19,8 @@ class _LanguageWidgetState extends State<LanguageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -45,6 +48,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Inter',
                         color: FlutterFlowTheme.of(context).tertiaryColor,
+                        fontSize: 14,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
@@ -61,7 +65,9 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                       FFAppState().hasBeenPressed4,
                       FFAppState().hasBeenPressed5,
                     );
-                    setState(() => FFAppState().hasBeenPressed1 = true);
+                    setState(() {
+                      FFAppState().hasBeenPressed1 = true;
+                    });
                   },
                   text: FFLocalizations.of(context).getText(
                     '8swe181o' /* ENGLISH */,
@@ -82,7 +88,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                         ),
                     borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).primaryColor,
-                      width: 0.5,
+                      width: 1,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -100,7 +106,9 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                       FFAppState().hasBeenPressed4,
                       FFAppState().hasBeenPressed5,
                     );
-                    setState(() => FFAppState().hasBeenPressed2 = true);
+                    setState(() {
+                      FFAppState().hasBeenPressed2 = true;
+                    });
                   },
                   text: FFLocalizations.of(context).getText(
                     '6n6ffivf' /* РУССКИЙ */,
@@ -121,7 +129,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                         ),
                     borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).primaryColor,
-                      width: 0.5,
+                      width: 1,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -139,7 +147,9 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                       FFAppState().hasBeenPressed4,
                       FFAppState().hasBeenPressed5,
                     );
-                    setState(() => FFAppState().hasBeenPressed3 = true);
+                    setState(() {
+                      FFAppState().hasBeenPressed3 = true;
+                    });
                   },
                   text: FFLocalizations.of(context).getText(
                     '9jgt0kph' /* ESPAÑOL */,
@@ -160,7 +170,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                         ),
                     borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).primaryColor,
-                      width: 0.5,
+                      width: 1,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -170,7 +180,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    setAppLanguage(context, 'ko');
+                    setAppLanguage(context, 'ja');
                     await actions.hasBeenPressed(
                       FFAppState().hasBeenPressed1,
                       FFAppState().hasBeenPressed2,
@@ -178,10 +188,12 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                       FFAppState().hasBeenPressed4,
                       FFAppState().hasBeenPressed5,
                     );
-                    setState(() => FFAppState().hasBeenPressed4 = true);
+                    setState(() {
+                      FFAppState().hasBeenPressed4 = true;
+                    });
                   },
                   text: FFLocalizations.of(context).getText(
-                    'jguowibg' /* 日本 */,
+                    'jguowibg' /* 日本語 */,
                   ),
                   options: FFButtonOptions(
                     width: double.infinity,
@@ -199,7 +211,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                         ),
                     borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).primaryColor,
-                      width: 0.5,
+                      width: 1,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -217,7 +229,9 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                       FFAppState().hasBeenPressed4,
                       FFAppState().hasBeenPressed5,
                     );
-                    setState(() => FFAppState().hasBeenPressed5 = true);
+                    setState(() {
+                      FFAppState().hasBeenPressed5 = true;
+                    });
                   },
                   text: FFLocalizations.of(context).getText(
                     'x0c3a2zl' /* عربى */,
@@ -238,7 +252,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                         ),
                     borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).primaryColor,
-                      width: 0.5,
+                      width: 1,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -270,7 +284,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                         ),
                     borderSide: BorderSide(
                       color: Color(0xFFA5AAAD),
-                      width: 0.5,
+                      width: 1,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),

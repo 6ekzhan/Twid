@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import '../trip1/trip1_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class SearchWidget extends StatefulWidget {
   const SearchWidget({Key? key}) : super(key: key);
@@ -15,6 +16,8 @@ class SearchWidget extends StatefulWidget {
 class _SearchWidgetState extends State<SearchWidget> {
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return FFButtonWidget(
       onPressed: () async {
         await Navigator.push(

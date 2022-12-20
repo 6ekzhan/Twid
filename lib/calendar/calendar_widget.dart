@@ -1,4 +1,6 @@
+import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../backend/push_notifications/push_notifications_util.dart';
 import '../flutter_flow/flutter_flow_calendar.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -8,6 +10,7 @@ import '../help/help_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class CalendarWidget extends StatefulWidget {
   const CalendarWidget({Key? key}) : super(key: key);
@@ -31,6 +34,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -167,16 +172,29 @@ class _CalendarWidgetState extends State<CalendarWidget> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
-                child: Text(
-                  FFLocalizations.of(context).getText(
-                    'ijy45luh' /* Установить напоминание */,
+                child: InkWell(
+                  onTap: () async {
+                    triggerPushNotification(
+                      notificationTitle: 'asd',
+                      notificationText: 'asd',
+                      notificationSound: 'default',
+                      userRefs: [currentUserReference!],
+                      initialPageName: 'Trip1',
+                      parameterData: {},
+                    );
+                  },
+                  child: Text(
+                    FFLocalizations.of(context).getText(
+                      'ijy45luh' /* Установить напоминание */,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Inter',
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          fontWeight: FontWeight.normal,
+                          decoration: TextDecoration.underline,
+                        ),
                   ),
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Inter',
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        fontWeight: FontWeight.normal,
-                        decoration: TextDecoration.underline,
-                      ),
                 ),
               ),
               Padding(

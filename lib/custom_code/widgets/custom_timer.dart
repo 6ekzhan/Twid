@@ -6,6 +6,8 @@ import 'index.dart'; // Imports other custom widgets
 import '../actions/index.dart'; // Imports custom actions
 import 'package:flutter/material.dart';
 // Begin custom widget code
+// DO NOT REMOVE OR MODIFY THE CODE ABOVE!
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 
@@ -29,7 +31,9 @@ class CustomTimer extends StatefulWidget {
 
 class _CustomTimerState extends State<CustomTimer> {
   int? difference;
+  int? differenceDays;
   String? time;
+  String? timeDays;
   bool isTrue = false;
 
   int daysBetween(DateTime from, DateTime to) {
@@ -37,6 +41,13 @@ class _CustomTimerState extends State<CustomTimer> {
         from.year, from.month, from.day, from.hour, from.minute, from.second);
     to = DateTime(to.year, to.month, to.day, to.hour, to.minute, to.second);
     return (to.difference(from).inSeconds).round();
+  }
+
+  int days(DateTime from, DateTime to) {
+    from = DateTime(
+        from.year, from.month, from.day, from.hour, from.minute, from.second);
+    to = DateTime(to.year, to.month, to.day, to.hour, to.minute, to.second);
+    return (to.difference(from).inDays).round();
   }
 
   String intToTimeLeft(int value) {
@@ -66,9 +77,11 @@ class _CustomTimerState extends State<CustomTimer> {
         DateTime now = DateTime.now();
         if (now.compareTo(widget.date) < 0) {
           difference = daysBetween(now, widget.date);
+          differenceDays = days(now, widget.date);
           time = intToTimeLeft(difference!);
         } else {
           difference = daysBetween(now, widget.date);
+          differenceDays = days(now, widget.date);
           time = intToTimeLeft(difference!);
           isTrue = true;
           timer.cancel();
@@ -92,16 +105,36 @@ class _CustomTimerState extends State<CustomTimer> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Visibility(
+              visible: differenceDays! < 1 ? false : true,
+              child: Text(
+                '$differenceDays${differenceDays! <= 1 ? ' DAY' : ' DAYS'}',
+                style: const TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Metal',
+                  color: Color(0xFFF4472B),
+                ),
+              ),
+            ),
             time == null
                 ? CircularProgressIndicator()
                 : Text(
                     isTrue ? 'READY TO BEGIN' : time!,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: 'Metal',
-                      color: Color(0xFFF4472B),
-                    ),
+                    textAlign: TextAlign.center,
+                    style: isTrue
+                        ? const TextStyle(
+                            fontSize: 39,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'Metal',
+                            color: Color(0xFFF4472B),
+                          )
+                        : const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'Metal',
+                            color: Color(0xFFF4472B),
+                          ),
                   ),
           ],
         ),

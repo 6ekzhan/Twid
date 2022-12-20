@@ -8,6 +8,7 @@ import '../custom_code/actions/index.dart' as actions;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class SettingsWidget extends StatefulWidget {
   const SettingsWidget({Key? key}) : super(key: key);
@@ -20,12 +21,12 @@ class _SettingsWidgetState extends State<SettingsWidget> {
   String? radioButtonValue1;
   String? radioButtonValue2;
   String? radioButtonValue3;
-  String? radioButtonValue4;
-  String? radioButtonValue5;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF002532),
@@ -251,251 +252,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Icon(
-                                        FFIcons.kvoice,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        size: 24,
-                                      ),
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  32, 0, 0, 0),
-                                          child: Container(
-                                            width: 320,
-                                            color: Color(0x00FFFFFF),
-                                            child: ExpandableNotifier(
-                                              initialExpanded: false,
-                                              child: ExpandablePanel(
-                                                header: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'wambaw0q' /* ЯЗЫК НАВИГАТОРА */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .title1
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                ),
-                                                collapsed: Container(),
-                                                expanded: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 16, 0, 0),
-                                                  child: FlutterFlowRadioButton(
-                                                    options: [
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '9iej4zks' /* Английский */,
-                                                      ),
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'j4e04641' /* Русский */,
-                                                      ),
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'bo3p5ws7' /* Испанский */,
-                                                      ),
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'zczu0t3j' /* Японский */,
-                                                      ),
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'yipwsz88' /* Арабский */,
-                                                      )
-                                                    ].toList(),
-                                                    onChanged: (val) =>
-                                                        setState(() =>
-                                                            radioButtonValue2 =
-                                                                val),
-                                                    optionHeight: 20,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: Colors.black,
-                                                        ),
-                                                    buttonPosition:
-                                                        RadioButtonPosition
-                                                            .left,
-                                                    direction: Axis.vertical,
-                                                    radioButtonColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryColor,
-                                                    inactiveRadioButtonColor:
-                                                        Color(0x8A000000),
-                                                    toggleable: false,
-                                                    horizontalAlignment:
-                                                        WrapAlignment.start,
-                                                    verticalAlignment:
-                                                        WrapCrossAlignment
-                                                            .start,
-                                                  ),
-                                                ),
-                                                theme: ExpandableThemeData(
-                                                  tapHeaderToExpand: true,
-                                                  tapBodyToExpand: true,
-                                                  tapBodyToCollapse: true,
-                                                  headerAlignment:
-                                                      ExpandablePanelHeaderAlignment
-                                                          .center,
-                                                  hasIcon: false,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Divider(
-                                  height: 0.5,
-                                  thickness: 0.5,
-                                  indent: 16,
-                                  endIndent: 16,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 24, 16, 24),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Icon(
-                                        FFIcons.ksound,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        size: 24,
-                                      ),
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  32, 0, 0, 0),
-                                          child: Container(
-                                            width: 320,
-                                            color: Color(0x00FFFFFF),
-                                            child: ExpandableNotifier(
-                                              initialExpanded: false,
-                                              child: ExpandablePanel(
-                                                header: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '1fyo3e10' /* ГОЛОС НАВИГАТОРА */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .title1
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                ),
-                                                collapsed: Container(),
-                                                expanded: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 16, 0, 0),
-                                                  child: FlutterFlowRadioButton(
-                                                    options: [
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'mcgb5rmy' /* Женский */,
-                                                      ),
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '0mw6hmeq' /* Мужской */,
-                                                      )
-                                                    ].toList(),
-                                                    onChanged: (val) =>
-                                                        setState(() =>
-                                                            radioButtonValue3 =
-                                                                val),
-                                                    optionHeight: 20,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: Colors.black,
-                                                        ),
-                                                    buttonPosition:
-                                                        RadioButtonPosition
-                                                            .left,
-                                                    direction: Axis.horizontal,
-                                                    radioButtonColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryColor,
-                                                    inactiveRadioButtonColor:
-                                                        Color(0x8A000000),
-                                                    toggleable: false,
-                                                    horizontalAlignment:
-                                                        WrapAlignment.start,
-                                                    verticalAlignment:
-                                                        WrapCrossAlignment
-                                                            .start,
-                                                  ),
-                                                ),
-                                                theme: ExpandableThemeData(
-                                                  tapHeaderToExpand: true,
-                                                  tapBodyToExpand: true,
-                                                  tapBodyToCollapse: true,
-                                                  headerAlignment:
-                                                      ExpandablePanelHeaderAlignment
-                                                          .center,
-                                                  hasIcon: false,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Divider(
-                                  height: 0.5,
-                                  thickness: 0.5,
-                                  indent: 16,
-                                  endIndent: 16,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 24, 16, 24),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Icon(
                                         FFIcons.kring,
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
@@ -549,7 +305,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                     ].toList(),
                                                     onChanged: (val) =>
                                                         setState(() =>
-                                                            radioButtonValue4 =
+                                                            radioButtonValue2 =
                                                                 val),
                                                     optionHeight: 20,
                                                     textStyle: FlutterFlowTheme
@@ -664,7 +420,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                     ].toList(),
                                                     onChanged: (val) =>
                                                         setState(() =>
-                                                            radioButtonValue5 =
+                                                            radioButtonValue3 =
                                                                 val),
                                                     optionHeight: 20,
                                                     textStyle: FlutterFlowTheme

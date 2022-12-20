@@ -26,6 +26,6 @@ export 'car/car_widget.dart' show CarWidget;
 export 'about_place/about_place_widget.dart' show AboutPlaceWidget;
 export 'takea_car/takea_car_widget.dart' show TakeaCarWidget;
 export 'settings/settings_widget.dart' show SettingsWidget;
-export 'questions/questions_widget.dart' show QuestionsWidget;
 export 'help/help_widget.dart' show HelpWidget;
+export 'questions/questions_widget.dart' show QuestionsWidget;
 export 'support/support_widget.dart' show SupportWidget;

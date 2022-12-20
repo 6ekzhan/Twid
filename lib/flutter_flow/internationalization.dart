@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+const _kLocaleStorageKey = '__locale_key__';
 
 class FFLocalizations {
   FFLocalizations(this.locale);
@@ -9,7 +12,17 @@ class FFLocalizations {
   static FFLocalizations of(BuildContext context) =>
       Localizations.of<FFLocalizations>(context, FFLocalizations)!;
 
-  static List<String> languages() => ['ru', 'en', 'es', 'ko', 'ar'];
+  static List<String> languages() => ['en', 'ru', 'es', 'ja', 'ar'];
+
+  static late SharedPreferences _prefs;
+  static Future initialize() async =>
+      _prefs = await SharedPreferences.getInstance();
+  static Future storeLocale(String locale) =>
+      _prefs.setString(_kLocaleStorageKey, locale);
+  static Locale? getStoredLocale() {
+    final locale = _prefs.getString(_kLocaleStorageKey);
+    return locale != null && locale.isNotEmpty ? createLocale(locale) : null;
+  }
 
   String get languageCode => locale.toString();
   int get languageIndex => languages().contains(languageCode)
@@ -20,13 +33,13 @@ class FFLocalizations {
       (kTranslationsMap[key] ?? {})[locale.toString()] ?? '';
 
   String getVariableText({
-    String? ruText = '',
     String? enText = '',
+    String? ruText = '',
     String? esText = '',
-    String? koText = '',
+    String? jaText = '',
     String? arText = '',
   }) =>
-      [ruText, enText, esText, koText, arText][languageIndex] ?? '';
+      [enText, ruText, esText, jaText, arText][languageIndex] ?? '';
 }
 
 class FFLocalizationsDelegate extends LocalizationsDelegate<FFLocalizations> {
@@ -61,1788 +74,1723 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Language
   {
     'z258brx9': {
-      'ru': 'Please choose a language',
-      'ar': 'Please choose a language',
       'en': 'Please choose a language',
+      'ar': 'Please choose a language',
       'es': 'Please choose a language',
-      'ko': 'Please choose a language',
+      'ja': 'Please choose a language',
+      'ru': 'Please choose a language',
     },
     '8swe181o': {
-      'ru': 'ENGLISH',
-      'ar': 'ENGLISH',
       'en': 'ENGLISH',
+      'ar': 'ENGLISH',
       'es': 'ENGLISH',
-      'ko': 'ENGLISH',
+      'ja': 'ENGLISH',
+      'ru': 'ENGLISH',
     },
     '6n6ffivf': {
-      'ru': 'РУССКИЙ',
-      'ar': 'РУССКИЙ',
       'en': 'РУССКИЙ',
+      'ar': 'РУССКИЙ',
       'es': 'РУССКИЙ',
-      'ko': 'РУССКИЙ',
+      'ja': 'РУССКИЙ',
+      'ru': 'РУССКИЙ',
     },
     '9jgt0kph': {
-      'ru': 'ESPAÑOL',
-      'ar': 'ESPAÑOL',
       'en': 'ESPAÑOL',
+      'ar': 'ESPAÑOL',
       'es': 'ESPAÑOL',
-      'ko': 'ESPAÑOL',
+      'ja': 'ESPAÑOL',
+      'ru': 'ESPAÑOL',
     },
     'jguowibg': {
-      'ru': '日本',
-      'ar': '日本',
-      'en': '日本',
-      'es': '日本',
-      'ko': '日本',
+      'en': '日本語',
+      'ar': '日本語',
+      'es': '日本語',
+      'ja': '日本語',
+      'ru': '日本語',
     },
     'x0c3a2zl': {
-      'ru': 'عربى',
-      'ar': 'عربى',
       'en': 'عربى',
+      'ar': 'عربى',
       'es': 'عربى',
-      'ko': 'عربى',
+      'ja': 'عربى',
+      'ru': 'عربى',
     },
     'bmetd3l7': {
-      'ru': 'OK',
-      'ar': 'OK',
       'en': 'OK',
+      'ar': 'OK',
       'es': 'OK',
-      'ko': 'OK',
+      'ja': 'OK',
+      'ru': 'OK',
     },
     'jczuhabi': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
   },
   // HomePage
   {
     'ypfz29i7': {
-      'ru': 'OK',
-      'ar': 'نعم',
       'en': 'OK',
+      'ar': 'OK',
       'es': 'OK',
-      'ko': '확인',
+      'ja': 'OK',
+      'ru': 'OK',
     },
     '2eqpkck1': {
-      'ru':
-          'Если вы еще не выбрали маршрут для \nпутешествия перейдите на сайт',
-      'ar': 'إذا لم تكن قد اخترت طريقًا للسفر بعد ، فانتقل إلى الموقع',
-      'en': 'If you have not yet chosen a route for travel, go to the site',
-      'es': 'Si aún no ha elegido una ruta para viajar, vaya al sitio',
-      'ko': '아직 여행 경로를 선택하지 않았다면 사이트로 이동',
+      'en': 'If you have not yet chosen a route to travel, go to the website',
+      'ar': 'إذا لم تكن قد اخترت طريقا للسفر بعد ، فانتقل إلى موقع الويب',
+      'es': 'Si aún no ha elegido una ruta para viajar, vaya al sitio web',
+      'ja': '旅行するルートをまだ選択していない場合は、ウェブサイトにアクセスしてください',
+      'ru': 'Если вы еще не выбрали маршрут для путешествия перейдите на сайт',
     },
     'b0eqhtut': {
+      'en': 'How to use the app?',
+      'ar': 'كيفية استخدام التطبيق?',
+      'es': '¿Cómo utilizar la aplicación?',
+      'ja': 'どのようにアプリを使用するには？',
       'ru': 'Как использовать приложение?',
-      'ar': 'كيف تستخدم التطبيق؟',
-      'en': 'How to use the application?',
-      'es': '¿Cómo usar la aplicación?',
-      'ko': '응용 프로그램을 사용하는 방법?',
     },
     'wf7mh0gc': {
-      'ru': 'Home',
-      'ar': 'مسكن',
-      'en': 'Home',
-      'es': 'Hogar',
-      'ko': '집',
+      'en': '',
+      'ar': '',
+      'es': '',
+      'ja': '',
+      'ru': '',
     },
   },
   // Trip1
   {
     '7b7tfv87': {
-      'ru': 'Ваше путешествие начнется через:',
-      'ar': 'ستبدأ رحلتك في:',
-      'en': 'Your journey will start in:',
-      'es': 'Su viaje comenzará en:',
-      'ko': '여정은 다음에서 시작됩니다.',
-    },
-    'wzbafwa9': {
-      'ru': '10 октября — 12 октября, 2022',
-      'ar': '10 أكتوبر - 12 أكتوبر 2022',
-      'en': 'October 10 — October 12, 2022',
-      'es': '10 de octubre — 12 de octubre de 2022',
-      'ko': '2022년 10월 10일 — 10월 12일',
+      'en': 'Ваше путешествие начнется через:',
+      'ar': 'аше путешествие начнется ерез:',
+      'es': 'Ваше путешествие начнется через:',
+      'ja': '重要事項:',
+      'ru': 'Ваше путешествие началось через:',
     },
     'hy6dw4ym': {
-      'ru': 'Porsche 911 Carrera GTS',
-      'ar': 'بورش 911 كاريرا جي تي إس',
       'en': 'Porsche 911 Carrera GTS',
+      'ar': 'بورش 911 كاريرا جي تي إس',
       'es': 'Porsche 911 Carrera GTS',
-      'ko': '포르쉐 911 카레라 GTS',
+      'ja': 'ポルシェ 911 カレラ GTS',
+      'ru': 'Порше 911 Каррера ГТС',
     },
-    'okjp83oo': {
-      'ru': 'Cabo da Roca — Nazare. Portugal',
+    'wzbafwa9': {
+      'en': '10 октября — 12 октября, 2022',
+      'ar': '10 октября - 12 октября، 2022',
+      'es': '10 de octubre — 12 de octubre, 2022',
+      'ja': '2022 年 10 月 10 日 — 12 日',
+      'ru': '10 октября — 12 октября 2022 г.',
+    },
+    '7ho7tok1': {
+      'en': 'Cabo da Roca — Nazare. Portugal',
       'ar': 'كابو دا روكا - نازاري. البرتغال',
-      'en': 'Cabo da Roca - Nazare. Portugal',
-      'es': 'Cabo da Roca - Nazaré. Portugal',
-      'ko': '카보 다 로카 - 나자레. 포르투갈',
+      'es': 'Cabo da Roca — Nazaré. Portugal',
+      'ja': 'カボ ダ ロカ — ナザレ。ポルトガル',
+      'ru': 'Кабо да Рока — Назаре. Португалия',
     },
-    'fll91hyi': {
-      'ru': 'More journey details',
-      'ar': 'مزيد من تفاصيل الرحلة',
+    'u8lwwu0t': {
       'en': 'More journey details',
+      'ar': 'مزيد من تفاصيل الرحلة',
       'es': 'Más detalles del viaje',
-      'ko': '더 많은 여행 정보',
+      'ja': '旅の詳細',
+      'ru': 'Подробнее о путешествии',
     },
     'ocefep6i': {
+      'en': 'Как забрать машину?',
+      'ar': 'Как забрать машину؟',
+      'es': 'Как забрать машину?',
+      'ja': 'Как забрать машину?',
       'ru': 'Как забрать машину?',
-      'ar': 'كيف تلتقط سيارة؟',
-      'en': 'How to pick up a car?',
-      'es': '¿Cómo recoger un coche?',
-      'ko': '차를 픽업하는 방법?',
     },
     '44rr2ku7': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // Instructions010
   {
-    'igmpnhzd': {
-      'ru': 'Пожалуйста, ознакомьтесь с правилами',
-      'ar': 'يرجى قراءة القواعد',
+    'scniofx1': {
       'en': 'Please read the rules',
-      'es': 'Por favor lea las reglas',
-      'ko': '규칙을 읽어주세요',
+      'ar': 'يرجى قراءة القواعد',
+      'es': 'Por favor, lea las reglas',
+      'ja': 'ルールをお読みください',
+      'ru': 'Пожалуйста, ознакомьтесь с правилами',
     },
-    '5paztg0h': {
+    'sxcy9gwi': {
+      'en': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+      'ar': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+      'es': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+      'ja': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
       'ru': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
-      'ar': 'قواعد استخدام السيارة',
-      'en': 'RULES FOR USE OF THE CAR',
-      'es': 'NORMAS PARA EL USO DEL COCHE',
-      'ko': '자동차 사용 규칙',
     },
-    'ymjci8j5': {
-      'ru':
+    'vh0yu7xd': {
+      'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
           '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'es':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    'iu1sb52u': {
+    'kj98caru': {
+      'en': 'ПРАВИЛА СТРАХОВАНИЯ',
+      'ar': 'ПРАВИЛА СТРАХОВАНИЯ',
+      'es': 'ПРАВИЛА СТРАХОВАНИЯ',
+      'ja': 'ПРАВИЛА СТРАХОВАНИЯ',
       'ru': 'ПРАВИЛА СТРАХОВАНИЯ',
-      'ar': 'قواعد التأمين',
-      'en': 'INSURANCE RULES',
-      'es': 'REGLAS DE SEGURO',
-      'ko': '보험 규정',
     },
-    'nva1bsz7': {
-      'ru':
+    '9d7fg3xw': {
+      'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
           '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'es':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    'e19nqw8s': {
-      'ru': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
-      'ar': 'شروط وأحكام حجز الفنادق',
-      'en': 'HOTEL BOOKING TERMS AND CONDITIONS',
-      'es': 'TÉRMINOS Y CONDICIONES DE RESERVA DE HOTELES',
-      'ko': '호텔 예약 약관',
+    'h4tiew0k': {
+      'en': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
+      'ar': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
+      'es': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
+      'ja': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
+      'ru': 'ПРАВИЛА ПОЛЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
     },
-    'ajpti0h9': {
-      'ru':
+    'ls5q6opd': {
+      'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
           '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'es':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    'g6degmim': {
+    'rykgo23m': {
+      'en': 'ПРАВИЛА БЕЗОПАСНОСТИ',
+      'ar': 'ПРАВИЛА БЕЗОПАСНОСТИ',
+      'es': 'ПРАВИЛА БЕЗОПАСНОСТИ',
+      'ja': 'ПРАВИЛА БЕЗОПАСНОСТИ',
       'ru': 'ПРАВИЛА БЕЗОПАСНОСТИ',
-      'ar': 'لوائح السلامة',
-      'en': 'SAFETY REGULATIONS',
-      'es': 'REGULACIONES DE SEGURIDAD',
-      'ko': '안전 규정',
     },
-    '3s63quou': {
-      'ru':
+    'q7mejtp8': {
+      'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
           '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'es':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    '3e6mr48m': {
+    'htnzwlpv': {
+      'en': 'ЭКСТРЕННАЯ СВЯЗЬ',
+      'ar': 'ЭКСТРЕННАЯ СВЯЗЬ',
+      'es': 'ЭКСТРЕННАЯ СВЯЗЬ',
+      'ja': 'ЭКСТРЕННАЯ СВЯЗЬ',
       'ru': 'ЭКСТРЕННАЯ СВЯЗЬ',
-      'ar': 'حالة طوارئ',
-      'en': 'EMERGENCY',
-      'es': 'EMERGENCIA',
-      'ko': '비상',
     },
-    '58ws4c12': {
-      'ru':
+    'w80no2r8': {
+      'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
           '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'es':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    'rjiw6puk': {
+    'ytdd4c9f': {
+      'en': 'ПРОЧИТАЛ. СОГЛАСЕН',
+      'ar': 'РОЧИТАЛ. СОГЛАСЕН',
+      'es': 'ПРОЧИТАЛ. СОГЛАСЕН',
+      'ja': 'ПРОЧИТАЛ。 СОГЛАСЕН',
       'ru': 'ПРОЧИТАЛ. СОГЛАСЕН',
-      'ar': 'قرأ. أنا موافق',
-      'en': 'READ. I AGREE',
-      'es': 'LEER. ESTOY DE ACUERDO',
-      'ko': '읽다. 동의한다',
     },
     '8ckyk7t6': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // Instructions010Copy
   {
-    '3pyezc82': {
-      'ru': 'Пожалуйста, ознакомьтесь с правилами',
-      'ar': 'يرجى قراءة القواعد',
+    'v6j5ryey': {
       'en': 'Please read the rules',
-      'es': 'Por favor lea las reglas',
-      'ko': '규칙을 읽어주세요',
+      'ar': 'يرجى قراءة القواعد',
+      'es': 'Por favor, lea las reglas',
+      'ja': 'ルールをお読みください',
+      'ru': 'Пожалуйста, ознакомьтесь с правилами',
     },
-    'tlqo0pqx': {
+    'sl6hsy3q': {
+      'en': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+      'ar': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+      'es': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+      'ja': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
       'ru': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
-      'ar': 'قواعد استخدام السيارة',
-      'en': 'RULES FOR USE OF THE CAR',
-      'es': 'NORMAS PARA EL USO DEL COCHE',
-      'ko': '자동차 사용 규칙',
     },
-    'xvbgxdia': {
-      'ru':
+    '5wnr55cj': {
+      'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
           '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'es':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    'w2b0id5m': {
+    '35207tv8': {
+      'en': 'ПРАВИЛА СТРАХОВАНИЯ',
+      'ar': 'ПРАВИЛА СТРАХОВАНИЯ',
+      'es': 'ПРАВИЛА СТРАХОВАНИЯ',
+      'ja': 'ПРАВИЛА СТРАХОВАНИЯ',
       'ru': 'ПРАВИЛА СТРАХОВАНИЯ',
-      'ar': 'قواعد التأمين',
-      'en': 'INSURANCE RULES',
-      'es': 'REGLAS DE SEGURO',
-      'ko': '보험 규정',
     },
-    '0mdcyrnh': {
-      'ru':
+    'szdpa1zt': {
+      'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
           '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'es':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    'nnk9b77d': {
-      'ru': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
-      'ar': 'شروط وأحكام حجز الفنادق',
-      'en': 'HOTEL BOOKING TERMS AND CONDITIONS',
-      'es': 'TÉRMINOS Y CONDICIONES DE RESERVA DE HOTELES',
-      'ko': '호텔 예약 약관',
+    '7g665hmp': {
+      'en': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
+      'ar': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
+      'es': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
+      'ja': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
+      'ru': 'ПРАВИЛА ПОЛЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
     },
-    'h0ainlja': {
-      'ru':
+    'itz9ofjz': {
+      'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
           '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'es':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    '1t3dlas0': {
+    '34yjos6d': {
+      'en': 'ПРАВИЛА БЕЗОПАСНОСТИ',
+      'ar': 'ПРАВИЛА БЕЗОПАСНОСТИ',
+      'es': 'ПРАВИЛА БЕЗОПАСНОСТИ',
+      'ja': 'ПРАВИЛА БЕЗОПАСНОСТИ',
       'ru': 'ПРАВИЛА БЕЗОПАСНОСТИ',
-      'ar': 'لوائح السلامة',
-      'en': 'SAFETY REGULATIONS',
-      'es': 'REGULACIONES DE SEGURIDAD',
-      'ko': '안전 규정',
     },
-    'ys7bpctk': {
-      'ru':
+    'af1ge8va': {
+      'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
           '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'es':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    'jifvqzcd': {
+    'hs74hxm1': {
+      'en': 'ЭКСТРЕННАЯ СВЯЗЬ',
+      'ar': 'ЭКСТРЕННАЯ СВЯЗЬ',
+      'es': 'ЭКСТРЕННАЯ СВЯЗЬ',
+      'ja': 'ЭКСТРЕННАЯ СВЯЗЬ',
       'ru': 'ЭКСТРЕННАЯ СВЯЗЬ',
-      'ar': 'حالة طوارئ',
-      'en': 'EMERGENCY',
-      'es': 'EMERGENCIA',
-      'ko': '비상',
     },
-    '9eymjye9': {
-      'ru':
+    'es7mzigx': {
+      'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
           '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'es':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    'l0642ab5': {
+    'bofdm55b': {
+      'en': 'ПРОЧИТАЛ. СОГЛАСЕН',
+      'ar': 'РОЧИТАЛ. СОГЛАСЕН',
+      'es': 'ПРОЧИТАЛ. СОГЛАСЕН',
+      'ja': 'ПРОЧИТАЛ。 СОГЛАСЕН',
       'ru': 'ПРОЧИТАЛ. СОГЛАСЕН',
-      'ar': 'قرأ. أنا موافق',
-      'en': 'READ. I AGREE',
-      'es': 'LEER. ESTOY DE ACUERDO',
-      'ko': '읽다. 동의한다',
     },
-    'gptmy2lb': {
-      'ru': 'Home',
-      'ar': 'مسكن',
+    '6puna2y2': {
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // Trip2
   {
     'pz4ro1we': {
-      'ru':
+      'en':
           'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы легко можете перейти от одной точки назначения до другой или вернуться назад.  ',
       'ar':
-          'ستساعدك الأزرار الموجودة على شاشة الملاح على التنقل عبر المسار. يمكنك بسهولة الانتقال من وجهة إلى أخرى أو العودة.',
-      'en':
-          'The buttons on the navigator screen will help you navigate throughout the route. You can easily go from one destination to another or go back.',
+          'на протяжении всего маршрута. هذا هو السبب في أنه من الأفضل أن يكون هذا هو الحال.',
       'es':
-          'Los botones de la pantalla del navegador te ayudarán a navegar por la ruta. Puede ir fácilmente de un destino a otro o regresar.',
-      'ko':
-          '네비게이터 화면의 버튼은 경로 전체를 탐색하는 데 도움이 됩니다. 한 목적지에서 다른 목적지로 쉽게 이동하거나 돌아갈 수 있습니다.',
+          'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы легко можете перейти от одной точки назначения до другой или вернуться назад.',
+      'ja':
+          'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута.この記事は、現在公開されている日付から始まります。',
+      'ru':
+          'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы можете легко перейти от одной точки назначения к другой или вернуться назад.',
     },
     'vin93ofb': {
+      'en': 'ОК. ДАЛЬШЕ',
+      'ar': 'ОК. АЛЬШЕ',
+      'es': 'ОК. ДАЛЬШЕ',
+      'ja': 'ああ。 ДАЛЬШЕ',
       'ru': 'ОК. ДАЛЬШЕ',
-      'ar': 'نعم. أبعد',
-      'en': 'OK. FARTHER',
-      'es': 'ESTÁ BIEN. MÁS LEJOS',
-      'ko': '확인. 더 멀리',
     },
     'kuswjwgq': {
-      'ru':
+      'en':
           'По достижении новой точки навигатор подскажет о наличии интересной информации, которую мы для вас тщательно подобрали. Кликните Point Information. ',
       'ar':
-          'عند الوصول إلى نقطة جديدة ، سيخبرك الملاح بوجود معلومات مثيرة للاهتمام اخترناها لك بعناية. انقر فوق معلومات النقطة.',
-      'en':
-          'Upon reaching a new point, the navigator will tell you about the presence of interesting information that we have carefully selected for you. Click Point Information.',
+          'остижении новой точки навигатор подскажет о наличии интересной информации، которую для вастор. معلومات نقطة.',
       'es':
-          'Al llegar a un nuevo punto, el navegador le informará sobre la presencia de información interesante que hemos seleccionado cuidadosamente para usted. Haga clic en Información del punto.',
-      'ko':
-          '새로운 지점에 도달하면 네비게이터는 귀하를 위해 신중하게 선택한 흥미로운 정보의 존재에 대해 알려줄 것입니다. 포인트 정보를 클릭합니다.',
+          'По достижении новой точки навигатор подскажет о наличии интересной информации, которую мы длля ватес тща Кликните Información del punto.',
+      'ja': '私たちは、この問題を解決するために、この問題を解決しました. Кликните ポイント情報。',
+      'ru':
+          'По следующей оценке навигатор подсказывает о наличии интересной информации, которую мы для вас подобрали. Кликните Информация о точке.',
     },
     'ncaulhea': {
+      'en': 'ОК. ДАЛЬШЕ',
+      'ar': 'ОК. АЛЬШЕ',
+      'es': 'ОК. ДАЛЬШЕ',
+      'ja': 'ああ。 ДАЛЬШЕ',
       'ru': 'ОК. ДАЛЬШЕ',
-      'ar': 'نعم. أبعد',
-      'en': 'OK. FARTHER',
-      'es': 'ESTÁ BIEN. MÁS LEJOS',
-      'ko': '확인. 더 멀리',
     },
     'c3bdx0kk': {
-      'ru':
+      'en':
           'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы легко можете перейти от одной точки назначения до другой или вернуться назад.  ',
       'ar':
-          'ستساعدك الأزرار الموجودة على شاشة الملاح على التنقل عبر المسار. يمكنك بسهولة الانتقال من وجهة إلى أخرى أو العودة.',
-      'en':
-          'The buttons on the navigator screen will help you navigate throughout the route. You can easily go from one destination to another or go back.',
+          'на протяжении всего маршрута. هذا هو السبب في أنه من الأفضل أن يكون هذا هو الحال.',
       'es':
-          'Los botones de la pantalla del navegador te ayudarán a navegar por la ruta. Puede ir fácilmente de un destino a otro o regresar.',
-      'ko':
-          '네비게이터 화면의 버튼은 경로 전체를 탐색하는 데 도움이 됩니다. 한 목적지에서 다른 목적지로 쉽게 이동하거나 돌아갈 수 있습니다.',
+          'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы легко можете перейти от одной точки назначения до другой или вернуться назад.',
+      'ja':
+          'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута.この記事は、現在公開されている日付から始まります。',
+      'ru':
+          'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы можете легко перейти от одной точки назначения к другой или вернуться назад.',
     },
     'ioa7i7qj': {
+      'en': 'ОК. ДАЛЬШЕ',
+      'ar': 'ОК. АЛЬШЕ',
+      'es': 'ОК. ДАЛЬШЕ',
+      'ja': 'ああ。 ДАЛЬШЕ',
       'ru': 'ОК. ДАЛЬШЕ',
-      'ar': 'نعم. أبعد',
-      'en': 'OK. FARTHER',
-      'es': 'ESTÁ BIEN. MÁS LEJOS',
-      'ko': '확인. 더 멀리',
     },
     'lyh3zlw8': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // TripStart
   {
     'tm8bffsz': {
+      'en': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
+      'ar': 'АЧАТЬ ПУТЕШЕСТВИЕ',
+      'es': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
+      'ja': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
       'ru': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
-      'ar': '',
-      'en': '',
-      'es': '',
-      'ko': '',
     },
     'adl2jnc3': {
+      'en': 'Как забрать машину?',
+      'ar': 'Как забрать машину؟',
+      'es': 'Как забрать машину?',
+      'ja': 'Как забрать машину?',
       'ru': 'Как забрать машину?',
-      'ar': 'كيف تلتقط سيارة',
-      'en': 'How to pick up a car',
-      'es': 'Cómo recoger un coche',
-      'ko': '차를 픽업하는 방법',
     },
     '6r478cgk': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // MainNavigatorPage
   {
     'gnh6m1of': {
+      'en': 'ПОЕХАЛИ!',
+      'ar': 'АЛИ!',
+      'es': 'ПОЕХАЛИ!',
+      'ja': 'ああああああ！',
       'ru': 'ПОЕХАЛИ!',
-      'ar': 'يذهب!',
-      'en': 'GO!',
-      'es': '¡VAMOS!',
-      'ko': '가다!',
     },
     'kfr798l2': {
+      'en': 'ИНФОРМАЦИЯ О МЕСТЕ',
+      'ar': 'ИНФОРМАЦИЯ О МЕСТЕ',
+      'es': 'ИНФОРМАЦИЯ О МЕСТЕ',
+      'ja': 'ИНФОРМАЦИЯ О МЕСТЕ',
       'ru': 'ИНФОРМАЦИЯ О МЕСТЕ',
-      'ar': 'معلومات الموقع',
-      'en': 'LOCATION INFORMATION',
-      'es': 'INFORMACIÓN SOBRE LA UBICACIÓN',
-      'ko': '위치 정보',
     },
     'qp05f9qx': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // PlaceInformation
   {
     '4wv1lfde': {
-      'ru': 'STARTING POINT',
-      'ar': 'نقطة البداية',
       'en': 'STARTING POINT',
+      'ar': 'نقطة البداية',
       'es': 'PUNTO DE PARTIDA',
-      'ko': '출발점',
+      'ja': '出発点',
+      'ru': 'ОТПРАВНАЯ ТОЧКА',
     },
     '7rhxdpfg': {
-      'ru': 'CASCAIS',
-      'ar': 'كاسكا',
       'en': 'CASCAIS',
+      'ar': 'كاسكا',
       'es': 'CASCAIS',
-      'ko': '카스카이스',
+      'ja': 'カスカイス',
+      'ru': 'КАШАЙШ',
     },
     'xg8a54gn': {
-      'ru': 'PORTUGAL',
-      'ar': 'البرتغال',
       'en': 'PORTUGAL',
+      'ar': 'البرتغال',
       'es': 'PORTUGAL',
-      'ko': '포르투갈',
+      'ja': 'ポルトガル',
+      'ru': 'ПОРТУГАЛИЯ',
     },
     'zkpybfkk': {
-      'ru': 'LIGHTHOUSE',
-      'ar': 'منارة',
       'en': 'LIGHTHOUSE',
+      'ar': 'منارة',
       'es': 'FARO',
-      'ko': '등대',
+      'ja': '灯台',
+      'ru': 'МАЯК',
     },
     'bjc02soe': {
-      'ru':
+      'en':
           'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. Repudiandae ea et modi veniam.',
       'ar':
           'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores سايب طارد. Esse officiis يخترع voluptates يخترع adipisci itaque nostrum. Repudiandae ea et modi veniam.',
-      'en':
-          'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. Repudiandae ea et modi veniam.',
       'es':
           'Líbero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. Repudiandae ea et modi veniam.',
-      'ko':
-          'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis Inventore는 Inventore adipisci itaque nostrum을 휘젓습니다. Repudiandae ea et modi veniam.',
+      'ja':
+          'Libero et saepe ipsa cum. Recusandae aut nostrum od rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat。 Esse officiis Inventorye voluptates Inventory adipisci itaque nostrum. Repudiandae ea et modi veniam.',
+      'ru':
+          'Либеро и др saepe ipsa диплом. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis Inventore voluptates Inventure adipisci itaque nostrum. Repudiandae ea et modi veniam.',
     },
     '2apx1aol': {
-      'ru': 'Listen audio',
-      'ar': 'استمع الصوت',
-      'en': 'listen audio',
+      'en': 'Listen audio',
+      'ar': 'استمع إلى الصوت',
       'es': 'escuchar audio',
-      'ko': '오디오를 듣다',
+      'ja': '音声を聞く',
+      'ru': 'Слушайте аудио',
     },
     '0gd3jgil': {
-      'ru': 'SEASHORE',
-      'ar': 'شاطئ البحر',
       'en': 'SEASHORE',
+      'ar': 'شاطئ البحر',
       'es': 'COSTA',
-      'ko': '해변',
+      'ja': '海岸',
+      'ru': 'БЕРЕГ',
     },
     'xopfntch': {
-      'ru':
+      'en':
           'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Aut deserunt a laborum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. ',
       'ar':
           'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores سايب طارد. أو تجنب العمل البدني في sint eos. نيمو تلعب مع الطبيعة والحياة الطبيعية. Esse officiis يخترع voluptates يخترع adipisci itaque nostrum.',
-      'en':
-          'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Aut deserunt a laborum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis inventore voluptates inventore adipisci itaque nostrum.',
       'es':
           'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Aut deserunt a laborum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis inventore voluptates inventore adipisci itaque nostrum.',
-      'ko':
-          'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Aut deserunt a labourum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis Inventore는 Inventore adipisci itaque nostrum을 휘젓습니다.',
+      'ja':
+          'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat。 Aut deserunt a labourum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis Inventorye voluptates Inventory adipisci itaque nostrum.',
+      'ru':
+          'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Aut deserunt a Laborum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis Inventore voluptates Inventure adipisci itaque nostrum.',
     },
     'gwcp83bs': {
-      'ru': 'Listen audio',
-      'ar': 'استمع الصوت',
-      'en': 'listen audio',
+      'en': 'Listen audio',
+      'ar': 'استمع إلى الصوت',
       'es': 'escuchar audio',
-      'ko': '오디오를 듣다',
+      'ja': '音声を聞く',
+      'ru': 'Слушайте аудио',
     },
     'quefzvnq': {
-      'ru': 'BACK TO NAVIGATOR',
-      'ar': 'العودة إلى الملاح',
       'en': 'BACK TO NAVIGATOR',
+      'ar': 'العودة إلى الملاح',
       'es': 'VOLVER AL NAVEGADOR',
-      'ko': '탐색기로 돌아가기',
+      'ja': 'ナビゲーターに戻る',
+      'ru': 'ВЕРНУТЬСЯ В НАВИГАТОР',
     },
     'zumghl25': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // PlaceInformationPoint
   {
     '2uxvi0iv': {
-      'ru': 'POINT 2 (OF 6)',
-      'ar': 'النقطة 2 (من 6)',
       'en': 'POINT 2 (OF 6)',
+      'ar': 'النقطة 2 (من 6)',
       'es': 'PUNTO 2 (DE 6)',
-      'ko': 'POINT 2(6개 중)',
+      'ja': 'ポイント 2 (OF 6)',
+      'ru': 'ПУНКТ 2 (ИЗ 6)',
     },
     'r20f6faw': {
-      'ru': 'NEW POINT',
-      'ar': 'نقطة جديدة',
       'en': 'NEW POINT',
+      'ar': 'نقطة جديدة',
       'es': 'PUNTO NUEVO',
-      'ko': '새로운 포인트',
+      'ja': '新しいポイント',
+      'ru': 'НОВАЯ ТОЧКА',
     },
     'yn1gzi9t': {
-      'ru': 'PORTUGAL',
-      'ar': 'البرتغال',
       'en': 'PORTUGAL',
+      'ar': 'البرتغال',
       'es': 'PORTUGAL',
-      'ko': '포르투갈',
+      'ja': 'ポルトガル',
+      'ru': 'ПОРТУГАЛИЯ',
     },
     'njcgxhas': {
-      'ru': 'OLD CASTLE',
-      'ar': 'القلعة القديمة',
       'en': 'OLD CASTLE',
+      'ar': 'القلعة القديمة',
       'es': 'CASTILLO VIEJO',
-      'ko': '옛 성',
+      'ja': '古城',
+      'ru': 'СТАРЫЙ ЗАМОК',
     },
     'eq6bg4hv': {
-      'ru':
+      'en':
           'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. Repudiandae ea et modi veniam.',
       'ar':
           'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores سايب طارد. Esse officiis يخترع voluptates يخترع adipisci itaque nostrum. Repudiandae ea et modi veniam.',
-      'en':
-          'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. Repudiandae ea et modi veniam.',
       'es':
           'Líbero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. Repudiandae ea et modi veniam.',
-      'ko':
-          'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis Inventore는 Inventore adipisci itaque nostrum을 휘젓습니다. Repudiandae ea et modi veniam.',
+      'ja':
+          'Libero et saepe ipsa cum. Recusandae aut nostrum od rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat。 Esse officiis Inventorye voluptates Inventory adipisci itaque nostrum. Repudiandae ea et modi veniam.',
+      'ru':
+          'Либеро и др saepe ipsa диплом. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis Inventore voluptates Inventure adipisci itaque nostrum. Repudiandae ea et modi veniam.',
     },
     'mt3k8scy': {
-      'ru': 'Listen audio',
-      'ar': 'استمع الصوت',
-      'en': 'listen audio',
+      'en': 'Listen audio',
+      'ar': 'استمع إلى الصوت',
       'es': 'escuchar audio',
-      'ko': '오디오를 듣다',
+      'ja': '音声を聞く',
+      'ru': 'Слушайте аудио',
     },
     'fx5ab5ue': {
-      'ru': 'OCEANARIUM',
-      'ar': 'المحيط',
       'en': 'OCEANARIUM',
+      'ar': 'المحيط',
       'es': 'OCEANARIO',
-      'ko': '해양 수족관',
+      'ja': '海洋水族館',
+      'ru': 'ОКЕАНАРИЙ',
     },
     'kgw33dh9': {
-      'ru':
+      'en':
           'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Aut deserunt a laborum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. ',
       'ar':
           'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores سايب طارد. أو تجنب العمل البدني في sint eos. نيمو تلعب مع الطبيعة والحياة الطبيعية. Esse officiis يخترع voluptates يخترع adipisci itaque nostrum.',
-      'en':
-          'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Aut deserunt a laborum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis inventore voluptates inventore adipisci itaque nostrum.',
       'es':
           'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Aut deserunt a laborum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis inventore voluptates inventore adipisci itaque nostrum.',
-      'ko':
-          'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Aut deserunt a labourum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis Inventore는 Inventore adipisci itaque nostrum을 휘젓습니다.',
+      'ja':
+          'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat。 Aut deserunt a labourum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis Inventorye voluptates Inventory adipisci itaque nostrum.',
+      'ru':
+          'Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Aut deserunt a Laborum asperiores quia in sint eos. Nemo dolores ut aut et natus voluptatem quaerat. Esse officiis Inventore voluptates Inventure adipisci itaque nostrum.',
     },
     'dqpkzpnq': {
-      'ru': 'Listen audio',
-      'ar': 'استمع الصوت',
-      'en': 'listen audio',
+      'en': 'Listen audio',
+      'ar': 'استمع إلى الصوت',
       'es': 'escuchar audio',
-      'ko': '오디오를 듣다',
+      'ja': '音声を聞く',
+      'ru': 'Слушайте аудио',
     },
     'ewex2sak': {
-      'ru': 'BACK TO NAVIGATOR',
-      'ar': 'العودة إلى الملاح',
       'en': 'BACK TO NAVIGATOR',
+      'ar': 'العودة إلى الملاح',
       'es': 'VOLVER AL NAVEGADOR',
-      'ko': '탐색기로 돌아가기',
+      'ja': 'ナビゲーターに戻る',
+      'ru': 'ВЕРНУТЬСЯ В НАВИГАТОР',
     },
     'pycuatrj': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // MainNavigatorPage2
   {
     'bf5ij9cc': {
-      'ru': 'POINT INFORMATION',
-      'ar': 'معلومات النقطة',
       'en': 'POINT INFORMATION',
+      'ar': 'معلومات النقطة',
       'es': 'INFORMACIÓN DEL PUNTO',
-      'ko': '포인트 정보',
+      'ja': 'ポイント情報',
+      'ru': 'ИНФОРМАЦИЯ О ПУНКТАХ',
     },
     'p1w1h31l': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // MainNavigatorPagePlaceInfo
   {
     'pbolbx7o': {
-      'ru': 'POINT INFORMATION',
-      'ar': 'معلومات النقطة',
       'en': 'POINT INFORMATION',
+      'ar': 'معلومات النقطة',
       'es': 'INFORMACIÓN DEL PUNTO',
-      'ko': '포인트 정보',
+      'ja': 'ポイント情報',
+      'ru': 'ИНФОРМАЦИЯ О ПУНКТАХ',
     },
     'o1d3a07q': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // MainNavigatorPageFinish
   {
     'lm18fn7u': {
+      'en': 'ФИНИШ',
+      'ar': 'ФИНИШ',
+      'es': 'ФИНИШ',
+      'ja': 'ФИНИШ',
       'ru': 'ФИНИШ',
-      'ar': 'إنهاء',
-      'en': 'FINISH',
-      'es': 'FINALIZAR',
-      'ko': '마치다',
     },
     'kiuoxc9a': {
+      'en': 'ИНФОРМАЦИЯ О МЕСТЕ',
+      'ar': 'ИНФОРМАЦИЯ О МЕСТЕ',
+      'es': 'ИНФОРМАЦИЯ О МЕСТЕ',
+      'ja': 'ИНФОРМАЦИЯ О МЕСТЕ',
       'ru': 'ИНФОРМАЦИЯ О МЕСТЕ',
-      'ar': 'معلومات الموقع',
-      'en': 'LOCATION INFORMATION',
-      'es': 'INFORMACIÓN SOBRE LA UBICACIÓN',
-      'ko': '위치 정보',
     },
     '5arc7cyt': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // TripFinish
   {
     '60w182x5': {
-      'ru':
+      'en':
           'Ваше путешествие окончено.  Надеемся оно прошло прекрасно и вам понравился выбранный маршрут.',
       'ar':
-          'رحلتك انتهت. نأمل أن تسير الأمور على ما يرام وأعجبك الطريق الذي اخترته.',
-      'en':
-          'Your journey is over. We hope it went well and you liked the chosen route.',
+          'аше путешествие окончено. адеемся оно прошло прекрасно и вам понравился выбранный маршрут.',
       'es':
-          'Tu viaje ha terminado. Esperamos que te haya ido bien y te haya gustado la ruta elegida.',
-      'ko': '당신의 여행은 끝났습니다. 잘 진행되어 선택한 경로가 마음에 드셨기를 바랍니다.',
+          'Ваше путешествие окончено. Надеемся оно прошло прекрасно и вам понравился выбранный маршрут.',
+      'ja':
+          'よくある質問です。 Надеемся оно прошло прекрасно と вам понравился выбранный маршрут.',
+      'ru':
+          'Ваше окончено путешествие. Мы предполагаем, что он прошел прекрасно и понравился вам выбранный маршрут.',
     },
     'c1gc858g': {
-      'ru':
+      'en':
           'Если у вас есть какие-то пожелания или замечания, будем рады, если вы напишите нам на почту contact@twid.com',
       'ar':
-          'إذا كان لديك أي رغبات أو تعليقات ، سنكون سعداء إذا راسلتنا على contact@twid.com',
-      'en':
-          'If you have any wishes or comments, we will be glad if you write to us at contact@twid.com',
+          'усли у вас есть какие-то пожелания или замечания، будем рады، если вы напишите нам на почту contact@twid.com',
       'es':
-          'Si tiene algún deseo o comentario, nos complacerá que nos escriba a contact@twid.com',
-      'ko': '바라는 점이나 의견이 있으시면 contact@twid.com으로 편지를 보내주시면 기쁠 것입니다.',
+          'Если у вас есть какие-то пожелания или замечания, будем рады, если вы напишите нам на почту contact@twid.com',
+      'ja': 'お問い合わせはこちら contact@twid.com',
+      'ru':
+          'Если у вас есть какие-то пожелания или замечания, будем рады, если вы напишите нам на почту contact@twid.com',
     },
     'enga795w': {
+      'en': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
+      'ar': 'АЧАТЬ ПУТЕШЕСТВИЕ',
+      'es': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
+      'ja': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
       'ru': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
-      'ar': 'بداية رحلة',
-      'en': 'START A JOURNEY',
-      'es': 'COMENZAR UN VIAJE',
-      'ko': '여행을 시작하세요',
     },
     'tjf8529p': {
-      'ru': 'Вы проехали 3260 км. ',
-      'ar': 'لقد سافرت 3260 كم.',
-      'en': 'You have traveled 3260 km.',
-      'es': 'Has recorrido 3260 km.',
-      'ko': '3260km를 이동했습니다.',
+      'en': 'Вы проехали 3260 км. ',
+      'ar': 'Вы проехали 3260 км.',
+      'es': 'Вы проехали 3260 км.',
+      'ja': '3260 km です。',
+      'ru': 'Вы проехали 3260 км.',
     },
     'mu0hqk53': {
+      'en': 'Получена ачивка «Путешественник»',
+      'ar': 'Получена ачивка «утешественник»',
+      'es': 'Получена ачивка «Путешественник»',
+      'ja': 'Получена ачивка «Путешественник»',
       'ru': 'Получена ачивка «Путешественник»',
-      'ar': 'تلقى الإنجاز &quot;المسافر&quot;',
-      'en': 'Achievement &quot;Traveler&quot; received',
-      'es': 'Logro &quot;Viajero&quot; recibido',
-      'ko': '&quot;여행자&quot; 업적 획득',
     },
     'b6np5bk2': {
+      'en': 'Доступны новые маршруты',
+      'ar': 'оступны новые маршруты',
+      'es': 'Доступны новые маршруты',
+      'ja': 'Доступны новые маршруты',
       'ru': 'Доступны новые маршруты',
-      'ar': 'طرق جديدة متاحة',
-      'en': 'New routes available',
-      'es': 'Nuevas rutas disponibles',
-      'ko': '새로운 경로 사용 가능',
     },
     '461vgj7g': {
+      'en': 'Прокод на скидку 15% — twidrive',
+      'ar': 'Прокод на скидку 15٪ - twidrive',
+      'es': 'Precio de venta al público 15 % — twidrive',
+      'ja': '15% — twidrive',
       'ru': 'Прокод на скидку 15% — twidrive',
-      'ar': 'Procode بخصم 15٪ - twidrive',
-      'en': 'Procode for 15% discount - twidrive',
-      'es': 'Procode para 15% de descuento - twidrive',
-      'ko': 'Procode 15% 할인 - twidrive',
     },
     'xklsqefy': {
+      'en': 'Как забрать машину',
+      'ar': 'Как забрать машину',
+      'es': 'Как забрать машину',
+      'ja': 'Как забрать машину',
       'ru': 'Как забрать машину',
-      'ar': 'كيف تلتقط سيارة',
-      'en': 'How to pick up a car',
-      'es': 'Cómo recoger un coche',
-      'ko': '차를 픽업하는 방법',
     },
     'it29tisu': {
+      'en': 'ВЕРНУТЬСЯ К МАРШРУТУ',
+      'ar': 'ВЕРНУТЬСЯ К АРШРУТУ',
+      'es': 'ВЕРНУТЬСЯ К МАРШРУТУ',
+      'ja': 'ВЕРНУТЬСЯКМАРШРУТУ',
       'ru': 'ВЕРНУТЬСЯ К МАРШРУТУ',
-      'ar': 'العودة إلى الطريق',
-      'en': 'BACK TO ROUTE',
-      'es': 'VOLVER A LA RUTA',
-      'ko': '경로로 돌아가기',
     },
     'sp0ifsrs': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // TripFinish2
   {
     'n2heetyi': {
-      'ru': 'НАЧАТЬ НОВОЕ \nПУТЕШЕСТВИЕ',
-      'ar': 'ابدأ رحلة جديدة',
-      'en': 'START A NEW JOURNEY',
-      'es': 'EMPIEZA UN NUEVO VIAJE',
-      'ko': '새로운 여정을 시작하세요',
+      'en': 'НАЧАТЬ НОВОЕ \nПУТЕШЕСТВИЕ',
+      'ar': 'АЧАТЬ НОВОЕ\nПУТЕШЕСТВИЕ',
+      'es': 'НАЧАТЬ НОВОЕ\nПУТЕШЕСТВИЕ',
+      'ja': 'НАЧАТЬ НОВОЕ\nПУТЕШЕСТВИЕ',
+      'ru': 'НАЧАТЬ НОВОЕ\nПУТЕШЕСТВИЕ',
     },
     'f56kaj7j': {
-      'ru':
+      'en':
           'Чтобы не пропустить интересные маршруты, новые машины, ачивки, или горячие предложения подписывайтесь на соцсети twid!',
       'ar':
-          'حتى لا تفوت الطرق المثيرة للاهتمام أو السيارات الجديدة أو الإنجازات أو العروض الساخنة ، اشترك في شبكات التواصل الاجتماعي twid!',
-      'en':
-          'In order not to miss interesting routes, new cars, achievements, or hot offers, subscribe to twid social networks!',
+          'كلمات بمعنى: тобы не пропустить интересные маршруты ، новые машины ، или горячие предложения подсывсы!',
       'es':
-          '¡Para no perderse rutas interesantes, autos nuevos, logros u ofertas interesantes, suscríbase a las redes sociales twid!',
-      'ko': '흥미로운 경로, 새 자동차, 업적 또는 인기 상품을 놓치지 않으려면 twid 소셜 네트워크에 가입하세요!',
+          'Чтобы не пропусти интереререные маршруты, новые машины, ачивки, или гие пре principal н.',
+      'ja': '私はあなたのことをよく知っていません.',
+      'ru':
+          'Чтобы не пропустить интересные маршруты, новые машины, ачивки, или горячие предложения подписывайтесь на соцсети twid!',
     },
     '2rovny6s': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // CALENDAR
   {
     '5bul3epj': {
-      'ru':
+      'en':
           'Ваше путешествие начнется 10 октября в 11:00 в Кабо да Рока и закончится 12 октября в Назаре. ',
       'ar':
-          'ستبدأ رحلتك في 10 أكتوبر الساعة 11:00 في Cabo da Roca وتنتهي في 12 أكتوبر في Nazare.',
-      'en':
-          'Your journey will start on October 10 at 11:00 in Cabo da Roca and end on October 12 in Nazare.',
+          'аше путешествие начнется 10 октября в 11:00 в або да Рока и закончится 12 октября в Назаре.',
       'es':
-          'Tu viaje comenzará el 10 de octubre a las 11:00 en Cabo da Roca y terminará el 12 de octubre en Nazare.',
-      'ko': '여행은 10월 10일 11:00에 Cabo da Roca에서 시작하여 10월 12일 Nazare에서 끝납니다.',
+          'Ваше путешествие начнется 10 октября в 11:00 в Кабо да Рока и закончится 12 октября в Назаре.',
+      'ja': '午前 10 時から午後 11 時まで、午前 12 時から午前 12 時までです。',
+      'ru':
+          'Ваше путешествие начнется 10 октября в 11:00 в Кабо да Рока и закончится 12 октября в Назаре.',
     },
     '15wx4hjx': {
-      'ru':
+      'en':
           'Для вас забронирован двухместный номер в отеле Belmond Delux в городе Тратата. Заселение в отель 11 октября в 20:00, чекаут 12 октября в 12:00. В проживание включен завтрак.',
       'ar':
-          'تم حجز غرفة مزدوجة من أجلك في فندق Belmond Delux في تراتاتا. تسجيل الوصول في الفندق يوم 11 أكتوبر الساعة 20:00 ، تسجيل المغادرة في 12 أكتوبر الساعة 12:00. يشمل السكن وجبة الإفطار.',
-      'en':
-          'A double room has been booked for you at the Belmond Delux Hotel in Tratata. Check-in at the hotel on October 11 at 20:00, check-out on October 12 at 12:00. Accommodation includes breakfast.',
+          'ля вас забронирован двухместный номер в отеле Belmond Delux в городе Тратата. Заселение в отель 11 октября в 20:00، екаут 12 октября в 12:00. В проживание включен завтрак.',
       'es':
-          'Se ha reservado una habitación doble para usted en el Hotel Belmond Delux en Tratata. Check-in en el hotel el 11 de octubre a las 20:00, check-out el 12 de octubre a las 12:00. El alojamiento incluye desayuno.',
-      'ko':
-          'Tratata의 Belmond Delux Hotel에서 더블룸이 예약되었습니다. 10월 11일 호텔 체크인 20:00, 체크아웃 10월 12일 12:00 숙박에는 아침 식사가 포함됩니다.',
+          'Для вас забронирован двухместный номер в отеле Belmond Delux в городе Тратата. Hasta el 11 de octubre a las 20:00, hasta el 12 de octubre a las 12:00. В проживание включен завтрак.',
+      'ja':
+          '現在はベルモンド デラックスが発売中です。月曜日 11 日 20:00、12 日 12:00 です。 В проживание включен завтрак.',
+      'ru':
+          'Для вас забронирован двухместный номер в отеле Belmond Delux в городе Тратата. Заселение в отель 11 октября в 20:00, чекаут 12 октября в 12:00. В проживание включен завтрак.',
     },
     'ijy45luh': {
-      'ru': 'Установить напоминание',
-      'ar': 'تعيين تذكير',
-      'en': 'Set Reminder',
-      'es': 'Establecer recordatorio',
-      'ko': '미리 알림 설정',
+      'en': 'Установить напоминание',
+      'ar': 'Установить напоминание',
+      'es': 'Установить напоминание',
+      'ja': 'Установить напоминание',
+      'ru': 'Установить на память',
     },
     'aiihtg6z': {
-      'ru': 'BACK',
-      'ar': 'الى الخلف',
       'en': 'BACK',
+      'ar': 'الى الخلف',
       'es': 'ESPALDA',
-      'ko': '뒤',
+      'ja': '戻る',
+      'ru': 'НАЗАД',
     },
     'jlw6qz3b': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // CAR
   {
     'se982brr': {
-      'ru': 'PORSCHE',
-      'ar': 'بورش',
       'en': 'PORSCHE',
+      'ar': 'بورش',
       'es': 'PORSCHE',
-      'ko': '포르쉐',
+      'ja': 'ポルシェ',
+      'ru': 'ПОРШЕ',
     },
     '4itqy889': {
-      'ru': '911 CARRERA GTS',
-      'ar': '911 CARRERA GTS',
       'en': '911 CARRERA GTS',
+      'ar': '911 CARRERA GTS',
       'es': '911 CARRERA GTS',
-      'ko': '911 카레라 GTS',
+      'ja': '911カレラGTS',
+      'ru': '911 КАРРЕРА ГТС',
     },
     '73d3z6ux': {
-      'ru':
+      'en':
           'The Porsche 911 has 2 Petrol Engine on offer. It is available with Manual & Automatic transmission. The 911 is a 4 seater 6 cylinder car and has length of 4519 mm, width of 1852 mm and a wheelbase of 2450 mm.',
       'ar':
-          'بورش 911 لديها محركان يعملان بالبنزين. وهي متوفرة بناقل حركة يدوي وأوتوماتيكي. 911 هي سيارة ذات 4 مقاعد و 6 سلندر ويبلغ طولها 4519 ملم وعرضها 1852 ملم وقاعدة عجلاتها 2450 ملم.',
-      'en':
-          'The Porsche 911 has 2 Petrol Engines on offer. It is available with Manual &amp; Automatic transmission. The 911 is a 4 seater 6 cylinder car and has a length of 4519 mm, width of 1852 mm and a wheelbase of 2450 mm.',
+          'بورش 911 بها محركان يعملان بالبنزين. وهي متوفرة بناقل حركة يدوي وأوتوماتيكي. 911 هي سيارة ذات 4 مقاعد و 6 سلندر ويبلغ طولها 4519 ملم وعرضها 1852 ملم وقاعدة عجلاتها 2450 ملم.',
       'es':
           'El Porsche 911 tiene 2 motores de gasolina en oferta. Está disponible con transmisión manual y automática. El 911 es un automóvil de 4 plazas y 6 cilindros y tiene una longitud de 4519 mm, una anchura de 1852 mm y una distancia entre ejes de 2450 mm.',
-      'ko':
-          'Porsche 911에는 2개의 가솔린 엔진이 있습니다. 수동 및 자동 변속기와 함께 사용할 수 있습니다. 911은 4인승 6기통 자동차로 길이 4519mm, 너비 1852mm, 휠베이스 2450mm입니다.',
+      'ja':
+          'ポルシェ 911 には 2 つのガソリン エンジンが搭載されています。手動および自動変速機で利用できます。 911 は 4 人乗りの 6 気筒車で、全長 4519 mm、全幅 1852 mm、ホイールベース 2450 mm です。',
+      'ru':
+          'Porsche 911 предлагает 2 бензиновых двигателя. Он доступен с механической и автоматической коробкой передач. Модель 911 представляет собой 4-местный 6-цилиндровый автомобиль длиной 4519 мм, шириной 1852 мм и колесной базой 2450 мм.',
     },
     'ejghvpv0': {
-      'ru': 'Fuel Type ',
+      'en': 'Fuel Type ',
       'ar': 'نوع الوقود',
-      'en': 'fuel type',
-      'es': 'tipo de combustible',
-      'ko': '연료 종류',
+      'es': 'Tipo de combustible',
+      'ja': '燃料タイプ',
+      'ru': 'Тип топлива',
     },
     'zn9mef4k': {
-      'ru': 'Petrol',
-      'ar': 'بنزين',
       'en': 'Petrol',
+      'ar': 'بنزين',
       'es': 'Gasolina',
-      'ko': '가솔린',
+      'ja': 'ガソリン',
+      'ru': 'Бензин',
     },
     'dezaokwk': {
-      'ru': 'Max Power (bhp@rpm)',
-      'ar': 'أقصى قوة (bhp @ rpm)',
       'en': 'Max Power (bhp@rpm)',
+      'ar': 'أقصى قوة (bhp @ rpm)',
       'es': 'Potencia máxima (bhp@rpm)',
-      'ko': '최대 출력(bhp@rpm)',
+      'ja': '最大出力 (bhp@rpm)',
+      'ru': 'Максимальная мощность (л.с. при об/мин)',
     },
     'fte8qpws': {
-      'ru': '641.00bhp@6500',
-      'ar': '641.00bhp@6500',
       'en': '641.00bhp@6500',
+      'ar': '641.00bhp@6500',
       'es': '641.00bhp@6500',
-      'ko': '641.00bhp@6500',
+      'ja': '641.00bhp@6500',
+      'ru': '641,00 л.с. при 6500',
     },
     'qfav8hk6': {
-      'ru': 'Seating Capacity',
+      'en': 'Seating Capacity',
       'ar': 'سعة الجلوس',
-      'en': 'seating capacity',
-      'es': 'número de plazas',
-      'ko': '좌석 수',
+      'es': 'Número de plazas',
+      'ja': '座席定員',
+      'ru': 'Количество сидячих мест',
     },
     '5d25xzjn': {
-      'ru': '2',
-      'ar': '2',
       'en': '2',
+      'ar': '2',
       'es': '2',
-      'ko': '2',
+      'ja': '2',
+      'ru': '2',
     },
     '3frqgzej': {
-      'ru': 'Transmission Type',
+      'en': 'Transmission Type',
       'ar': 'نوع التحويل',
-      'en': 'transmission type',
-      'es': 'tipo de transmisión',
-      'ko': '전송 유형',
+      'es': 'Tipo de transmisión',
+      'ja': '伝送タイプ',
+      'ru': 'Тип передачи',
     },
     'r5lepaf7': {
-      'ru': 'Automatic',
-      'ar': 'تلقائي',
       'en': 'Automatic',
+      'ar': 'تلقائي',
       'es': 'Automático',
-      'ko': '자동적 인',
+      'ja': '自動',
+      'ru': 'автоматический',
     },
     'ibx5jke2': {
-      'ru': 'Tank Capacity',
+      'en': 'Tank Capacity',
       'ar': 'سعة الخزان',
-      'en': 'tank capacity',
-      'es': 'capacidad del tanque',
-      'ko': '탱크 용량',
+      'es': 'Capacidad del tanque',
+      'ja': 'タンク容量',
+      'ru': 'Емкость бака',
     },
     'b599lfqg': {
-      'ru': '64.0',
-      'ar': '64.0',
       'en': '64.0',
+      'ar': '64.0',
       'es': '64.0',
-      'ko': '64.0',
+      'ja': '64.0',
+      'ru': '64,0',
     },
     'iddzjb26': {
+      'en': 'Перед началом путешествия машина заправлена до полного бака.',
+      'ar': 'еред началом путешествия машина заправлена до полного бака.',
+      'es': 'Перед началом путешествия машина заправлена до полного бака.',
+      'ja': 'すでに、この問題が解決されていません。',
       'ru': 'Перед началом путешествия машина заправлена до полного бака.',
-      'ar': 'قبل بدء الرحلة ، تمتلئ السيارة إلى خزان ممتلئ.',
-      'en': 'Before starting the trip, the car is filled up to a full tank.',
-      'es':
-          'Antes de iniciar el viaje, el auto se llena hasta el tanque lleno.',
-      'ko': '여행을 시작하기 전에 차는 가득 차 있습니다.',
     },
     'ar9hcqzj': {
-      'ru': 'BACK',
-      'ar': 'الى الخلف',
       'en': 'BACK',
+      'ar': 'الى الخلف',
       'es': 'ESPALDA',
-      'ko': '뒤',
+      'ja': '戻る',
+      'ru': 'НАЗАД',
     },
     'ob7w7y5l': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // AboutPlace
   {
     'stgexjii': {
-      'ru': 'Cabo da Roca — Nazare. Portugal',
+      'en': 'Cabo da Roca — Nazare. Portugal',
       'ar': 'كابو دا روكا - نازاري. البرتغال',
-      'en': 'Cabo da Roca - Nazare. Portugal',
-      'es': 'Cabo da Roca - Nazaré. Portugal',
-      'ko': '카보 다 로카 - 나자레. 포르투갈',
+      'es': 'Cabo da Roca — Nazaré. Portugal',
+      'ja': 'カボ ダ ロカ — ナザレ。ポルトガル',
+      'ru': 'Кабо да Рока — Назаре. Португалия',
     },
     'a0jpj9v9': {
-      'ru': '10 октября — 12 октября, 2022',
-      'ar': '10 أكتوبر - 12 أكتوبر 2022',
-      'en': 'October 10 — October 12, 2022',
-      'es': '10 de octubre — 12 de octubre de 2022',
-      'ko': '2022년 10월 10일 — 10월 12일',
+      'en': '10 октября — 12 октября, 2022',
+      'ar': '10 октября - 12 октября، 2022',
+      'es': '10 de octubre — 12 de octubre, 2022',
+      'ja': '2022 年 10 月 10 日 — 12 日',
+      'ru': '10 октября — 12 октября 2022 г.',
     },
     '5yrehsu0': {
-      'ru': 'Porsche 911 Carrera GTS',
-      'ar': 'بورش 911 كاريرا جي تي إس',
       'en': 'Porsche 911 Carrera GTS',
+      'ar': 'بورش 911 كاريرا جي تي إس',
       'es': 'Porsche 911 Carrera GTS',
-      'ko': '포르쉐 911 카레라 GTS',
+      'ja': 'ポルシェ 911 カレラ GTS',
+      'ru': 'Порше 911 Каррера ГТС',
     },
     '8q31xc2m': {
-      'ru': 'CABO DA ROCE',
-      'ar': 'CABO DA ROCE',
       'en': 'CABO DA ROCE',
+      'ar': 'CABO DA ROCE',
       'es': 'CABO DA ROCE',
-      'ko': '카보다 로체',
+      'ja': 'CABO DA ROCE',
+      'ru': 'КАБО ДА РОЧЕ',
     },
     '4glnwve2': {
-      'ru':
+      'en':
           'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. Repudiandae ea et modi veniam.',
       'ar':
           'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores سايب طارد. Esse officiis يخترع voluptates يخترع adipisci itaque nostrum. Repudiandae ea et modi veniam.',
-      'en':
-          'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. Repudiandae ea et modi veniam.',
       'es':
           'Líbero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis inventore voluptates inventore adipisci itaque nostrum. Repudiandae ea et modi veniam.',
-      'ko':
-          'Libero et saepe ipsa cum. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis Inventore는 Inventore adipisci itaque nostrum을 휘젓습니다. Repudiandae ea et modi veniam.',
+      'ja':
+          'Libero et saepe ipsa cum. Recusandae aut nostrum od rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat。 Esse officiis Inventorye voluptates Inventory adipisci itaque nostrum. Repudiandae ea et modi veniam.',
+      'ru':
+          'Либеро и др saepe ipsa диплом. Recusandae aut nostrum odit rem id aut quo. Pariatur reprehenderit asperiores. Fugit ut quia totam optio tenetur. Repudiandae asperiores saepe repellat. Esse officiis Inventore voluptates Inventure adipisci itaque nostrum. Repudiandae ea et modi veniam.',
     },
     'wc13eicg': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // TakeaCar
   {
     '6svfki8i': {
+      'en': 'Как забрать машину?',
+      'ar': 'Как забрать машину؟',
+      'es': 'Как забрать машину?',
+      'ja': 'Как забрать машину?',
       'ru': 'Как забрать машину?',
-      'ar': 'كيف تلتقط سيارة؟',
-      'en': 'How to pick up a car?',
-      'es': '¿Cómo recoger un coche?',
-      'ko': '차를 픽업하는 방법?',
     },
     '6ssfhhxv': {
+      'en': '1.',
+      'ar': '1.',
+      'es': '1.',
+      'ja': '1.',
       'ru': '1.',
-      'ar': 'واحد.',
-      'en': 'one.',
-      'es': 'una.',
-      'ko': '하나.',
     },
     'u7nhlxdg': {
-      'ru':
+      'en':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'ar':
           'Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'en':
-          'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'es':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'ko':
+      'ja':
+          'Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
+      'ru':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
     },
     'fdj7mntn': {
-      'ru': '2.',
-      'ar': '2.',
       'en': '2.',
+      'ar': '2.',
       'es': '2.',
-      'ko': '2.',
+      'ja': '2.',
+      'ru': '2.',
     },
     '5u4e5qvb': {
-      'ru':
+      'en':
           'Qui exercitationem esse nisi neque. Culpa  atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'ar':
           'Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'en':
-          'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'es':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'ko':
+      'ja':
+          'Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
+      'ru':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
     },
     'b9quzzbu': {
-      'ru': '3.',
-      'ar': '3.',
       'en': '3.',
+      'ar': '3.',
       'es': '3.',
-      'ko': '삼.',
+      'ja': '3.',
+      'ru': '3.',
     },
     '99k6tb6g': {
-      'ru':
+      'en':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'ar':
           'Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'en':
-          'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'es':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'ko':
+      'ja':
+          'Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
+      'ru':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
     },
     'au7ammyh': {
+      'en': '4.',
+      'ar': '4.',
+      'es': '4.',
+      'ja': '4.',
       'ru': '4.',
-      'ar': 'أربعة.',
-      'en': 'four.',
-      'es': 'cuatro',
-      'ko': '넷.',
     },
     'xed7h1y4': {
-      'ru':
+      'en':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'ar':
           'Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'en':
-          'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'es':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'ko':
+      'ja':
+          'Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
+      'ru':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
     },
     'umam7q00': {
+      'en': 'Как вернуть машину?',
+      'ar': 'Как вернуть машину؟',
+      'es': 'Как вернуть машину?',
+      'ja': 'Как вернуть машину?',
       'ru': 'Как вернуть машину?',
-      'ar': 'كيف تعيد السيارة؟',
-      'en': 'How to return the car?',
-      'es': '¿Cómo devolver el coche?',
-      'ko': '차를 반환하는 방법?',
     },
     'eqq3go5j': {
+      'en': '1.',
+      'ar': '1.',
+      'es': '1.',
+      'ja': '1.',
       'ru': '1.',
-      'ar': 'واحد.',
-      'en': 'one.',
-      'es': 'una.',
-      'ko': '하나.',
     },
     'g0otsgq7': {
-      'ru':
+      'en':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'ar':
           'Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'en':
-          'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'es':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'ko':
+      'ja':
+          'Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
+      'ru':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
     },
     'u9qkifgy': {
-      'ru': '2.',
-      'ar': '2.',
       'en': '2.',
+      'ar': '2.',
       'es': '2.',
-      'ko': '2.',
+      'ja': '2.',
+      'ru': '2.',
     },
     '76idyil3': {
-      'ru':
+      'en':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'ar':
           'Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'en':
-          'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'es':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'ko':
+      'ja':
+          'Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
+      'ru':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
     },
     '82oj8u5k': {
-      'ru': '2.',
-      'ar': '2.',
-      'en': '2.',
-      'es': '2.',
-      'ko': '2.',
+      'en': '3.',
+      'ar': '3.',
+      'es': '3.',
+      'ja': '3.',
+      'ru': '3.',
     },
     'gugd0pvv': {
-      'ru':
+      'en':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'ar':
           'Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'en':
-          'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
       'es':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
-      'ko':
+      'ja':
+          'Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
+      'ru':
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
     },
     'a7jpg6lr': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // Settings
   {
     '7plcb94k': {
+      'en': 'НАСТРОЙКИ',
+      'ar': 'НАСТРОЙКИ',
+      'es': 'НАСТРОЙКИ',
+      'ja': 'НАСТРОЙКИ',
       'ru': 'НАСТРОЙКИ',
-      'ar': '',
-      'en': '',
-      'es': '',
-      'ko': '',
     },
     '16gdwltg': {
+      'en': 'ВЫБОР ЯЗЫКА ПРИЛОЖЕНИЯ',
+      'ar': 'ВЫБОР ЯЗЫКА ПРИЛОЖЕНИЯ',
+      'es': 'ВЫБОР ЯЗЫКА ПРИЛОЖЕНИЯ',
+      'ja': 'ВЫБОР ЯЗЫКА ПРИЛОЖЕНИЯ',
       'ru': 'ВЫБОР ЯЗЫКА ПРИЛОЖЕНИЯ',
-      'ar': 'اختيار لغة التطبيق',
-      'en': 'SELECTING THE APP LANGUAGE',
-      'es': 'SELECCIÓN DEL IDIOMA DE LA APLICACIÓN',
-      'ko': '앱 언어 선택',
     },
     '6jozw576': {
-      'ru': 'Английский',
-      'ar': 'إنجليزي',
-      'en': 'English',
-      'es': 'inglés',
-      'ko': '영어',
+      'en': 'Английский',
+      'ar': 'Английский',
+      'es': 'Inglés',
+      'ja': 'Английский',
+      'ru': 'английский',
     },
     'fa0r9lig': {
+      'en': 'Русский',
+      'ar': 'Русский',
+      'es': 'Русский',
+      'ja': 'Русский',
       'ru': 'Русский',
-      'ar': 'الروسية',
-      'en': 'Russian',
-      'es': 'ruso',
-      'ko': '러시아인',
     },
     'eliae8ow': {
-      'ru': 'Испанский',
-      'ar': 'الأسبانية',
-      'en': 'Spanish',
+      'en': 'Испанский',
+      'ar': 'спанский',
       'es': 'español',
-      'ko': '스페인의',
+      'ja': 'Испанский',
+      'ru': 'Испанский',
     },
     'tut5rnqw': {
+      'en': 'Японский',
+      'ar': 'Японский',
+      'es': 'Японский',
+      'ja': 'Японский',
       'ru': 'Японский',
-      'ar': 'اليابانية',
-      'en': 'Japanese',
-      'es': 'japonés',
-      'ko': '일본어',
     },
     'gqkc77hj': {
-      'ru': 'Арабский',
-      'ar': 'عرب',
-      'en': 'Arab',
+      'en': 'Арабский',
+      'ar': 'Арабский',
       'es': 'árabe',
-      'ko': '아라비아 사람',
-    },
-    'wambaw0q': {
-      'ru': 'ЯЗЫК НАВИГАТОРА',
-      'ar': 'لغة الملاح',
-      'en': 'NAVIGATOR LANGUAGE',
-      'es': 'IDIOMA DEL NAVEGADOR',
-      'ko': '네비게이터 언어',
-    },
-    '9iej4zks': {
-      'ru': 'Английский',
-      'ar': 'إنجليزي',
-      'en': 'English',
-      'es': 'inglés',
-      'ko': '영어',
-    },
-    'j4e04641': {
-      'ru': 'Русский',
-      'ar': 'الروسية',
-      'en': 'Russian',
-      'es': 'ruso',
-      'ko': '러시아인',
-    },
-    'bo3p5ws7': {
-      'ru': 'Испанский',
-      'ar': 'الأسبانية',
-      'en': 'Spanish',
-      'es': 'español',
-      'ko': '스페인의',
-    },
-    'zczu0t3j': {
-      'ru': 'Японский',
-      'ar': 'اليابانية',
-      'en': 'Japanese',
-      'es': 'japonés',
-      'ko': '일본어',
-    },
-    'yipwsz88': {
-      'ru': 'Арабский',
-      'ar': 'عرب',
-      'en': 'Arab',
-      'es': 'árabe',
-      'ko': '아라비아 사람',
-    },
-    '1fyo3e10': {
-      'ru': 'ГОЛОС НАВИГАТОРА',
-      'ar': 'صوت الملاح',
-      'en': 'NAVIGATOR&#39;S VOICE',
-      'es': 'VOZ DEL NAVEGANTE',
-      'ko': '네비게이터의 목소리',
-    },
-    'mcgb5rmy': {
-      'ru': 'Женский',
-      'ar': 'أنثى',
-      'en': 'Female',
-      'es': 'Femenino',
-      'ko': '여성',
-    },
-    '0mw6hmeq': {
-      'ru': 'Мужской',
-      'ar': 'ذكر',
-      'en': 'Male',
-      'es': 'Masculino',
-      'ko': '남성',
+      'ja': 'Арабский',
+      'ru': 'арабский',
     },
     'a5uwsc6g': {
+      'en': 'ЗВУКОВЫЕ ПОДСКАЗКИ',
+      'ar': 'ЗВУКОВЫЕ СКАЗКИ',
+      'es': 'ЗВУКОВЫЕ ПОДСКАЗКИ',
+      'ja': 'ЗВУКОВЫЕ ПОДСКАЗКИ',
       'ru': 'ЗВУКОВЫЕ ПОДСКАЗКИ',
-      'ar': 'أدلة صوتية',
-      'en': 'AUDIO CLUES',
-      'es': 'PISTAS DE AUDIO',
-      'ko': '오디오 단서',
     },
     '9qd8062v': {
+      'en': 'Включить',
+      'ar': 'ключить',
+      'es': 'Включить',
+      'ja': 'ヴァクラホマシトフ',
       'ru': 'Включить',
-      'ar': 'شغله',
-      'en': 'Turn on',
-      'es': 'Encender',
-      'ko': '켜다',
     },
     'o6t7q7lo': {
+      'en': 'Выключить',
+      'ar': 'Выключить',
+      'es': 'Выключить',
+      'ja': 'Выключить',
       'ru': 'Выключить',
-      'ar': 'اطفيء',
-      'en': 'Switch off',
-      'es': 'Apagar',
-      'ko': '끄다',
     },
     'e274okr1': {
+      'en': 'ВИД НАВИГАТОРА',
+      'ar': 'ВИД АВИГАТОРА',
+      'es': 'ВИД НАВИГАТОРА',
+      'ja': 'ВИДНАВИГАТОРА',
       'ru': 'ВИД НАВИГАТОРА',
-      'ar': 'عرض الملاح',
-      'en': 'NAVIGATOR VIEW',
-      'es': 'VISTA DEL NAVEGADOR',
-      'ko': '네비게이터 보기',
     },
     '4eezqmjj': {
+      'en': 'Светлый',
+      'ar': 'Светлый',
+      'es': 'Светлый',
+      'ja': 'Светлый',
       'ru': 'Светлый',
-      'ar': 'ضوء ملون',
-      'en': 'Light coloured',
-      'es': 'De color claro',
-      'ko': '밝은 색',
     },
     'm1dh6uwm': {
+      'en': 'Темный',
+      'ar': 'емный',
+      'es': 'Темный',
+      'ja': 'Темный',
       'ru': 'Темный',
-      'ar': 'مظلم',
-      'en': 'Dark',
-      'es': 'Oscuro',
-      'ko': '어두운',
     },
     's7zcsmgi': {
+      'en': 'ЭКСТРЕННЫЙ ВЫЗОВ',
+      'ar': 'ЭКСТРЕННЫЙ ВЫЗОВ',
+      'es': 'ЭКСТРЕННЫЙ ВЫЗОВ',
+      'ja': 'ЭКСТРЕННЫЙ ВЫЗОВ',
       'ru': 'ЭКСТРЕННЫЙ ВЫЗОВ',
-      'ar': 'مكالمة طارئة',
-      'en': 'EMERGENCY CALL',
-      'es': 'LLAMADA DE EMERGENCIA',
-      'ko': '긴급 전화',
+    },
+  },
+  // Help
+  {
+    'n8v2kdkb': {
+      'en': 'Задать вопрос',
+      'ar': 'Задать вопрос',
+      'es': 'Задать вопрос',
+      'ja': 'Задать вопрос',
+      'ru': 'Задать вопрос',
+    },
+    'xyqcahji': {
+      'en': 'КАК ИСПОЛЬЗОВАТЬ ПРИЛОЖЕНИЕ',
+      'ar': 'КАК ИСПОЛЬЗОВАТЬ ПРИЛОЖЕНИЕ',
+      'es': 'КАК ИСПОЛЬЗОВАТЬ ПРИЛОЖЕНИЕ',
+      'ja': 'КАК ИСПОЛЬЗОВАТЬ ПРИЛОЖЕНИЕ',
+      'ru': 'КАК ИСПОЛЬЗОВАТЬ ПРИЛОЖЕНИЕ',
+    },
+    'm1wetc6o': {
+      'en':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ar':
+          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'es':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+    },
+    '25264jzx': {
+      'en': 'ИНФОРМАЦИЯ О НАВИГАТОРЕ',
+      'ar': 'ИНФОРМАЦИЯ О АВИГАТОРЕ',
+      'es': 'ИНФОРМАЦИЯ О НАВИГАТОРЕ',
+      'ja': 'ИНФОРМАЦИЯ О НАВИГАТОРЕ',
+      'ru': 'ИНФОРМАЦИЯ О НАВИГАТОРЕ',
+    },
+    'kdf4vzqq': {
+      'en':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ar':
+          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'es':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+    },
+    '4bo2nc9i': {
+      'en': 'КАК ЗАБРАТЬ МАШИНУ',
+      'ar': 'КАК ЗАБРАТЬ АШИНУ',
+      'es': 'КАК ЗАБРАТЬ МАШИНУ',
+      'ja': 'КАК ЗАБРАТЬ МАШИНУ',
+      'ru': 'КАК ЗАБРАТЬ МАШИНУ',
+    },
+    '9zllze7o': {
+      'en':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ar':
+          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'es':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+    },
+    'teqxns7s': {
+      'en': 'КАК ВЕРНУТЬ МАШИНУ',
+      'ar': 'КАК ВЕРНУТЬ АШИНУ',
+      'es': 'КАК ВЕРНУТЬ МАШИНУ',
+      'ja': 'КАК ВЕРНУТЬ МАШИНУ',
+      'ru': 'КАК ВЕРНУТЬ МАШИНУ',
+    },
+    'vw2rgm6j': {
+      'en':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ar':
+          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'es':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+    },
+    'lue0b4ly': {
+      'en': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+      'ar': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+      'es': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+      'ja': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+      'ru': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+    },
+    '3l9ry3b7': {
+      'en':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ar':
+          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'es':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+    },
+    'pzfzjigy': {
+      'en': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ В ОТЕЛЕ',
+      'ar': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ В ОТЕЛЕ',
+      'es': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ В ОТЕЛЕ',
+      'ja': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ В ОТЕЛЕ',
+      'ru': 'ПРАВИЛА ПОЛЗОВАНИЯ БРОНЬЮ В ОТЕЛЕ',
+    },
+    'fi6x7k2f': {
+      'en':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ar':
+          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'es':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+    },
+    '22lgbxln': {
+      'en': 'СТРАХОВАНИЕ ОТВЕТСТВЕННОСТИ',
+      'ar': 'СТРАХОВАНИЕ ОТВЕТСТВЕННОСТИ',
+      'es': 'СТРАХОВАНИЕ ОТВЕТСТВЕННОСТИ',
+      'ja': 'СТРАХОВАНИЕ ОТВЕТСТВЕННОСТИ',
+      'ru': 'СТРАХОВАНИЕ ОТВЕТСТВЕННОСТИ',
+    },
+    'ohgejlab': {
+      'en':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ar':
+          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'es':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ja':
+          '1. Qui execitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+      'ru':
+          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
+    },
+    'tr5bmiz0': {
+      'en': 'ЗАДАТЬ ВОПРОС',
+      'ar': 'ЗАДАТЬ ВОПРОС',
+      'es': 'ЗАДАТЬ ВОПРОС',
+      'ja': 'ЗАДАТЬ ВОПРОС',
+      'ru': 'ЗАДАТЬ ВОПРОС',
     },
   },
   // Questions
   {
     'a1n3jhbi': {
+      'en': 'Задать вопрос',
+      'ar': 'Задать вопрос',
+      'es': 'Задать вопрос',
+      'ja': 'Задать вопрос',
       'ru': 'Задать вопрос',
-      'ar': '',
-      'en': '',
-      'es': '',
-      'ko': '',
     },
-    'orhcvxy9': {
+    '97l7zg5g': {
+      'en': 'Ваше имя',
+      'ar': 'Ваше имя',
+      'es': 'Ваше имя',
+      'ja': 'よくある質問',
       'ru': 'Ваше имя',
-      'ar': 'اسمك',
-      'en': 'Your name',
-      'es': 'Su nombre',
-      'ko': '당신의 이름',
     },
-    '86qwtp9a': {
-      'ru': 'Email',
-      'ar': 'البريد الإلكتروني',
+    'rak6fjv6': {
       'en': 'Email',
+      'ar': 'البريد الإلكتروني',
       'es': 'Correo electrónico',
-      'ko': '이메일',
+      'ja': 'Eメール',
+      'ru': 'Эл. адрес',
     },
     'u9oeq7w1': {
-      'ru': 'Начните писать',
-      'ar': 'ابدأ الكتابة',
-      'en': 'start writing',
-      'es': 'Empieza a escribir',
-      'ko': '쓰기 시작',
+      'en': 'Начните писать',
+      'ar': 'ачните писать',
+      'es': 'Начните писать',
+      'ja': 'Начните писать',
+      'ru': 'владение письмом',
     },
     'wxepaaij': {
-      'ru': 'SEND',
-      'ar': 'إرسال',
       'en': 'SEND',
+      'ar': 'إرسال',
       'es': 'ENVIAR',
-      'ko': '보내다',
+      'ja': '送信',
+      'ru': 'ОТПРАВИТЬ',
     },
     '1hd7ebwe': {
-      'ru': 'Ответ на ваш вопрос мы отправим на e-mail',
-      'ar': 'سنرسل إجابة سؤالك عبر البريد الإلكتروني',
-      'en': 'We will send the answer to your question by e-mail',
-      'es': 'Le enviaremos la respuesta a su pregunta por correo electrónico.',
-      'ko': '질문에 대한 답변을 이메일로 보내드립니다',
+      'en': 'Ответ на ваш вопрос мы отправим на e-mail',
+      'ar': 'Ответ на ваш вопрос мы отправим на البريد الإلكتروني',
+      'es': 'Ответ на ваш вопрос мы отправим на e-mail',
+      'ja': 'メールでお問い合わせください',
+      'ru': 'Ответ на ваш вопрос мы отправляем на e-mail',
     },
     'wsofpb41': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
-    },
-  },
-  // Help
-  {
-    '4mk47x8w': {
-      'ru': 'ПОМОЩЬ',
-      'ar': 'يساعد',
-      'en': 'HELP',
-      'es': 'AYUDA',
-      'ko': '돕다',
-    },
-    'xyqcahji': {
-      'ru': 'КАК ИСПОЛЬЗОВАТЬ ПРИЛОЖЕНИЕ',
-      'ar': 'كيفية استخدام التطبيق',
-      'en': 'HOW TO USE THE APP',
-      'es': 'CÓMO USAR LA APLICACIÓN',
-      'ko': '앱 사용 방법',
-    },
-    'm1wetc6o': {
-      'ru':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ar':
-          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'es':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-    },
-    '25264jzx': {
-      'ru': 'ИНФОРМАЦИЯ О НАВИГАТОРЕ',
-      'ar': 'معلومات عن الملاح',
-      'en': 'INFORMATION ABOUT THE NAVIGATOR',
-      'es': 'INFORMACIÓN SOBRE EL NAVEGADOR',
-      'ko': '네비게이터에 대한 정보',
-    },
-    'kdf4vzqq': {
-      'ru':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ar':
-          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'es':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-    },
-    '4bo2nc9i': {
-      'ru': 'КАК ЗАБРАТЬ МАШИНУ',
-      'ar': 'كيف تلتقط السيارة',
-      'en': 'HOW TO PICK UP THE CAR',
-      'es': 'CÓMO RECOGER EL COCHE',
-      'ko': '차량 인수 방법',
-    },
-    '9zllze7o': {
-      'ru':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ar':
-          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'es':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-    },
-    'teqxns7s': {
-      'ru': 'КАК ВЕРНУТЬ МАШИНУ',
-      'ar': 'كيفية إعادة السيارة',
-      'en': 'HOW TO RETURN THE CAR',
-      'es': 'CÓMO DEVOLVER EL COCHE',
-      'ko': '자동차 반납 방법',
-    },
-    'vw2rgm6j': {
-      'ru':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ar':
-          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'es':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-    },
-    'lue0b4ly': {
-      'ru': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
-      'ar': 'قواعد استخدام السيارة',
-      'en': 'RULES FOR USE OF THE CAR',
-      'es': 'NORMAS PARA EL USO DEL COCHE',
-      'ko': '자동차 사용 규칙',
-    },
-    '3l9ry3b7': {
-      'ru':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ar':
-          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'es':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-    },
-    'pzfzjigy': {
-      'ru': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ В ОТЕЛЕ',
-      'ar': 'شروط وأحكام حجز الفنادق',
-      'en': 'HOTEL BOOKING TERMS AND CONDITIONS',
-      'es': 'TÉRMINOS Y CONDICIONES DE RESERVA DE HOTELES',
-      'ko': '호텔 예약 약관',
-    },
-    'fi6x7k2f': {
-      'ru':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ar':
-          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'es':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-    },
-    '22lgbxln': {
-      'ru': 'СТРАХОВАНИЕ ОТВЕТСТВЕННОСТИ',
-      'ar': 'تأمين المسؤولية',
-      'en': 'LIABILITY INSURANCE',
-      'es': 'SEGURO DE RESPONSABILIDAD',
-      'ko': '책임 보험',
-    },
-    'ohgejlab': {
-      'ru':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ar':
-          '1. Qui Practiceem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'en':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'es':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-      'ko':
-          '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
-    },
-    'tr5bmiz0': {
-      'ru': 'ЗАДАТЬ ВОПРОС',
-      'ar': 'طرح سؤال',
-      'en': 'ASK A QUESTION',
-      'es': 'HACER UNA PREGUNTA',
-      'ko': '질문하기',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // SUPPORT
   {
-    'agz50okh': {
+    'vqz0mtym': {
+      'en': 'СЛУЖБА ПОДДЕРЖКИ',
+      'ar': 'СЛУЖБА ПОДДЕРЖКИ',
+      'es': 'СЛУЖБА ПОДДЕРЖКИ',
+      'ja': 'СЛУЖБА ПОДДЕРЖКИ',
       'ru': 'СЛУЖБА ПОДДЕРЖКИ',
-      'ar': 'الدعم',
-      'en': 'SUPPORT',
-      'es': 'APOYO',
-      'ko': '지원하다',
     },
     'l0ff1ngm': {
+      'en': 'СПАСИБО',
+      'ar': 'СПАСИБО',
+      'es': 'СПАСИБО',
+      'ja': 'СПАСИБО',
       'ru': 'СПАСИБО',
-      'ar': 'شكرًا',
-      'en': 'THANKS',
-      'es': 'GRACIAS',
-      'ko': '감사해요',
     },
     'f25pvfm9': {
-      'ru':
+      'en':
           'Валерий, здравствуйте! Спасибо, что обратились в службу поддержки. Мы постараемся ответить на ваш вопрос как можно быстрее и пришлем ответ вам на почту. ',
       'ar':
-          'فاليري ، مرحبا! شكرا لك على الاتصال بالدعم. سنحاول الإجابة على سؤالك في أسرع وقت ممكن ونرسل لك إجابة عبر البريد الإلكتروني.',
-      'en':
-          'Valery, hello! Thank you for contacting support. We will try to answer your question as quickly as possible and send you an answer by email.',
+          'алерий، здравствуйте! Спасибо ، обратились в службу поддержки. ы постараемся ответить на ваш вопрос как можно быстрее и пришлем ответ вам на почту.',
       'es':
-          'Valery, hola! Gracias por ponerse en contacto con el soporte. Intentaremos responder a su pregunta lo más rápido posible y le enviaremos una respuesta por correo electrónico.',
-      'ko':
-          '발레리, 안녕! 지원팀에 문의해 주셔서 감사합니다. 귀하의 질문에 최대한 빨리 답변을 드리고 이메일로 답변을 보내드릴 수 있도록 노력하겠습니다.',
+          'Валерий, здравствуйте! Спасибо, что обратились в службу поддержки. ¿Qué puedo hacer?',
+      'ja':
+          '大切にします！ Спасибо, что обратились в службу поддержки. Мы постараемся ответить на ваш вопрос как можно быстрее および пришлет вам на почту.',
+      'ru':
+          'Валерий, здравствуйте! Спасибо, что обратились в службу поддержки. Мы постараемся ответить на ваш вопрос как можно быстрее и пришлем ответ вам на почту.',
     },
     'ddyicczm': {
-      'ru': 'OK',
-      'ar': 'نعم',
       'en': 'OK',
+      'ar': 'نعم',
       'es': 'OK',
-      'ko': '확인',
+      'ja': 'わかった',
+      'ru': 'ХОРОШО',
     },
     'ujxr0zqq': {
-      'ru': 'Home',
-      'ar': 'مسكن',
       'en': 'Home',
+      'ar': 'مسكن',
       'es': 'Hogar',
-      'ko': '집',
+      'ja': '家',
+      'ru': 'Дом',
     },
   },
   // search
   {
     '1nw9pklc': {
-      'ru': 'OK',
-      'ar': 'نعم',
       'en': 'OK',
+      'ar': 'نعم',
       'es': 'OK',
-      'ko': '확인',
+      'ja': 'わかった',
+      'ru': 'ХОРОШО',
     },
   },
   // Miscellaneous
   {
     'innpeagl': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     '9xerdrne': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     'se7vxgf1': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     'gp16g5ez': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     'gjtl5hwc': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     'c2yfo6vb': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     'nm8ajz7e': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     '5brpwvu3': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     '17nqubbu': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     'ob8k3ox2': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     's7lstziv': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     '0ajd038e': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     'odlv0s08': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     '31le5rl2': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     'zgsqy388': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     'xw588pyc': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     'xitmwstb': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     '24pnytp0': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     '6kiehx04': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     '4w8rb4v9': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
     'ppezs9d7': {
-      'ru': '',
-      'ar': '',
       'en': '',
+      'ar': '',
       'es': '',
-      'ko': '',
+      'ja': '',
+      'ru': '',
     },
   },
 ].reduce((a, b) => a..addAll(b));

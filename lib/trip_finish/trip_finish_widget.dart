@@ -8,6 +8,7 @@ import '../settings/settings_widget.dart';
 import '../trip_finish2/trip_finish2_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class TripFinishWidget extends StatefulWidget {
   const TripFinishWidget({Key? key}) : super(key: key);
@@ -21,6 +22,8 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,

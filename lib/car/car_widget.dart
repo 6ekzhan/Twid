@@ -6,6 +6,7 @@ import '../help/help_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class CarWidget extends StatefulWidget {
   const CarWidget({Key? key}) : super(key: key);
@@ -19,6 +20,8 @@ class _CarWidgetState extends State<CarWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
