@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
 import '../settings/settings_widget.dart';
+import '../trip2/trip2_widget.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,7 +19,14 @@ class Instructions010CopyWidget extends StatefulWidget {
 }
 
 class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +37,7 @@ class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -42,7 +50,7 @@ class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
                   alignment: AlignmentDirectional(0, 0.9),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'v6j5ryey' /* Please read the rules */,
+                      'zpvrsut8' /* PLEASE READ THE RULES */,
                     ),
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -103,7 +111,7 @@ class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'sl6hsy3q' /* ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИ... */,
+                                          'xayhmc8i' /* RULES FOR USING THE CAR */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .title1
@@ -150,7 +158,7 @@ class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                '5wnr55cj' /* 1. Qui exercitationem esse nis... */,
+                                                'na0fn57l' /* 1. Qui exercitationem esse nis... */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -210,7 +218,7 @@ class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          '35207tv8' /* ПРАВИЛА СТРАХОВАНИЯ */,
+                                          'zkidn2sm' /* INSURANCE RULES */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .title1
@@ -257,7 +265,7 @@ class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'szdpa1zt' /* 1. Qui exercitationem esse nis... */,
+                                                'mhut3kz4' /* 1. Qui exercitationem esse nis... */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -317,7 +325,7 @@ class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          '7g665hmp' /* ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОС... */,
+                                          'rsyyjrx7' /* RULES FOR USING HOTEL ARMOR */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .title1
@@ -364,7 +372,7 @@ class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'itz9ofjz' /* 1. Qui exercitationem esse nis... */,
+                                                'mz5x3wjm' /* 1. Qui exercitationem esse nis... */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -424,7 +432,7 @@ class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          '34yjos6d' /* ПРАВИЛА БЕЗОПАСНОСТИ */,
+                                          'cmpdv71x' /* SAFETY RULES */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .title1
@@ -471,7 +479,7 @@ class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'af1ge8va' /* 1. Qui exercitationem esse nis... */,
+                                                'bct0ixgr' /* 1. Qui exercitationem esse nis... */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -531,7 +539,7 @@ class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'hs74hxm1' /* ЭКСТРЕННАЯ СВЯЗЬ */,
+                                          '8ern5csu' /* EMERGENCY COMMUNICATION */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .title1
@@ -578,7 +586,7 @@ class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'es7mzigx' /* 1. Qui exercitationem esse nis... */,
+                                                'fop1i112' /* 1. Qui exercitationem esse nis... */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -626,10 +634,15 @@ class _Instructions010CopyWidgetState extends State<Instructions010CopyWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        Navigator.pop(context);
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Trip2Widget(),
+                          ),
+                        );
                       },
                       text: FFLocalizations.of(context).getText(
-                        'bofdm55b' /* ПРОЧИТАЛ. СОГЛАСЕН */,
+                        '0bmeynk9' /* I READ IT. I AGREE */,
                       ),
                       options: FFButtonOptions(
                         width: double.infinity,

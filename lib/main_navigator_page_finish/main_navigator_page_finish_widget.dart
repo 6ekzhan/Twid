@@ -23,6 +23,7 @@ class MainNavigatorPageFinishWidget extends StatefulWidget {
 class _MainNavigatorPageFinishWidgetState
     extends State<MainNavigatorPageFinishWidget> {
   LatLng? currentUserLocationValue;
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
@@ -32,6 +33,12 @@ class _MainNavigatorPageFinishWidgetState
     super.initState();
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
+  }
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -57,7 +64,7 @@ class _MainNavigatorPageFinishWidgetState
       resizeToAvoidBottomInset: false,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Container(
           width: double.infinity,
           height: double.infinity,
@@ -102,7 +109,7 @@ class _MainNavigatorPageFinishWidgetState
                         );
                       },
                       text: FFLocalizations.of(context).getText(
-                        'lm18fn7u' /* ФИНИШ */,
+                        'lm18fn7u' /* FINISH */,
                       ),
                       options: FFButtonOptions(
                         width: double.infinity,
@@ -183,7 +190,7 @@ class _MainNavigatorPageFinishWidgetState
                                   );
                                 },
                                 text: FFLocalizations.of(context).getText(
-                                  'kiuoxc9a' /* ИНФОРМАЦИЯ О МЕСТЕ */,
+                                  'kiuoxc9a' /* LOCATION INFORMATION */,
                                 ),
                                 options: FFButtonOptions(
                                   width: double.infinity,

@@ -18,7 +18,14 @@ class Instructions010Widget extends StatefulWidget {
 }
 
 class _Instructions010WidgetState extends State<Instructions010Widget> {
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +36,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -42,7 +49,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                   alignment: AlignmentDirectional(0, 0.9),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'scniofx1' /* Please read the rules */,
+                      'scniofx1' /* PLEASE READ THE RULES */,
                     ),
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -103,7 +110,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'sxcy9gwi' /* ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИ... */,
+                                          'sxcy9gwi' /* RULES FOR USING THE CAR */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .title1
@@ -210,7 +217,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'kj98caru' /* ПРАВИЛА СТРАХОВАНИЯ */,
+                                          'kj98caru' /* INSURANCE RULES */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .title1
@@ -317,7 +324,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'h4tiew0k' /* ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОС... */,
+                                          'h4tiew0k' /* RULES FOR USING HOTEL ARMOR */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .title1
@@ -424,7 +431,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'rykgo23m' /* ПРАВИЛА БЕЗОПАСНОСТИ */,
+                                          'rykgo23m' /* SAFETY RULES */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .title1
@@ -531,7 +538,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'htnzwlpv' /* ЭКСТРЕННАЯ СВЯЗЬ */,
+                                          'htnzwlpv' /* EMERGENCY COMMUNICATION */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .title1
@@ -634,7 +641,7 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                         );
                       },
                       text: FFLocalizations.of(context).getText(
-                        'ytdd4c9f' /* ПРОЧИТАЛ. СОГЛАСЕН */,
+                        'ytdd4c9f' /* I READ IT. I AGREE */,
                       ),
                       options: FFButtonOptions(
                         width: double.infinity,

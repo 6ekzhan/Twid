@@ -21,7 +21,14 @@ class PlaceInformationPointWidget extends StatefulWidget {
 
 class _PlaceInformationPointWidgetState
     extends State<PlaceInformationPointWidget> {
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +38,7 @@ class _PlaceInformationPointWidgetState
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 87, 0, 0),
           child: ListView(

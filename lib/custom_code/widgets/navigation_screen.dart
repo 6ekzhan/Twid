@@ -8,55 +8,43 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-// Set your widget name, define your parameter, and then add the
-// boilerplate code using the button on the right!
+import 'package:twid/language/language_widget.dart';
+
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart' as map;
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:location/location.dart' as loc;
 import 'package:location/location.dart';
-import 'package:twid/index.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 import 'dart:math' show cos, sqrt, asin;
 
-import 'package:twid/main.dart';
-import 'dart:typed_data';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:ui' as ui;
 
 class NavigationScreen extends StatefulWidget {
-  const NavigationScreen({
-    Key? key,
-    this.width,
-    this.height,
-    required this.lat,
-    required this.lng,
-    required this.ii,
-  }) : super(key: key);
-
-  final double? width;
-  final double? height;
-  final double lat;
-  final double lng;
+  double lat;
+  double lng;
   final int ii;
+  final map.BitmapDescriptor iconn2;
+  NavigationScreen(this.lat, this.lng, this.ii, this.iconn2);
 
   @override
-  _NavigationScreenState createState() => _NavigationScreenState();
+  State<NavigationScreen> createState() => _NavigationScreenState();
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
   String google_api_key_dest = "AIzaSyD8Ov_6USFLhH2V0cZwwIXTvirekBgCJy8";
-  final Completer<GoogleMapController?> _controller = Completer();
-  Map<PolylineId, Polyline> polylines = {};
+  final Completer<map.GoogleMapController?> _controller = Completer();
+  Map<map.PolylineId, map.Polyline> polylines = {};
   PolylinePoints polylinePoints = PolylinePoints();
   Location location = Location();
-  Marker? sourcePosition, destinationPosition, testMarker;
+  map.Marker? sourcePosition, destinationPosition, testMarker;
   loc.LocationData? _currentPosition;
-  LatLng curLocation = LatLng(51.091249211700934, 71.38939386600918);
+  map.LatLng curLocation = map.LatLng(51.091249211700934, 71.38939386600918);
   StreamSubscription<loc.LocationData>? locationSubscription;
 
   List<String> images = ['assets/images/marker222.png'];
@@ -71,36 +59,36 @@ class _NavigationScreenState extends State<NavigationScreen> {
   }
 
   Uint8List? markIcons;
-  BitmapDescriptor? iconn;
+  map.BitmapDescriptor? iconn;
 
   loadData() async {
     markIcons = await getImages(images[0], 40);
-    iconn = BitmapDescriptor.fromBytes(markIcons!);
+    iconn = map.BitmapDescriptor.fromBytes(markIcons!);
   }
 
   // Using keys property and firstWhere() method
   // to get key in a map
 
-  Map<int, LatLng> latMap = {
-    0: LatLng(48.19687999873028, 11.607928309337511),
-    1: LatLng(47.56854839092646, 11.094272455999523),
-    2: LatLng(47.4769736, 10.8148991),
-    3: LatLng(47.4802262, 10.7355182),
-    4: LatLng(47.5253892, 10.8436864),
-    5: LatLng(47.6901119, 12.8017926),
+  Map<int, map.LatLng> latMap = {
+    0: map.LatLng(48.19687999873028, 11.607928309337511),
+    1: map.LatLng(47.56854839092646, 11.094272455999523),
+    2: map.LatLng(47.4769736, 10.8148991),
+    3: map.LatLng(47.4802262, 10.7355182),
+    4: map.LatLng(47.5253892, 10.8436864),
+    5: map.LatLng(47.6901119, 12.8017926),
   };
-  LatLng? first;
+  map.LatLng? first;
   double? lat1;
   double? lon1;
 
-  LatLng? previous;
+  map.LatLng? previous;
   double? lat2;
   double? lon2;
   void getCurrentLocation() async {
     var position = await GeolocatorPlatform.instance.getCurrentPosition();
 
     setState(() {
-      curLocation = LatLng(position.latitude, position.longitude);
+      curLocation = map.LatLng(position.latitude, position.longitude);
     });
   }
 
@@ -142,10 +130,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
           ? Center(child: CircularProgressIndicator())
           : Stack(
               children: [
-                GoogleMap(
+                map.GoogleMap(
                   zoomControlsEnabled: false,
-                  polylines: Set<Polyline>.of(polylines.values),
-                  initialCameraPosition: CameraPosition(
+                  polylines: Set<map.Polyline>.of(polylines.values),
+                  initialCameraPosition: map.CameraPosition(
                     target: curLocation,
                     zoom: 12,
                   ),
@@ -153,7 +141,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   onTap: (latLng) {
                     print(latLng);
                   },
-                  onMapCreated: (GoogleMapController controller) {
+                  onMapCreated: (map.GoogleMapController controller) {
                     _controller.complete(controller);
                   },
                 ),
@@ -303,7 +291,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
   getNavigation() async {
     bool _serviceEnabled;
     PermissionStatus _permissionGranted;
-    final GoogleMapController? controller = await _controller.future;
+    final map.GoogleMapController? controller = await _controller.future;
     location.changeSettings(accuracy: loc.LocationAccuracy.high);
     _serviceEnabled = await location.serviceEnabled();
 
@@ -324,41 +312,43 @@ class _NavigationScreenState extends State<NavigationScreen> {
     if (_permissionGranted == loc.PermissionStatus.granted) {
       _currentPosition = await location.getLocation();
       curLocation =
-          LatLng(_currentPosition!.latitude!, _currentPosition!.longitude!);
+          map.LatLng(_currentPosition!.latitude!, _currentPosition!.longitude!);
       locationSubscription =
           location.onLocationChanged.listen((LocationData currentLocation) {
-        controller?.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-          target: LatLng(currentLocation.latitude!, currentLocation.longitude!),
+        controller?.animateCamera(
+            map.CameraUpdate.newCameraPosition(map.CameraPosition(
+          target:
+              map.LatLng(currentLocation.latitude!, currentLocation.longitude!),
           zoom: 16,
         )));
         if (mounted) {
-          controller
-              ?.showMarkerInfoWindow(MarkerId(sourcePosition!.markerId.value));
+          controller?.showMarkerInfoWindow(
+              map.MarkerId(sourcePosition!.markerId.value));
           setState(() {
-            curLocation =
-                LatLng(currentLocation.latitude!, currentLocation.longitude!);
-            sourcePosition = Marker(
-              markerId: MarkerId(currentLocation.toString()),
-              icon: BitmapDescriptor.defaultMarkerWithHue(
-                  BitmapDescriptor.hueBlue),
-              position:
-                  LatLng(currentLocation.latitude!, currentLocation.longitude!),
-              infoWindow: InfoWindow(
+            curLocation = map.LatLng(
+                currentLocation.latitude!, currentLocation.longitude!);
+            sourcePosition = map.Marker(
+              markerId: map.MarkerId(currentLocation.toString()),
+              icon: map.BitmapDescriptor.defaultMarkerWithHue(
+                  map.BitmapDescriptor.hueBlue),
+              position: map.LatLng(
+                  currentLocation.latitude!, currentLocation.longitude!),
+              infoWindow: map.InfoWindow(
                   title:
-                      '${double.parse((getDistance(LatLng(widget.lat, widget.lng)).toStringAsFixed(2)))} km'),
+                      '${double.parse((getDistance(map.LatLng(widget.lat, widget.lng)).toStringAsFixed(2)))} km'),
               onTap: () {
                 print('market tapped');
               },
             );
           });
-          getDirections(LatLng(widget.lat, widget.lng));
+          getDirections(map.LatLng(widget.lat, widget.lng));
         }
       });
     }
   }
 
-  getDirections(LatLng dst) async {
-    List<LatLng> polylineCoordinates = [];
+  getDirections(map.LatLng dst) async {
+    List<map.LatLng> polylineCoordinates = [];
     List<dynamic> points = [];
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
         '$google_api_key_dest',
@@ -367,7 +357,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         travelMode: TravelMode.driving);
     if (result.points.isNotEmpty) {
       result.points.forEach((PointLatLng point) {
-        polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+        polylineCoordinates.add(map.LatLng(point.latitude, point.longitude));
         points.add({'lat': point.latitude, 'lng': point.longitude});
       });
     } else {
@@ -376,9 +366,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
     addPolyLine(polylineCoordinates);
   }
 
-  addPolyLine(List<LatLng> polylineCoordinates) {
-    PolylineId id = PolylineId('poly');
-    Polyline polyline = Polyline(
+  addPolyLine(List<map.LatLng> polylineCoordinates) {
+    map.PolylineId id = map.PolylineId('poly');
+    map.Polyline polyline = map.Polyline(
       polylineId: id,
       color: Colors.blue,
       points: polylineCoordinates,
@@ -397,27 +387,29 @@ class _NavigationScreenState extends State<NavigationScreen> {
     return 12742 * asin(sqrt(a));
   }
 
-  double getDistance(LatLng destposition) {
+  double getDistance(map.LatLng destposition) {
     return calculateDistance(curLocation.latitude, curLocation.longitude,
         destposition.latitude, destposition.longitude);
   }
 
   addMarker() async {
     setState(() {
-      sourcePosition = Marker(
-        markerId: MarkerId('source'),
+      sourcePosition = map.Marker(
+        markerId: map.MarkerId('source'),
         position: curLocation,
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
+        icon: map.BitmapDescriptor.defaultMarkerWithHue(
+            map.BitmapDescriptor.hueYellow),
       );
-      testMarker = Marker(
-        markerId: MarkerId('test'),
-        position: LatLng(curLocation.latitude, curLocation.longitude),
+      testMarker = map.Marker(
+        markerId: map.MarkerId('test'),
+        position: map.LatLng(curLocation.latitude, curLocation.longitude),
         icon: widget.iconn2,
       );
-      destinationPosition = Marker(
-        markerId: MarkerId('destination'),
-        position: LatLng(widget.lat, widget.lng),
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
+      destinationPosition = map.Marker(
+        markerId: map.MarkerId('destination'),
+        position: map.LatLng(widget.lat, widget.lng),
+        icon: map.BitmapDescriptor.defaultMarkerWithHue(
+            map.BitmapDescriptor.hueYellow),
       );
     });
   }

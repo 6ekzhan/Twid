@@ -18,7 +18,14 @@ class TripFinishWidget extends StatefulWidget {
 }
 
 class _TripFinishWidgetState extends State<TripFinishWidget> {
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +35,7 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Container(
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
@@ -45,7 +52,9 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        '60w182x5' /* Ваше путешествие окончено.  На... */,
+                        '60w182x5' /* Your journey is over.
+We hope ... */
+                        ,
                       ),
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -58,7 +67,7 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'c1gc858g' /* Если у вас есть какие-то пожел... */,
+                          'c1gc858g' /* If you have any suggestions or... */,
                         ),
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -92,7 +101,7 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                             );
                           },
                           text: FFLocalizations.of(context).getText(
-                            'enga795w' /* НАЧАТЬ ПУТЕШЕСТВИЕ */,
+                            'enga795w' /* START THE JOURNEY */,
                           ),
                           options: FFButtonOptions(
                             width: double.infinity,
@@ -140,7 +149,7 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'tjf8529p' /* Вы проехали 3260 км.  */,
+                                          'tjf8529p' /* You have driven 3260 km. */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
@@ -174,7 +183,7 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'mu0hqk53' /* Получена ачивка «Путешественни... */,
+                                          'mu0hqk53' /* The "Traveler" achievement was... */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
@@ -208,7 +217,7 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'b6np5bk2' /* Доступны новые маршруты */,
+                                          'b6np5bk2' /* New routes are available */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
@@ -242,7 +251,7 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                                           24, 0, 0, 0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          '461vgj7g' /* Прокод на скидку 15% — twidriv... */,
+                                          '461vgj7g' /* 15% discount promo code — twid... */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
@@ -269,7 +278,7 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                                 EdgeInsetsDirectional.fromSTEB(0, 100, 0, 24),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'xklsqefy' /* Как забрать машину */,
+                                'xklsqefy' /* How to pick up the car? */,
                               ),
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context)
@@ -299,7 +308,7 @@ class _TripFinishWidgetState extends State<TripFinishWidget> {
                               );
                             },
                             text: FFLocalizations.of(context).getText(
-                              'it29tisu' /* ВЕРНУТЬСЯ К МАРШРУТУ */,
+                              'it29tisu' /* GO BACK TO THE ROUTE */,
                             ),
                             options: FFButtonOptions(
                               width: double.infinity,

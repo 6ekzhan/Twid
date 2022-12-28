@@ -22,6 +22,7 @@ class MainNavigatorPage2Widget extends StatefulWidget {
 
 class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
   LatLng? currentUserLocationValue;
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
@@ -31,6 +32,12 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
     super.initState();
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
+  }
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -56,7 +63,7 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
       resizeToAvoidBottomInset: false,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Container(
           width: double.infinity,
           height: double.infinity,

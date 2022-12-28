@@ -132,21 +132,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // HomePage
   {
-    'ypfz29i7': {
+    '5tzuumc9': {
       'en': 'OK',
       'ar': 'OK',
       'es': 'OK',
       'ja': 'OK',
       'ru': 'OK',
     },
-    '2eqpkck1': {
+    'ai2vnv38': {
       'en': 'If you have not yet chosen a route to travel, go to the website',
       'ar': 'إذا لم تكن قد اخترت طريقا للسفر بعد ، فانتقل إلى موقع الويب',
       'es': 'Si aún no ha elegido una ruta para viajar, vaya al sitio web',
       'ja': '旅行するルートをまだ選択していない場合は、ウェブサイトにアクセスしてください',
       'ru': 'Если вы еще не выбрали маршрут для путешествия перейдите на сайт',
     },
-    'b0eqhtut': {
+    '6i1j2l2u': {
       'en': 'How to use the app?',
       'ar': 'كيفية استخدام التطبيق?',
       'es': '¿Cómo utilizar la aplicación?',
@@ -164,69 +164,69 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Trip1
   {
     '7b7tfv87': {
-      'en': 'Ваше путешествие начнется через:',
-      'ar': 'аше путешествие начнется ерез:',
-      'es': 'Ваше путешествие начнется через:',
-      'ja': '重要事項:',
+      'en': 'Your journey started through:',
+      'ar': 'بدأت رحلتك من خلال:',
+      'es': 'Su viaje comenzó a través de:',
+      'ja': 'あなたの旅は始まりました:',
       'ru': 'Ваше путешествие началось через:',
     },
     'hy6dw4ym': {
       'en': 'Porsche 911 Carrera GTS',
-      'ar': 'بورش 911 كاريرا جي تي إس',
+      'ar': 'Porsche 911 Carrera GTS',
       'es': 'Porsche 911 Carrera GTS',
-      'ja': 'ポルシェ 911 カレラ GTS',
-      'ru': 'Порше 911 Каррера ГТС',
+      'ja': 'Porsche 911 Carrera GTS',
+      'ru': 'Porsche 911 Carrera GTS',
     },
     'wzbafwa9': {
-      'en': '10 октября — 12 октября, 2022',
-      'ar': '10 октября - 12 октября، 2022',
-      'es': '10 de octubre — 12 de octubre, 2022',
-      'ja': '2022 年 10 月 10 日 — 12 日',
+      'en': 'October 10 — October 12, 2022',
+      'ar': '10 أكتوبر-12 أكتوبر 2022',
+      'es': '10 octubre — 12 octubre, 2022',
+      'ja': '2022年10月10日—10月12日',
       'ru': '10 октября — 12 октября 2022 г.',
     },
     '7ho7tok1': {
       'en': 'Cabo da Roca — Nazare. Portugal',
-      'ar': 'كابو دا روكا - نازاري. البرتغال',
-      'es': 'Cabo da Roca — Nazaré. Portugal',
-      'ja': 'カボ ダ ロカ — ナザレ。ポルトガル',
-      'ru': 'Кабо да Рока — Назаре. Португалия',
+      'ar': 'Cabo da Roca — Nazare. Portugal',
+      'es': 'Cabo da Roca — Nazare. Portugal',
+      'ja': 'Cabo da Roca — Nazare. Portugal',
+      'ru': 'Cabo da Roca — Nazare. Portugal',
     },
     'u8lwwu0t': {
       'en': 'More journey details',
-      'ar': 'مزيد من تفاصيل الرحلة',
-      'es': 'Más detalles del viaje',
-      'ja': '旅の詳細',
-      'ru': 'Подробнее о путешествии',
+      'ar': 'More journey details',
+      'es': 'More journey details',
+      'ja': 'More journey details',
+      'ru': 'More journey details',
     },
     'ocefep6i': {
-      'en': 'Как забрать машину?',
-      'ar': 'Как забрать машину؟',
-      'es': 'Как забрать машину?',
-      'ja': 'Как забрать машину?',
+      'en': 'How to pick up the car?',
+      'ar': 'كيفية التقاط السيارة?',
+      'es': '¿Cómo recoger el coche?',
+      'ja': 'どのように車を拾うには？',
       'ru': 'Как забрать машину?',
     },
     '44rr2ku7': {
-      'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
-      'ja': '家',
-      'ru': 'Дом',
+      'en': '',
+      'ar': '',
+      'es': '',
+      'ja': '',
+      'ru': '',
     },
   },
   // Instructions010
   {
     'scniofx1': {
-      'en': 'Please read the rules',
+      'en': 'PLEASE READ THE RULES',
       'ar': 'يرجى قراءة القواعد',
-      'es': 'Por favor, lea las reglas',
+      'es': 'POR FAVOR, LEA LAS REGLAS',
       'ja': 'ルールをお読みください',
-      'ru': 'Пожалуйста, ознакомьтесь с правилами',
+      'ru': 'ПОЖАЛУЙСТА, ОЗНАКОМЬТЕСЬ С ПРАВИЛАМИ',
     },
     'sxcy9gwi': {
-      'en': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
-      'ar': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
-      'es': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
-      'ja': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+      'en': 'RULES FOR USING THE CAR',
+      'ar': 'قواعد استخدام السيارة',
+      'es': 'REGLAS DE USO DEL VEHÍCULO',
+      'ja': '車を使用するためのルール',
       'ru': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
     },
     'vh0yu7xd': {
@@ -242,10 +242,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
     'kj98caru': {
-      'en': 'ПРАВИЛА СТРАХОВАНИЯ',
-      'ar': 'ПРАВИЛА СТРАХОВАНИЯ',
-      'es': 'ПРАВИЛА СТРАХОВАНИЯ',
-      'ja': 'ПРАВИЛА СТРАХОВАНИЯ',
+      'en': 'INSURANCE RULES',
+      'ar': 'قواعد التأمين',
+      'es': 'NORMAS DE SEGURO',
+      'ja': '保険のルール',
       'ru': 'ПРАВИЛА СТРАХОВАНИЯ',
     },
     '9d7fg3xw': {
@@ -261,11 +261,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
     'h4tiew0k': {
-      'en': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
-      'ar': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
-      'es': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
-      'ja': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
-      'ru': 'ПРАВИЛА ПОЛЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
+      'en': 'RULES FOR USING HOTEL ARMOR',
+      'ar': 'قواعد استخدام درع الفندق',
+      'es': 'CONDICIONES DE USO DE LA RESERVA DEL HOTEL',
+      'ja': 'ホテルの鎧を使用するためのルール',
+      'ru': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
     },
     'ls5q6opd': {
       'en':
@@ -280,10 +280,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
     'rykgo23m': {
-      'en': 'ПРАВИЛА БЕЗОПАСНОСТИ',
-      'ar': 'ПРАВИЛА БЕЗОПАСНОСТИ',
-      'es': 'ПРАВИЛА БЕЗОПАСНОСТИ',
-      'ja': 'ПРАВИЛА БЕЗОПАСНОСТИ',
+      'en': 'SAFETY RULES',
+      'ar': 'قواعد السلامة',
+      'es': 'REGLAS DE SEGURIDAD',
+      'ja': '安全ルール',
       'ru': 'ПРАВИЛА БЕЗОПАСНОСТИ',
     },
     'q7mejtp8': {
@@ -299,10 +299,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
     'htnzwlpv': {
-      'en': 'ЭКСТРЕННАЯ СВЯЗЬ',
-      'ar': 'ЭКСТРЕННАЯ СВЯЗЬ',
-      'es': 'ЭКСТРЕННАЯ СВЯЗЬ',
-      'ja': 'ЭКСТРЕННАЯ СВЯЗЬ',
+      'en': 'EMERGENCY COMMUNICATION',
+      'ar': 'الاتصالات في حالات الطوارئ',
+      'es': 'COMUNICACIONES DE EMERGENCIA',
+      'ja': '緊急連絡',
       'ru': 'ЭКСТРЕННАЯ СВЯЗЬ',
     },
     'w80no2r8': {
@@ -318,37 +318,37 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
     'ytdd4c9f': {
-      'en': 'ПРОЧИТАЛ. СОГЛАСЕН',
-      'ar': 'РОЧИТАЛ. СОГЛАСЕН',
-      'es': 'ПРОЧИТАЛ. СОГЛАСЕН',
-      'ja': 'ПРОЧИТАЛ。 СОГЛАСЕН',
+      'en': 'I READ IT. I AGREE',
+      'ar': 'قرأته. أنا موافق',
+      'es': 'LEYO. De acuerdo',
+      'ja': '私はそれを読んだ。 賛成です。',
       'ru': 'ПРОЧИТАЛ. СОГЛАСЕН',
     },
     '8ckyk7t6': {
-      'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
-      'ja': '家',
-      'ru': 'Дом',
+      'en': '',
+      'ar': '',
+      'es': '',
+      'ja': '',
+      'ru': '',
     },
   },
   // Instructions010Copy
   {
-    'v6j5ryey': {
-      'en': 'Please read the rules',
+    'zpvrsut8': {
+      'en': 'PLEASE READ THE RULES',
       'ar': 'يرجى قراءة القواعد',
-      'es': 'Por favor, lea las reglas',
+      'es': 'POR FAVOR, LEA LAS REGLAS',
       'ja': 'ルールをお読みください',
-      'ru': 'Пожалуйста, ознакомьтесь с правилами',
+      'ru': 'ПОЖАЛУЙСТА, ОЗНАКОМЬТЕСЬ С ПРАВИЛАМИ',
     },
-    'sl6hsy3q': {
-      'en': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
-      'ar': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
-      'es': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
-      'ja': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+    'xayhmc8i': {
+      'en': 'RULES FOR USING THE CAR',
+      'ar': 'قواعد استخدام السيارة',
+      'es': 'REGLAS DE USO DEL VEHÍCULO',
+      'ja': '車を使用するためのルール',
       'ru': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
     },
-    '5wnr55cj': {
+    'na0fn57l': {
       'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
@@ -360,14 +360,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    '35207tv8': {
-      'en': 'ПРАВИЛА СТРАХОВАНИЯ',
-      'ar': 'ПРАВИЛА СТРАХОВАНИЯ',
-      'es': 'ПРАВИЛА СТРАХОВАНИЯ',
-      'ja': 'ПРАВИЛА СТРАХОВАНИЯ',
+    'zkidn2sm': {
+      'en': 'INSURANCE RULES',
+      'ar': 'قواعد التأمين',
+      'es': 'NORMAS DE SEGURO',
+      'ja': '保険のルール',
       'ru': 'ПРАВИЛА СТРАХОВАНИЯ',
     },
-    'szdpa1zt': {
+    'mhut3kz4': {
       'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
@@ -379,14 +379,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    '7g665hmp': {
-      'en': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
-      'ar': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
-      'es': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
-      'ja': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
-      'ru': 'ПРАВИЛА ПОЛЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
+    'rsyyjrx7': {
+      'en': 'RULES FOR USING HOTEL ARMOR',
+      'ar': 'قواعد استخدام درع الفندق',
+      'es': 'CONDICIONES DE USO DE LA RESERVA DEL HOTEL',
+      'ja': 'ホテルの鎧を使用するためのルール',
+      'ru': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ ГОСТИНИЦЫ',
     },
-    'itz9ofjz': {
+    'mz5x3wjm': {
       'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
@@ -398,14 +398,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    '34yjos6d': {
-      'en': 'ПРАВИЛА БЕЗОПАСНОСТИ',
-      'ar': 'ПРАВИЛА БЕЗОПАСНОСТИ',
-      'es': 'ПРАВИЛА БЕЗОПАСНОСТИ',
-      'ja': 'ПРАВИЛА БЕЗОПАСНОСТИ',
+    'cmpdv71x': {
+      'en': 'SAFETY RULES',
+      'ar': 'قواعد السلامة',
+      'es': 'REGLAS DE SEGURIDAD',
+      'ja': '安全ルール',
       'ru': 'ПРАВИЛА БЕЗОПАСНОСТИ',
     },
-    'af1ge8va': {
+    'bct0ixgr': {
       'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
@@ -417,14 +417,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    'hs74hxm1': {
-      'en': 'ЭКСТРЕННАЯ СВЯЗЬ',
-      'ar': 'ЭКСТРЕННАЯ СВЯЗЬ',
-      'es': 'ЭКСТРЕННАЯ СВЯЗЬ',
-      'ja': 'ЭКСТРЕННАЯ СВЯЗЬ',
+    '8ern5csu': {
+      'en': 'EMERGENCY COMMUNICATION',
+      'ar': 'الاتصالات في حالات الطوارئ',
+      'es': 'COMUNICACIONES DE EMERGENCIA',
+      'ja': '緊急連絡',
       'ru': 'ЭКСТРЕННАЯ СВЯЗЬ',
     },
-    'es7mzigx': {
+    'fop1i112': {
       'en':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
       'ar':
@@ -436,125 +436,125 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ru':
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
-    'bofdm55b': {
-      'en': 'ПРОЧИТАЛ. СОГЛАСЕН',
-      'ar': 'РОЧИТАЛ. СОГЛАСЕН',
-      'es': 'ПРОЧИТАЛ. СОГЛАСЕН',
-      'ja': 'ПРОЧИТАЛ。 СОГЛАСЕН',
+    '0bmeynk9': {
+      'en': 'I READ IT. I AGREE',
+      'ar': 'قرأته. أنا موافق',
+      'es': 'LEYO. De acuerdo',
+      'ja': '私はそれを読んだ。 賛成です。',
       'ru': 'ПРОЧИТАЛ. СОГЛАСЕН',
     },
-    '6puna2y2': {
-      'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
-      'ja': '家',
-      'ru': 'Дом',
+    'dbhbsr11': {
+      'en': '',
+      'ar': '',
+      'es': '',
+      'ja': '',
+      'ru': '',
     },
   },
   // Trip2
   {
     'pz4ro1we': {
       'en':
-          'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы легко можете перейти от одной точки назначения до другой или вернуться назад.  ',
+          'The buttons on the navigator screen will help you navigate throughout the route. You can easily go from one destination to another or go back.',
       'ar':
-          'на протяжении всего маршрута. هذا هو السبب في أنه من الأفضل أن يكون هذا هو الحال.',
+          'ستساعدك الأزرار الموجودة على شاشة المستكشف على التنقل في جميع أنحاء الطريق. يمكنك الانتقال بسهولة من وجهة إلى أخرى أو العودة.',
       'es':
-          'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы легко можете перейти от одной точки назначения до другой или вернуться назад.',
+          'Los botones en la pantalla del navegador lo ayudarán a navegar a lo largo de la ruta. Puede pasar fácilmente de un punto de destino a otro o retroceder.',
       'ja':
-          'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута.この記事は、現在公開されている日付から始まります。',
+          'ナビゲータ画面のボタンは、ルート全体をナビゲートするのに役立ちます。 ある目的地から別の目的地に簡単に移動したり、戻ったりすることができます。',
       'ru':
           'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы можете легко перейти от одной точки назначения к другой или вернуться назад.',
     },
     'vin93ofb': {
-      'en': 'ОК. ДАЛЬШЕ',
-      'ar': 'ОК. АЛЬШЕ',
-      'es': 'ОК. ДАЛЬШЕ',
-      'ja': 'ああ。 ДАЛЬШЕ',
+      'en': 'OK. NEXT',
+      'ar': 'حسنا. التالي',
+      'es': 'OK. SIGUIENTE',
+      'ja': 'わかった 次へ',
       'ru': 'ОК. ДАЛЬШЕ',
     },
     'kuswjwgq': {
       'en':
-          'По достижении новой точки навигатор подскажет о наличии интересной информации, которую мы для вас тщательно подобрали. Кликните Point Information. ',
+          'Upon reaching a new point, the navigator will tell you about the availability of interesting information that we have carefully selected for you. Click Point Information.',
       'ar':
-          'остижении новой точки навигатор подскажет о наличии интересной информации، которую для вастор. معلومات نقطة.',
+          'عند الوصول إلى نقطة جديدة ، سيخبرك المستكشف عن توفر المعلومات المثيرة للاهتمام التي اخترناها لك بعناية. انقر فوق معلومات النقطة.',
       'es':
-          'По достижении новой точки навигатор подскажет о наличии интересной информации, которую мы длля ватес тща Кликните Información del punto.',
-      'ja': '私たちは、この問題を解決するために、この問題を解決しました. Кликните ポイント情報。',
+          'Al llegar al nuevo punto, el navegador le indicará la presencia de información interesante, que hemos seleccionado cuidadosamente para usted. Haga Clic En Point Information.',
+      'ja':
+          '新しいポイントに到達すると、ナビゲータは慎重に選択した興味深い情報の入手可能性について教えてくれます。 ポイント情報をクリックします。',
       'ru':
-          'По следующей оценке навигатор подсказывает о наличии интересной информации, которую мы для вас подобрали. Кликните Информация о точке.',
+          'По достижении новой точки навигатор подскажет о наличии интересной информации, которую мы для вас тщательно подобрали. Кликните Point Information. ',
     },
     'ncaulhea': {
-      'en': 'ОК. ДАЛЬШЕ',
-      'ar': 'ОК. АЛЬШЕ',
-      'es': 'ОК. ДАЛЬШЕ',
-      'ja': 'ああ。 ДАЛЬШЕ',
+      'en': 'OK. NEXT',
+      'ar': 'حسنا. التالي',
+      'es': 'OK. SIGUIENTE',
+      'ja': 'わかった 次へ',
       'ru': 'ОК. ДАЛЬШЕ',
     },
     'c3bdx0kk': {
       'en':
-          'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы легко можете перейти от одной точки назначения до другой или вернуться назад.  ',
+          'Moving between points, you can find out in advance about the sights that lie on your route or return to the navigator.',
       'ar':
-          'на протяжении всего маршрута. هذا هو السبب في أنه من الأفضل أن يكون هذا هو الحال.',
+          'الانتقال بين النقاط ، يمكنك معرفة مقدما عن المعالم السياحية التي تقع على مسارك أو العودة إلى الملاح.',
       'es':
-          'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы легко можете перейти от одной точки назначения до другой или вернуться назад.',
-      'ja':
-          'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута.この記事は、現在公開されている日付から始まります。',
+          'Al moverse entre puntos, puede conocer de antemano los puntos de interés que se encuentran en su ruta o regresar al navegador.',
+      'ja': 'ポイント間を移動すると、ルート上にある観光スポットやナビゲーターに戻るスポットについて事前に知ることができます。',
       'ru':
-          'Кнопки на экране навигатора помогут вам ориентироваться на протяжении всего маршрута. Вы можете легко перейти от одной точки назначения к другой или вернуться назад.',
+          'Перемещаясь между точками, вы можете заранее узнать о достопримечательностях, которые лежат на вашем маршруте или вернуться в навигатор.',
     },
     'ioa7i7qj': {
-      'en': 'ОК. ДАЛЬШЕ',
-      'ar': 'ОК. АЛЬШЕ',
-      'es': 'ОК. ДАЛЬШЕ',
-      'ja': 'ああ。 ДАЛЬШЕ',
+      'en': 'OK. NEXT',
+      'ar': 'حسنا. التالي',
+      'es': 'OK. SIGUIENTE',
+      'ja': 'わかった 次へ',
       'ru': 'ОК. ДАЛЬШЕ',
     },
     'lyh3zlw8': {
-      'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
-      'ja': '家',
-      'ru': 'Дом',
+      'en': '',
+      'ar': '',
+      'es': '',
+      'ja': '',
+      'ru': '',
     },
   },
   // TripStart
   {
     'tm8bffsz': {
-      'en': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
-      'ar': 'АЧАТЬ ПУТЕШЕСТВИЕ',
-      'es': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
-      'ja': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
+      'en': 'START THE JOURNEY',
+      'ar': 'ابدأ الرحلة',
+      'es': 'COMIENCE SU VIAJE',
+      'ja': '旅を始める',
       'ru': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
     },
     'adl2jnc3': {
-      'en': 'Как забрать машину?',
-      'ar': 'Как забрать машину؟',
-      'es': 'Как забрать машину?',
-      'ja': 'Как забрать машину?',
+      'en': 'How to pick up the car?',
+      'ar': 'كيفية التقاط السيارة?',
+      'es': '¿Cómo recoger el coche?',
+      'ja': 'どのように車を拾うには？',
       'ru': 'Как забрать машину?',
     },
     '6r478cgk': {
-      'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
-      'ja': '家',
-      'ru': 'Дом',
+      'en': '',
+      'ar': '',
+      'es': '',
+      'ja': '',
+      'ru': '',
     },
   },
   // MainNavigatorPage
   {
     'gnh6m1of': {
-      'en': 'ПОЕХАЛИ!',
-      'ar': 'АЛИ!',
-      'es': 'ПОЕХАЛИ!',
-      'ja': 'ああああああ！',
+      'en': 'LET\'S GO!',
+      'ar': 'لنذهب!',
+      'es': '¡VAMOS!',
+      'ja': '行くぞ!',
       'ru': 'ПОЕХАЛИ!',
     },
     'kfr798l2': {
-      'en': 'ИНФОРМАЦИЯ О МЕСТЕ',
-      'ar': 'ИНФОРМАЦИЯ О МЕСТЕ',
-      'es': 'ИНФОРМАЦИЯ О МЕСТЕ',
-      'ja': 'ИНФОРМАЦИЯ О МЕСТЕ',
+      'en': 'LOCATION INFORMATION',
+      'ar': 'معلومات الموقع',
+      'es': 'INFORMACIÓN DEL LUGAR',
+      'ja': '位置情報',
       'ru': 'ИНФОРМАЦИЯ О МЕСТЕ',
     },
     'qp05f9qx': {
@@ -648,11 +648,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ru': 'ВЕРНУТЬСЯ В НАВИГАТОР',
     },
     'zumghl25': {
-      'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
-      'ja': '家',
-      'ru': 'Дом',
+      'en': '',
+      'ar': '',
+      'es': '',
+      'ja': '',
+      'ru': '',
     },
   },
   // PlaceInformationPoint
@@ -738,11 +738,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ru': 'ВЕРНУТЬСЯ В НАВИГАТОР',
     },
     'pycuatrj': {
-      'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
-      'ja': '家',
-      'ru': 'Дом',
+      'en': '',
+      'ar': '',
+      'es': '',
+      'ja': '',
+      'ru': '',
     },
   },
   // MainNavigatorPage2
@@ -756,8 +756,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'p1w1h31l': {
       'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
+      'ar': 'بيت',
+      'es': 'Casa',
       'ja': '家',
       'ru': 'Дом',
     },
@@ -773,8 +773,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'o1d3a07q': {
       'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
+      'ar': 'بيت',
+      'es': 'Casa',
       'ja': '家',
       'ru': 'Дом',
     },
@@ -782,17 +782,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // MainNavigatorPageFinish
   {
     'lm18fn7u': {
-      'en': 'ФИНИШ',
-      'ar': 'ФИНИШ',
-      'es': 'ФИНИШ',
-      'ja': 'ФИНИШ',
+      'en': 'FINISH',
+      'ar': 'إنهاء',
+      'es': 'LÍNEA DE LLEGADA',
+      'ja': '仕上げ',
       'ru': 'ФИНИШ',
     },
     'kiuoxc9a': {
-      'en': 'ИНФОРМАЦИЯ О МЕСТЕ',
-      'ar': 'ИНФОРМАЦИЯ О МЕСТЕ',
-      'es': 'ИНФОРМАЦИЯ О МЕСТЕ',
-      'ja': 'ИНФОРМАЦИЯ О МЕСТЕ',
+      'en': 'LOCATION INFORMATION',
+      'ar': 'معلومات الموقع',
+      'es': 'INFORMACIÓN DEL LUGAR',
+      'ja': '位置情報',
       'ru': 'ИНФОРМАЦИЯ О МЕСТЕ',
     },
     '5arc7cyt': {
@@ -807,74 +807,73 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '60w182x5': {
       'en':
-          'Ваше путешествие окончено.  Надеемся оно прошло прекрасно и вам понравился выбранный маршрут.',
+          'Your journey is over.\nWe hope it went well and you liked the chosen route.',
       'ar':
-          'аше путешествие окончено. адеемся оно прошло прекрасно и вам понравился выбранный маршрут.',
+          'رحلتك قد انتهت.\nنأمل أن سارت الأمور على ما يرام وكنت تحب الطريق المختار.',
       'es':
-          'Ваше путешествие окончено. Надеемся оно прошло прекрасно и вам понравился выбранный маршрут.',
-      'ja':
-          'よくある質問です。 Надеемся оно прошло прекрасно と вам понравился выбранный маршрут.',
+          'Su viaje ha terminado.\nEsperamos que haya ido bien y te haya gustado la ruta elegida.',
+      'ja': 'あなたの旅は終わりました。\n私たちは、それがうまくいったとあなたが選択したルートが好き願っています。',
       'ru':
-          'Ваше окончено путешествие. Мы предполагаем, что он прошел прекрасно и понравился вам выбранный маршрут.',
+          'Ваше путешествие окончено.\nНадеемся оно прошло прекрасно и вам понравился выбранный маршрут.',
     },
     'c1gc858g': {
       'en':
-          'Если у вас есть какие-то пожелания или замечания, будем рады, если вы напишите нам на почту contact@twid.com',
+          'If you have any suggestions or comments, we will be glad if you write to us by email contact@twid.com',
       'ar':
-          'усли у вас есть какие-то пожелания или замечания، будем рады، если вы напишите нам на почту contact@twid.com',
+          'إذا كان لديك أي اقتراحات أو تعليقات ، سنكون سعداء إذا كنت تكتب لنا عن طريق البريد الإلكتروني contact@twid.com',
       'es':
-          'Если у вас есть какие-то пожелания или замечания, будем рады, если вы напишите нам на почту contact@twid.com',
-      'ja': 'お問い合わせはこちら contact@twid.com',
+          'Si tiene alguna sugerencia o comentario, estaremos encantados de enviarnos un correo electrónico contact@twid.com',
+      'ja': '提案かコメントがあれば、私達は電子メールによって私達に書けば嬉しいですcontact@twid.com',
       'ru':
-          'Если у вас есть какие-то пожелания или замечания, будем рады, если вы напишите нам на почту contact@twid.com',
+          'Если у вас есть какие-то пожелания или замечания, будем рады, если вы напишите нам на почту contact@twid.com',
     },
     'enga795w': {
-      'en': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
-      'ar': 'АЧАТЬ ПУТЕШЕСТВИЕ',
-      'es': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
-      'ja': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
+      'en': 'START THE JOURNEY',
+      'ar': 'ابدأ الرحلة',
+      'es': 'COMIENCE SU VIAJE',
+      'ja': '旅を始める',
       'ru': 'НАЧАТЬ ПУТЕШЕСТВИЕ',
     },
     'tjf8529p': {
-      'en': 'Вы проехали 3260 км. ',
-      'ar': 'Вы проехали 3260 км.',
-      'es': 'Вы проехали 3260 км.',
-      'ja': '3260 km です。',
+      'en': 'You have driven 3260 km.',
+      'ar': 'لقد دفعت 3260 كم.',
+      'es': 'Has recorrido 3260 Km.',
+      'ja': 'あなたは3260キロを運転しています。',
       'ru': 'Вы проехали 3260 км.',
     },
     'mu0hqk53': {
-      'en': 'Получена ачивка «Путешественник»',
-      'ar': 'Получена ачивка «утешественник»',
-      'es': 'Получена ачивка «Путешественник»',
-      'ja': 'Получена ачивка «Путешественник»',
+      'en': 'The \"Traveler\" achievement was received',
+      'ar': 'تم استلام إنجاز \"المسافر\" ',
+      'es': 'Recibido achivka \"Viajero\"',
+      'ja': 'Traveler\"の実績が届きました',
       'ru': 'Получена ачивка «Путешественник»',
     },
     'b6np5bk2': {
-      'en': 'Доступны новые маршруты',
-      'ar': 'оступны новые маршруты',
-      'es': 'Доступны новые маршруты',
-      'ja': 'Доступны новые маршруты',
+      'en': 'New routes are available',
+      'ar': 'طرق جديدة متاحة',
+      'es': 'Nuevas rutas disponibles',
+      'ja': '新しいルートが利用可能です',
       'ru': 'Доступны новые маршруты',
     },
     '461vgj7g': {
-      'en': 'Прокод на скидку 15% — twidrive',
-      'ar': 'Прокод на скидку 15٪ - twidrive',
-      'es': 'Precio de venta al público 15 % — twidrive',
-      'ja': '15% — twidrive',
+      'en': '15% discount promo code — twidrive',
+      'ar': '15% خصم الرمز الترويجي-تويدريف',
+      'es': 'Procode con un 15% de descuento-twidrive',
+      'ja': '15%割引プロモーションコード—twidrive',
       'ru': 'Прокод на скидку 15% — twidrive',
     },
     'xklsqefy': {
-      'en': 'Как забрать машину',
-      'ar': 'Как забрать машину',
-      'es': 'Как забрать машину',
-      'ja': 'Как забрать машину',
-      'ru': 'Как забрать машину',
+      'en': 'How to pick up the car?',
+      'ar': 'كيفية التقاط السيارة?',
+      'es': '¿Cómo recoger el coche?',
+      'ja': 'どのように車を拾うには？',
+      'ru': 'Как забрать машину?',
     },
     'it29tisu': {
-      'en': 'ВЕРНУТЬСЯ К МАРШРУТУ',
-      'ar': 'ВЕРНУТЬСЯ К АРШРУТУ',
-      'es': 'ВЕРНУТЬСЯ К МАРШРУТУ',
-      'ja': 'ВЕРНУТЬСЯКМАРШРУТУ',
+      'en': 'GO BACK TO THE ROUTE',
+      'ar': 'العودة إلى الطريق',
+      'es': 'VOLVER A LA RUTA',
+      'ja': 'ルートに戻る',
       'ru': 'ВЕРНУТЬСЯ К МАРШРУТУ',
     },
     'sp0ifsrs': {
@@ -888,27 +887,27 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // TripFinish2
   {
     'n2heetyi': {
-      'en': 'НАЧАТЬ НОВОЕ \nПУТЕШЕСТВИЕ',
-      'ar': 'АЧАТЬ НОВОЕ\nПУТЕШЕСТВИЕ',
-      'es': 'НАЧАТЬ НОВОЕ\nПУТЕШЕСТВИЕ',
-      'ja': 'НАЧАТЬ НОВОЕ\nПУТЕШЕСТВИЕ',
-      'ru': 'НАЧАТЬ НОВОЕ\nПУТЕШЕСТВИЕ',
+      'en': 'START A NEW JOURNEY',
+      'ar': 'ابدأ رحلة جديدة',
+      'es': 'EMPIEZA UN NUEVO VIAJE',
+      'ja': '新しい旅を始める',
+      'ru': 'НАЧАТЬ НОВОЕ ПУТЕШЕСТВИЕ',
     },
     'f56kaj7j': {
       'en':
-          'Чтобы не пропустить интересные маршруты, новые машины, ачивки, или горячие предложения подписывайтесь на соцсети twid!',
+          'In order not to miss interesting routes, new cars, achievements, or hot offers, subscribe to twid social networks!',
       'ar':
-          'كلمات بمعنى: тобы не пропустить интересные маршруты ، новые машины ، или горячие предложения подсывсы!',
+          'حتى لا تفوت الطرق المثيرة للاهتمام أو السيارات الجديدة أو الإنجازات أو العروض الساخنة ، اشترك في شبكات التواصل الاجتماعي twid!',
       'es':
-          'Чтобы не пропусти интереререные маршруты, новые машины, ачивки, или гие пре principal н.',
-      'ja': '私はあなたのことをよく知っていません.',
+          '¡Para no perderse rutas interesantes, autos nuevos, logros u ofertas interesantes, suscríbase a las redes sociales twid!',
+      'ja': '興味深いルート、新車、実績、またはお得なオファーを見逃さないように、twid ソーシャル ネットワークに登録してください!',
       'ru':
           'Чтобы не пропустить интересные маршруты, новые машины, ачивки, или горячие предложения подписывайтесь на соцсети twid!',
     },
     '2rovny6s': {
       'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
+      'ar': 'بيت',
+      'es': 'Casa',
       'ja': '家',
       'ru': 'Дом',
     },
@@ -917,33 +916,33 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '5bul3epj': {
       'en':
-          'Ваше путешествие начнется 10 октября в 11:00 в Кабо да Рока и закончится 12 октября в Назаре. ',
+          'Your journey will begin on October 10 at 11:00 in Cabo da Roca and will end on October 12 in Nazare.',
       'ar':
-          'аше путешествие начнется 10 октября в 11:00 в або да Рока и закончится 12 октября в Назаре.',
+          'ستبدأ رحلتك في 10 أكتوبر في تمام الساعة 11:00 في كابو دا روكا وستنتهي في 12 أكتوبر في نازاري.',
       'es':
-          'Ваше путешествие начнется 10 октября в 11:00 в Кабо да Рока и закончится 12 октября в Назаре.',
-      'ja': '午前 10 時から午後 11 時まで、午前 12 時から午前 12 時までです。',
+          'Su viaje comenzará el 10 de octubre a las 11:00 en Cabo da Roca y terminará el 12 de octubre en Nazare.',
+      'ja': '旅は 10 月 10 日の 11:00 にロカ岬で始まり、10 月 12 日にナザレで終わります。',
       'ru':
-          'Ваше путешествие начнется 10 октября в 11:00 в Кабо да Рока и закончится 12 октября в Назаре.',
+          'Ваше путешествие начнется 10 октября в 11:00 в Кабо да Рока и закончится 12 октября в Назаре. ',
     },
     '15wx4hjx': {
       'en':
-          'Для вас забронирован двухместный номер в отеле Belmond Delux в городе Тратата. Заселение в отель 11 октября в 20:00, чекаут 12 октября в 12:00. В проживание включен завтрак.',
+          'A double room has been booked for you at the Belmond Delux Hotel in Tratata. Check-in at the hotel on October 11 at 20:00, check-out on October 12 at 12:00. Breakfast is included in the accommodation.',
       'ar':
-          'ля вас забронирован двухместный номер в отеле Belmond Delux в городе Тратата. Заселение в отель 11 октября в 20:00، екаут 12 октября в 12:00. В проживание включен завтрак.',
+          'تم حجز غرفة مزدوجة لك في فندق Belmond Delux في تراتاتا. تسجيل الوصول في الفندق يوم 11 أكتوبر الساعة 20:00 ، تسجيل المغادرة في 12 أكتوبر الساعة 12:00. الإفطار مشمول في مكان الإقامة.',
       'es':
-          'Для вас забронирован двухместный номер в отеле Belmond Delux в городе Тратата. Hasta el 11 de octubre a las 20:00, hasta el 12 de octubre a las 12:00. В проживание включен завтрак.',
+          'Se ha reservado una habitación doble para usted en el Hotel Belmond Delux en Tratata. Check-in en el hotel el 11 de octubre a las 20:00, check-out el 12 de octubre a las 12:00. El desayuno está incluido en el alojamiento.',
       'ja':
-          '現在はベルモンド デラックスが発売中です。月曜日 11 日 20:00、12 日 12:00 です。 В проживание включен завтрак.',
+          'トラタタのベルモンド デラックス ホテルのダブルルームが予約されました。 10 月 11 日 20:00 にホテルにチェックインし、10 月 12 日 12:00 にチェックアウトします。朝食は宿泊料金に含まれています。',
       'ru':
-          'Для вас забронирован двухместный номер в отеле Belmond Delux в городе Тратата. Заселение в отель 11 октября в 20:00, чекаут 12 октября в 12:00. В проживание включен завтрак.',
+          'Для вас забронирован двухместный номер в отеле Belmond Delux в городе Тратата. Заселение в отель 11 октября в 20:00, чекаут 12 октября в 12:00. В проживание включен завтрак.',
     },
     'ijy45luh': {
-      'en': 'Установить напоминание',
-      'ar': 'Установить напоминание',
-      'es': 'Установить напоминание',
-      'ja': 'Установить напоминание',
-      'ru': 'Установить на память',
+      'en': 'Set a reminder',
+      'ar': 'ضبط تذكير',
+      'es': 'Establecer un recordatorio',
+      'ja': 'リマインダーを設定する',
+      'ru': 'Установить напоминание',
     },
     'aiihtg6z': {
       'en': 'BACK',
@@ -954,8 +953,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'jlw6qz3b': {
       'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
+      'ar': 'بيت',
+      'es': 'Casa',
       'ja': '家',
       'ru': 'Дом',
     },
@@ -980,7 +979,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en':
           'The Porsche 911 has 2 Petrol Engine on offer. It is available with Manual & Automatic transmission. The 911 is a 4 seater 6 cylinder car and has length of 4519 mm, width of 1852 mm and a wheelbase of 2450 mm.',
       'ar':
-          'بورش 911 بها محركان يعملان بالبنزين. وهي متوفرة بناقل حركة يدوي وأوتوماتيكي. 911 هي سيارة ذات 4 مقاعد و 6 سلندر ويبلغ طولها 4519 ملم وعرضها 1852 ملم وقاعدة عجلاتها 2450 ملم.',
+          'بورش 911 لديها محركان يعملان بالبنزين. وهي متوفرة بناقل حركة يدوي وأوتوماتيكي. 911 هي سيارة ذات 4 مقاعد و 6 سلندر ويبلغ طولها 4519 ملم وعرضها 1852 ملم وقاعدة عجلاتها 2450 ملم.',
       'es':
           'El Porsche 911 tiene 2 motores de gasolina en oferta. Está disponible con transmisión manual y automática. El 911 es un automóvil de 4 plazas y 6 cilindros y tiene una longitud de 4519 mm, una anchura de 1852 mm y una distancia entre ejes de 2450 mm.',
       'ja':
@@ -1059,10 +1058,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ru': '64,0',
     },
     'iddzjb26': {
-      'en': 'Перед началом путешествия машина заправлена до полного бака.',
-      'ar': 'еред началом путешествия машина заправлена до полного бака.',
-      'es': 'Перед началом путешествия машина заправлена до полного бака.',
-      'ja': 'すでに、この問題が解決されていません。',
+      'en': 'Before starting the journey, the car is refueled to a full tank.',
+      'ar': 'قبل بدء الرحلة ، يتم تزويد السيارة بالوقود في خزان ممتلئ.',
+      'es':
+          'Antes de iniciar el viaje, el coche se reposta con el depósito lleno.',
+      'ja': '旅を始める前に、車は満タンに給油されます。',
       'ru': 'Перед началом путешествия машина заправлена до полного бака.',
     },
     'ar9hcqzj': {
@@ -1074,8 +1074,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ob7w7y5l': {
       'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
+      'ar': 'بيت',
+      'es': 'Casa',
       'ja': '家',
       'ru': 'Дом',
     },
@@ -1133,10 +1133,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // TakeaCar
   {
     '6svfki8i': {
-      'en': 'Как забрать машину?',
-      'ar': 'Как забрать машину؟',
-      'es': 'Как забрать машину?',
-      'ja': 'Как забрать машину?',
+      'en': 'How to pick up the car?',
+      'ar': 'كيف تلتقط السيارة؟',
+      'es': '¿Cómo recoger el coche?',
+      'ja': '車の受け取り方法は？',
       'ru': 'Как забрать машину?',
     },
     '6ssfhhxv': {
@@ -1216,10 +1216,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem.',
     },
     'umam7q00': {
-      'en': 'Как вернуть машину?',
-      'ar': 'Как вернуть машину؟',
-      'es': 'Как вернуть машину?',
-      'ja': 'Как вернуть машину?',
+      'en': 'How to return the car?',
+      'ar': 'كيف تعيد السيارة؟',
+      'es': '¿Cómo devolver el coche?',
+      'ja': '車の返却方法は？',
       'ru': 'Как вернуть машину?',
     },
     'eqq3go5j': {
@@ -1281,8 +1281,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'a7jpg6lr': {
       'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
+      'ar': 'بيت',
+      'es': 'Casa',
       'ja': '家',
       'ru': 'Дом',
     },
@@ -1290,119 +1290,119 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Settings
   {
     '7plcb94k': {
-      'en': 'НАСТРОЙКИ',
-      'ar': 'НАСТРОЙКИ',
-      'es': 'НАСТРОЙКИ',
-      'ja': 'НАСТРОЙКИ',
+      'en': 'SETTINGS',
+      'ar': 'إعدادات',
+      'es': 'AJUSTES',
+      'ja': '設定',
       'ru': 'НАСТРОЙКИ',
     },
     '16gdwltg': {
-      'en': 'ВЫБОР ЯЗЫКА ПРИЛОЖЕНИЯ',
-      'ar': 'ВЫБОР ЯЗЫКА ПРИЛОЖЕНИЯ',
-      'es': 'ВЫБОР ЯЗЫКА ПРИЛОЖЕНИЯ',
-      'ja': 'ВЫБОР ЯЗЫКА ПРИЛОЖЕНИЯ',
+      'en': 'CHOOSING THE APPLICATION LANGUAGE',
+      'ar': 'اختيار لغة التطبيق',
+      'es': 'ELEGIR EL IDIOMA DE LA APLICACIÓN',
+      'ja': 'アプリケーション言語の選択',
       'ru': 'ВЫБОР ЯЗЫКА ПРИЛОЖЕНИЯ',
     },
     '6jozw576': {
-      'en': 'Английский',
-      'ar': 'Английский',
-      'es': 'Inglés',
-      'ja': 'Английский',
-      'ru': 'английский',
+      'en': 'English',
+      'ar': 'إنجليزي',
+      'es': 'inglés',
+      'ja': '英語',
+      'ru': 'Английский',
     },
     'fa0r9lig': {
-      'en': 'Русский',
-      'ar': 'Русский',
-      'es': 'Русский',
-      'ja': 'Русский',
+      'en': 'Russian',
+      'ar': 'الروسية',
+      'es': 'ruso',
+      'ja': 'ロシア',
       'ru': 'Русский',
     },
     'eliae8ow': {
-      'en': 'Испанский',
-      'ar': 'спанский',
+      'en': 'Spanish',
+      'ar': 'الأسبانية',
       'es': 'español',
-      'ja': 'Испанский',
+      'ja': 'スペイン語',
       'ru': 'Испанский',
     },
     'tut5rnqw': {
-      'en': 'Японский',
-      'ar': 'Японский',
-      'es': 'Японский',
-      'ja': 'Японский',
+      'en': 'Japanese',
+      'ar': 'اليابانية',
+      'es': 'japonés',
+      'ja': '日本',
       'ru': 'Японский',
     },
     'gqkc77hj': {
-      'en': 'Арабский',
-      'ar': 'Арабский',
+      'en': 'Arabian',
+      'ar': 'عربي',
       'es': 'árabe',
-      'ja': 'Арабский',
-      'ru': 'арабский',
+      'ja': 'アラビア語',
+      'ru': 'Арабский',
     },
     'a5uwsc6g': {
-      'en': 'ЗВУКОВЫЕ ПОДСКАЗКИ',
-      'ar': 'ЗВУКОВЫЕ СКАЗКИ',
-      'es': 'ЗВУКОВЫЕ ПОДСКАЗКИ',
-      'ja': 'ЗВУКОВЫЕ ПОДСКАЗКИ',
+      'en': 'SOUND PROMPTS',
+      'ar': 'المروج الصوتية',
+      'es': 'INDICACIONES DE SONIDO',
+      'ja': 'サウンドプロンプト',
       'ru': 'ЗВУКОВЫЕ ПОДСКАЗКИ',
     },
     '9qd8062v': {
-      'en': 'Включить',
-      'ar': 'ключить',
-      'es': 'Включить',
-      'ja': 'ヴァクラホマシトフ',
+      'en': 'Turn on',
+      'ar': 'شغله',
+      'es': 'Encender',
+      'ja': 'オンにする',
       'ru': 'Включить',
     },
     'o6t7q7lo': {
-      'en': 'Выключить',
-      'ar': 'Выключить',
-      'es': 'Выключить',
-      'ja': 'Выключить',
+      'en': 'Turn off',
+      'ar': 'يطفىء',
+      'es': 'Apagar',
+      'ja': '消す',
       'ru': 'Выключить',
     },
     'e274okr1': {
-      'en': 'ВИД НАВИГАТОРА',
-      'ar': 'ВИД АВИГАТОРА',
-      'es': 'ВИД НАВИГАТОРА',
-      'ja': 'ВИДНАВИГАТОРА',
+      'en': 'NAVIGATOR VIEW',
+      'ar': 'عرض الملاح',
+      'es': 'VISTA DEL NAVEGADOR',
+      'ja': 'ナビゲータービュー',
       'ru': 'ВИД НАВИГАТОРА',
     },
     '4eezqmjj': {
-      'en': 'Светлый',
-      'ar': 'Светлый',
-      'es': 'Светлый',
-      'ja': 'Светлый',
+      'en': 'Light',
+      'ar': 'ضوء',
+      'es': 'Luz',
+      'ja': '光',
       'ru': 'Светлый',
     },
     'm1dh6uwm': {
-      'en': 'Темный',
-      'ar': 'емный',
-      'es': 'Темный',
-      'ja': 'Темный',
+      'en': 'Dark',
+      'ar': 'داكن',
+      'es': 'Oscuro',
+      'ja': '暗い',
       'ru': 'Темный',
     },
     's7zcsmgi': {
-      'en': 'ЭКСТРЕННЫЙ ВЫЗОВ',
-      'ar': 'ЭКСТРЕННЫЙ ВЫЗОВ',
-      'es': 'ЭКСТРЕННЫЙ ВЫЗОВ',
-      'ja': 'ЭКСТРЕННЫЙ ВЫЗОВ',
+      'en': 'EMERGENCY CALL',
+      'ar': 'مكالمة طارئة',
+      'es': 'LLAMADA DE EMERGENCIA',
+      'ja': '緊急通話',
       'ru': 'ЭКСТРЕННЫЙ ВЫЗОВ',
     },
   },
   // Help
   {
     'n8v2kdkb': {
-      'en': 'Задать вопрос',
-      'ar': 'Задать вопрос',
-      'es': 'Задать вопрос',
-      'ja': 'Задать вопрос',
-      'ru': 'Задать вопрос',
+      'en': 'HELP',
+      'ar': 'يساعد',
+      'es': 'AYUDAR',
+      'ja': 'ヘルプ',
+      'ru': 'ПОМОЩЬ',
     },
     'xyqcahji': {
-      'en': 'КАК ИСПОЛЬЗОВАТЬ ПРИЛОЖЕНИЕ',
-      'ar': 'КАК ИСПОЛЬЗОВАТЬ ПРИЛОЖЕНИЕ',
-      'es': 'КАК ИСПОЛЬЗОВАТЬ ПРИЛОЖЕНИЕ',
-      'ja': 'КАК ИСПОЛЬЗОВАТЬ ПРИЛОЖЕНИЕ',
-      'ru': 'КАК ИСПОЛЬЗОВАТЬ ПРИЛОЖЕНИЕ',
+      'en': 'HOW TO USE THE APP',
+      'ar': 'كيفية استخدام التطبيق',
+      'es': 'CÓMO USAR LA APLICACIÓN',
+      'ja': 'アプリの使用方法',
+      'ru': 'КАК ПОЛЬЗОВАТЬСЯ ПРИЛОЖЕНИЕМ',
     },
     'm1wetc6o': {
       'en':
@@ -1417,10 +1417,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
     '25264jzx': {
-      'en': 'ИНФОРМАЦИЯ О НАВИГАТОРЕ',
-      'ar': 'ИНФОРМАЦИЯ О АВИГАТОРЕ',
-      'es': 'ИНФОРМАЦИЯ О НАВИГАТОРЕ',
-      'ja': 'ИНФОРМАЦИЯ О НАВИГАТОРЕ',
+      'en': 'INFORMATION ABOUT THE NAVIGATOR',
+      'ar': 'معلومات عن الملاح',
+      'es': 'INFORMACIÓN SOBRE EL NAVEGADOR',
+      'ja': 'ナビゲーターについて',
       'ru': 'ИНФОРМАЦИЯ О НАВИГАТОРЕ',
     },
     'kdf4vzqq': {
@@ -1436,11 +1436,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
     '4bo2nc9i': {
-      'en': 'КАК ЗАБРАТЬ МАШИНУ',
-      'ar': 'КАК ЗАБРАТЬ АШИНУ',
-      'es': 'КАК ЗАБРАТЬ МАШИНУ',
-      'ja': 'КАК ЗАБРАТЬ МАШИНУ',
-      'ru': 'КАК ЗАБРАТЬ МАШИНУ',
+      'en': 'HOW TO PICK UP A CAR',
+      'ar': 'كيف تستلم سيارة',
+      'es': 'CÓMO RECOGER UN COCHE',
+      'ja': '車の受け取り方法',
+      'ru': 'КАК ЗАБИРАТЬ АВТОМОБИЛЬ',
     },
     '9zllze7o': {
       'en':
@@ -1455,11 +1455,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
     'teqxns7s': {
-      'en': 'КАК ВЕРНУТЬ МАШИНУ',
-      'ar': 'КАК ВЕРНУТЬ АШИНУ',
-      'es': 'КАК ВЕРНУТЬ МАШИНУ',
-      'ja': 'КАК ВЕРНУТЬ МАШИНУ',
-      'ru': 'КАК ВЕРНУТЬ МАШИНУ',
+      'en': 'HOW TO RETURN THE CAR',
+      'ar': 'كيفية إعادة السيارة',
+      'es': 'CÓMO DEVOLVER EL COCHE',
+      'ja': '返却方法',
+      'ru': 'КАК ВЕРНУТЬ АВТОМОБИЛЬ',
     },
     'vw2rgm6j': {
       'en':
@@ -1474,11 +1474,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
     'lue0b4ly': {
-      'en': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
-      'ar': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
-      'es': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
-      'ja': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
-      'ru': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ АВТОМОБИЛЯ',
+      'en': 'RULES FOR USING THE CAR',
+      'ar': 'قواعد استخدام السيارة',
+      'es': 'NORMAS PARA UTILIZAR EL COCHE',
+      'ja': '車の使用規則',
+      'ru': 'ПРАВИЛА ПОЛЬЗОВАНИЯ АВТОМОБИЛЕМ',
     },
     '3l9ry3b7': {
       'en':
@@ -1493,11 +1493,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
     'pzfzjigy': {
-      'en': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ В ОТЕЛЕ',
-      'ar': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ В ОТЕЛЕ',
-      'es': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ В ОТЕЛЕ',
-      'ja': 'ПРАВИЛА ПОЛЬЗОВАНИЯ БРОНЬЮ В ОТЕЛЕ',
-      'ru': 'ПРАВИЛА ПОЛЗОВАНИЯ БРОНЬЮ В ОТЕЛЕ',
+      'en': 'RULES FOR THE USE OF ARMOR IN THE HOTEL',
+      'ar': 'قواعد استخدام الدروع في الفندق',
+      'es': 'NORMAS PARA EL USO DE ARMADURAS EN EL HOTEL',
+      'ja': 'ホテルでの鎧の使用に関する規則',
+      'ru': 'ПРАВИЛА ИСПОЛЬЗОВАНИЯ БРОНИ В ОТЕЛЕ',
     },
     'fi6x7k2f': {
       'en':
@@ -1512,10 +1512,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           '1. Qui exercitationem esse nisi neque. Culpa atque aliquam ad dolorem nisi molestiae sint voluptatem. Nemo sunt similique aspernatur voluptatum quo omnis debitis harum odit.',
     },
     '22lgbxln': {
-      'en': 'СТРАХОВАНИЕ ОТВЕТСТВЕННОСТИ',
-      'ar': 'СТРАХОВАНИЕ ОТВЕТСТВЕННОСТИ',
-      'es': 'СТРАХОВАНИЕ ОТВЕТСТВЕННОСТИ',
-      'ja': 'СТРАХОВАНИЕ ОТВЕТСТВЕННОСТИ',
+      'en': 'LIABILITY INSURANCE',
+      'ar': 'تأمين المسؤولية',
+      'es': 'SEGURO DE RESPONSABILIDAD',
+      'ja': '損害賠償保険',
       'ru': 'СТРАХОВАНИЕ ОТВЕТСТВЕННОСТИ',
     },
     'ohgejlab': {
@@ -1541,51 +1541,51 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Questions
   {
     'a1n3jhbi': {
-      'en': 'Задать вопрос',
-      'ar': 'Задать вопрос',
-      'es': 'Задать вопрос',
-      'ja': 'Задать вопрос',
-      'ru': 'Задать вопрос',
+      'en': 'Ask a question',
+      'ar': 'طرح سؤال',
+      'es': 'Hacer una pregunta',
+      'ja': '質問する',
+      'ru': 'Задайте вопрос',
     },
     '97l7zg5g': {
-      'en': 'Ваше имя',
-      'ar': 'Ваше имя',
-      'es': 'Ваше имя',
-      'ja': 'よくある質問',
+      'en': 'Your name',
+      'ar': 'اسمك',
+      'es': 'Tu nombre',
+      'ja': 'あなたの名前',
       'ru': 'Ваше имя',
     },
     'rak6fjv6': {
       'en': 'Email',
-      'ar': 'البريد الإلكتروني',
+      'ar': 'بريد إلكتروني',
       'es': 'Correo electrónico',
       'ja': 'Eメール',
-      'ru': 'Эл. адрес',
+      'ru': 'Электронное письмо',
     },
     'u9oeq7w1': {
-      'en': 'Начните писать',
-      'ar': 'ачните писать',
-      'es': 'Начните писать',
-      'ja': 'Начните писать',
-      'ru': 'владение письмом',
+      'en': 'Start writing',
+      'ar': 'ابدأ الكتابة',
+      'es': 'Empieza a escribir',
+      'ja': '書き始める',
+      'ru': 'Начать писать',
     },
     'wxepaaij': {
       'en': 'SEND',
-      'ar': 'إرسال',
+      'ar': 'يرسل',
       'es': 'ENVIAR',
       'ja': '送信',
       'ru': 'ОТПРАВИТЬ',
     },
     '1hd7ebwe': {
-      'en': 'Ответ на ваш вопрос мы отправим на e-mail',
-      'ar': 'Ответ на ваш вопрос мы отправим на البريد الإلكتروني',
-      'es': 'Ответ на ваш вопрос мы отправим на e-mail',
-      'ja': 'メールでお問い合わせください',
-      'ru': 'Ответ на ваш вопрос мы отправляем на e-mail',
+      'en': 'We will send the answer to your question by e-mail',
+      'ar': 'سوف نرسل إجابة سؤالك عن طريق البريد الإلكتروني',
+      'es': 'Le enviaremos la respuesta a su pregunta por correo electrónico.',
+      'ja': 'ご質問の回答をメールでお送りします',
+      'ru': 'Мы отправим ответ на ваш вопрос по электронной почте',
     },
     'wsofpb41': {
       'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
+      'ar': 'بيت',
+      'es': 'Casa',
       'ja': '家',
       'ru': 'Дом',
     },
@@ -1593,42 +1593,42 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // SUPPORT
   {
     'vqz0mtym': {
-      'en': 'СЛУЖБА ПОДДЕРЖКИ',
-      'ar': 'СЛУЖБА ПОДДЕРЖКИ',
-      'es': 'СЛУЖБА ПОДДЕРЖКИ',
-      'ja': 'СЛУЖБА ПОДДЕРЖКИ',
+      'en': 'SUPPORT SERVICE',
+      'ar': 'خدمة الدعم',
+      'es': 'SERVICIO DE SOPORTE',
+      'ja': 'サポートサービス',
       'ru': 'СЛУЖБА ПОДДЕРЖКИ',
     },
     'l0ff1ngm': {
-      'en': 'СПАСИБО',
-      'ar': 'СПАСИБО',
-      'es': 'СПАСИБО',
-      'ja': 'СПАСИБО',
-      'ru': 'СПАСИБО',
+      'en': 'THANKS!',
+      'ar': 'شكرًا',
+      'es': 'GRACIAS',
+      'ja': 'ありがとう',
+      'ru': 'СПАСИБО!',
     },
     'f25pvfm9': {
       'en':
-          'Валерий, здравствуйте! Спасибо, что обратились в службу поддержки. Мы постараемся ответить на ваш вопрос как можно быстрее и пришлем ответ вам на почту. ',
+          'Valery, hello! Thank you for contacting the support service. We will try to answer your question as soon as possible and send you an answer by email.',
       'ar':
-          'алерий، здравствуйте! Спасибо ، обратились в службу поддержки. ы постараемся ответить на ваш вопрос как можно быстрее и пришлем ответ вам на почту.',
+          'فاليري ، مرحبا! شكرا على اتصالك بخدمة الدعم. سنحاول الإجابة على سؤالك في أقرب وقت ممكن ونرسل لك إجابة عبر البريد الإلكتروني.',
       'es':
-          'Валерий, здравствуйте! Спасибо, что обратились в службу поддержки. ¿Qué puedo hacer?',
+          'Valery, hola! Gracias por ponerse en contacto con el servicio de soporte. Intentaremos responder a su pregunta lo antes posible y enviarle una respuesta por correo electrónico.',
       'ja':
-          '大切にします！ Спасибо, что обратились в службу поддержки. Мы постараемся ответить на ваш вопрос как можно быстрее および пришлет вам на почту.',
+          'ヴァレリー、こんにちは！サポートサービスにお問い合わせいただきありがとうございます。できるだけ早くご質問にお答えし、メールで回答をお送りします。',
       'ru':
-          'Валерий, здравствуйте! Спасибо, что обратились в службу поддержки. Мы постараемся ответить на ваш вопрос как можно быстрее и пришлем ответ вам на почту.',
+          'Валерий, привет! Спасибо за обращение в службу поддержки. Мы постараемся как можно скорее ответить на ваш вопрос и отправить вам ответ по электронной почте.',
     },
     'ddyicczm': {
       'en': 'OK',
-      'ar': 'نعم',
+      'ar': 'OK',
       'es': 'OK',
-      'ja': 'わかった',
-      'ru': 'ХОРОШО',
+      'ja': 'OK',
+      'ru': 'OK',
     },
     'ujxr0zqq': {
       'en': 'Home',
-      'ar': 'مسكن',
-      'es': 'Hogar',
+      'ar': 'بيت',
+      'es': 'Casa',
       'ja': '家',
       'ru': 'Дом',
     },

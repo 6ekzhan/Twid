@@ -1,3 +1,4 @@
+import '../backend/backend.dart';
 import '../calendar/calendar_widget.dart';
 import '../car/car_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -18,8 +19,14 @@ class AboutPlaceWidget extends StatefulWidget {
 }
 
 class _AboutPlaceWidgetState extends State<AboutPlaceWidget> {
-  PageController? pageViewController;
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +37,7 @@ class _AboutPlaceWidgetState extends State<AboutPlaceWidget> {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: ListView(
             padding: EdgeInsets.zero,
             scrollDirection: Axis.vertical,
@@ -216,46 +223,63 @@ class _AboutPlaceWidgetState extends State<AboutPlaceWidget> {
                                     ),
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
-                          child: Container(
-                            width: 315,
-                            height: 218,
-                            child: PageView(
-                              controller: pageViewController ??=
-                                  PageController(initialPage: 0),
-                              scrollDirection: Axis.horizontal,
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(16),
-                                  child: Image.network(
-                                    'https://34travel.me/media/posts/574ea1881fb9f-Beautiful-Tuscany.jpg',
-                                    width: double.infinity,
-                                    height: 200,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(16),
-                                  child: Image.network(
-                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLvWBgKZEop6jqXll5PWKOaNnloCFbpp9HQQ&usqp=CAU',
-                                    width: 100,
-                                    height: 100,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(16),
-                                  child: Image.network(
-                                    'https://mktravelclub.ru/media/pages/blogs/toskana-italija-kolybel-geniev-i-koroleva-krasnogo-vina/ad1c01563d-1612533121/pic_15.jpg',
-                                    width: 100,
-                                    height: 100,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ],
-                            ),
+                        StreamBuilder<List<TourRecord>>(
+                          stream: queryTourRecord(
+                            singleRecord: true,
                           ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50,
+                                  height: 50,
+                                  child: CircularProgressIndicator(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                  ),
+                                ),
+                              );
+                            }
+                            List<TourRecord> rowTourRecordList = snapshot.data!;
+                            // Return an empty Container when the item does not exist.
+                            if (snapshot.data!.isEmpty) {
+                              return Container();
+                            }
+                            final rowTourRecord = rowTourRecordList.isNotEmpty
+                                ? rowTourRecordList.first
+                                : null;
+                            return Builder(
+                              builder: (context) {
+                                final images1 =
+                                    rowTourRecord!.images3!.toList();
+                                return SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: List.generate(images1.length,
+                                        (images1Index) {
+                                      final images1Item = images1[images1Index];
+                                      return Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            4, 0, 4, 0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          child: Image.network(
+                                            'https://picsum.photos/seed/692/600',
+                                            width: 316,
+                                            height: 218,
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ),
+                                      );
+                                    }),
+                                  ),
+                                );
+                              },
+                            );
+                          },
                         ),
                         Container(
                           width: double.infinity,

@@ -1,6 +1,4 @@
-import '../auth/auth_util.dart';
 import '../backend/backend.dart';
-import '../backend/push_notifications/push_notifications_util.dart';
 import '../flutter_flow/flutter_flow_calendar.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -21,6 +19,7 @@ class CalendarWidget extends StatefulWidget {
 
 class _CalendarWidgetState extends State<CalendarWidget> {
   DateTimeRange? calendarSelectedDay;
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -33,6 +32,12 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   }
 
   @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
@@ -41,7 +46,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -131,7 +136,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                 child: Text(
                   FFLocalizations.of(context).getText(
-                    '5bul3epj' /* Ваше путешествие начнется 10 о... */,
+                    '5bul3epj' /* Your journey will begin on Oct... */,
                   ),
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Inter',
@@ -156,7 +161,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            '15wx4hjx' /* Для вас забронирован двухместн... */,
+                            '15wx4hjx' /* A double room has been booked ... */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
@@ -172,29 +177,16 @@ class _CalendarWidgetState extends State<CalendarWidget> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
-                child: InkWell(
-                  onTap: () async {
-                    triggerPushNotification(
-                      notificationTitle: 'asd',
-                      notificationText: 'asd',
-                      notificationSound: 'default',
-                      userRefs: [currentUserReference!],
-                      initialPageName: 'Trip1',
-                      parameterData: {},
-                    );
-                  },
-                  child: Text(
-                    FFLocalizations.of(context).getText(
-                      'ijy45luh' /* Установить напоминание */,
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                          fontFamily: 'Inter',
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          fontWeight: FontWeight.normal,
-                          decoration: TextDecoration.underline,
-                        ),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    'ijy45luh' /* Set a reminder */,
                   ),
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Inter',
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        fontWeight: FontWeight.normal,
+                        decoration: TextDecoration.underline,
+                      ),
                 ),
               ),
               Padding(

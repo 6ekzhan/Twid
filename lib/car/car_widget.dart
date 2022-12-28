@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
 import '../settings/settings_widget.dart';
+import '../trip1/trip1_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,14 @@ class CarWidget extends StatefulWidget {
 }
 
 class _CarWidgetState extends State<CarWidget> {
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +34,7 @@ class _CarWidgetState extends State<CarWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 87, 0, 0),
           child: Container(
@@ -308,7 +316,7 @@ class _CarWidgetState extends State<CarWidget> {
                                     EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'iddzjb26' /* Перед началом путешествия маши... */,
+                                    'iddzjb26' /* Before starting the journey, t... */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
@@ -328,7 +336,12 @@ class _CarWidgetState extends State<CarWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(16, 24, 16, 36),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            Navigator.pop(context);
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Trip1Widget(),
+                              ),
+                            );
                           },
                           text: FFLocalizations.of(context).getText(
                             'ar9hcqzj' /* BACK */,

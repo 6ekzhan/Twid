@@ -17,7 +17,14 @@ class SupportWidget extends StatefulWidget {
 }
 
 class _SupportWidgetState extends State<SupportWidget> {
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +35,7 @@ class _SupportWidgetState extends State<SupportWidget> {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,7 +49,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                     child: SelectionArea(
                         child: Text(
                       FFLocalizations.of(context).getText(
-                        'vqz0mtym' /* СЛУЖБА ПОДДЕРЖКИ */,
+                        'vqz0mtym' /* SUPPORT SERVICE */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Inter',
@@ -77,7 +84,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'l0ff1ngm' /* СПАСИБО */,
+                            'l0ff1ngm' /* THANKS! */,
                           ),
                           style: FlutterFlowTheme.of(context)
                               .bodyText1
@@ -95,7 +102,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(77, 26, 77, 0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'f25pvfm9' /* Валерий, здравствуйте! Спасибо... */,
+                            'f25pvfm9' /* Valery, hello! Thank you for c... */,
                           ),
                           textAlign: TextAlign.center,
                           style:

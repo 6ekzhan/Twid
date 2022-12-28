@@ -19,7 +19,14 @@ class Trip2Widget extends StatefulWidget {
 
 class _Trip2WidgetState extends State<Trip2Widget> {
   PageController? pageViewController;
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +37,7 @@ class _Trip2WidgetState extends State<Trip2Widget> {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
             child: Container(
@@ -109,7 +116,7 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                       16, 7, 16, 10),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'pz4ro1we' /* Кнопки на экране навигатора по... */,
+                                      'pz4ro1we' /* The buttons on the navigator s... */,
                                     ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
@@ -142,7 +149,7 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                       );
                                     },
                                     text: FFLocalizations.of(context).getText(
-                                      'vin93ofb' /* ОК. ДАЛЬШЕ */,
+                                      'vin93ofb' /* OK. NEXT */,
                                     ),
                                     options: FFButtonOptions(
                                       width: double.infinity,
@@ -214,7 +221,7 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                       16, 13, 16, 20),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'kuswjwgq' /* По достижении новой точки нави... */,
+                                      'kuswjwgq' /* Upon reaching a new point, the... */,
                                     ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
@@ -247,7 +254,7 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                       );
                                     },
                                     text: FFLocalizations.of(context).getText(
-                                      'ncaulhea' /* ОК. ДАЛЬШЕ */,
+                                      'ncaulhea' /* OK. NEXT */,
                                     ),
                                     options: FFButtonOptions(
                                       width: double.infinity,
@@ -338,7 +345,7 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                       16, 13, 16, 20),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'c3bdx0kk' /* Кнопки на экране навигатора по... */,
+                                      'c3bdx0kk' /* Moving between points, you can... */,
                                     ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
@@ -374,7 +381,7 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                       );
                                     },
                                     text: FFLocalizations.of(context).getText(
-                                      'ioa7i7qj' /* ОК. ДАЛЬШЕ */,
+                                      'ioa7i7qj' /* OK. NEXT */,
                                     ),
                                     options: FFButtonOptions(
                                       width: double.infinity,

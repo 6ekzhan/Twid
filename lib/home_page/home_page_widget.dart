@@ -1,4 +1,3 @@
-import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -19,6 +18,7 @@ class HomePageWidget extends StatefulWidget {
 
 class _HomePageWidgetState extends State<HomePageWidget> {
   TextEditingController? pinCodeController;
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -29,6 +29,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
   @override
   void dispose() {
+    _unfocusNode.dispose();
     pinCodeController?.dispose();
     super.dispose();
   }
@@ -39,10 +40,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: Color(0xFF002532),
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -61,7 +62,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: AlignmentDirectional(0, 0.85),
+                  alignment: AlignmentDirectional(0, 1),
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                     child: Container(
@@ -119,7 +120,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: AlignmentDirectional(0, -0.85),
+                  alignment: AlignmentDirectional(0, -0.8),
                   child: StreamBuilder<List<TourRecord>>(
                     stream: queryTourRecord(
                       singleRecord: true,
@@ -143,10 +144,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           : null;
                       return FFButtonWidget(
                         onPressed: () async {
-                          final user = await signInAnonymously(context);
-                          if (user == null) {
-                            return;
-                          }
                           if (pinCodeController!.text != null &&
                               pinCodeController!.text != '') {
                             if (pinCodeController!.text ==
@@ -193,22 +190,24 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           }
                         },
                         text: FFLocalizations.of(context).getText(
-                          'ypfz29i7' /* OK */,
+                          '5tzuumc9' /* OK */,
                         ),
                         options: FFButtonOptions(
                           width: 236,
                           height: 48,
-                          color: Color(0xFF002532),
+                          color: FlutterFlowTheme.of(context).primaryBackground,
                           textStyle:
                               FlutterFlowTheme.of(context).subtitle2.override(
                                     fontFamily: 'Inter',
-                                    color: Colors.white,
+                                    color: Color(0xFFA5AAAD),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
                                   ),
                           borderSide: BorderSide(
                             color: Color(0xFFA5AAAD),
-                            width: 0.5,
+                            width: 1,
                           ),
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                       );
                     },
@@ -217,17 +216,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: AlignmentDirectional(0, 0.85),
+                  alignment: AlignmentDirectional(0, 0.9),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(32, 0, 32, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        '2eqpkck1' /* If you have not yet chosen a r... */,
+                        'ai2vnv38' /* If you have not yet chosen a r... */,
                       ),
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Inter',
                             color: Color(0xFFD9DCDE),
+                            fontWeight: FontWeight.normal,
+                            decoration: TextDecoration.underline,
                           ),
                     ),
                   ),
@@ -235,7 +236,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: AlignmentDirectional(0, -0.85),
+                  alignment: AlignmentDirectional(0, -0.9),
                   child: InkWell(
                     onTap: () async {
                       await Navigator.push(
@@ -247,12 +248,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     },
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'b0eqhtut' /* How to use the app? */,
+                        '6i1j2l2u' /* How to use the app? */,
                       ),
-                      textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Inter',
                             color: Color(0xFFD9DCDE),
+                            fontWeight: FontWeight.normal,
+                            decoration: TextDecoration.underline,
                           ),
                     ),
                   ),

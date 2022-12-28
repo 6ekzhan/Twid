@@ -17,7 +17,14 @@ class TripFinish2Widget extends StatefulWidget {
 }
 
 class _TripFinish2WidgetState extends State<TripFinish2Widget> {
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +34,7 @@ class _TripFinish2WidgetState extends State<TripFinish2Widget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,9 +75,7 @@ class _TripFinish2WidgetState extends State<TripFinish2Widget> {
                         );
                       },
                       text: FFLocalizations.of(context).getText(
-                        'n2heetyi' /* НАЧАТЬ НОВОЕ 
-ПУТЕШЕСТВИЕ */
-                        ,
+                        'n2heetyi' /* START A NEW JOURNEY */,
                       ),
                       options: FFButtonOptions(
                         width: double.infinity,
@@ -106,7 +111,7 @@ class _TripFinish2WidgetState extends State<TripFinish2Widget> {
                               EdgeInsetsDirectional.fromSTEB(16, 180, 16, 24),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'f56kaj7j' /* Чтобы не пропустить интересные... */,
+                              'f56kaj7j' /* In order not to miss interesti... */,
                             ),
                             textAlign: TextAlign.center,
                             style:

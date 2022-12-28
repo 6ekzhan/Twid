@@ -17,7 +17,14 @@ class TripStartWidget extends StatefulWidget {
 }
 
 class _TripStartWidgetState extends State<TripStartWidget> {
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +35,7 @@ class _TripStartWidgetState extends State<TripStartWidget> {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -60,7 +67,7 @@ class _TripStartWidgetState extends State<TripStartWidget> {
                               EdgeInsetsDirectional.fromSTEB(0.5, 20, 0.5, 35),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'tm8bffsz' /* НАЧАТЬ ПУТЕШЕСТВИЕ */,
+                              'tm8bffsz' /* START THE JOURNEY */,
                             ),
                             textAlign: TextAlign.center,
                             style:
@@ -92,7 +99,7 @@ class _TripStartWidgetState extends State<TripStartWidget> {
                     },
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'adl2jnc3' /* Как забрать машину? */,
+                        'adl2jnc3' /* How to pick up the car? */,
                       ),
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyText1.override(

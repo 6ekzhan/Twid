@@ -21,6 +21,7 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
   TextEditingController? textController1;
   TextEditingController? textController2;
   TextEditingController? textController3;
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -33,6 +34,7 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
 
   @override
   void dispose() {
+    _unfocusNode.dispose();
     textController1?.dispose();
     textController2?.dispose();
     textController3?.dispose();
@@ -48,7 +50,7 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -92,7 +94,7 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                             alignment: AlignmentDirectional(0, 0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'a1n3jhbi' /* Задать вопрос */,
+                                'a1n3jhbi' /* Ask a question */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -118,7 +120,7 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: FFLocalizations.of(context).getText(
-                              '97l7zg5g' /* Ваше имя */,
+                              '97l7zg5g' /* Your name */,
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -222,7 +224,7 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               hintText: FFLocalizations.of(context).getText(
-                                'u9oeq7w1' /* Начните писать */,
+                                'u9oeq7w1' /* Start writing */,
                               ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .bodyText1
@@ -357,7 +359,7 @@ class _QuestionsWidgetState extends State<QuestionsWidget> {
                             alignment: AlignmentDirectional(0, 0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                '1hd7ebwe' /* Ответ на ваш вопрос мы отправи... */,
+                                '1hd7ebwe' /* We will send the answer to you... */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1

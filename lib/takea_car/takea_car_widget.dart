@@ -15,7 +15,14 @@ class TakeaCarWidget extends StatefulWidget {
 }
 
 class _TakeaCarWidgetState extends State<TakeaCarWidget> {
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +33,7 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 1,
@@ -104,7 +111,7 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                                     EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    '6svfki8i' /* Как забрать машину? */,
+                                    '6svfki8i' /* How to pick up the car? */,
                                   ),
                                   textAlign: TextAlign.start,
                                   style: FlutterFlowTheme.of(context)
@@ -264,7 +271,7 @@ class _TakeaCarWidgetState extends State<TakeaCarWidget> {
                                     EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'umam7q00' /* Как вернуть машину? */,
+                                    'umam7q00' /* How to return the car? */,
                                   ),
                                   textAlign: TextAlign.start,
                                   style: FlutterFlowTheme.of(context)

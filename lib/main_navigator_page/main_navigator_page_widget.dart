@@ -21,6 +21,7 @@ class MainNavigatorPageWidget extends StatefulWidget {
 
 class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
   LatLng? currentUserLocationValue;
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
@@ -30,6 +31,12 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
     super.initState();
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
+  }
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -55,7 +62,7 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
       resizeToAvoidBottomInset: false,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Container(
           width: double.infinity,
           height: double.infinity,
@@ -100,7 +107,7 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
                         );
                       },
                       text: FFLocalizations.of(context).getText(
-                        'gnh6m1of' /* ПОЕХАЛИ! */,
+                        'gnh6m1of' /* LET'S GO! */,
                       ),
                       options: FFButtonOptions(
                         width: double.infinity,
@@ -157,7 +164,7 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
                                   );
                                 },
                                 text: FFLocalizations.of(context).getText(
-                                  'kfr798l2' /* ИНФОРМАЦИЯ О МЕСТЕ */,
+                                  'kfr798l2' /* LOCATION INFORMATION */,
                                 ),
                                 options: FFButtonOptions(
                                   width: double.infinity,

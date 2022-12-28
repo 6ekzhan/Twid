@@ -15,7 +15,14 @@ class LanguageWidget extends StatefulWidget {
 }
 
 class _LanguageWidgetState extends State<LanguageWidget> {
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +33,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -65,7 +72,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                       FFAppState().hasBeenPressed4,
                       FFAppState().hasBeenPressed5,
                     );
-                    setState(() {
+                    FFAppState().update(() {
                       FFAppState().hasBeenPressed1 = true;
                     });
                   },
@@ -106,7 +113,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                       FFAppState().hasBeenPressed4,
                       FFAppState().hasBeenPressed5,
                     );
-                    setState(() {
+                    FFAppState().update(() {
                       FFAppState().hasBeenPressed2 = true;
                     });
                   },
@@ -147,7 +154,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                       FFAppState().hasBeenPressed4,
                       FFAppState().hasBeenPressed5,
                     );
-                    setState(() {
+                    FFAppState().update(() {
                       FFAppState().hasBeenPressed3 = true;
                     });
                   },
@@ -188,7 +195,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                       FFAppState().hasBeenPressed4,
                       FFAppState().hasBeenPressed5,
                     );
-                    setState(() {
+                    FFAppState().update(() {
                       FFAppState().hasBeenPressed4 = true;
                     });
                   },
@@ -229,7 +236,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                       FFAppState().hasBeenPressed4,
                       FFAppState().hasBeenPressed5,
                     );
-                    setState(() {
+                    FFAppState().update(() {
                       FFAppState().hasBeenPressed5 = true;
                     });
                   },
