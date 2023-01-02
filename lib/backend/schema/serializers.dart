@@ -3,7 +3,6 @@ import 'package:from_css_color/from_css_color.dart';
 
 import 'tour_record.dart';
 import 'routes_record.dart';
-import 'user_record.dart';
 
 import 'index.dart';
 
@@ -16,7 +15,6 @@ const kDocumentReferenceField = 'Document__Reference__Field';
 @SerializersFor(const [
   TourRecord,
   RoutesRecord,
-  UserRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

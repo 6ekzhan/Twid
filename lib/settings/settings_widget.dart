@@ -158,30 +158,130 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 16, 0, 0),
                                             child: FlutterFlowRadioButton(
-                                              options: [
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '6jozw576' /* English */,
-                                                ),
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'fa0r9lig' /* Russian */,
-                                                ),
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'eliae8ow' /* Spanish */,
-                                                ),
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'tut5rnqw' /* Japanese */,
-                                                ),
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'gqkc77hj' /* Arabian */,
-                                                )
-                                              ].toList(),
-                                              onChanged: (val) => setState(() =>
-                                                  radioButtonValue1 = val),
+                                              options: FFAppState()
+                                                  .Languages
+                                                  .toList(),
+                                              onChanged: (val) async {
+                                                setState(() =>
+                                                    radioButtonValue1 = val);
+                                                if (radioButtonValue1 ==
+                                                    'English') {
+                                                  setAppLanguage(context, 'en');
+                                                  await actions.hasBeenPressed(
+                                                    FFAppState()
+                                                        .hasBeenPressed1,
+                                                    FFAppState()
+                                                        .hasBeenPressed2,
+                                                    FFAppState()
+                                                        .hasBeenPressed3,
+                                                    FFAppState()
+                                                        .hasBeenPressed4,
+                                                    FFAppState()
+                                                        .hasBeenPressed5,
+                                                  );
+                                                  FFAppState().update(() {
+                                                    FFAppState()
+                                                        .hasBeenPressed1 = true;
+                                                  });
+                                                } else {
+                                                  if (radioButtonValue1 ==
+                                                      'Русский') {
+                                                    setAppLanguage(
+                                                        context, 'ru');
+                                                    await actions
+                                                        .hasBeenPressed(
+                                                      FFAppState()
+                                                          .hasBeenPressed1,
+                                                      FFAppState()
+                                                          .hasBeenPressed2,
+                                                      FFAppState()
+                                                          .hasBeenPressed3,
+                                                      FFAppState()
+                                                          .hasBeenPressed4,
+                                                      FFAppState()
+                                                          .hasBeenPressed5,
+                                                    );
+                                                    FFAppState().update(() {
+                                                      FFAppState()
+                                                              .hasBeenPressed2 =
+                                                          true;
+                                                    });
+                                                  } else {
+                                                    if (radioButtonValue1 ==
+                                                        'Español') {
+                                                      setAppLanguage(
+                                                          context, 'es');
+                                                      await actions
+                                                          .hasBeenPressed(
+                                                        FFAppState()
+                                                            .hasBeenPressed1,
+                                                        FFAppState()
+                                                            .hasBeenPressed2,
+                                                        FFAppState()
+                                                            .hasBeenPressed3,
+                                                        FFAppState()
+                                                            .hasBeenPressed4,
+                                                        FFAppState()
+                                                            .hasBeenPressed5,
+                                                      );
+                                                      FFAppState().update(() {
+                                                        FFAppState()
+                                                                .hasBeenPressed3 =
+                                                            true;
+                                                      });
+                                                    } else {
+                                                      if (radioButtonValue1 ==
+                                                          '日本語') {
+                                                        setAppLanguage(
+                                                            context, 'ja');
+                                                        await actions
+                                                            .hasBeenPressed(
+                                                          FFAppState()
+                                                              .hasBeenPressed1,
+                                                          FFAppState()
+                                                              .hasBeenPressed2,
+                                                          FFAppState()
+                                                              .hasBeenPressed3,
+                                                          FFAppState()
+                                                              .hasBeenPressed4,
+                                                          FFAppState()
+                                                              .hasBeenPressed5,
+                                                        );
+                                                        FFAppState().update(() {
+                                                          FFAppState()
+                                                                  .hasBeenPressed4 =
+                                                              true;
+                                                        });
+                                                      } else {
+                                                        if (radioButtonValue1 ==
+                                                            'عربي') {
+                                                          setAppLanguage(
+                                                              context, 'ar');
+                                                          await actions
+                                                              .hasBeenPressed(
+                                                            FFAppState()
+                                                                .hasBeenPressed1,
+                                                            FFAppState()
+                                                                .hasBeenPressed2,
+                                                            FFAppState()
+                                                                .hasBeenPressed3,
+                                                            FFAppState()
+                                                                .hasBeenPressed4,
+                                                            FFAppState()
+                                                                .hasBeenPressed5,
+                                                          );
+                                                          FFAppState()
+                                                              .update(() {
+                                                            FFAppState()
+                                                                    .hasBeenPressed5 =
+                                                                true;
+                                                          });
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
                                               optionHeight: 20,
                                               textStyle:
                                                   FlutterFlowTheme.of(context)

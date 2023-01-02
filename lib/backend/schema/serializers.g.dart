@@ -9,7 +9,6 @@ part of 'serializers.dart';
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(RoutesRecord.serializer)
       ..add(TourRecord.serializer)
-      ..add(UserRecord.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(LatLng)]),
           () => new ListBuilder<LatLng>())
