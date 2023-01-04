@@ -127,6 +127,12 @@ class FFAppState extends ChangeNotifier {
     _Languages.remove(_value);
     prefs.setStringList('ff_Languages', _Languages);
   }
+
+  String _pinput = '';
+  String get pinput => _pinput;
+  set pinput(String _value) {
+    _pinput = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
