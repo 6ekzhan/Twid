@@ -1,4 +1,3 @@
-import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -121,96 +120,73 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               Expanded(
                 child: Align(
                   alignment: AlignmentDirectional(0, -0.8),
-                  child: StreamBuilder<List<TourRecord>>(
-                    stream: queryTourRecord(
-                      singleRecord: true,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50,
-                            height: 50,
-                            child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      if (pinCodeController!.text != null &&
+                          pinCodeController!.text != '') {
+                        if (pinCodeController!.text ==
+                            FFAppState().pinput.toString()) {
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Trip1Widget(),
                             ),
-                          ),
+                          );
+                        } else {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return AlertDialog(
+                                content: Text('incorrect pin'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        }
+                      } else {
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              content: Text('empty field'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            );
+                          },
                         );
                       }
-                      List<TourRecord> buttonTourRecordList = snapshot.data!;
-                      final buttonTourRecord = buttonTourRecordList.isNotEmpty
-                          ? buttonTourRecordList.first
-                          : null;
-                      return FFButtonWidget(
-                        onPressed: () async {
-                          if (pinCodeController!.text != null &&
-                              pinCodeController!.text != '') {
-                            if (pinCodeController!.text ==
-                                buttonTourRecord!.pinput.toString()) {
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Trip1Widget(),
-                                ),
-                              );
-                            } else {
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return AlertDialog(
-                                    content: Text('incorrect pin'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            }
-                          } else {
-                            await showDialog(
-                              context: context,
-                              builder: (alertDialogContext) {
-                                return AlertDialog(
-                                  content: Text('empty field'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(alertDialogContext),
-                                      child: Text('Ok'),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
-                          }
-                        },
-                        text: FFLocalizations.of(context).getText(
-                          '5tzuumc9' /* OK */,
-                        ),
-                        options: FFButtonOptions(
-                          width: 236,
-                          height: 48,
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                          textStyle:
-                              FlutterFlowTheme.of(context).subtitle2.override(
-                                    fontFamily: 'Inter',
-                                    color: Color(0xFFA5AAAD),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                          borderSide: BorderSide(
-                            color: Color(0xFFA5AAAD),
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      );
                     },
+                    text: FFLocalizations.of(context).getText(
+                      '5tzuumc9' /* OK */,
+                    ),
+                    options: FFButtonOptions(
+                      width: 236,
+                      height: 48,
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      textStyle:
+                          FlutterFlowTheme.of(context).subtitle2.override(
+                                fontFamily: 'Inter',
+                                color: Color(0xFFA5AAAD),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                      borderSide: BorderSide(
+                        color: Color(0xFFA5AAAD),
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
               ),

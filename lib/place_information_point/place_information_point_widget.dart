@@ -1,4 +1,3 @@
-import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -148,64 +147,33 @@ class _PlaceInformationPointWidgetState
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                              child: StreamBuilder<List<TourRecord>>(
-                                stream: queryTourRecord(
-                                  singleRecord: true,
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50,
-                                        height: 50,
-                                        child: CircularProgressIndicator(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  List<TourRecord> rowTourRecordList =
-                                      snapshot.data!;
-                                  // Return an empty Container when the item does not exist.
-                                  if (snapshot.data!.isEmpty) {
-                                    return Container();
-                                  }
-                                  final rowTourRecord =
-                                      rowTourRecordList.isNotEmpty
-                                          ? rowTourRecordList.first
-                                          : null;
-                                  return Builder(
-                                    builder: (context) {
-                                      final images =
-                                          rowTourRecord!.images3!.toList();
-                                      return SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: List.generate(images.length,
-                                              (imagesIndex) {
-                                            final imagesItem =
-                                                images[imagesIndex];
-                                            return Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(4, 0, 4, 0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                child: Image.network(
-                                                  'https://picsum.photos/seed/692/600',
-                                                  width: 316,
-                                                  height: 218,
-                                                  fit: BoxFit.fill,
-                                                ),
-                                              ),
-                                            );
-                                          }),
-                                        ),
-                                      );
-                                    },
+                              child: Builder(
+                                builder: (context) {
+                                  final image1 = FFAppState().Image.toList();
+                                  return SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: List.generate(image1.length,
+                                          (image1Index) {
+                                        final image1Item = image1[image1Index];
+                                        return Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4, 0, 4, 0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            child: Image.network(
+                                              'https://picsum.photos/seed/692/600',
+                                              width: 316,
+                                              height: 218,
+                                              fit: BoxFit.fill,
+                                            ),
+                                          ),
+                                        );
+                                      }),
+                                    ),
                                   );
                                 },
                               ),
@@ -286,64 +254,33 @@ class _PlaceInformationPointWidgetState
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
-                              child: StreamBuilder<List<TourRecord>>(
-                                stream: queryTourRecord(
-                                  singleRecord: true,
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50,
-                                        height: 50,
-                                        child: CircularProgressIndicator(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  List<TourRecord> rowTourRecordList =
-                                      snapshot.data!;
-                                  // Return an empty Container when the item does not exist.
-                                  if (snapshot.data!.isEmpty) {
-                                    return Container();
-                                  }
-                                  final rowTourRecord =
-                                      rowTourRecordList.isNotEmpty
-                                          ? rowTourRecordList.first
-                                          : null;
-                                  return Builder(
-                                    builder: (context) {
-                                      final images3 =
-                                          rowTourRecord!.images3!.toList();
-                                      return SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: List.generate(
-                                              images3.length, (images3Index) {
-                                            final images3Item =
-                                                images3[images3Index];
-                                            return Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(4, 0, 4, 0),
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                                child: Image.network(
-                                                  'https://picsum.photos/seed/692/600',
-                                                  width: 316,
-                                                  height: 218,
-                                                  fit: BoxFit.fill,
-                                                ),
-                                              ),
-                                            );
-                                          }),
-                                        ),
-                                      );
-                                    },
+                              child: Builder(
+                                builder: (context) {
+                                  final image2 = FFAppState().Image.toList();
+                                  return SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: List.generate(image2.length,
+                                          (image2Index) {
+                                        final image2Item = image2[image2Index];
+                                        return Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4, 0, 4, 0),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            child: Image.network(
+                                              'https://picsum.photos/seed/692/600',
+                                              width: 316,
+                                              height: 218,
+                                              fit: BoxFit.fill,
+                                            ),
+                                          ),
+                                        );
+                                      }),
+                                    ),
                                   );
                                 },
                               ),

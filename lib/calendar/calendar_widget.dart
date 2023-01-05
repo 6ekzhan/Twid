@@ -1,4 +1,3 @@
-import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_calendar.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -55,71 +54,42 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                 children: [
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
-                    child: StreamBuilder<List<TourRecord>>(
-                      stream: queryTourRecord(
-                        singleRecord: true,
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50,
-                              height: 50,
-                              child: CircularProgressIndicator(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                              ),
-                            ),
-                          );
-                        }
-                        List<TourRecord> calendarTourRecordList =
-                            snapshot.data!;
-                        final calendarTourRecord =
-                            calendarTourRecordList.isNotEmpty
-                                ? calendarTourRecordList.first
-                                : null;
-                        return FlutterFlowCalendar(
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                          iconColor: Color(0x00FFFFFF),
-                          weekFormat: false,
-                          weekStartsMonday: true,
-                          initialDate: calendarTourRecord!.calendar,
-                          rowHeight: 36,
-                          onChange: (DateTimeRange? newSelectedDate) {
-                            setState(
-                                () => calendarSelectedDay = newSelectedDate);
-                          },
-                          titleStyle: GoogleFonts.getFont(
-                            'Inter',
-                            color: FlutterFlowTheme.of(context).tertiaryColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                          dayOfWeekStyle: GoogleFonts.getFont(
-                            'Inter',
-                            color: Color(0xFF6D93A2),
-                            fontSize: 12,
-                          ),
-                          dateStyle: GoogleFonts.getFont(
-                            'Inter',
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          selectedDateStyle: GoogleFonts.getFont(
-                            'Inter',
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          inactiveDateStyle: TextStyle(
-                            color: FlutterFlowTheme.of(context).lineColor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          locale: FFLocalizations.of(context).languageCode,
-                        );
+                    child: FlutterFlowCalendar(
+                      color: FlutterFlowTheme.of(context).primaryColor,
+                      iconColor: Color(0x00FFFFFF),
+                      weekFormat: false,
+                      weekStartsMonday: true,
+                      initialDate: getCurrentTimestamp,
+                      rowHeight: 36,
+                      onChange: (DateTimeRange? newSelectedDate) {
+                        setState(() => calendarSelectedDay = newSelectedDate);
                       },
+                      titleStyle: GoogleFonts.getFont(
+                        'Inter',
+                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                      dayOfWeekStyle: GoogleFonts.getFont(
+                        'Inter',
+                        color: Color(0xFF6D93A2),
+                        fontSize: 12,
+                      ),
+                      dateStyle: GoogleFonts.getFont(
+                        'Inter',
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      selectedDateStyle: GoogleFonts.getFont(
+                        'Inter',
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      inactiveDateStyle: TextStyle(
+                        color: FlutterFlowTheme.of(context).lineColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      locale: FFLocalizations.of(context).languageCode,
                     ),
                   ),
                   Padding(
