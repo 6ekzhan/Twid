@@ -218,14 +218,14 @@ class FFAppState extends ChangeNotifier {
   }
 }
 
-LatLng? _latLngFromString(String? val) {
+FFLatLng? _latLngFromString(String? val) {
   if (val == null) {
     return null;
   }
   final split = val.split(',');
   final lat = double.parse(split.first);
   final lng = double.parse(split.last);
-  return LatLng(lat, lng);
+  return FFLatLng(lat, lng);
 }
 
 extension FlutterSecureStorageExtensions on FlutterSecureStorage {

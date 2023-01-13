@@ -22,16 +22,16 @@ class MainNavigatorPageFinishWidget extends StatefulWidget {
 
 class _MainNavigatorPageFinishWidgetState
     extends State<MainNavigatorPageFinishWidget> {
-  LatLng? currentUserLocationValue;
+  FFLatLng? currentUserLocationValue;
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? googleMapsCenter;
+  FFLatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
 
   @override
   void initState() {
     super.initState();
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+    getCurrentUserLocation(defaultLocation: FFLatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
   }
 

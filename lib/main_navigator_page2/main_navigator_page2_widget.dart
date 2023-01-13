@@ -1,3 +1,7 @@
+import 'dart:math';
+
+import 'package:location/location.dart';
+
 import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -11,6 +15,7 @@ import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MainNavigatorPage2Widget extends StatefulWidget {
   const MainNavigatorPage2Widget({Key? key}) : super(key: key);
@@ -20,18 +25,71 @@ class MainNavigatorPage2Widget extends StatefulWidget {
       _MainNavigatorPage2WidgetState();
 }
 
+double? distance;
+
 class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
-  LatLng? currentUserLocationValue;
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
+
+  final Completer<GoogleMapController> _contoller = Completer();
+  static const LatLng sourcePosition = LatLng(37.4221, -122.0841);
+  static const LatLng destination = LatLng(37.4116, -122.0713);
+  LocationData? currentLocation;
+
+  void getCurrentLocation() async {
+    Location location = Location();
+    location.getLocation().then(
+          (location) => currentLocation = location,
+        );
+// List<LatLng> polylineCoordinates = [];
+
+//   void getPolyPoint() async {
+//     PolylinePoints polylinePoints = PolylinePoints();
+
+//     PolylineResult polylineResult =
+//         await polylinePoints.getRouteBetweenCoordinates(
+//       google_api_key,
+//       PointLatLng(sourcePosition.latitude, sourcePosition.longitude),
+//       PointLatLng(destination.latitude, destination.longitude),
+//     );
+
+//     if (polylineResult.points.isNotEmpty) {
+//       polylineResult.points.forEach((PointLatLng point) {
+//         polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+//       });
+//       setState(() {});
+//     }
+//   }
+    GoogleMapController googleMapController = await _contoller.future;
+
+    location.onLocationChanged.listen((newLoc) {
+      currentLocation = newLoc;
+
+      googleMapController
+          .animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+              zoom: 13.5,
+              target: LatLng(
+                newLoc.latitude!,
+                newLoc.longitude!,
+              ),
+              tilt: 10.0,
+              bearing: 20)));
+      setState(() {});
+    });
+  }
+
+  double calculateDistance(lat1, lon1, lat2, lon2) {
+    var p = 0.017453292519943295;
+    var a = 0.5 -
+        cos((lat2 - lat1) * p) / 2 +
+        cos(lat1 * p) * cos(lat2 * p) * (1 - cos((lon2 - lon1) * p)) / 2;
+    return 12742 * asin(sqrt(a));
+  }
 
   @override
   void initState() {
+    getCurrentLocation();
     super.initState();
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
   }
 
   @override
@@ -43,7 +101,7 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    if (currentUserLocationValue == null) {
+    if (currentLocation == null) {
       return Container(
         color: FlutterFlowTheme.of(context).primaryBackground,
         child: Center(
@@ -57,7 +115,16 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
         ),
       );
     }
-
+    double totalDistance = 0;
+    totalDistance += calculateDistance(
+        currentLocation!.latitude,
+        currentLocation!.longitude,
+        destination.latitude,
+        destination.longitude);
+    setState(() {
+      distance = totalDistance;
+      print("DISTNACE: " + distance.toString());
+    });
     return Scaffold(
       key: scaffoldKey,
       resizeToAvoidBottomInset: false,
@@ -74,25 +141,28 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Expanded(
-                child: FlutterFlowGoogleMap(
-                  controller: googleMapsController,
-                  onCameraIdle: (latLng) => googleMapsCenter = latLng,
-                  initialLocation: googleMapsCenter ??=
-                      currentUserLocationValue!,
-                  markerColor: GoogleMarkerColor.violet,
-                  mapType: MapType.normal,
-                  style: GoogleMapStyle.standard,
-                  initialZoom: 14,
-                  allowInteraction: true,
-                  allowZoom: false,
-                  showZoomControls: false,
-                  showLocation: true,
-                  showCompass: false,
-                  showMapToolbar: false,
-                  showTraffic: true,
-                  centerMapOnMarkerTap: true,
-                ),
-              ),
+                  child: GoogleMap(
+                myLocationButtonEnabled: true,
+                myLocationEnabled: false,
+                initialCameraPosition: CameraPosition(
+                    target: LatLng(currentLocation!.latitude!,
+                        currentLocation!.longitude!),
+                    zoom: 13.5),
+                markers: {
+                  Marker(
+                      infoWindow: InfoWindow(title: 'its me'),
+                      markerId: MarkerId('currentLocation'),
+                      position: LatLng(currentLocation!.latitude!,
+                          currentLocation!.longitude!)),
+                  // Marker(
+                  //     markerId: MarkerId('source'), position: sourcePosition),
+                  Marker(
+                      markerId: MarkerId('destination'), position: destination),
+                },
+                onMapCreated: (mapContoller) {
+                  _contoller.complete(mapContoller);
+                },
+              )),
               Container(
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
@@ -107,6 +177,37 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
+                    if (distance! < 0.6)
+                      Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                          child: InkWell(
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      PlaceInformationPointWidget(),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.92,
+                              height: 61,
+                              decoration: BoxDecoration(
+                                color: Color(0x00D9DCDE),
+                                image: DecorationImage(
+                                  fit: BoxFit.contain,
+                                  image: Image.asset(
+                                    'assets/images/new_point2.png',
+                                  ).image,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
