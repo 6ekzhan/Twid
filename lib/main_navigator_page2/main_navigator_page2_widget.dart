@@ -1,6 +1,9 @@
 import 'dart:math';
 
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:location/location.dart';
+import 'package:twid/constants/constants.dart';
+import 'package:twid/main_navigator_page2/services/places_info.dart';
 
 import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -32,34 +35,24 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final Completer<GoogleMapController> _contoller = Completer();
-  static const LatLng sourcePosition = LatLng(37.4221, -122.0841);
-  static const LatLng destination = LatLng(37.4116, -122.0713);
+  static const Map<String, dynamic> sourcePosition = {
+    "LatLng": LatLng(37.4082654, -122.0776239),
+    "place_id": "ChIJRZwK9lG3j4ARu7XnITpafSY"
+  };
+  static const List<Map<String, dynamic>> destination = [
+    {
+      "LatLng": LatLng(37.4144292, -122.0811554),
+      "place_id": "ChIJOYvCo1W3j4AR1LAifgk13rs"
+    }
+  ];
   LocationData? currentLocation;
+  PolylinePoints polylinePoints = PolylinePoints();
 
   void getCurrentLocation() async {
     Location location = Location();
     location.getLocation().then(
           (location) => currentLocation = location,
         );
-// List<LatLng> polylineCoordinates = [];
-
-//   void getPolyPoint() async {
-//     PolylinePoints polylinePoints = PolylinePoints();
-
-//     PolylineResult polylineResult =
-//         await polylinePoints.getRouteBetweenCoordinates(
-//       google_api_key,
-//       PointLatLng(sourcePosition.latitude, sourcePosition.longitude),
-//       PointLatLng(destination.latitude, destination.longitude),
-//     );
-
-//     if (polylineResult.points.isNotEmpty) {
-//       polylineResult.points.forEach((PointLatLng point) {
-//         polylineCoordinates.add(LatLng(point.latitude, point.longitude));
-//       });
-//       setState(() {});
-//     }
-//   }
     GoogleMapController googleMapController = await _contoller.future;
 
     location.onLocationChanged.listen((newLoc) {
@@ -78,6 +71,27 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
     });
   }
 
+  void getPolyPoint() async {
+    List<LatLng> polylineCoordinates = [];
+
+    PolylineResult polylineResult =
+        await polylinePoints.getRouteBetweenCoordinates(
+      google_api_key,
+      PointLatLng(37.4221, -122.0841),
+      PointLatLng(37.4116, -122.0713),
+    );
+
+    if (polylineResult.points.isNotEmpty) {
+      polylineResult.points.forEach((PointLatLng point) {
+        polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+      });
+      print(polylineCoordinates);
+      setState(() {
+        print(polylineCoordinates);
+      });
+    }
+  }
+
   double calculateDistance(lat1, lon1, lat2, lon2) {
     var p = 0.017453292519943295;
     var a = 0.5 -
@@ -89,6 +103,7 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
   @override
   void initState() {
     getCurrentLocation();
+    getPolyPoint();
     super.initState();
   }
 
@@ -119,8 +134,8 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
     totalDistance += calculateDistance(
         currentLocation!.latitude,
         currentLocation!.longitude,
-        destination.latitude,
-        destination.longitude);
+        destination[0]["LatLng"].latitude,
+        destination[0]["LatLng"].longitude);
     setState(() {
       distance = totalDistance;
       print("DISTNACE: " + distance.toString());
@@ -144,6 +159,13 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                   child: GoogleMap(
                 myLocationButtonEnabled: true,
                 myLocationEnabled: false,
+                // polylines: {
+                //   Polyline(
+                //       polylineId: PolylineId('route'),
+                //       points: polyCoo,
+                //       color: Colors.black,
+                //       width: 6)
+                // },
                 initialCameraPosition: CameraPosition(
                     target: LatLng(currentLocation!.latitude!,
                         currentLocation!.longitude!),
@@ -157,7 +179,8 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                   // Marker(
                   //     markerId: MarkerId('source'), position: sourcePosition),
                   Marker(
-                      markerId: MarkerId('destination'), position: destination),
+                      markerId: MarkerId('destination'),
+                      position: destination[0]["LatLng"]),
                 },
                 onMapCreated: (mapContoller) {
                   _contoller.complete(mapContoller);
@@ -184,6 +207,9 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                           child: InkWell(
                             onTap: () async {
+                              var res = await PlacesInfo.getPlace(
+                                  destination[0]["place_id"]);
+                              print(res);
                               await Navigator.push(
                                 context,
                                 MaterialPageRoute(
