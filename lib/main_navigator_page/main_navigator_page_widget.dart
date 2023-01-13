@@ -1,15 +1,20 @@
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:location/location.dart';
+
 import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../main_navigator_page2/main_navigator_page2_widget.dart';
 import '../place_information/place_information_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:twid/constants/constants.dart';
 
 class MainNavigatorPageWidget extends StatefulWidget {
   const MainNavigatorPageWidget({Key? key}) : super(key: key);
@@ -20,16 +25,72 @@ class MainNavigatorPageWidget extends StatefulWidget {
 }
 
 class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
-  LatLng? currentUserLocationValue;
+  static const LatLng sourcePosition = LatLng(37.4221, -122.0841);
+  static const LatLng destination = LatLng(37.4116, -122.0713);
+
+  // static const CameraPosition _kGooglePlex =
+  //     CameraPosition(zoom: 14.4746, target: sourcePosition);
+
+  // List<LatLng> polylineCoordinates = [];
+
+  // void getPolyPoint() async {
+  //   PolylinePoints polylinePoints = PolylinePoints();
+
+  //   PolylineResult polylineResult =
+  //       await polylinePoints.getRouteBetweenCoordinates(
+  //     google_api_key,
+  //     PointLatLng(sourcePosition.latitude, sourcePosition.longitude),
+  //     PointLatLng(destination.latitude, destination.longitude),
+  //   );
+
+  //   if (polylineResult.points.isNotEmpty) {
+  //     polylineResult.points.forEach((PointLatLng point) {
+  //       polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+  //     });
+  //     setState(() {});
+  //   }
+  // }
+
+  final Completer<GoogleMapController> _contoller = Completer();
+
+  LocationData? currentLocation;
+
+  void getCurrentLocation() async {
+    Location location = Location();
+
+    location.getLocation().then(
+          (location) => currentLocation = location,
+        );
+
+    GoogleMapController googleMapController = await _contoller.future;
+
+    location.onLocationChanged.listen((newLoc) {
+      currentLocation = newLoc;
+
+      googleMapController
+          .animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+              zoom: 13.5,
+              target: LatLng(
+                newLoc.latitude!,
+                newLoc.longitude!,
+              ),
+              tilt: 10.0,
+              bearing: 20)));
+      setState(() {});
+    });
+  }
+
+  FFLatLng? currentUserLocationValue;
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? googleMapsCenter;
+  FFLatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
 
   @override
   void initState() {
     super.initState();
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+    getCurrentLocation();
+    getCurrentUserLocation(defaultLocation: FFLatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
   }
 
@@ -42,7 +103,7 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    if (currentUserLocationValue == null) {
+    if (currentLocation == null) {
       return Container(
         color: FlutterFlowTheme.of(context).primaryBackground,
         child: Center(
@@ -73,25 +134,26 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Expanded(
-                child: FlutterFlowGoogleMap(
-                  controller: googleMapsController,
-                  onCameraIdle: (latLng) => googleMapsCenter = latLng,
-                  initialLocation: googleMapsCenter ??=
-                      currentUserLocationValue!,
-                  markerColor: GoogleMarkerColor.violet,
-                  mapType: MapType.normal,
-                  style: GoogleMapStyle.standard,
-                  initialZoom: 14,
-                  allowInteraction: true,
-                  allowZoom: false,
-                  showZoomControls: false,
-                  showLocation: true,
-                  showCompass: false,
-                  showMapToolbar: false,
-                  showTraffic: true,
-                  centerMapOnMarkerTap: true,
-                ),
-              ),
+                  child: GoogleMap(
+                initialCameraPosition: CameraPosition(
+                    target: LatLng(currentLocation!.latitude!,
+                        currentLocation!.longitude!),
+                    zoom: 13.5),
+                markers: {
+                  Marker(
+                      infoWindow: InfoWindow(title: 'its me'),
+                      markerId: MarkerId('currentLocation'),
+                      position: LatLng(currentLocation!.latitude!,
+                          currentLocation!.longitude!)),
+                  // Marker(
+                  //     markerId: MarkerId('source'), position: sourcePosition),
+                  // Marker(
+                  //     markerId: MarkerId('destination'), position: destination),
+                },
+                onMapCreated: (mapContoller) {
+                  _contoller.complete(mapContoller);
+                },
+              )),
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [

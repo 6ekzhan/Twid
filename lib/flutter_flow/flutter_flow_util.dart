@@ -196,9 +196,9 @@ const kTextValidatorEmailRegex =
 const kTextValidatorWebsiteRegex =
     r'(https?:\/\/)?(www\.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)|(https?:\/\/)?(www\.)?(?!ww)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,10}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)';
 
-LatLng? cachedUserLocation;
-Future<LatLng> getCurrentUserLocation(
-    {required LatLng defaultLocation, bool cached = false}) async {
+FFLatLng? cachedUserLocation;
+Future<FFLatLng> getCurrentUserLocation(
+    {required FFLatLng defaultLocation, bool cached = false}) async {
   if (cached && cachedUserLocation != null) {
     return cachedUserLocation!;
   }
@@ -213,7 +213,7 @@ Future<LatLng> getCurrentUserLocation(
   });
 }
 
-Future<LatLng?> queryCurrentUserLocation() async {
+Future<FFLatLng?> queryCurrentUserLocation() async {
   final serviceEnabled = await Geolocator.isLocationServiceEnabled();
   if (!serviceEnabled) {
     return Future.error('Location services are disabled.');
@@ -234,7 +234,7 @@ Future<LatLng?> queryCurrentUserLocation() async {
 
   final position = await Geolocator.getCurrentPosition();
   return position != null && position.latitude != 0 && position.longitude != 0
-      ? LatLng(position.latitude, position.longitude)
+      ? FFLatLng(position.latitude, position.longitude)
       : null;
 }
 

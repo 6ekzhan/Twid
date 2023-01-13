@@ -308,6 +308,23 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+<<<<<<< HEAD
+=======
+  geocoding:
+    dependency: "direct main"
+    description:
+      name: geocoding
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.5"
+  geocoding_platform_interface:
+    dependency: transitive
+    description:
+      name: geocoding_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
+>>>>>>> sultan
   geolocator:
     dependency: "direct main"
     description:
@@ -407,7 +424,11 @@ packages:
     source: hosted
     version: "0.15.1"
   http:
+<<<<<<< HEAD
     dependency: transitive
+=======
+    dependency: "direct main"
+>>>>>>> sultan
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -874,7 +895,11 @@ packages:
     source: hosted
     version: "3.0.1"
   uuid:
+<<<<<<< HEAD
     dependency: transitive
+=======
+    dependency: "direct main"
+>>>>>>> sultan
     description:
       name: uuid
       url: "https://pub.dartlang.org"

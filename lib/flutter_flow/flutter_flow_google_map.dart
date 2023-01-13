@@ -6,7 +6,7 @@ import 'lat_lng.dart' as latlng;
 
 export 'dart:async' show Completer;
 export 'package:google_maps_flutter/google_maps_flutter.dart' hide LatLng;
-export 'lat_lng.dart' show LatLng;
+export 'lat_lng.dart' show FFLatLng;
 
 enum GoogleMapStyle {
   standard,
@@ -33,7 +33,7 @@ enum GoogleMarkerColor {
 class FlutterFlowMarker {
   const FlutterFlowMarker(this.markerId, this.location, [this.onTap]);
   final String markerId;
-  final latlng.LatLng location;
+  final latlng.FFLatLng location;
   final Future Function()? onTap;
 }
 
@@ -59,8 +59,8 @@ class FlutterFlowGoogleMap extends StatefulWidget {
   }) : super(key: key);
 
   final Completer<GoogleMapController> controller;
-  final Function(latlng.LatLng)? onCameraIdle;
-  final latlng.LatLng? initialLocation;
+  final Function(latlng.FFLatLng)? onCameraIdle;
+  final latlng.FFLatLng? initialLocation;
   final Iterable<FlutterFlowMarker> markers;
   final GoogleMarkerColor markerColor;
   final MapType mapType;
@@ -142,12 +142,12 @@ class _FlutterFlowGoogleMapState extends State<FlutterFlowGoogleMap> {
       );
 }
 
-extension ToGoogleMapsLatLng on latlng.LatLng {
+extension ToGoogleMapsLatLng on latlng.FFLatLng {
   LatLng toGoogleMaps() => LatLng(latitude, longitude);
 }
 
 extension GoogleMapsToLatLng on LatLng {
-  latlng.LatLng toLatLng() => latlng.LatLng(latitude, longitude);
+  latlng.FFLatLng toLatLng() => latlng.FFLatLng(latitude, longitude);
 }
 
 Map<GoogleMapStyle, String> googleMapStyleStrings = {
