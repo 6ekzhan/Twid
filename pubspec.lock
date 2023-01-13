@@ -309,6 +309,10 @@ packages:
     source: hosted
     version: "2.0.0"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 3874bf8c21df5f5617b585e6808be5c63fa2abeb
   geocoding:
     dependency: "direct main"
     description:
@@ -323,8 +327,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+<<<<<<< HEAD
 =======
 >>>>>>> 2c7fce1 (update)
+=======
+>>>>>>> sultan
+>>>>>>> 3874bf8c21df5f5617b585e6808be5c63fa2abeb
   geolocator:
     dependency: "direct main"
     description:
@@ -425,10 +433,17 @@ packages:
     version: "0.15.1"
   http:
 <<<<<<< HEAD
+<<<<<<< HEAD
     dependency: "direct main"
 =======
     dependency: transitive
 >>>>>>> 2c7fce1 (update)
+=======
+    dependency: transitive
+=======
+    dependency: "direct main"
+>>>>>>> sultan
+>>>>>>> 3874bf8c21df5f5617b585e6808be5c63fa2abeb
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -896,10 +911,17 @@ packages:
     version: "3.0.1"
   uuid:
 <<<<<<< HEAD
+<<<<<<< HEAD
     dependency: "direct main"
 =======
     dependency: transitive
 >>>>>>> 2c7fce1 (update)
+=======
+    dependency: transitive
+=======
+    dependency: "direct main"
+>>>>>>> sultan
+>>>>>>> 3874bf8c21df5f5617b585e6808be5c63fa2abeb
     description:
       name: uuid
       url: "https://pub.dartlang.org"
