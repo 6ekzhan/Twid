@@ -10,7 +10,7 @@
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
-
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCRURQsHiSBzub3X7D3oXMQjIX8T63wGoQ"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -48,7 +48,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBjIJWBvZ1JEJvJUP3ru-iw2LaQXT2W_mM"/>
+        
 
 
     </application>
