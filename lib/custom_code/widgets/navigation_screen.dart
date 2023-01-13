@@ -36,7 +36,7 @@ class NavigationScreen extends StatefulWidget {
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
-  String google_api_key_dest = "AIzaSyD8Ov_6USFLhH2V0cZwwIXTvirekBgCJy8";
+  String google_api_key_dest = "AIzaSyCRURQsHiSBzub3X7D3oXMQjIX8T63wGoQ";
   final Completer<map.GoogleMapController?> _controller = Completer();
   Map<map.PolylineId, map.Polyline> polylines = {};
   PolylinePoints polylinePoints = PolylinePoints();
