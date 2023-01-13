@@ -48,72 +48,73 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Expanded(
-                child: Align(
-                  alignment: AlignmentDirectional(0, -1),
-                  child: Image.asset(
-                    'assets/images/logo.png',
-                    width: MediaQuery.of(context).size.width * 3.286,
-                    height: 76,
-                    fit: BoxFit.contain,
-                  ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    0,
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    0),
+                child: Image.asset(
+                  'assets/images/logo.png',
+                  width: (MediaQuery.of(context).size.width * 360) / 360,
+                  height: (MediaQuery.of(context).size.height * 75) / 800,
+                  fit: BoxFit.fill,
                 ),
               ),
-              Expanded(
-                child: Align(
-                  alignment: AlignmentDirectional(0, 1),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 80,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: Color(0xFFF4472B),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    (MediaQuery.of(context).size.height * 100) / 800,
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    0),
+                child: Container(
+                  width: double.infinity,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: Color(0xFFF4472B),
+                    ),
+                  ),
+                  child: Stack(
+                    children: [
+                      Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: PinCodeTextField(
+                          appContext: context,
+                          length: 6,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .subtitle2
+                              .override(
+                                fontFamily: 'Inter',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryColor,
+                              ),
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          enableActiveFill: true,
+                          autoFocus: false,
+                          showCursor: true,
+                          cursorColor:
+                              FlutterFlowTheme.of(context).primaryColor,
+                          obscureText: false,
+                          pinTheme: PinTheme(
+                            fieldHeight: 40,
+                            fieldWidth: 50,
+                            borderWidth: 2,
+                            borderRadius: BorderRadius.circular(12),
+                            shape: PinCodeFieldShape.underline,
+                            activeColor: Color(0x00000000),
+                            inactiveColor: Color(0x00000000),
+                            selectedColor: Color(0x00000000),
+                            activeFillColor: Color(0x00000000),
+                            inactiveFillColor: Color(0x00000000),
+                            selectedFillColor: Color(0x00000000),
+                          ),
+                          controller: pinCodeController,
+                          onChanged: (_) => {},
                         ),
                       ),
-                      child: Stack(
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(0, 0),
-                            child: PinCodeTextField(
-                              appContext: context,
-                              length: 6,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryColor,
-                                  ),
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              enableActiveFill: true,
-                              autoFocus: false,
-                              showCursor: true,
-                              cursorColor:
-                                  FlutterFlowTheme.of(context).primaryColor,
-                              obscureText: false,
-                              pinTheme: PinTheme(
-                                fieldHeight: 40,
-                                fieldWidth: 50,
-                                borderWidth: 2,
-                                borderRadius: BorderRadius.circular(12),
-                                shape: PinCodeFieldShape.underline,
-                                activeColor: Color(0x00000000),
-                                inactiveColor: Color(0x00000000),
-                                selectedColor: Color(0x00000000),
-                                activeFillColor: Color(0x00000000),
-                                inactiveFillColor: Color(0x00000000),
-                                selectedFillColor: Color(0x00000000),
-                              ),
-                              controller: pinCodeController,
-                              onChanged: (_) => {},
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    ],
                   ),
                 ),
               ),
