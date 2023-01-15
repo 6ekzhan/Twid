@@ -181,13 +181,13 @@ class _MainNavigatorPageFinishWidgetState
                                   EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  await Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          PlaceInformationPointWidget(),
-                                    ),
-                                  );
+                                  // await Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (context) =>
+                                  //         PlaceInformationPointWidget(),
+                                  //   ),
+                                  // );
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'kiuoxc9a' /* LOCATION INFORMATION */,

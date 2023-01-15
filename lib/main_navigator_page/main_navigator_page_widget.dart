@@ -30,6 +30,7 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
   static const LatLng destination = LatLng(37.4116, -122.0713);
 
   LocationData? currentLocation;
+  LocationData? startingPoint;
   GoogleMapController? googleMapController;
   final Completer<GoogleMapController> _controller = Completer();
 
@@ -46,6 +47,9 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
 
     location.onLocationChanged.listen((LocationData newLoc) {
       currentLocation = newLoc;
+      if (startingPoint == null) {
+        startingPoint = currentLocation;
+      }
 
       // googleMapController!.moveCamera(
       //     CameraUpdate.newLatLng(LatLng(newLoc.latitude!, newLoc.longitude!)));

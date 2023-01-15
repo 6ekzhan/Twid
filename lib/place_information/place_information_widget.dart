@@ -389,16 +389,16 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                                       size: 20,
                                     ),
                                     onPressed: () async {
-                                      await Navigator.push(
-                                        context,
-                                        PageTransition(
-                                          type: PageTransitionType.fade,
-                                          duration: Duration(milliseconds: 0),
-                                          reverseDuration:
-                                              Duration(milliseconds: 0),
-                                          child: PlaceInformationPointWidget(),
-                                        ),
-                                      );
+                                      // await Navigator.push(
+                                      //   context,
+                                      //   PageTransition(
+                                      //     type: PageTransitionType.fade,
+                                      //     duration: Duration(milliseconds: 0),
+                                      //     reverseDuration:
+                                      //         Duration(milliseconds: 0),
+                                      //     child: PlaceInformationPointWidget(),
+                                      //   ),
+                                      // );
                                     },
                                   ),
                                 ],

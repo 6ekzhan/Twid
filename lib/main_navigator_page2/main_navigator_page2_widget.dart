@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:math';
 
 import 'package:flutter/services.dart';
@@ -23,6 +24,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../trip_finish/trip_finish_widget.dart';
+
 class MainNavigatorPage2Widget extends StatefulWidget {
   const MainNavigatorPage2Widget({Key? key}) : super(key: key);
 
@@ -32,36 +35,41 @@ class MainNavigatorPage2Widget extends StatefulWidget {
 }
 
 double? distance;
+Marker? marker;
 
 class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  static const Map<String, dynamic> sourcePosition = {
-    "LatLng": LatLng(37.4082654, -122.0776239),
-    "place_id": "ChIJRZwK9lG3j4ARu7XnITpafSY"
-  };
-  static const List<Map<String, dynamic>> destination = [
-    {
-      "LatLng": LatLng(37.4144292, -122.0811554),
-      "place_id": "ChIJOYvCo1W3j4AR1LAifgk13rs"
-    }
-  ];
   LocationData? currentLocation;
+  LocationData? startingPoint;
   StreamSubscription? _locationSubscription;
 
   final Completer<GoogleMapController> _controller = Completer();
   late GoogleMapController googleMapController;
 
+  Marker? marker;
+  int counter = 0;
+  bool isStart = false;
+  bool isLeaving = false;
+  bool isEndPoint = false;
+  double EndPointDistance = 0;
+
+  BitmapDescriptor currentIcon = BitmapDescriptor.defaultMarker;
+
+  void setCustomMarkerIcon() {
+    BitmapDescriptor.fromAssetImage(
+            ImageConfiguration.empty, "assets/images/currentDirection.png")
+        .then((icon) => currentIcon = icon);
+  }
+
   Future<void> getCurrentLocation() async {
     try {
       Location location = Location();
-      location.getLocation().then(
-        (location) {
-          currentLocation = location;
-          setState(() {});
-        },
-      );
+      currentLocation = await location.getLocation();
+
+      setState(() {});
+      print(currentLocation);
 
       if (_locationSubscription != null) {
         _locationSubscription!.cancel();
@@ -71,35 +79,13 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
 
         googleMapController.moveCamera(CameraUpdate.newLatLng(
             LatLng(newLoc.latitude!, newLoc.longitude!)));
+
         setState(() {});
       });
     } on PlatformException catch (e) {
       if (e.code == "PERMISSION_DENIED") {
         debugPrint("Permission Denied");
       }
-    }
-  }
-
-  List<LatLng> polylineCoordinatesMap = [];
-
-  Future<void> getPolyPoint() async {
-    List<LatLng> polylineCoordinates = [];
-    PolylinePoints polylinePoints = PolylinePoints();
-
-    PolylineResult polylineResult =
-        await polylinePoints.getRouteBetweenCoordinates(
-      google_api_key,
-      PointLatLng(37.4221, -122.0841),
-      PointLatLng(37.4116, -122.0713),
-    );
-
-    if (polylineResult.points.isNotEmpty) {
-      polylineResult.points.forEach((PointLatLng point) {
-        polylineCoordinates.add(LatLng(point.latitude, point.longitude));
-      });
-      setState(() {
-        polylineCoordinatesMap = polylineCoordinates;
-      });
     }
   }
 
@@ -111,11 +97,71 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
     return 12742 * asin(sqrt(a));
   }
 
+  void updateMarkers(int index) {
+    setState(() {
+      markers[index].copyWith(visibleParam: counter == index);
+    });
+  }
+
+  List<Marker> markers = [
+    Marker(
+        markerId: MarkerId('source0'),
+        position: LatLng(37.4156, -122.0782),
+        visible: true),
+    Marker(
+      markerId: MarkerId(
+        'source1',
+      ),
+      position: LatLng(37.4238, -122.0779),
+      visible: true,
+    ),
+    Marker(
+        markerId: MarkerId('source2'),
+        position: LatLng(37.4279, -122.0779),
+        visible: true),
+  ];
+
+  final MarkerId markerId = MarkerId('1');
+
+  void getDistance() {
+    double totalDistance = 0;
+    totalDistance += calculateDistance(
+        currentLocation!.latitude,
+        currentLocation!.longitude,
+        markers[counter].position.latitude,
+        markers[counter].position.longitude);
+    setState(() {
+      if (distance != null && distance! <= 0.2) {
+        if (counter == markers.length - 1) {
+          isEndPoint = true;
+        }
+        if (distance! <= 0.1) {
+          isLeaving = true;
+        }
+      }
+      if (isLeaving == true) {
+        if (distance! > 0.2) {
+          isLeaving = !isLeaving;
+          if (isEndPoint == false) {
+            counter++;
+          }
+        }
+      }
+
+      distance = totalDistance;
+      print("DISTNACE: " + distance.toString());
+      print("Counter " + counter.toString());
+      print("IsLeaving " + isLeaving.toString());
+      print("Endpoint " + isEndPoint.toString());
+      print("MARKER LENGTH" + markers.length.toString());
+    });
+  }
+
   @override
   void initState() {
     GoogleMapController googleMapController;
+    setCustomMarkerIcon();
     getCurrentLocation();
-    getPolyPoint();
     super.initState();
   }
 
@@ -125,11 +171,6 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
     _locationSubscription!.cancel();
     _unfocusNode.dispose();
     super.dispose();
-  }
-
-  Future refresh() async {
-    await Future<void>.delayed(const Duration(seconds: 2));
-    setState(() {});
   }
 
   @override
@@ -149,16 +190,9 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
         ),
       );
     }
-    double totalDistance = 0;
-    totalDistance += calculateDistance(
-        currentLocation!.latitude,
-        currentLocation!.longitude,
-        destination[0]["LatLng"].latitude,
-        destination[0]["LatLng"].longitude);
-    setState(() {
-      distance = totalDistance;
-      print("DISTNACE: " + distance.toString());
-    });
+
+    getDistance();
+
     return Scaffold(
       key: scaffoldKey,
       resizeToAvoidBottomInset: false,
@@ -178,34 +212,29 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                   child: GoogleMap(
                 myLocationButtonEnabled: true,
                 myLocationEnabled: false,
-                polylines: {
-                  Polyline(
-                      polylineId: PolylineId('route'),
-                      points: polylineCoordinatesMap,
-                      color: Colors.black,
-                      width: 6)
-                },
                 initialCameraPosition: CameraPosition(
                     target: LatLng(currentLocation!.latitude!,
                         currentLocation!.longitude!),
                     zoom: 13.5),
                 markers: {
                   Marker(
-                      infoWindow: InfoWindow(title: 'its me'),
-                      markerId: MarkerId('currentLocation'),
+                      markerId: MarkerId("currentLocation"),
+                      infoWindow: InfoWindow(title: "Its me"),
+                      rotation: currentLocation!.heading!,
+                      icon: currentIcon,
                       position: LatLng(currentLocation!.latitude!,
                           currentLocation!.longitude!)),
-                  // Marker(
-                  //     markerId: MarkerId('source'), position: sourcePosition),
-                  Marker(
-                      markerId: MarkerId('destination'),
-                      position: destination[0]["LatLng"]),
+                  for (int i = 0; i < markers.length; i++) markers[i],
                 },
                 onMapCreated: (mapContoller) {
                   // final GoogleMapController googleMapController =
                   //     await _controller.future;
                   // _controller.complete(mapContoller);
                   googleMapController = mapContoller;
+                  setState(() {
+                    for (int i = 0; i < markers.length; i++)
+                      markers[i].copyWith(visibleParam: counter == i);
+                  });
                 },
               )),
               Container(
@@ -222,21 +251,105 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    if (distance! < 0.3)
+                    if (isStart == false)
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 16),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            isStart = true;
+
+                            startingPoint = currentLocation;
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'gnh6m1of' /* LET'S GO! */,
+                          ),
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 20),
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            textStyle:
+                                FlutterFlowTheme.of(context).subtitle2.override(
+                                      fontFamily: 'Metal',
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.normal,
+                                      useGoogleFonts: false,
+                                    ),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                    if (isEndPoint == true)
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 16),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TripFinishWidget(),
+                              ),
+                            );
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'lm18fn7u' /* FINISH */,
+                          ),
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 20),
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            textStyle:
+                                FlutterFlowTheme.of(context).subtitle2.override(
+                                      fontFamily: 'Metal',
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.normal,
+                                      useGoogleFonts: false,
+                                    ),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+
+                    ///distance
+                    if (distance != null &&
+                        distance! < 0.2 &&
+                        isEndPoint == false)
                       Align(
                         alignment: AlignmentDirectional(0, 0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                           child: InkWell(
                             onTap: () async {
-                              var res = await PlacesInfo.getPlace(
-                                  destination[0]["place_id"]);
-                              // print(res);
+                              print("MY HOMEEEEEEEEEE NUMBER " +
+                                  counter.toString());
+                              var res = await PlacesInfo.getPlacesId(
+                                markers[counter].position,
+                              );
+                              print(res);
+                              var basePosition = await PlacesInfo.getPlacesId(
+                                  LatLng(startingPoint!.latitude!,
+                                      startingPoint!.longitude!));
                               await Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      PlaceInformationPointWidget(),
+                                      PlaceInformationPointWidget(
+                                    markerCounter: counter,
+                                    markers: markers,
+                                    markerId: res,
+                                    placesId: basePosition,
+                                  ),
                                 ),
                               );
                             },
@@ -307,11 +420,34 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                                     EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
+                                    if (isStart == true) {
+                                      var res = await PlacesInfo.getPlacesId(
+                                          LatLng(startingPoint!.latitude!,
+                                              startingPoint!.longitude!));
+                                      print(res);
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              PlaceInformationPointWidget(
+                                            markers: markers,
+                                            placesId: res,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    var res = await PlacesInfo.getPlacesId(
+                                        LatLng(currentLocation!.latitude!,
+                                            currentLocation!.longitude!));
+                                    print(res);
                                     await Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            PlaceInformationPointWidget(),
+                                            PlaceInformationPointWidget(
+                                          markers: markers,
+                                          placesId: res,
+                                        ),
                                       ),
                                     );
                                   },
