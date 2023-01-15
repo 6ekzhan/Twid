@@ -111,7 +111,7 @@ class _CustomTimerState extends State<CustomTimer> {
                 style: const TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.w400,
-                  fontFamily: 'Metal',
+                  fontFamily: 'Metal', 
                   color: Color(0xFFF4472B),
                 ),
               ),
