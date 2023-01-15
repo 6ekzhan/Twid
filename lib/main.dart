@@ -79,7 +79,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
             )
-          : LanguageWidget(),
+          : TripStartWidget(),
     );
   }
 }

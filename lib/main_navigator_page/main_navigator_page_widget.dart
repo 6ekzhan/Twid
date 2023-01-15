@@ -1,5 +1,6 @@
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:location/location.dart';
+import 'package:geolocator/geolocator.dart' as geo;
 
 import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -28,70 +29,40 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
   static const LatLng sourcePosition = LatLng(37.4221, -122.0841);
   static const LatLng destination = LatLng(37.4116, -122.0713);
 
-  // static const CameraPosition _kGooglePlex =
-  //     CameraPosition(zoom: 14.4746, target: sourcePosition);
-
-  // List<LatLng> polylineCoordinates = [];
-
-  // void getPolyPoint() async {
-  //   PolylinePoints polylinePoints = PolylinePoints();
-
-  //   PolylineResult polylineResult =
-  //       await polylinePoints.getRouteBetweenCoordinates(
-  //     google_api_key,
-  //     PointLatLng(sourcePosition.latitude, sourcePosition.longitude),
-  //     PointLatLng(destination.latitude, destination.longitude),
-  //   );
-
-  //   if (polylineResult.points.isNotEmpty) {
-  //     polylineResult.points.forEach((PointLatLng point) {
-  //       polylineCoordinates.add(LatLng(point.latitude, point.longitude));
-  //     });
-  //     setState(() {});
-  //   }
-  // }
-
-  final Completer<GoogleMapController> _contoller = Completer();
-
   LocationData? currentLocation;
+  GoogleMapController? googleMapController;
+  final Completer<GoogleMapController> _controller = Completer();
 
-  void getCurrentLocation() async {
+  Future<void> getCurrentLocation() async {
     Location location = Location();
 
     location.getLocation().then(
-          (location) => currentLocation = location,
-        );
+      (location) {
+        currentLocation = location;
+        setState(() {});
+      },
+    );
+    print(currentLocation);
 
-    GoogleMapController googleMapController = await _contoller.future;
-
-    location.onLocationChanged.listen((newLoc) {
+    location.onLocationChanged.listen((LocationData newLoc) {
       currentLocation = newLoc;
 
-      googleMapController
-          .animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-              zoom: 13.5,
-              target: LatLng(
-                newLoc.latitude!,
-                newLoc.longitude!,
-              ),
-              tilt: 10.0,
-              bearing: 20)));
+      // googleMapController!.moveCamera(
+      //     CameraUpdate.newLatLng(LatLng(newLoc.latitude!, newLoc.longitude!)));
       setState(() {});
     });
+    print(googleMapController);
+    // setState(() {});
   }
 
-  FFLatLng? currentUserLocationValue;
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  FFLatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
 
   @override
   void initState() {
     super.initState();
     getCurrentLocation();
-    getCurrentUserLocation(defaultLocation: FFLatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
   }
 
   @override
@@ -117,7 +88,6 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
         ),
       );
     }
-
     return Scaffold(
       key: scaffoldKey,
       resizeToAvoidBottomInset: false,
@@ -150,8 +120,10 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
                   // Marker(
                   //     markerId: MarkerId('destination'), position: destination),
                 },
-                onMapCreated: (mapContoller) {
-                  _contoller.complete(mapContoller);
+                onMapCreated: (GoogleMapController mapContoller) {
+                  // googleMapController = mapContoller;
+
+                  _controller.complete(mapContoller);
                 },
               )),
               Column(

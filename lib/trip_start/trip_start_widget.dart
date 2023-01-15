@@ -1,3 +1,5 @@
+import 'package:twid/index.dart';
+
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -50,7 +52,7 @@ class _TripStartWidgetState extends State<TripStartWidget> {
                         await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MainNavigatorPageWidget(),
+                            builder: (context) => MainNavigatorPage2Widget(),
                           ),
                         );
                       },
