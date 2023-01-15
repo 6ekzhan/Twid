@@ -52,7 +52,7 @@ class _TripStartWidgetState extends State<TripStartWidget> {
                         await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MainNavigatorPage2Widget(),
+                            builder: (context) => MainNavigatorPageWidget(),
                           ),
                         );
                       },

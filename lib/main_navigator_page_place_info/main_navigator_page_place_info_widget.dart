@@ -118,7 +118,7 @@ class _MainNavigatorPagePlaceInfoWidgetState
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    PlaceInformationPointWidget(),
+                                    PlaceInformationPointWidget(placesId: ["ss"],),
                               ),
                             );
                           },
@@ -193,7 +193,7 @@ class _MainNavigatorPagePlaceInfoWidgetState
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            PlaceInformationPointWidget(),
+                                            PlaceInformationPointWidget(placesId: ["ss"],),
                                       ),
                                     );
                                   },

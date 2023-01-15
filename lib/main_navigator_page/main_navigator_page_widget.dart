@@ -42,7 +42,6 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
         setState(() {});
       },
     );
-    print(currentLocation);
 
     location.onLocationChanged.listen((LocationData newLoc) {
       currentLocation = newLoc;
@@ -51,7 +50,6 @@ class _MainNavigatorPageWidgetState extends State<MainNavigatorPageWidget> {
       //     CameraUpdate.newLatLng(LatLng(newLoc.latitude!, newLoc.longitude!)));
       setState(() {});
     });
-    print(googleMapController);
     // setState(() {});
   }
 

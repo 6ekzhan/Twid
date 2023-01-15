@@ -51,7 +51,7 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
   StreamSubscription? _locationSubscription;
 
   final Completer<GoogleMapController> _controller = Completer();
-  late GoogleMapController googleMapController;
+  GoogleMapController? googleMapController;
 
   Future<void> getCurrentLocation() async {
     try {
@@ -69,9 +69,11 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
       _locationSubscription = location.onLocationChanged.listen((newLoc) async {
         currentLocation = newLoc;
 
-        googleMapController.moveCamera(CameraUpdate.newLatLng(
-            LatLng(newLoc.latitude!, newLoc.longitude!)));
-        setState(() {});
+        if (googleMapController != null) {
+          setState(() {});
+          googleMapController!.moveCamera(CameraUpdate.newLatLng(
+              LatLng(newLoc.latitude!, newLoc.longitude!)));
+        }
       });
     } on PlatformException catch (e) {
       if (e.code == "PERMISSION_DENIED") {
@@ -89,8 +91,10 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
     PolylineResult polylineResult =
         await polylinePoints.getRouteBetweenCoordinates(
       google_api_key,
-      PointLatLng(37.4221, -122.0841),
-      PointLatLng(37.4116, -122.0713),
+      PointLatLng((sourcePosition["LatLng"] as LatLng).latitude,
+          (sourcePosition["LatLng"] as LatLng).longitude),
+      PointLatLng(destination[0]["LatLng"].latitude,
+          destination[0]["LatLng"].longitude),
     );
 
     if (polylineResult.points.isNotEmpty) {
@@ -113,23 +117,17 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
 
   @override
   void initState() {
-    GoogleMapController googleMapController;
-    getCurrentLocation();
-    getPolyPoint();
     super.initState();
+    getPolyPoint();
+    getCurrentLocation();
   }
 
   @override
   void dispose() {
-    googleMapController.dispose();
+    googleMapController!.dispose();
     _locationSubscription!.cancel();
     _unfocusNode.dispose();
     super.dispose();
-  }
-
-  Future refresh() async {
-    await Future<void>.delayed(const Duration(seconds: 2));
-    setState(() {});
   }
 
   @override
@@ -201,10 +199,9 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                       markerId: MarkerId('destination'),
                       position: destination[0]["LatLng"]),
                 },
-                onMapCreated: (mapContoller) {
+                onMapCreated: (mapContoller) async {
                   // final GoogleMapController googleMapController =
                   //     await _controller.future;
-                  // _controller.complete(mapContoller);
                   googleMapController = mapContoller;
                 },
               )),
@@ -229,14 +226,16 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                           child: InkWell(
                             onTap: () async {
-                              var res = await PlacesInfo.getPlace(
-                                  destination[0]["place_id"]);
+                              var res = await PlacesInfo.getPlacesId(
+                                  destination[0]["LatLng"]);
                               // print(res);
                               await Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      PlaceInformationPointWidget(),
+                                      PlaceInformationPointWidget(
+                                    placesId: res,
+                                  ),
                                 ),
                               );
                             },
@@ -307,11 +306,16 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                                     EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
+                                    var res = await PlacesInfo.getPlacesId(
+                                        destination[0]["LatLng"]);
+                                    // print(res);
                                     await Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            PlaceInformationPointWidget(),
+                                            PlaceInformationPointWidget(
+                                          placesId: res,
+                                        ),
                                       ),
                                     );
                                   },

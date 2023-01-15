@@ -185,7 +185,7 @@ class _MainNavigatorPageFinishWidgetState
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          PlaceInformationPointWidget(),
+                                          PlaceInformationPointWidget(placesId: ["ss"],),
                                     ),
                                   );
                                 },

@@ -396,7 +396,7 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                                           duration: Duration(milliseconds: 0),
                                           reverseDuration:
                                               Duration(milliseconds: 0),
-                                          child: PlaceInformationPointWidget(),
+                                          child: PlaceInformationPointWidget(placesId: ["ss"]),
                                         ),
                                       );
                                     },
