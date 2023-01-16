@@ -236,9 +236,8 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                   for (int i = 0; i < Set<Marker>.of(markers).length; i++)
                     Set<Marker>.of(markers).elementAt(i),
                   for (int i = 0; i < Set<Marker>.of(markers).length; i++)
-                    Set<Marker>.of(markers)
-                        .elementAt(i)
-                        .copyWith(visibleParam: counter == i),
+                    Set<Marker>.of(markers).elementAt(i).copyWith(
+                        visibleParam: isStart == true ? counter == i : false),
                 },
                 onMapCreated: (mapContoller) {
                   googleMapController = mapContoller;
@@ -291,91 +290,98 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                           ),
                         ),
                       ),
-                    if (isEndPoint == true)
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 16),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => TripFinishWidget(),
-                              ),
-                            );
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            'lm18fn7u' /* FINISH */,
-                          ),
-                          options: FFButtonOptions(
-                            width: double.infinity,
+                    if (isEndPoint == false)
+                      if (isStart == true)
+                        if (isEndPoint == true)
+                          Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 20),
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            textStyle:
-                                FlutterFlowTheme.of(context).subtitle2.override(
+                                EdgeInsetsDirectional.fromSTEB(16, 12, 16, 16),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => TripFinishWidget(),
+                                  ),
+                                );
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                'lm18fn7u' /* FINISH */,
+                              ),
+                              options: FFButtonOptions(
+                                width: double.infinity,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0, 16, 0, 20),
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .subtitle2
+                                    .override(
                                       fontFamily: 'Metal',
                                       color: Colors.white,
                                       fontSize: 20,
                                       fontWeight: FontWeight.normal,
                                       useGoogleFonts: false,
                                     ),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
                             ),
-                            borderRadius: BorderRadius.circular(10),
                           ),
-                        ),
-                      ),
 
                     ///distance
-                    if (distance != null &&
-                        distance! < 0.2 &&
-                        isEndPoint == false)
-                      Align(
-                        alignment: AlignmentDirectional(0, 0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
-                          child: InkWell(
-                            onTap: () async {
-                              print("MY HOMEEEEEEEEEE NUMBER " +
-                                  counter.toString());
-                              var res = await PlacesInfo.getPlacesId(
-                                markers[counter].position,
-                              );
-                              print(res);
-                              var basePosition = await PlacesInfo.getPlacesId(
-                                  LatLng(startingPoint!.latitude!,
-                                      startingPoint!.longitude!));
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      PlaceInformationPointWidget(
-                                    markerCounter: counter,
-                                    markers: markers,
-                                    markerId: res,
-                                    placesId: basePosition,
+                    if (isStart == true)
+                      if (distance != null &&
+                          distance! < 0.2 &&
+                          isEndPoint == false)
+                        Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                            child: InkWell(
+                              onTap: () async {
+                                print("MY HOMEEEEEEEEEE NUMBER " +
+                                    counter.toString());
+                                var res = await PlacesInfo.getPlacesId(
+                                  markers[counter].position,
+                                );
+                                print(res);
+                                var basePosition = await PlacesInfo.getPlacesId(
+                                    LatLng(startingPoint!.latitude!,
+                                        startingPoint!.longitude!));
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        PlaceInformationPointWidget(
+                                      markerCounter: counter,
+                                      markers: markers,
+                                      markerId: res,
+                                      placesId: basePosition,
+                                    ),
                                   ),
-                                ),
-                              );
-                            },
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.92,
-                              height: 61,
-                              decoration: BoxDecoration(
-                                color: Color(0x00D9DCDE),
-                                image: DecorationImage(
-                                  fit: BoxFit.contain,
-                                  image: Image.asset(
-                                    'assets/images/new_point2.png',
-                                  ).image,
+                                );
+                              },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.92,
+                                height: 61,
+                                decoration: BoxDecoration(
+                                  color: Color(0x00D9DCDE),
+                                  image: DecorationImage(
+                                    fit: BoxFit.contain,
+                                    image: Image.asset(
+                                      'assets/images/new_point2.png',
+                                    ).image,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ),
                     Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
