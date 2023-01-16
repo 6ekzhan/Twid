@@ -49,7 +49,7 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
   late GoogleMapController googleMapController;
 
   Marker? marker;
-  int counter = 0;
+  late int counter;
   bool isStart = false;
   bool isLeaving = false;
   bool isEndPoint = false;
@@ -98,38 +98,46 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
   }
 
   void updateMarkers(int index) {
-    setState(() {
-      markers[index].copyWith(visibleParam: counter == index);
-    });
+    markers[index].copyWith(visibleParam: false);
+
+    setState(() {});
   }
 
-  List<Marker> markers = [
-    Marker(
-        markerId: MarkerId('source0'),
-        position: LatLng(37.4156, -122.0782),
-        visible: true),
-    Marker(
-      markerId: MarkerId(
-        'source1',
-      ),
-      position: LatLng(37.4238, -122.0779),
-      visible: true,
-    ),
-    Marker(
-        markerId: MarkerId('source2'),
-        position: LatLng(37.4279, -122.0779),
-        visible: true),
-  ];
+  List<Marker> markers = [];
 
-  final MarkerId markerId = MarkerId('1');
+  loadMarker() {
+    markers.add(
+      Marker(
+          markerId: MarkerId('source0'),
+          position: LatLng(37.4156, -122.0782),
+          visible: false),
+    );
+    markers.add(
+      Marker(
+        markerId: MarkerId(
+          'source1',
+        ),
+        position: LatLng(37.4238, -122.0779),
+        visible: false,
+      ),
+    );
+    markers.add(
+      Marker(
+          markerId: MarkerId('source2'),
+          position: LatLng(37.4279, -122.0779),
+          visible: false),
+    );
+    setState(() {});
+  }
 
   void getDistance() {
     double totalDistance = 0;
-    totalDistance += calculateDistance(
-        currentLocation!.latitude,
-        currentLocation!.longitude,
-        markers[counter].position.latitude,
-        markers[counter].position.longitude);
+    if (currentLocation != null)
+      totalDistance += calculateDistance(
+          currentLocation!.latitude,
+          currentLocation!.longitude,
+          markers[counter].position.latitude,
+          markers[counter].position.longitude);
     setState(() {
       if (distance != null && distance! <= 0.2) {
         if (counter == markers.length - 1) {
@@ -159,7 +167,8 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
 
   @override
   void initState() {
-    GoogleMapController googleMapController;
+    counter = 0;
+    loadMarker();
     setCustomMarkerIcon();
     getCurrentLocation();
     super.initState();
@@ -169,6 +178,7 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
   void dispose() {
     googleMapController.dispose();
     _locationSubscription!.cancel();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -192,7 +202,6 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
     }
 
     getDistance();
-
     return Scaffold(
       key: scaffoldKey,
       resizeToAvoidBottomInset: false,
@@ -224,17 +233,15 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                       icon: currentIcon,
                       position: LatLng(currentLocation!.latitude!,
                           currentLocation!.longitude!)),
-                  for (int i = 0; i < markers.length; i++) markers[i],
+                  for (int i = 0; i < Set<Marker>.of(markers).length; i++)
+                    Set<Marker>.of(markers).elementAt(i),
+                  for (int i = 0; i < Set<Marker>.of(markers).length; i++)
+                    Set<Marker>.of(markers)
+                        .elementAt(i)
+                        .copyWith(visibleParam: counter == i),
                 },
                 onMapCreated: (mapContoller) {
-                  // final GoogleMapController googleMapController =
-                  //     await _controller.future;
-                  // _controller.complete(mapContoller);
                   googleMapController = mapContoller;
-                  setState(() {
-                    for (int i = 0; i < markers.length; i++)
-                      markers[i].copyWith(visibleParam: counter == i);
-                  });
                 },
               )),
               Container(
