@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:twid/constants/constants.dart';
+import 'package:twid/main_navigator_page2/main_navigator_page2_widget.dart';
 import 'package:twid/main_navigator_page2/services/places_info.dart';
 
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -14,10 +16,16 @@ import '../place_information/place_information_widget.dart';
 import '../settings/settings_widget.dart';
 
 class PlaceInformationPointWidget extends StatefulWidget {
+  List<Marker> markers;
   List<String> placesId;
+  List<String>? markerId;
+  int? markerCounter;
 
   PlaceInformationPointWidget({
     Key? key,
+    this.markerCounter,
+    this.markerId,
+    required this.markers,
     required this.placesId,
   }) : super(key: key);
   @override
@@ -30,16 +38,41 @@ class _PlaceInformationPointWidgetState
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  late int currentPage;
+
   @override
   void dispose() {
     _unfocusNode.dispose();
     super.dispose();
   }
 
+  late List<String> mainPage;
+
+  Future<List<String>> resPos(Marker marker) async {
+    var res = await PlacesInfo.getPlacesId(
+      marker.position,
+    );
+    return res;
+  }
+
+  @override
+  void initState() {
+    if (widget.markerCounter == null) {
+      currentPage = 0;
+      mainPage = widget.placesId;
+    } else {
+      currentPage = widget.markerCounter! + 1;
+      mainPage = widget.placesId;
+    }
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-
+    print("{ASODFKASPFMPADSMF:LASDFMLK:DSMFLK:SKEF");
+    print(widget.markers.length);
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -48,7 +81,11 @@ class _PlaceInformationPointWidgetState
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 87, 0, 0),
           child: FutureBuilder(
-              future: PlacesInfo.getPlaces(widget.placesId),
+              future: widget.markerCounter == null
+                  ? PlacesInfo.getPlaces(widget.placesId)
+                  : widget.markerId != null
+                      ? PlacesInfo.getPlaces(widget.markerId!)
+                      : PlacesInfo.getPlaces(widget.placesId),
               builder: ((BuildContext context,
                   AsyncSnapshot<List<dynamic>> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
@@ -65,9 +102,7 @@ class _PlaceInformationPointWidgetState
                           Align(
                             alignment: AlignmentDirectional(0, 0),
                             child: Text(
-                              FFLocalizations.of(context).getText(
-                                '2uxvi0iv' /* POINT 2 (OF 6) */,
-                              ),
+                              'POINT ${currentPage + 1} (OF ${widget.markers.length + 1})',
                               style: TextStyle(
                                 fontFamily: 'SF Compact',
                                 color:
@@ -131,7 +166,9 @@ class _PlaceInformationPointWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 0, 0, 8),
                                         child: Text(
-                                          snapshot.data![index]["name"],
+                                          snapshot.data![index]["name"] != null
+                                              ? snapshot.data![index]["name"]
+                                              : "Name of this place is not provided",
                                           style: FlutterFlowTheme.of(context)
                                               .title1
                                               .override(
@@ -175,35 +212,41 @@ class _PlaceInformationPointWidgetState
                                             // final image1 = FFAppState().Image.toList();
                                             final images =
                                                 snapshot.data![index]["photos"];
-                                            return SingleChildScrollView(
-                                              scrollDirection: Axis.horizontal,
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children:
-                                                    List.generate(images.length,
-                                                        (imageIndex) {
-                                                  final imageItem =
-                                                      images[imageIndex];
-                                                  return Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                4, 0, 4, 0),
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10),
-                                                      child: Image.network(
-                                                        'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${imageItem["photo_reference"]}&key=$google_api_key',
-                                                        width: 316,
-                                                        height: 218,
-                                                        fit: BoxFit.fill,
+                                            if (images != null) {
+                                              return SingleChildScrollView(
+                                                scrollDirection:
+                                                    Axis.horizontal,
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: List.generate(
+                                                      images.length,
+                                                      (imageIndex) {
+                                                    final imageItem =
+                                                        images[imageIndex];
+                                                    return Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  4, 0, 4, 0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(10),
+                                                        child: Image.network(
+                                                          'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${imageItem["photo_reference"]}&key=$google_api_key',
+                                                          width: 316,
+                                                          height: 218,
+                                                          fit: BoxFit.fill,
+                                                        ),
                                                       ),
-                                                    ),
-                                                  );
-                                                }),
-                                              ),
-                                            );
+                                                    );
+                                                  }),
+                                                ),
+                                              );
+                                            } else {
+                                              return Container();
+                                            }
                                           },
                                         ),
                                       ),
@@ -381,32 +424,51 @@ class _PlaceInformationPointWidgetState
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      borderRadius: 16,
-                                      borderWidth: 0.5,
-                                      buttonSize: 48,
-                                      fillColor: Color(0x00BE7C71),
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.arrowLeft,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
-                                        size: 20,
+                                    if (currentPage > 0)
+                                      FlutterFlowIconButton(
+                                        borderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primaryColor,
+                                        borderRadius: 16,
+                                        borderWidth: 0.5,
+                                        buttonSize: 48,
+                                        fillColor: Color(0x00BE7C71),
+                                        icon: FaIcon(
+                                          FontAwesomeIcons.arrowLeft,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          size: 20,
+                                        ),
+                                        onPressed: () async {
+                                          if (currentPage > 1) {
+                                            var res = await PlacesInfo
+                                                .getPlacesId(LatLng(
+                                                    widget
+                                                        .markers[
+                                                            currentPage - 2]
+                                                        .position
+                                                        .latitude,
+                                                    widget
+                                                        .markers[
+                                                            currentPage - 2]
+                                                        .position
+                                                        .longitude));
+                                            currentPage--;
+                                            print("MY CURRENT PAGE_DECREASE");
+                                            print(currentPage);
+                                            setState(() {
+                                              widget.placesId = res;
+                                            });
+                                          } else if (currentPage == 1) {
+                                            currentPage--;
+                                            print("MY CURRENT PAGE_AFTER");
+                                            print(currentPage);
+                                            setState(() {
+                                              widget.placesId = mainPage;
+                                            });
+                                          }
+                                        },
                                       ),
-                                      onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type: PageTransitionType.fade,
-                                            duration: Duration(milliseconds: 0),
-                                            reverseDuration:
-                                                Duration(milliseconds: 0),
-                                            child: PlaceInformationWidget(),
-                                          ),
-                                        );
-                                      },
-                                    ),
                                     Expanded(
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -446,34 +508,46 @@ class _PlaceInformationPointWidgetState
                                         ),
                                       ),
                                     ),
-                                    FlutterFlowIconButton(
-                                      borderColor: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      borderRadius: 16,
-                                      borderWidth: 0.5,
-                                      buttonSize: 48,
-                                      fillColor: Color(0x00BE7C71),
-                                      icon: FaIcon(
-                                        FontAwesomeIcons.arrowRight,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
-                                        size: 20,
+                                    if (currentPage < (widget.markers.length))
+                                      FlutterFlowIconButton(
+                                        borderColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primaryColor,
+                                        borderRadius: 16,
+                                        borderWidth: 0.5,
+                                        buttonSize: 48,
+                                        fillColor: Color(0x00BE7C71),
+                                        icon: FaIcon(
+                                          FontAwesomeIcons.arrowRight,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          size: 20,
+                                        ),
+                                        onPressed: () async {
+                                          var res =
+                                              await PlacesInfo.getPlacesId(
+                                                  LatLng(
+                                                      widget
+                                                          .markers[currentPage]
+                                                          .position
+                                                          .latitude,
+                                                      widget
+                                                          .markers[currentPage]
+                                                          .position
+                                                          .longitude));
+                                          // if (currentPage !=
+                                          //     widget.markers.length - 1)
+                                          print("MY CURRENT PAGE");
+                                          print(currentPage);
+                                          currentPage++;
+                                          print("MY CURRENT PAGE_AFTER");
+                                          print(currentPage);
+
+                                          setState(() {
+                                            widget.placesId = res;
+                                          });
+                                        },
                                       ),
-                                      onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type: PageTransitionType.fade,
-                                            duration: Duration(milliseconds: 0),
-                                            reverseDuration:
-                                                Duration(milliseconds: 0),
-                                            child: PlaceInformationPointWidget(
-                                              placesId: ["ss"],
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ),
                                   ],
                                 ),
                               ),

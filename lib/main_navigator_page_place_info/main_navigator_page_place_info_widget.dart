@@ -114,13 +114,13 @@ class _MainNavigatorPagePlaceInfoWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                         child: InkWell(
                           onTap: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    PlaceInformationPointWidget(placesId: ["ss"],),
-                              ),
-                            );
+                            // await Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (context) =>
+                            //         PlaceInformationPointWidget(),
+                            //   ),
+                            // );
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.92,
@@ -193,7 +193,7 @@ class _MainNavigatorPagePlaceInfoWidgetState
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            PlaceInformationPointWidget(placesId: ["ss"],),
+                                            MainNavigatorPage2Widget(),
                                       ),
                                     );
                                   },
