@@ -290,47 +290,45 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                           ),
                         ),
                       ),
-                    if (isEndPoint == false)
-                      if (isStart == true)
-                        if (isEndPoint == true)
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 12, 16, 16),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => TripFinishWidget(),
-                                  ),
-                                );
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                'lm18fn7u' /* FINISH */,
-                              ),
-                              options: FFButtonOptions(
-                                width: double.infinity,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0, 16, 0, 20),
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
-                                      fontFamily: 'Metal',
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.normal,
-                                      useGoogleFonts: false,
-                                    ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
+                    if (isStart == true)
+                      if (isEndPoint == true)
+                        Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(16, 12, 16, 16),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => TripFinishWidget(),
                                 ),
-                                borderRadius: BorderRadius.circular(10),
+                              );
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              'lm18fn7u' /* FINISH */,
+                            ),
+                            options: FFButtonOptions(
+                              width: double.infinity,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 16, 0, 20),
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Metal',
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.normal,
+                                    useGoogleFonts: false,
+                                  ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
                               ),
+                              borderRadius: BorderRadius.circular(10),
                             ),
                           ),
+                        ),
 
                     ///distance
                     if (isStart == true)
@@ -416,15 +414,7 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                                 size: 24,
                               ),
                               onPressed: () async {
-                                await Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 0),
-                                    reverseDuration: Duration(milliseconds: 0),
-                                    child: MainNavigatorPageWidget(),
-                                  ),
-                                );
+                                print("HELLO");
                               },
                             ),
                             Expanded(
@@ -504,15 +494,17 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                                 size: 24,
                               ),
                               onPressed: () async {
-                                await Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 0),
-                                    reverseDuration: Duration(milliseconds: 0),
-                                    child: MainNavigatorPagePlaceInfoWidget(),
-                                  ),
-                                );
+                                if (isStart == false) {
+                                  SnackBar(
+                                    content:
+                                        const Text('Start journey to activate'),
+                                    action: SnackBarAction(
+                                      label: 'Undo',
+                                      onPressed: () {},
+                                    ),
+                                  );
+                                  if (isStart == true) {}
+                                }
                               },
                             ),
                           ],
