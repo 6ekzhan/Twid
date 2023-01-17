@@ -148,11 +148,9 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
         }
       }
       if (isLeaving == true) {
-        if (distance! > 0.2) {
-          isLeaving = !isLeaving;
-          if (isEndPoint == false) {
-            counter++;
-          }
+        isLeaving = !isLeaving;
+        if (isEndPoint == false) {
+          counter++;
         }
       }
 
@@ -414,7 +412,17 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                                 size: 24,
                               ),
                               onPressed: () async {
-                                print("HELLO");
+                                if (isStart == false) {
+                                  showSnackbar(
+                                      context, 'Start journey to activate');
+                                }
+                                if (isStart == true) {
+                                  if (counter > 0) {
+                                    setState(() {
+                                      counter--;
+                                    });
+                                  }
+                                }
                               },
                             ),
                             Expanded(
@@ -495,15 +503,17 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                               ),
                               onPressed: () async {
                                 if (isStart == false) {
-                                  SnackBar(
-                                    content:
-                                        const Text('Start journey to activate'),
-                                    action: SnackBarAction(
-                                      label: 'Undo',
-                                      onPressed: () {},
-                                    ),
-                                  );
-                                  if (isStart == true) {}
+                                  showSnackbar(
+                                      context, 'Start journey to activate');
+                                }
+                                if (isStart == true) {
+                                  if (markers.length - 1 > counter) {
+                                    setState(() {
+                                      counter++;
+                                    });
+                                    print("PRESSSED");
+                                    print(counter);
+                                  }
                                 }
                               },
                             ),
