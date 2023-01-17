@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:flutter/services.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:location/location.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:twid/constants/constants.dart';
 import 'package:twid/main_navigator_page2/services/places_info.dart';
 
@@ -34,10 +35,10 @@ class MainNavigatorPage2Widget extends StatefulWidget {
       _MainNavigatorPage2WidgetState();
 }
 
-double? distance;
-Marker? marker;
-
 class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
+  double distance = 100;
+  Marker? marker;
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -46,22 +47,27 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
   StreamSubscription? _locationSubscription;
 
   final Completer<GoogleMapController> _controller = Completer();
-  late GoogleMapController googleMapController;
+  GoogleMapController? googleMapController;
 
-  Marker? marker;
   late int counter;
-  bool isStart = false;
-  bool isLeaving = false;
-  bool isEndPoint = false;
-  double EndPointDistance = 0;
+  late bool isStart;
+  late bool isLeaving;
+  late bool isEndPoint;
+  double endPointDistance = 0;
+  PolylinePoints polylinePoints = PolylinePoints();
+  Map<PolylineId, Polyline> polylines = {};
 
   BitmapDescriptor currentIcon = BitmapDescriptor.defaultMarker;
+
+  ///MARKERICON
 
   void setCustomMarkerIcon() {
     BitmapDescriptor.fromAssetImage(
             ImageConfiguration.empty, "assets/images/currentDirection.png")
         .then((icon) => currentIcon = icon);
   }
+
+  ///CURRENT LOCATION
 
   Future<void> getCurrentLocation() async {
     try {
@@ -76,10 +82,25 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
       }
       _locationSubscription = location.onLocationChanged.listen((newLoc) async {
         currentLocation = newLoc;
-
-        googleMapController.moveCamera(CameraUpdate.newLatLng(
-            LatLng(newLoc.latitude!, newLoc.longitude!)));
-
+        if (googleMapController != null) {
+          googleMapController!.moveCamera(CameraUpdate.newLatLng(
+              LatLng(newLoc.latitude!, newLoc.longitude!)));
+        }
+        PolylineId id = PolylineId("poly");
+        if (isStart && polylines[id] != null) {
+          if (polylines[id]!.points.isNotEmpty) {
+            List<LatLng> currentPoints = polylines[id]!.points;
+            List<LatLng> newPoints = [
+              LatLng(newLoc.latitude!, newLoc.longitude!),
+              ...currentPoints
+            ];
+            polylines[id]!.copyWith(pointsParam: newPoints);
+          }
+          getDirections(
+              LatLng(currentLocation!.latitude!, currentLocation!.longitude!),
+              LatLng(markers[counter].position.latitude,
+                  markers[counter].position.longitude));
+        }
         setState(() {});
       });
     } on PlatformException catch (e) {
@@ -97,13 +118,70 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
     return 12742 * asin(sqrt(a));
   }
 
-  void updateMarkers(int index) {
-    markers[index].copyWith(visibleParam: false);
+  List<Marker> markers = [];
+
+  /// POLYLINES
+
+  getDirections(LatLng startLocation, LatLng endLocation) async {
+    List<LatLng> polylineCoordinates = [];
+
+    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+      google_api_key,
+      PointLatLng(startLocation.latitude, startLocation.longitude),
+      PointLatLng(endLocation.latitude, endLocation.longitude),
+      travelMode: TravelMode.driving,
+    );
+
+    if (result.points.isNotEmpty) {
+      result.points.forEach((PointLatLng point) {
+        polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+      });
+    } else {
+      print(result.errorMessage);
+    }
+    addPolyLine(polylineCoordinates);
+  }
+
+  double getPolDistance() {
+    double totalDistance = 0;
+    for (int i = 0; i < polylines['poly']!.points.length - 1; i++) {
+      totalDistance += calculateDistance(
+          polylines['poly']!.points[i].latitude,
+          polylines['poly']!.points[i].longitude,
+          polylines['poly']!.points[i + 1].latitude,
+          polylines['poly']!.points[i + 1].longitude);
+    }
+    return totalDistance;
+  }
+
+  addPolyLine(List<LatLng> polylineCoordinates) {
+    PolylineId id = PolylineId("poly");
+    Polyline polyline = Polyline(
+      polylineId: id,
+      color: Colors.deepPurpleAccent,
+      points: polylineCoordinates,
+      width: 5,
+    );
+    polylines[id] = polyline;
+    setState(() {});
+  }
+
+  changePosition() {
+    double div;
+    if (polylines['poly'] != null) {
+      polylines['poly']!.points.first =
+          LatLng(currentLocation!.latitude!, currentLocation!.longitude!);
+      div = calculateDistance(
+          currentLocation!.latitude,
+          currentLocation!.longitude,
+          polylines['poly']!.points.first.latitude,
+          polylines['poly']!.points.first.longitude);
+    }
 
     setState(() {});
   }
 
-  List<Marker> markers = [];
+  /// LOAD MARKERS
 
   loadMarker() {
     markers.add(
@@ -127,10 +205,27 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
           position: LatLng(37.4279, -122.0779),
           visible: false),
     );
+    // markers.add(
+    //   Marker(
+    //       markerId: MarkerId('source2'),
+    //       position: LatLng(37.4134, -122.0843),
+    //       visible: false),
+    // );
+    // markers.add(
+    //   Marker(
+    //     markerId: MarkerId(
+    //       'source1',
+    //     ),
+    //     position: LatLng(37.4106, -122.0876),
+    //     visible: false,
+    //   ),
+    // );
     setState(() {});
   }
 
-  void getDistance() {
+  ///DISTANCE
+
+  Future<void> getDistance() async {
     double totalDistance = 0;
     if (currentLocation != null)
       totalDistance += calculateDistance(
@@ -138,45 +233,76 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
           currentLocation!.longitude,
           markers[counter].position.latitude,
           markers[counter].position.longitude);
-    setState(() {
-      if (distance != null && distance! <= 0.2) {
-        if (counter == markers.length - 1) {
-          isEndPoint = true;
-        }
-        if (distance! <= 0.1) {
-          isLeaving = true;
-        }
+    changePosition();
+    distance = totalDistance;
+    if (distance != null && distance! <= 0.2) {
+      if (counter == markers.length - 1) {
+        isEndPoint = true;
+        await _prefs.then(
+            (SharedPreferences prefs) => prefs.setBool('isEndPoint', true));
       }
-      if (isLeaving == true) {
-        isLeaving = !isLeaving;
-        if (isEndPoint == false) {
+      if (distance <= 0.1) {
+        isLeaving = true;
+        await _prefs.then(
+            (SharedPreferences prefs) => prefs.setBool('isLeaving', true));
+      }
+    }
+    if (distance >= 0.2) {
+      isLeaving = false;
+      isEndPoint = false;
+      await _prefs.then((SharedPreferences prefs) {
+        prefs.setBool('isEndPoint', false);
+        prefs.setBool('isLeaving', false);
+      });
+    }
+    if (isLeaving == true && distance > 0.11) {
+      isLeaving = false;
+      await _prefs
+          .then((SharedPreferences prefs) => prefs.setBool('isLeaving', false));
+      if (isEndPoint == false) {
+        if (!(markers.length - 1 == counter)) {
           counter++;
+          await _prefs.then(
+              (SharedPreferences prefs) => prefs.setInt('counter', counter));
         }
       }
+    }
+    print("DISTNACE: " + distance.toString());
+    print("Counter " + counter.toString());
+    print("IsLeaving " + isLeaving.toString());
+    print("isEndpoint " + isEndPoint.toString());
+    print("isStart " + isStart.toString());
+  }
 
-      distance = totalDistance;
-      print("DISTNACE: " + distance.toString());
-      print("Counter " + counter.toString());
-      print("IsLeaving " + isLeaving.toString());
-      print("Endpoint " + isEndPoint.toString());
-      print("MARKER LENGTH" + markers.length.toString());
+  loadBoolAndCounter() async {
+    isEndPoint = await _prefs.then((SharedPreferences prefs) {
+      return prefs.getBool('isEndPoint') ?? false;
+    });
+    isLeaving = await _prefs.then((SharedPreferences prefs) {
+      return prefs.getBool('isLeaving') ?? false;
+    });
+    isStart = await _prefs.then((SharedPreferences prefs) {
+      return prefs.getBool('isStart') ?? false;
+    });
+    counter = await _prefs.then((SharedPreferences prefs) {
+      return prefs.getInt('counter') ?? 0;
     });
   }
 
   @override
   void initState() {
-    counter = 0;
     loadMarker();
     setCustomMarkerIcon();
     getCurrentLocation();
+    loadBoolAndCounter();
+
     super.initState();
   }
 
   @override
   void dispose() {
-    googleMapController.dispose();
+    googleMapController!.dispose();
     _locationSubscription!.cancel();
-
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -223,6 +349,7 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                     target: LatLng(currentLocation!.latitude!,
                         currentLocation!.longitude!),
                     zoom: 13.5),
+                polylines: Set<Polyline>.of(polylines.values),
                 markers: {
                   Marker(
                       markerId: MarkerId("currentLocation"),
@@ -262,7 +389,14 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                           onPressed: () async {
                             isStart = true;
 
-                            startingPoint = currentLocation;
+                            startingPoint = currentLocation!;
+                            await _prefs.then((SharedPreferences prefs) =>
+                                prefs.setBool('isStart', true));
+                            getDirections(
+                                LatLng(currentLocation!.latitude!,
+                                    currentLocation!.longitude!),
+                                LatLng(markers[counter].position.latitude,
+                                    markers[counter].position.longitude));
                           },
                           text: FFLocalizations.of(context).getText(
                             'gnh6m1of' /* LET'S GO! */,
@@ -340,12 +474,9 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                                 EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                             child: InkWell(
                               onTap: () async {
-                                print("MY HOMEEEEEEEEEE NUMBER " +
-                                    counter.toString());
                                 var res = await PlacesInfo.getPlacesId(
                                   markers[counter].position,
                                 );
-                                print(res);
                                 var basePosition = await PlacesInfo.getPlacesId(
                                     LatLng(startingPoint!.latitude!,
                                         startingPoint!.longitude!));
@@ -418,9 +549,20 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                                 }
                                 if (isStart == true) {
                                   if (counter > 0) {
-                                    setState(() {
-                                      counter--;
-                                    });
+                                    counter--;
+                                    getDirections(
+                                        LatLng(currentLocation!.latitude!,
+                                            currentLocation!.longitude!),
+                                        LatLng(
+                                            markers[counter].position.latitude,
+                                            markers[counter]
+                                                .position
+                                                .longitude));
+                                    await _prefs.then(
+                                        (SharedPreferences prefs) =>
+                                            prefs.setInt('counter', counter));
+                                  } else {
+                                    showSnackbar(context, 'First point');
                                   }
                                 }
                               },
@@ -508,11 +650,20 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                                 }
                                 if (isStart == true) {
                                   if (markers.length - 1 > counter) {
-                                    setState(() {
-                                      counter++;
-                                    });
-                                    print("PRESSSED");
-                                    print(counter);
+                                    counter++;
+                                    getDirections(
+                                        LatLng(currentLocation!.latitude!,
+                                            currentLocation!.longitude!),
+                                        LatLng(
+                                            markers[counter].position.latitude,
+                                            markers[counter]
+                                                .position
+                                                .longitude));
+                                    await _prefs.then(
+                                        (SharedPreferences prefs) =>
+                                            prefs.setInt('counter', counter));
+                                  } else {
+                                    showSnackbar(context, 'Last point');
                                   }
                                 }
                               },
@@ -553,15 +704,13 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                                 size: 24,
                               ),
                               onPressed: () async {
-                                await Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 0),
-                                    reverseDuration: Duration(milliseconds: 0),
-                                    child: HelpWidget(),
-                                  ),
-                                );
+                                print('asda');
+                                await _prefs.then((SharedPreferences prefs) {
+                                  prefs.remove('isEndPoint');
+                                  prefs.remove('isLeaving');
+                                  prefs.remove('isStart');
+                                  prefs.remove('counter');
+                                });
                               },
                             ),
                             FlutterFlowIconButton(
