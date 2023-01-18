@@ -73,7 +73,12 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
     try {
       Location location = Location();
       currentLocation = await location.getLocation();
-
+      if (isStart == true) {
+        getDirections(
+            LatLng(currentLocation!.latitude!, currentLocation!.longitude!),
+            LatLng(markers[counter].position.latitude,
+                markers[counter].position.longitude));
+      }
       setState(() {});
       print(currentLocation);
 
@@ -95,11 +100,12 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
               ...currentPoints
             ];
             polylines[id]!.copyWith(pointsParam: newPoints);
+
+            getDirections(
+                LatLng(currentLocation!.latitude!, currentLocation!.longitude!),
+                LatLng(markers[counter].position.latitude,
+                    markers[counter].position.longitude));
           }
-          getDirections(
-              LatLng(currentLocation!.latitude!, currentLocation!.longitude!),
-              LatLng(markers[counter].position.latitude,
-                  markers[counter].position.longitude));
         }
         setState(() {});
       });
@@ -233,7 +239,6 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
           currentLocation!.longitude,
           markers[counter].position.latitude,
           markers[counter].position.longitude);
-    changePosition();
     distance = totalDistance;
     if (distance != null && distance! <= 0.2) {
       if (counter == markers.length - 1) {
@@ -465,7 +470,7 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                     ///distance
                     if (isStart == true)
                       if (distance != null &&
-                          distance! < 0.2 &&
+                          distance < 0.2 &&
                           isEndPoint == false)
                         Align(
                           alignment: AlignmentDirectional(0, 0),
@@ -474,12 +479,15 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                                 EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                             child: InkWell(
                               onTap: () async {
+                                print('AAAAA');
+                                print(markers[counter].position);
+
                                 var res = await PlacesInfo.getPlacesId(
                                   markers[counter].position,
                                 );
                                 var basePosition = await PlacesInfo.getPlacesId(
-                                    LatLng(startingPoint!.latitude!,
-                                        startingPoint!.longitude!));
+                                    LatLng(currentLocation!.latitude!,
+                                        currentLocation!.longitude!));
                                 await Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -573,22 +581,6 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
                                     EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    if (isStart == true) {
-                                      var res = await PlacesInfo.getPlacesId(
-                                          LatLng(startingPoint!.latitude!,
-                                              startingPoint!.longitude!));
-                                      print(res);
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              PlaceInformationPointWidget(
-                                            markers: markers,
-                                            placesId: res,
-                                          ),
-                                        ),
-                                      );
-                                    }
                                     var res = await PlacesInfo.getPlacesId(
                                         LatLng(currentLocation!.latitude!,
                                             currentLocation!.longitude!));
