@@ -43,624 +43,844 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
             children: [
               Container(
                 width: double.infinity,
-                height: 48,
+                height: (MediaQuery.of(context).size.height * 49) / 797,
                 decoration: BoxDecoration(),
-                child: Align(
-                  alignment: AlignmentDirectional(0, 0.9),
-                  child: Text(
-                    FFLocalizations.of(context).getText(
-                      'scniofx1' /* PLEASE READ THE RULES */,
-                    ),
-                    textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                          fontFamily: 'Inter',
-                          color: Color(0xFFD9DCDE),
-                          fontSize: 12,
-                          fontWeight: FontWeight.normal,
-                        ),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    'scniofx1' /* PLEASE READ THE RULES */,
                   ),
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0, -1),
-                child: Container(
-                  width: double.infinity,
-                  height: 612,
-                  decoration: BoxDecoration(
-                    color: Color(0x00D9DCDE),
-                    image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: Image.asset(
-                        'assets/images/BG_&_logo.png',
-                      ).image,
-                    ),
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                      topLeft: Radius.circular(0),
-                      topRight: Radius.circular(0),
-                    ),
-                  ),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                FFIcons.kcar,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                size: 24,
-                              ),
-                              Container(
-                                width: 320,
-                                color: Color(0x00FFFFFF),
-                                child: ExpandableNotifier(
-                                  initialExpanded: false,
-                                  child: ExpandablePanel(
-                                    header: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 0, 0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'sxcy9gwi' /* RULES FOR USING THE CAR */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .title1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
-                                    ),
-                                    collapsed: Container(
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 0),
-                                        child: Text(
-                                          '',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color: Color(0x8A000000),
-                                                fontSize: 0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    expanded: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 0, 0, 0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 8, 0, 8),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'vh0yu7xd' /* 1. Qui exercitationem esse nis... */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        fontSize: 12,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    theme: ExpandableThemeData(
-                                      tapHeaderToExpand: true,
-                                      tapBodyToExpand: true,
-                                      tapBodyToCollapse: true,
-                                      headerAlignment:
-                                          ExpandablePanelHeaderAlignment.center,
-                                      hasIcon: false,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          height: 0.5,
-                          thickness: 0.5,
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(16, 48, 16, 16),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                FFIcons.klist,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                size: 24,
-                              ),
-                              Container(
-                                width: 320,
-                                color: Color(0x00FFFFFF),
-                                child: ExpandableNotifier(
-                                  initialExpanded: false,
-                                  child: ExpandablePanel(
-                                    header: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 0, 0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'kj98caru' /* INSURANCE RULES */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .title1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
-                                    ),
-                                    collapsed: Container(
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 0),
-                                        child: Text(
-                                          '',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color: Color(0x8A000000),
-                                                fontSize: 0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    expanded: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 0, 0, 0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 8, 0, 8),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '9d7fg3xw' /* 1. Qui exercitationem esse nis... */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        fontSize: 12,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    theme: ExpandableThemeData(
-                                      tapHeaderToExpand: true,
-                                      tapBodyToExpand: true,
-                                      tapBodyToCollapse: true,
-                                      headerAlignment:
-                                          ExpandablePanelHeaderAlignment.center,
-                                      hasIcon: false,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          height: 0.5,
-                          thickness: 0.5,
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(16, 48, 16, 16),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                FFIcons.kbed,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                size: 24,
-                              ),
-                              Container(
-                                width: 320,
-                                color: Color(0x00FFFFFF),
-                                child: ExpandableNotifier(
-                                  initialExpanded: false,
-                                  child: ExpandablePanel(
-                                    header: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 0, 0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'h4tiew0k' /* RULES FOR USING HOTEL ARMOR */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .title1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
-                                    ),
-                                    collapsed: Container(
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 0),
-                                        child: Text(
-                                          '',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color: Color(0x8A000000),
-                                                fontSize: 0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    expanded: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 0, 0, 0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 8, 0, 8),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'ls5q6opd' /* 1. Qui exercitationem esse nis... */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        fontSize: 12,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    theme: ExpandableThemeData(
-                                      tapHeaderToExpand: true,
-                                      tapBodyToExpand: true,
-                                      tapBodyToCollapse: true,
-                                      headerAlignment:
-                                          ExpandablePanelHeaderAlignment.center,
-                                      hasIcon: false,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          height: 0.5,
-                          thickness: 0.5,
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(16, 48, 16, 16),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                FFIcons.kshield,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                size: 24,
-                              ),
-                              Container(
-                                width: 320,
-                                color: Color(0x00FFFFFF),
-                                child: ExpandableNotifier(
-                                  initialExpanded: false,
-                                  child: ExpandablePanel(
-                                    header: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 0, 0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'rykgo23m' /* SAFETY RULES */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .title1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
-                                    ),
-                                    collapsed: Container(
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 0),
-                                        child: Text(
-                                          '',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color: Color(0x8A000000),
-                                                fontSize: 0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    expanded: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 0, 0, 0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 8, 0, 8),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'q7mejtp8' /* 1. Qui exercitationem esse nis... */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        fontSize: 12,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    theme: ExpandableThemeData(
-                                      tapHeaderToExpand: true,
-                                      tapBodyToExpand: true,
-                                      tapBodyToCollapse: true,
-                                      headerAlignment:
-                                          ExpandablePanelHeaderAlignment.center,
-                                      hasIcon: false,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          height: 0.5,
-                          thickness: 0.5,
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(16, 48, 16, 16),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                FFIcons.kcall,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                size: 24,
-                              ),
-                              Container(
-                                width: 320,
-                                color: Color(0x00FFFFFF),
-                                child: ExpandableNotifier(
-                                  initialExpanded: false,
-                                  child: ExpandablePanel(
-                                    header: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24, 0, 0, 0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'htnzwlpv' /* EMERGENCY COMMUNICATION */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .title1
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
-                                    ),
-                                    collapsed: Container(
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 8, 0, 0),
-                                        child: Text(
-                                          '',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color: Color(0x8A000000),
-                                                fontSize: 0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    expanded: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16, 0, 0, 0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 8, 0, 8),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'w80no2r8' /* 1. Qui exercitationem esse nis... */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        fontSize: 12,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    theme: ExpandableThemeData(
-                                      tapHeaderToExpand: true,
-                                      tapBodyToExpand: true,
-                                      tapBodyToCollapse: true,
-                                      headerAlignment:
-                                          ExpandablePanelHeaderAlignment.center,
-                                      hasIcon: false,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          height: 0.5,
-                          thickness: 0.5,
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Align(
-                  alignment: AlignmentDirectional(0, 0),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Trip2Widget(),
-                          ),
-                        );
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        'ytdd4c9f' /* I READ IT. I AGREE */,
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                        fontFamily: 'Inter',
+                        color: Color(0xFFD9DCDE),
+                        fontSize: (MediaQuery.of(context).size.height * 12) /
+                                    797 >
+                                (MediaQuery.of(context).size.width * 12) / 390
+                            ? (MediaQuery.of(context).size.width * 12) / 390
+                            : (MediaQuery.of(context).size.height * 12) / 797,
+                        fontWeight: FontWeight.normal,
                       ),
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        height: 48,
-                        color: Color(0x00F4472B),
-                        textStyle: FlutterFlowTheme.of(context)
-                            .subtitle2
-                            .override(
-                              fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold,
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: (MediaQuery.of(context).size.height * 612) / 797,
+                decoration: BoxDecoration(
+                  color: Color(0x00D9DCDE),
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: Image.asset(
+                      'assets/images/BG_&_logo.png',
+                    ).image,
+                  ),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                    topLeft: Radius.circular(0),
+                    topRight: Radius.circular(0),
+                  ),
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0,
+                            (MediaQuery.of(context).size.height * 16) / 797,
+                            0,
+                            (MediaQuery.of(context).size.height * 16) / 797),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              FFIcons.kcar,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: (MediaQuery.of(context).size.width * 24) /
+                                  390,
                             ),
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                          width: 0.5,
+                            Container(
+                              width: (MediaQuery.of(context).size.width * 320) /
+                                  390,
+                              color: Color(0x00FFFFFF),
+                              child: ExpandableNotifier(
+                                initialExpanded: false,
+                                child: ExpandablePanel(
+                                  header: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        (MediaQuery.of(context).size.width *
+                                                24) /
+                                            390,
+                                        0,
+                                        0,
+                                        0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'sxcy9gwi' /* RULES FOR USING THE CAR */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .title1
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: (MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            16) /
+                                                        797 >
+                                                    (MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            16) /
+                                                        390
+                                                ? (MediaQuery.of(context)
+                                                            .size
+                                                            .width *
+                                                        16) /
+                                                    390
+                                                : (MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        16) /
+                                                    797,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                  collapsed: Container(),
+                                  expanded: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        (MediaQuery.of(context).size.width *
+                                                16) /
+                                            390,
+                                        0,
+                                        0,
+                                        0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0,
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          8) /
+                                                      797,
+                                                  0,
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          8) /
+                                                      797),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'vh0yu7xd' /* 1. Qui exercitationem esse nis... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  fontSize: (MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  12) /
+                                                              797 >
+                                                          (MediaQuery.of(context)
+                                                                      .size
+                                                                      .width *
+                                                                  12) /
+                                                              390
+                                                      ? (MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              12) /
+                                                          390
+                                                      : (MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              12) /
+                                                          797,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  theme: ExpandableThemeData(
+                                    tapHeaderToExpand: true,
+                                    tapBodyToExpand: true,
+                                    tapBodyToCollapse: true,
+                                    headerAlignment:
+                                        ExpandablePanelHeaderAlignment.center,
+                                    hasIcon: false,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                        borderRadius: BorderRadius.circular(10),
                       ),
+                      Divider(
+                        height:
+                            (MediaQuery.of(context).size.height * 0.5) / 797,
+                        thickness:
+                            (MediaQuery.of(context).size.height * 0.5) / 797,
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            (MediaQuery.of(context).size.width * 16) / 390,
+                            (MediaQuery.of(context).size.height * 48) / 797,
+                            (MediaQuery.of(context).size.width * 16) / 390,
+                            (MediaQuery.of(context).size.height * 16) / 797),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              FFIcons.klist,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: (MediaQuery.of(context).size.width * 24) /
+                                  390,
+                            ),
+                            Container(
+                              width: (MediaQuery.of(context).size.width * 320) /
+                                  390,
+                              color: Color(0x00FFFFFF),
+                              child: ExpandableNotifier(
+                                initialExpanded: false,
+                                child: ExpandablePanel(
+                                  header: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        (MediaQuery.of(context).size.width *
+                                                24) /
+                                            390,
+                                        0,
+                                        0,
+                                        0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'kj98caru' /* INSURANCE RULES */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .title1
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: (MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            16) /
+                                                        797 >
+                                                    (MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            16) /
+                                                        390
+                                                ? (MediaQuery.of(context)
+                                                            .size
+                                                            .width *
+                                                        16) /
+                                                    390
+                                                : (MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        16) /
+                                                    797,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                  collapsed: Container(),
+                                  expanded: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        (MediaQuery.of(context).size.width *
+                                                16) /
+                                            390,
+                                        0,
+                                        0,
+                                        0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0,
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          8) /
+                                                      797,
+                                                  0,
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          8) /
+                                                      797),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              '9d7fg3xw' /* 1. Qui exercitationem esse nis... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  fontSize: (MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  12) /
+                                                              797 >
+                                                          (MediaQuery.of(context)
+                                                                      .size
+                                                                      .width *
+                                                                  12) /
+                                                              390
+                                                      ? (MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              12) /
+                                                          390
+                                                      : (MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              12) /
+                                                          797,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  theme: ExpandableThemeData(
+                                    tapHeaderToExpand: true,
+                                    tapBodyToExpand: true,
+                                    tapBodyToCollapse: true,
+                                    headerAlignment:
+                                        ExpandablePanelHeaderAlignment.center,
+                                    hasIcon: false,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(
+                        height:
+                            (MediaQuery.of(context).size.height * 0.5) / 797,
+                        thickness:
+                            (MediaQuery.of(context).size.height * 0.5) / 797,
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            (MediaQuery.of(context).size.width * 16) / 390,
+                            (MediaQuery.of(context).size.height * 48) / 797,
+                            (MediaQuery.of(context).size.width * 16) / 390,
+                            (MediaQuery.of(context).size.height * 16) / 797),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              FFIcons.kbed,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: (MediaQuery.of(context).size.width * 24) /
+                                  390,
+                            ),
+                            Container(
+                              width: (MediaQuery.of(context).size.width * 320) /
+                                  390,
+                              color: Color(0x00FFFFFF),
+                              child: ExpandableNotifier(
+                                initialExpanded: false,
+                                child: ExpandablePanel(
+                                  header: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        (MediaQuery.of(context).size.width *
+                                                24) /
+                                            390,
+                                        0,
+                                        0,
+                                        0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'h4tiew0k' /* RULES FOR USING HOTEL ARMOR */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .title1
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: (MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            16) /
+                                                        797 >
+                                                    (MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            16) /
+                                                        390
+                                                ? (MediaQuery.of(context)
+                                                            .size
+                                                            .width *
+                                                        16) /
+                                                    390
+                                                : (MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        16) /
+                                                    797,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                  collapsed: Container(),
+                                  expanded: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        (MediaQuery.of(context).size.width *
+                                                16) /
+                                            390,
+                                        0,
+                                        0,
+                                        0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0,
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          8) /
+                                                      797,
+                                                  0,
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          8) /
+                                                      797),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'ls5q6opd' /* 1. Qui exercitationem esse nis... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  fontSize: (MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  12) /
+                                                              797 >
+                                                          (MediaQuery.of(context)
+                                                                      .size
+                                                                      .width *
+                                                                  12) /
+                                                              390
+                                                      ? (MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              12) /
+                                                          390
+                                                      : (MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              12) /
+                                                          797,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  theme: ExpandableThemeData(
+                                    tapHeaderToExpand: true,
+                                    tapBodyToExpand: true,
+                                    tapBodyToCollapse: true,
+                                    headerAlignment:
+                                        ExpandablePanelHeaderAlignment.center,
+                                    hasIcon: false,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(
+                        height:
+                            (MediaQuery.of(context).size.height * 0.5) / 797,
+                        thickness:
+                            (MediaQuery.of(context).size.height * 0.5) / 797,
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            (MediaQuery.of(context).size.width * 16) / 390,
+                            (MediaQuery.of(context).size.height * 48) / 797,
+                            (MediaQuery.of(context).size.width * 16) / 390,
+                            (MediaQuery.of(context).size.height * 16) / 797),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              FFIcons.kshield,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: (MediaQuery.of(context).size.width * 24) /
+                                  390,
+                            ),
+                            Container(
+                              width: (MediaQuery.of(context).size.width * 320) /
+                                  390,
+                              color: Color(0x00FFFFFF),
+                              child: ExpandableNotifier(
+                                initialExpanded: false,
+                                child: ExpandablePanel(
+                                  header: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        (MediaQuery.of(context).size.width *
+                                                24) /
+                                            390,
+                                        0,
+                                        0,
+                                        0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'rykgo23m' /* SAFETY RULES */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .title1
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: (MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            16) /
+                                                        797 >
+                                                    (MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            16) /
+                                                        390
+                                                ? (MediaQuery.of(context)
+                                                            .size
+                                                            .width *
+                                                        16) /
+                                                    390
+                                                : (MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        16) /
+                                                    797,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                  collapsed: Container(),
+                                  expanded: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        (MediaQuery.of(context).size.width *
+                                                16) /
+                                            390,
+                                        0,
+                                        0,
+                                        0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0,
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          8) /
+                                                      797,
+                                                  0,
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          8) /
+                                                      797),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'q7mejtp8' /* 1. Qui exercitationem esse nis... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  fontSize: (MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  12) /
+                                                              797 >
+                                                          (MediaQuery.of(context)
+                                                                      .size
+                                                                      .width *
+                                                                  12) /
+                                                              390
+                                                      ? (MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              12) /
+                                                          390
+                                                      : (MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              12) /
+                                                          797,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  theme: ExpandableThemeData(
+                                    tapHeaderToExpand: true,
+                                    tapBodyToExpand: true,
+                                    tapBodyToCollapse: true,
+                                    headerAlignment:
+                                        ExpandablePanelHeaderAlignment.center,
+                                    hasIcon: false,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(
+                        height:
+                            (MediaQuery.of(context).size.height * 0.5) / 797,
+                        thickness:
+                            (MediaQuery.of(context).size.height * 0.5) / 797,
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            (MediaQuery.of(context).size.width * 16) / 390,
+                            (MediaQuery.of(context).size.height * 48) / 797,
+                            (MediaQuery.of(context).size.width * 16) / 390,
+                            (MediaQuery.of(context).size.height * 16) / 797),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              FFIcons.kcall,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: (MediaQuery.of(context).size.width * 24) /
+                                  390,
+                            ),
+                            Container(
+                              width: (MediaQuery.of(context).size.width * 320) /
+                                  390,
+                              color: Color(0x00FFFFFF),
+                              child: ExpandableNotifier(
+                                initialExpanded: false,
+                                child: ExpandablePanel(
+                                  header: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        (MediaQuery.of(context).size.width *
+                                                24) /
+                                            390,
+                                        0,
+                                        0,
+                                        0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'htnzwlpv' /* EMERGENCY COMMUNICATION */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .title1
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: (MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            16) /
+                                                        797 >
+                                                    (MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            16) /
+                                                        390
+                                                ? (MediaQuery.of(context)
+                                                            .size
+                                                            .width *
+                                                        16) /
+                                                    390
+                                                : (MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        16) /
+                                                    797,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                  collapsed: Container(),
+                                  expanded: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        (MediaQuery.of(context).size.width *
+                                                16) /
+                                            390,
+                                        0,
+                                        0,
+                                        0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0,
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          8) /
+                                                      797,
+                                                  0,
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          8) /
+                                                      797),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'w80no2r8' /* 1. Qui exercitationem esse nis... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  fontSize: (MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .height *
+                                                                  12) /
+                                                              797 >
+                                                          (MediaQuery.of(context)
+                                                                      .size
+                                                                      .width *
+                                                                  12) /
+                                                              390
+                                                      ? (MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              12) /
+                                                          390
+                                                      : (MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              12) /
+                                                          797,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  theme: ExpandableThemeData(
+                                    tapHeaderToExpand: true,
+                                    tapBodyToExpand: true,
+                                    tapBodyToCollapse: true,
+                                    headerAlignment:
+                                        ExpandablePanelHeaderAlignment.center,
+                                    hasIcon: false,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Divider(
+                        height:
+                            (MediaQuery.of(context).size.height * 0.5) / 797,
+                        thickness:
+                            (MediaQuery.of(context).size.height * 0.5) / 797,
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    (MediaQuery.of(context).size.width * 16) / 390,
+                    (MediaQuery.of(context).size.height * 16) / 797,
+                    (MediaQuery.of(context).size.width * 16) / 390,
+                    0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Trip2Widget(),
+                      ),
+                    );
+                  },
+                  text: FFLocalizations.of(context).getText(
+                    'ytdd4c9f' /* I READ IT. I AGREE */,
+                  ),
+                  options: FFButtonOptions(
+                    width: double.infinity,
+                    height: (MediaQuery.of(context).size.height * 48) / 797,
+                    color: Color(0x00F4472B),
+                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                          fontFamily: 'Inter',
+                          color: FlutterFlowTheme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).primaryColor,
+                      width: (MediaQuery.of(context).size.width * 0.5) / 390,
                     ),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
@@ -682,7 +902,11 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          (MediaQuery.of(context).size.width * 16) / 390,
+                          0,
+                          (MediaQuery.of(context).size.width * 16) / 390,
+                          0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -691,12 +915,14 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                             borderColor: Color(0x00F4472B),
                             borderRadius: 16,
                             borderWidth: 0,
-                            buttonSize: 48,
+                            buttonSize:
+                                (MediaQuery.of(context).size.width * 48) / 390,
                             fillColor: Color(0x00BE7C71),
                             icon: Icon(
                               FFIcons.kquestion,
                               color: FlutterFlowTheme.of(context).lineColor,
-                              size: 24,
+                              size: (MediaQuery.of(context).size.width * 24) /
+                                  390,
                             ),
                             onPressed: () async {
                               await Navigator.push(
@@ -713,12 +939,14 @@ class _Instructions010WidgetState extends State<Instructions010Widget> {
                           FlutterFlowIconButton(
                             borderColor: Color(0x00F4472B),
                             borderRadius: 16,
-                            buttonSize: 48,
+                            buttonSize:
+                                (MediaQuery.of(context).size.width * 48) / 390,
                             fillColor: Color(0x00BE7C71),
                             icon: Icon(
                               FFIcons.ksettings,
                               color: FlutterFlowTheme.of(context).lineColor,
-                              size: 24,
+                              size: (MediaQuery.of(context).size.width * 24) /
+                                  390,
                             ),
                             onPressed: () async {
                               await Navigator.push(

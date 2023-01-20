@@ -326,7 +326,7 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             (MediaQuery.of(context).size.width * 16) / 390,
-                            (MediaQuery.of(context).size.height * 50) / 797,
+                            (MediaQuery.of(context).size.height * 47) / 797,
                             0,
                             0),
                         child: SelectionArea(
@@ -334,29 +334,50 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                           FFLocalizations.of(context).getText(
                             '7ho7tok1' /* Cabo da Roca — Nazare. Portuga... */,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Metal',
-                                    color: Color(0xFFF4472B),
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.normal,
-                                    useGoogleFonts: false,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Metal',
+                                color: Color(0xFFF4472B),
+                                fontSize: (MediaQuery.of(context).size.height *
+                                                25) /
+                                            797 >
+                                        (MediaQuery.of(context).size.width *
+                                                25) /
+                                            390
+                                    ? (MediaQuery.of(context).size.width * 25) /
+                                        390
+                                    : (MediaQuery.of(context).size.height *
+                                            25) /
+                                        797,
+                                fontWeight: FontWeight.w400,
+                                fontStyle: FontStyle.normal,
+                                useGoogleFonts: false,
+                              ),
                         )),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 16, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            (MediaQuery.of(context).size.width * 16) / 390,
+                            (MediaQuery.of(context).size.height * 16) / 797,
+                            0,
+                            0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Icon(
                               FFIcons.kmap,
                               color: Color(0xFFD9DCDE),
-                              size: 24,
+                              size: (MediaQuery.of(context).size.width * 24) /
+                                  390,
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  (MediaQuery.of(context).size.width * 16) /
+                                      390,
+                                  0,
+                                  0,
+                                  0),
                               child: InkWell(
                                 onTap: () async {
                                   await Navigator.push(
@@ -375,6 +396,29 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                                       .override(
                                         fontFamily: 'Inter',
                                         color: Color(0xFFD9DCDE),
+                                        fontWeight: FontWeight.w400,
+                                        fontStyle: FontStyle.normal,
+                                        fontSize:
+                                            (MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            14) /
+                                                        797 >
+                                                    (MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            14) /
+                                                        390
+                                                ? (MediaQuery.of(context)
+                                                            .size
+                                                            .width *
+                                                        14) /
+                                                    390
+                                                : (MediaQuery.of(context)
+                                                            .size
+                                                            .height *
+                                                        14) /
+                                                    797,
                                         decoration: TextDecoration.underline,
                                       ),
                                 ),
@@ -384,7 +428,11 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0,
+                            (MediaQuery.of(context).size.height * 35.59) / 797,
+                            0,
+                            0),
                         child: Builder(
                           builder: (context) {
                             final image = FFAppState().Image.toList();
@@ -397,13 +445,27 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                                   final imageItem = image[imageIndex];
                                   return Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        4, 0, 4, 0),
+                                        (MediaQuery.of(context).size.width *
+                                                4) /
+                                            390,
+                                        0,
+                                        (MediaQuery.of(context).size.width *
+                                                4) /
+                                            390,
+                                        0),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10),
                                       child: Image.network(
                                         'https://picsum.photos/seed/692/600',
-                                        width: 316,
-                                        height: 218,
+                                        width:
+                                            (MediaQuery.of(context).size.width *
+                                                    316) /
+                                                390,
+                                        height: (MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                218) /
+                                            797,
                                         fit: BoxFit.fill,
                                       ),
                                     ),
@@ -415,7 +477,11 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 36),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0,
+                            (MediaQuery.of(context).size.height * 30) / 797,
+                            0,
+                            (MediaQuery.of(context).size.height * 32) / 797),
                         child: InkWell(
                           onTap: () async {
                             await Navigator.push(
@@ -430,14 +496,32 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                               'ocefep6i' /* How to pick up the car? */,
                             ),
                             textAlign: TextAlign.center,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
-                                      fontWeight: FontWeight.normal,
-                                      decoration: TextDecoration.underline,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context)
+                                      .tertiaryColor,
+                                  fontWeight: FontWeight.w400,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: (MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  14) /
+                                              797 >
+                                          (MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  14) /
+                                              390
+                                      ? (MediaQuery.of(context).size.width *
+                                              14) /
+                                          390
+                                      : (MediaQuery.of(context).size.height *
+                                              14) /
+                                          797,
+                                  decoration: TextDecoration.underline,
+                                ),
                           ),
                         ),
                       ),
@@ -449,6 +533,7 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                 alignment: AlignmentDirectional(0, 1),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
+                  height: (MediaQuery.of(context).size.height * 52) / 797,
                   decoration: BoxDecoration(
                     color: Color(0x00D9DCDE),
                     borderRadius: BorderRadius.only(
@@ -462,7 +547,11 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        (MediaQuery.of(context).size.width * 16) / 390,
+                        0,
+                        (MediaQuery.of(context).size.width * 16) / 390,
+                        0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -471,12 +560,14 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                           borderColor: Color(0x00F4472B),
                           borderRadius: 16,
                           borderWidth: 0,
-                          buttonSize: 48,
+                          buttonSize:
+                              (MediaQuery.of(context).size.width * 48) / 390,
                           fillColor: Color(0x00BE7C71),
                           icon: Icon(
                             FFIcons.kquestion,
                             color: FlutterFlowTheme.of(context).lineColor,
-                            size: 24,
+                            size:
+                                (MediaQuery.of(context).size.width * 24) / 390,
                           ),
                           onPressed: () async {
                             await Navigator.push(
@@ -493,12 +584,14 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                         FlutterFlowIconButton(
                           borderColor: Color(0x00F4472B),
                           borderRadius: 16,
-                          buttonSize: 48,
+                          buttonSize:
+                              (MediaQuery.of(context).size.width * 48) / 390,
                           fillColor: Color(0x00BE7C71),
                           icon: Icon(
                             FFIcons.ksettings,
                             color: FlutterFlowTheme.of(context).lineColor,
-                            size: 24,
+                            size:
+                                (MediaQuery.of(context).size.width * 24) / 390,
                           ),
                           onPressed: () async {
                             await Navigator.push(
