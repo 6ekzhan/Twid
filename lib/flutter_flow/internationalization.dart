@@ -178,11 +178,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Trip1
   {
     '7b7tfv87': {
-      'en': 'Your journey started through:',
-      'ar': 'بدأت رحلتك من خلال:',
-      'es': 'Su viaje comenzó a través de:',
-      'ja': 'あなたの旅は始まりました:',
-      'ru': 'Ваше путешествие началось через:',
+      'en': 'Your journey will begin in:',
+      'ar': 'سوف تبدأ رحلتك في:',
+      'es': 'Su viaje comenzará a través de:',
+      'ja': 'あなたの旅はで始まります:',
+      'ru': 'Ваше путешествие начнется через:',
     },
     'hy6dw4ym': {
       'en': 'Porsche 911 Carrera GTS',
