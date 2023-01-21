@@ -1,12 +1,12 @@
+import 'package:twid/index.dart';
+
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../help/help_widget.dart';
-import '../main_navigator_page/main_navigator_page_widget.dart';
 import '../settings/settings_widget.dart';
 import '../takea_car/takea_car_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class TripStartWidget extends StatefulWidget {
@@ -50,7 +50,7 @@ class _TripStartWidgetState extends State<TripStartWidget> {
                         await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MainNavigatorPageWidget(),
+                            builder: (context) => MainNavigatorPage2Widget(),
                           ),
                         );
                       },

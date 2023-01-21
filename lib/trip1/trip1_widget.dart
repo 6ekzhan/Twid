@@ -10,7 +10,6 @@ import '../settings/settings_widget.dart';
 import '../takea_car/takea_car_widget.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class Trip1Widget extends StatefulWidget {
@@ -442,7 +441,6 @@ class _Trip1WidgetState extends State<Trip1Widget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children:
                                     List.generate(image.length, (imageIndex) {
-                                  final imageItem = image[imageIndex];
                                   return Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         (MediaQuery.of(context).size.width *

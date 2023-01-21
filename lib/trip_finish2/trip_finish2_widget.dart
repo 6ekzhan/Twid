@@ -6,7 +6,6 @@ import '../help/help_widget.dart';
 import '../language/language_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class TripFinish2Widget extends StatefulWidget {

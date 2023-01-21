@@ -1,13 +1,13 @@
+import 'package:twid/index.dart';
+
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../help/help_widget.dart';
-import '../main_navigator_page_finish/main_navigator_page_finish_widget.dart';
 import '../settings/settings_widget.dart';
 import '../trip_finish2/trip_finish2_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class TripFinishWidget extends StatefulWidget {
@@ -303,7 +303,7 @@ We hope ... */
                                   type: PageTransitionType.fade,
                                   duration: Duration(milliseconds: 0),
                                   reverseDuration: Duration(milliseconds: 0),
-                                  child: MainNavigatorPageFinishWidget(),
+                                  child: MainNavigatorPage2Widget(),
                                 ),
                               );
                             },
