@@ -238,7 +238,7 @@ class _MainNavigatorPage2WidgetState extends State<MainNavigatorPage2Widget> {
           markers[counter].position.latitude,
           markers[counter].position.longitude);
     distance = totalDistance;
-    if (distance != null && distance! <= 0.2) {
+    if (distance != null && distance <= 0.2) {
       if (counter == markers.length - 1) {
         isEndPoint = true;
         await _prefs.then(
