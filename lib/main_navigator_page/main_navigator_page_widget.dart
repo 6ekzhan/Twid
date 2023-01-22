@@ -1,3 +1,5 @@
+import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
+
 import '../flutter_flow/flutter_flow_google_map.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
