@@ -102,7 +102,7 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                           size: (MediaQuery.of(context)
                                                       .size
                                                       .width *
-                                                  50) /
+                                                  20) /
                                               390,
                                         ),
                                         onPressed: () {
@@ -128,7 +128,7 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                             .primaryColor,
                                         size:
                                             (MediaQuery.of(context).size.width *
-                                                    50) /
+                                                    20) /
                                                 390,
                                       ),
                                       onPressed: () {
@@ -145,53 +145,67 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                         797,
                                     0,
                                     0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'pz4ro1we' /* The buttons on the navigator s... */,
+                                child: Container(
+                                  width: (MediaQuery.of(context).size.width *
+                                          358) /
+                                      390,
+                                  height: (MediaQuery.of(context).size.height *
+                                          83) /
+                                      797,
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'pz4ro1we' /* The buttons on the navigator s... */,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          12) /
+                                                      797 >
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          12) /
+                                                      390
+                                              ? (MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      12) /
+                                                  390
+                                              : (MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      12) /
+                                                  797,
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                   ),
-                                  textAlign: TextAlign.center,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        fontSize:
-                                            (MediaQuery.of(context)
-                                                                .size
-                                                                .height *
-                                                            12) /
-                                                        797 >
-                                                    (MediaQuery.of(context)
-                                                                .size
-                                                                .width *
-                                                            12) /
-                                                        390
-                                                ? (MediaQuery.of(context)
-                                                            .size
-                                                            .width *
-                                                        12) /
-                                                    390
-                                                : (MediaQuery.of(context)
-                                                            .size
-                                                            .height *
-                                                        12) /
-                                                    797,
-                                        fontWeight: FontWeight.normal,
-                                      ),
                                 ),
                               ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-                                child: Image.asset(
-                                  'assets/images/Silver1.png',
-                                  width: 222,
-                                  height: 450,
-                                  fit: BoxFit.cover,
-                                ),
+                              Image.asset(
+                                'assets/images/Silver1.png',
+                                width: (MediaQuery.of(context).size.width *
+                                        222.11) /
+                                    390,
+                                height:
+                                    (MediaQuery.of(context).size.height * 450) /
+                                        797,
+                                fit: BoxFit.fill,
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    16, 0, 16, 0),
+                                    (MediaQuery.of(context).size.width * 16) /
+                                        390,
+                                    (MediaQuery.of(context).size.height *
+                                            38.68) /
+                                        797,
+                                    (MediaQuery.of(context).size.width * 16) /
+                                        390,
+                                    0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     await pageViewController?.nextPage(
@@ -204,7 +218,184 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                   ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
-                                    height: 48,
+                                    height:
+                                        (MediaQuery.of(context).size.height *
+                                                48) /
+                                            797,
+                                    color: Color(0x00F4472B),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .subtitle2
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          16) /
+                                                      797 >
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          16) /
+                                                      390
+                                              ? (MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      16) /
+                                                  390
+                                              : (MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      16) /
+                                                  797,
+                                        ),
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryColor,
+                                      width:
+                                          (MediaQuery.of(context).size.width *
+                                                  1) /
+                                              390,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    (MediaQuery.of(context).size.width * 16) /
+                                        390,
+                                    (MediaQuery.of(context).size.height * 31) /
+                                        797,
+                                    (MediaQuery.of(context).size.width * 16) /
+                                        390,
+                                    0),
+                                child: Container(
+                                  width: (MediaQuery.of(context).size.width *
+                                          358) /
+                                      390,
+                                  height: (MediaQuery.of(context).size.height *
+                                          49) /
+                                      797,
+                                  decoration: BoxDecoration(
+                                    color: Color(0x00D9DCDE),
+                                    image: DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: Image.asset(
+                                        'assets/images/new_point.png',
+                                      ).image,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    (MediaQuery.of(context).size.width * 16) /
+                                        390,
+                                    (MediaQuery.of(context).size.height * 13) /
+                                        797,
+                                    (MediaQuery.of(context).size.width * 16) /
+                                        390,
+                                    0),
+                                child: Container(
+                                  width: (MediaQuery.of(context).size.width *
+                                          358) /
+                                      390,
+                                  height: (MediaQuery.of(context).size.height *
+                                          83) /
+                                      797,
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'kuswjwgq' /* Upon reaching a new point, the... */,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          12) /
+                                                      797 >
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          12) /
+                                                      390
+                                              ? (MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      12) /
+                                                  390
+                                              : (MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      12) /
+                                                  797,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0,
+                                    0,
+                                    0,
+                                    (MediaQuery.of(context).size.height *
+                                            38.68) /
+                                        797),
+                                child: Image.asset(
+                                  'assets/images/Silver1.png',
+                                  width: (MediaQuery.of(context).size.width *
+                                          222.11) /
+                                      390,
+                                  height: (MediaQuery.of(context).size.height *
+                                          450) /
+                                      797,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    (MediaQuery.of(context).size.width * 16) /
+                                        390,
+                                    0,
+                                    (MediaQuery.of(context).size.width * 16) /
+                                        390,
+                                    0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    await pageViewController?.nextPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.ease,
+                                    );
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    'ncaulhea' /* OK. NEXT */,
+                                  ),
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height:
+                                        (MediaQuery.of(context).size.height *
+                                                48) /
+                                            797,
                                     color: Color(0x00F4472B),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .subtitle2
@@ -217,7 +408,10 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryColor,
-                                      width: 1,
+                                      width:
+                                          (MediaQuery.of(context).size.width *
+                                                  1) /
+                                              390,
                                     ),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
@@ -228,171 +422,105 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height * 1,
+                          height: MediaQuery.of(context).size.height,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                           ),
-                          child: SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 32, 16, 0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Align(
-                                        alignment: AlignmentDirectional(0, 0),
-                                        child: Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.92,
-                                          height: 49,
-                                          decoration: BoxDecoration(
-                                            color: Color(0x00D9DCDE),
-                                            image: DecorationImage(
-                                              fit: BoxFit.fill,
-                                              image: Image.asset(
-                                                'assets/images/new_point.png',
-                                              ).image,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 13, 16, 20),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'kuswjwgq' /* Upon reaching a new point, the... */,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 20),
-                                  child: Image.asset(
-                                    'assets/images/Silver1.png',
-                                    width: 222,
-                                    height: 450,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 16, 0),
-                                  child: FFButtonWidget(
-                                    onPressed: () async {
-                                      await pageViewController?.nextPage(
-                                        duration: Duration(milliseconds: 300),
-                                        curve: Curves.ease,
-                                      );
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      'ncaulhea' /* OK. NEXT */,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: double.infinity,
-                                      height: 48,
-                                      color: Color(0x00F4472B),
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .subtitle2
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
-                                        width: 0.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height * 1,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 32, 0, 0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 8, 0),
-                                        child: FlutterFlowIconButton(
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryColor,
-                                          borderRadius: 10,
-                                          borderWidth: 1,
-                                          buttonSize: 48,
-                                          icon: FaIcon(
-                                            FontAwesomeIcons.arrowLeft,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
-                                            size: 20,
-                                          ),
-                                          onPressed: () {
-                                            print('IconButton pressed ...');
-                                          },
-                                        ),
-                                      ),
-                                      FlutterFlowIconButton(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0,
+                                    (MediaQuery.of(context).size.height * 32) /
+                                        797,
+                                    0,
+                                    0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0,
+                                          0,
+                                          (MediaQuery.of(context).size.width *
+                                                  8) /
+                                              390,
+                                          0),
+                                      child: FlutterFlowIconButton(
                                         borderColor:
                                             FlutterFlowTheme.of(context)
                                                 .primaryColor,
                                         borderRadius: 10,
-                                        borderWidth: 1,
-                                        buttonSize: 48,
+                                        borderWidth:
+                                            (MediaQuery.of(context).size.width *
+                                                    1) /
+                                                390,
+                                        buttonSize:
+                                            (MediaQuery.of(context).size.width *
+                                                    48) /
+                                                390,
                                         icon: FaIcon(
-                                          FontAwesomeIcons.arrowRight,
+                                          FontAwesomeIcons.arrowLeft,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
-                                          size: 20,
+                                          size: (MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  20) /
+                                              390,
                                         ),
                                         onPressed: () {
                                           print('IconButton pressed ...');
                                         },
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                    FlutterFlowIconButton(
+                                      borderColor: FlutterFlowTheme.of(context)
+                                          .primaryColor,
+                                      borderRadius: 10,
+                                      borderWidth:
+                                          (MediaQuery.of(context).size.width *
+                                                  1) /
+                                              390,
+                                      buttonSize:
+                                          (MediaQuery.of(context).size.width *
+                                                  48) /
+                                              390,
+                                      icon: FaIcon(
+                                        FontAwesomeIcons.arrowRight,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryColor,
+                                        size:
+                                            (MediaQuery.of(context).size.width *
+                                                    20) /
+                                                390,
+                                      ),
+                                      onPressed: () {
+                                        print('IconButton pressed ...');
+                                      },
+                                    ),
+                                  ],
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 13, 16, 20),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    (MediaQuery.of(context).size.width * 16) /
+                                        390,
+                                    (MediaQuery.of(context).size.height * 13) /
+                                        797,
+                                    (MediaQuery.of(context).size.width * 16) /
+                                        390,
+                                    0),
+                                child: Container(
+                                  width: (MediaQuery.of(context).size.width *
+                                          358) /
+                                      390,
+                                  height: (MediaQuery.of(context).size.height *
+                                          78) /
+                                      797,
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'c3bdx0kk' /* Moving between points, you can... */,
@@ -402,60 +530,115 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                         .bodyText1
                                         .override(
                                           fontFamily: 'Inter',
-                                          fontSize: 12,
+                                          fontSize: (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          12) /
+                                                      797 >
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          12) /
+                                                      390
+                                              ? (MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      12) /
+                                                  390
+                                              : (MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      12) /
+                                                  797,
                                           fontWeight: FontWeight.normal,
                                         ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 20),
-                                  child: Image.asset(
-                                    'assets/images/screen.png',
-                                    width: 222,
-                                    height: 450,
-                                    fit: BoxFit.cover,
-                                  ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0,
+                                    0,
+                                    0,
+                                    (MediaQuery.of(context).size.height *
+                                            36.68) /
+                                        797),
+                                child: Image.asset(
+                                  'assets/images/screen.png',
+                                  width: (MediaQuery.of(context).size.width *
+                                          222.11) /
+                                      390,
+                                  height: (MediaQuery.of(context).size.height *
+                                          450) /
+                                      797,
+                                  fit: BoxFit.fill,
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16, 0, 16, 0),
-                                  child: FFButtonWidget(
-                                    onPressed: () async {
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              TripStartWidget(),
-                                        ),
-                                      );
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      'ioa7i7qj' /* OK. NEXT */,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: double.infinity,
-                                      height: 48,
-                                      color: Color(0x00F4472B),
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .subtitle2
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
-                                        width: 0.5,
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    (MediaQuery.of(context).size.width * 16) /
+                                        390,
+                                    0,
+                                    (MediaQuery.of(context).size.width * 16) /
+                                        390,
+                                    0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => TripStartWidget(),
                                       ),
-                                      borderRadius: BorderRadius.circular(10),
+                                    );
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    'ioa7i7qj' /* OK */,
+                                  ),
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height:
+                                        (MediaQuery.of(context).size.height *
+                                                48) /
+                                            797,
+                                    color: Color(0x00F4472B),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .subtitle2
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          fontSize: (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          16) /
+                                                      797 >
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          16) /
+                                                      390
+                                              ? (MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      16) /
+                                                  390
+                                              : (MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      16) /
+                                                  797,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryColor,
+                                      width: 0.5,
                                     ),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
