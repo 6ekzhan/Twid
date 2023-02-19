@@ -401,6 +401,26 @@ class _Trip2WidgetState extends State<Trip2Widget> {
                                         .subtitle2
                                         .override(
                                           fontFamily: 'Inter',
+                                          fontSize: (MediaQuery.of(context)
+                                                              .size
+                                                              .height *
+                                                          16) /
+                                                      797 >
+                                                  (MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          16) /
+                                                      390
+                                              ? (MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      16) /
+                                                  390
+                                              : (MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      16) /
+                                                  797,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryColor,
                                           fontWeight: FontWeight.bold,
