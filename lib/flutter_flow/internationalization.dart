@@ -139,12 +139,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ja': 'OK',
       'ru': 'OK',
     },
+    'Извините, но такого номера бронирования не существует': {
+      'en': 'Sorry, but there is no such booking number',
+      'ar': 'عذرا ، ولكن لا يوجد رقم الحجز هذا',
+      'es': 'Lo sentimos, no existe tal número de reserva',
+      'ja': '申し訳ありませんが、そのような予約番号はありません',
+      'ru': 'Извините, но такого номера бронирования не существует',
+    },
     'ai2vnv38': {
-      'en': 'If you have not yet chosen a route to travel, go to the website',
-      'ar': 'إذا لم تكن قد اخترت طريقا للسفر بعد ، فانتقل إلى موقع الويب',
-      'es': 'Si aún no ha elegido una ruta para viajar, vaya al sitio web',
-      'ja': '旅行するルートをまだ選択していない場合は、ウェブサイトにアクセスしてください',
-      'ru': 'Если вы еще не выбрали маршрут для путешествия перейдите на сайт',
+      'en': 'If you have not yet chosen a route to travel,',
+      'ar': 'إذا لم تكن قد اخترت طريقا',
+      'es': 'Si aún no ha elegido una ruta para viajar,',
+      'ja': '旅行するルートをまだ選択していない場合は、',
+      'ru': 'Если вы еще не выбрали маршрут для путешествия',
+    },
+    'site': {
+      'en': ' go to the website',
+      'ar': ' للسفر بعد ، فانتقل إلى موقع الويب',
+      'es': ' vaya al sitio web',
+      'ja': ' ウェブサイトにアクセスしてください',
+      'ru': ' перейдите на сайт',
     },
     '6i1j2l2u': {
       'en': 'How to use the app?',
@@ -164,11 +178,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // Trip1
   {
     '7b7tfv87': {
-      'en': 'Your journey started through:',
-      'ar': 'بدأت رحلتك من خلال:',
-      'es': 'Su viaje comenzó a través de:',
-      'ja': 'あなたの旅は始まりました:',
-      'ru': 'Ваше путешествие началось через:',
+      'en': 'Your journey will begin in:',
+      'ar': 'سوف تبدأ رحلتك في:',
+      'es': 'Su viaje comenzará a través de:',
+      'ja': 'あなたの旅はで始まります:',
+      'ru': 'Ваше путешествие начнется через:',
     },
     'hy6dw4ym': {
       'en': 'Porsche 911 Carrera GTS',
@@ -503,11 +517,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Перемещаясь между точками, вы можете заранее узнать о достопримечательностях, которые лежат на вашем маршруте или вернуться в навигатор.',
     },
     'ioa7i7qj': {
-      'en': 'OK. NEXT',
-      'ar': 'حسنا. التالي',
-      'es': 'OK. SIGUIENTE',
-      'ja': 'わかった 次へ',
-      'ru': 'ОК. ДАЛЬШЕ',
+      'en': 'OK',
+      'ar': 'انا اري',
+      'es': 'ES COMPRENSIBLE',
+      'ja': 'わかりました。',
+      'ru': 'ПОНЯТНО',
     },
     'lyh3zlw8': {
       'en': '',

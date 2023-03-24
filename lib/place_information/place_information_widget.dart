@@ -7,7 +7,6 @@ import '../place_information_point/place_information_point_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class PlaceInformationWidget extends StatefulWidget {
@@ -154,7 +153,6 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: List.generate(image1.length,
                                           (image1Index) {
-                                        final image1Item = image1[image1Index];
                                         return Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -257,7 +255,6 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: List.generate(image2.length,
                                           (image2Index) {
-                                        final image2Item = image2[image2Index];
                                         return Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -396,7 +393,10 @@ class _PlaceInformationWidgetState extends State<PlaceInformationWidget> {
                                           duration: Duration(milliseconds: 0),
                                           reverseDuration:
                                               Duration(milliseconds: 0),
-                                          child: PlaceInformationPointWidget(),
+                                          child: PlaceInformationPointWidget(
+                                            markers: [],
+                                            placesId: [],
+                                          ),
                                         ),
                                       );
                                     },

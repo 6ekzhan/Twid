@@ -6,7 +6,6 @@ import '../questions/questions_widget.dart';
 import '../settings/settings_widget.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class HelpWidget extends StatefulWidget {

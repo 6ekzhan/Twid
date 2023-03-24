@@ -1,14 +1,11 @@
 // Automatic FlutterFlow imports
-import '../../flutter_flow/flutter_flow_theme.dart';
-import '../../flutter_flow/flutter_flow_util.dart';
-import 'index.dart'; // Imports other custom widgets
-import '../actions/index.dart'; // Imports custom actions
+// Imports other custom widgets
+// Imports custom actions
 import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'dart:async';
-import 'package:flutter/material.dart';
 
 class CustomTimer extends StatefulWidget {
   const CustomTimer({
@@ -103,13 +100,17 @@ class _CustomTimerState extends State<CustomTimer> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Visibility(
               visible: differenceDays! < 1 ? false : true,
               child: Text(
                 '$differenceDays${differenceDays! <= 1 ? ' DAY' : ' DAYS'}',
-                style: const TextStyle(
-                  fontSize: 50,
+                style: TextStyle(
+                  fontSize: (MediaQuery.of(context).size.height * 50) / 797 >
+                          (MediaQuery.of(context).size.width * 50) / 390
+                      ? (MediaQuery.of(context).size.width * 50) / 390
+                      : (MediaQuery.of(context).size.height * 50) / 797,
                   fontWeight: FontWeight.w400,
                   fontFamily: 'Metal',
                   color: Color(0xFFF4472B),
@@ -122,15 +123,31 @@ class _CustomTimerState extends State<CustomTimer> {
                     isTrue ? 'READY TO BEGIN' : time!,
                     textAlign: TextAlign.center,
                     style: isTrue
-                        ? const TextStyle(
-                            fontSize: 39,
+                        ? TextStyle(
+                            fontSize: (MediaQuery.of(context).size.height *
+                                            39) /
+                                        797 >
+                                    (MediaQuery.of(context).size.width * 39) /
+                                        390
+                                ? (MediaQuery.of(context).size.width * 39) / 390
+                                : (MediaQuery.of(context).size.height * 39) /
+                                    797,
                             fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.normal,
                             fontFamily: 'Metal',
                             color: Color(0xFFF4472B),
                           )
-                        : const TextStyle(
-                            fontSize: 20,
+                        : TextStyle(
+                            fontSize: (MediaQuery.of(context).size.height *
+                                            20) /
+                                        797 >
+                                    (MediaQuery.of(context).size.width * 20) /
+                                        390
+                                ? (MediaQuery.of(context).size.width * 20) / 390
+                                : (MediaQuery.of(context).size.height * 20) /
+                                    797,
                             fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.normal,
                             fontFamily: 'Metal',
                             color: Color(0xFFF4472B),
                           ),

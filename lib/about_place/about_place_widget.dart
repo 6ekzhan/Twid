@@ -7,7 +7,6 @@ import '../help/help_widget.dart';
 import '../settings/settings_widget.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class AboutPlaceWidget extends StatefulWidget {
@@ -231,7 +230,6 @@ class _AboutPlaceWidgetState extends State<AboutPlaceWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children:
                                     List.generate(image.length, (imageIndex) {
-                                  final imageItem = image[imageIndex];
                                   return Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         4, 0, 4, 0),

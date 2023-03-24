@@ -1,8 +1,6 @@
 // Automatic FlutterFlow imports
-import '../../flutter_flow/flutter_flow_theme.dart';
-import '../../flutter_flow/flutter_flow_util.dart';
-import 'index.dart'; // Imports other custom widgets
-import '../actions/index.dart'; // Imports custom actions
+// Imports other custom widgets
+// Imports custom actions
 import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
@@ -21,7 +19,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'dart:math' show cos, sqrt, asin;
 
-import 'package:flutter/services.dart' show rootBundle;
 import 'dart:ui' as ui;
 
 class NavigationScreen extends StatefulWidget {

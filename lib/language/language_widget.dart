@@ -1,10 +1,11 @@
+import 'package:auto_size_text/auto_size_text.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../home_page/home_page_widget.dart';
 import '../custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class LanguageWidget extends StatefulWidget {
@@ -37,17 +38,25 @@ class _LanguageWidgetState extends State<LanguageWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    0,
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    0),
                 child: Image.asset(
                   'assets/images/logo.png',
+                  width: (MediaQuery.of(context).size.width * 360) / 360,
+                  height: (MediaQuery.of(context).size.height * 75) / 800,
                   fit: BoxFit.fill,
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 96, 0, 0),
-                child: Text(
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    0, (MediaQuery.of(context).size.height * 100) / 800, 0, 0),
+                child: AutoSizeText(
                   FFLocalizations.of(context).getText(
                     'z258brx9' /* Please choose a language */,
                   ),
@@ -55,13 +64,25 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Inter',
                         color: FlutterFlowTheme.of(context).tertiaryColor,
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
+                        fontSize: (MediaQuery.of(context).size.height * 14) /
+                                    800 >
+                                (MediaQuery.of(context).size.width * 14) / 360
+                            ? (MediaQuery.of(context).size.width * 14) / 360
+                            : (MediaQuery.of(context).size.height * 14) / 800,
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal,
+                        lineHeight: 20 /
+                            ((MediaQuery.of(context).size.width * 14) / 360),
                       ),
+                  maxLines: 2,
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 46, 16, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    (MediaQuery.of(context).size.height * 12) / 800,
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     setAppLanguage(context, 'en');
@@ -81,7 +102,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                   ),
                   options: FFButtonOptions(
                     width: double.infinity,
-                    height: 48,
+                    height: (MediaQuery.of(context).size.height * 48) / 800,
                     color: FFAppState().hasBeenPressed1
                         ? Color(0xFFF4472B)
                         : Color(0x00F4472B),
@@ -90,19 +111,33 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                           color: FFAppState().hasBeenPressed1
                               ? Colors.white
                               : Color(0xFFF4472B),
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.bold,
+                          letterSpacing: 0.05 *
+                              (MediaQuery.of(context).size.width * 16) /
+                              360,
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.normal,
+                          fontSize: (MediaQuery.of(context).size.height * 16) /
+                                      800 >
+                                  (MediaQuery.of(context).size.width * 16) / 360
+                              ? (MediaQuery.of(context).size.width * 16) / 360
+                              : (MediaQuery.of(context).size.height * 16) / 800,
+                          lineHeight: 20 /
+                              ((MediaQuery.of(context).size.width * 16) / 360),
                         ),
                     borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).primaryColor,
-                      width: 1,
+                      width: (MediaQuery.of(context).size.width * 0.5) / 360,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    (MediaQuery.of(context).size.height * 8) / 800,
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     setAppLanguage(context, 'ru');
@@ -122,7 +157,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                   ),
                   options: FFButtonOptions(
                     width: double.infinity,
-                    height: 48,
+                    height: (MediaQuery.of(context).size.height * 48) / 800,
                     color: FFAppState().hasBeenPressed2
                         ? Color(0xFFF4472B)
                         : Color(0x00F4472B),
@@ -131,19 +166,33 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                           color: FFAppState().hasBeenPressed2
                               ? Colors.white
                               : Color(0xFFF4472B),
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.bold,
+                          letterSpacing: 0.05 *
+                              (MediaQuery.of(context).size.width * 16) /
+                              360,
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.normal,
+                          fontSize: (MediaQuery.of(context).size.height * 16) /
+                                      800 >
+                                  (MediaQuery.of(context).size.width * 16) / 360
+                              ? (MediaQuery.of(context).size.width * 16) / 360
+                              : (MediaQuery.of(context).size.height * 16) / 800,
+                          lineHeight: 20 /
+                              ((MediaQuery.of(context).size.width * 16) / 360),
                         ),
                     borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).primaryColor,
-                      width: 1,
+                      width: (MediaQuery.of(context).size.width * 0.5) / 360,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    (MediaQuery.of(context).size.height * 8) / 800,
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     setAppLanguage(context, 'es');
@@ -163,7 +212,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                   ),
                   options: FFButtonOptions(
                     width: double.infinity,
-                    height: 48,
+                    height: (MediaQuery.of(context).size.height * 48) / 800,
                     color: FFAppState().hasBeenPressed3
                         ? Color(0xFFF4472B)
                         : Color(0x00F4472B),
@@ -172,19 +221,33 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                           color: FFAppState().hasBeenPressed3
                               ? Colors.white
                               : Color(0xFFF4472B),
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.bold,
+                          letterSpacing: 0.05 *
+                              (MediaQuery.of(context).size.width * 16) /
+                              360,
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.normal,
+                          fontSize: (MediaQuery.of(context).size.height * 16) /
+                                      800 >
+                                  (MediaQuery.of(context).size.width * 16) / 360
+                              ? (MediaQuery.of(context).size.width * 16) / 360
+                              : (MediaQuery.of(context).size.height * 16) / 800,
+                          lineHeight: 20 /
+                              ((MediaQuery.of(context).size.width * 16) / 360),
                         ),
                     borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).primaryColor,
-                      width: 1,
+                      width: (MediaQuery.of(context).size.width * 0.5) / 360,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    (MediaQuery.of(context).size.height * 8) / 800,
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     setAppLanguage(context, 'ja');
@@ -204,7 +267,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                   ),
                   options: FFButtonOptions(
                     width: double.infinity,
-                    height: 48,
+                    height: (MediaQuery.of(context).size.height * 48) / 800,
                     color: FFAppState().hasBeenPressed4
                         ? Color(0xFFF4472B)
                         : Color(0x00F4472B),
@@ -213,19 +276,33 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                           color: FFAppState().hasBeenPressed4
                               ? Colors.white
                               : Color(0xFFF4472B),
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.bold,
+                          letterSpacing: 0.05 *
+                              (MediaQuery.of(context).size.width * 16) /
+                              360,
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.normal,
+                          fontSize: (MediaQuery.of(context).size.height * 16) /
+                                      800 >
+                                  (MediaQuery.of(context).size.width * 16) / 360
+                              ? (MediaQuery.of(context).size.width * 16) / 360
+                              : (MediaQuery.of(context).size.height * 16) / 800,
+                          lineHeight: 20 /
+                              ((MediaQuery.of(context).size.width * 16) / 360),
                         ),
                     borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).primaryColor,
-                      width: 1,
+                      width: (MediaQuery.of(context).size.width * 0.5) / 360,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    (MediaQuery.of(context).size.height * 8) / 800,
+                    (MediaQuery.of(context).size.width * 16) / 360,
+                    0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     setAppLanguage(context, 'ar');
@@ -245,7 +322,7 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                   ),
                   options: FFButtonOptions(
                     width: double.infinity,
-                    height: 48,
+                    height: (MediaQuery.of(context).size.height * 48) / 800,
                     color: FFAppState().hasBeenPressed5
                         ? Color(0xFFF4472B)
                         : Color(0x00F4472B),
@@ -254,19 +331,30 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                           color: FFAppState().hasBeenPressed5
                               ? Colors.white
                               : Color(0xFFF4472B),
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.bold,
+                          letterSpacing: 0.05 *
+                              (MediaQuery.of(context).size.width * 16) /
+                              360,
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.normal,
+                          fontSize: (MediaQuery.of(context).size.height * 16) /
+                                      800 >
+                                  (MediaQuery.of(context).size.width * 16) / 360
+                              ? (MediaQuery.of(context).size.width * 16) / 360
+                              : (MediaQuery.of(context).size.height * 16) / 800,
+                          lineHeight: 20 /
+                              ((MediaQuery.of(context).size.width * 16) / 360),
                         ),
                     borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).primaryColor,
-                      width: 1,
+                      width: (MediaQuery.of(context).size.width * 0.5) / 360,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(
+                    0, (MediaQuery.of(context).size.height * 170) / 800, 0, 0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     await Navigator.push(
@@ -280,18 +368,40 @@ class _LanguageWidgetState extends State<LanguageWidget> {
                     'bmetd3l7' /* OK */,
                   ),
                   options: FFButtonOptions(
-                    width: 214,
-                    height: 48,
+                    width: (MediaQuery.of(context).size.width * 214) / 360,
+                    height: (MediaQuery.of(context).size.height * 48) / 800,
                     color: Color(0x00F4472B),
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                           fontFamily: 'Inter',
-                          color: Color(0xFFA5AAAD),
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.bold,
+                          color: FFAppState().hasBeenPressed1 ||
+                                  FFAppState().hasBeenPressed2 ||
+                                  FFAppState().hasBeenPressed3 ||
+                                  FFAppState().hasBeenPressed4 ||
+                                  FFAppState().hasBeenPressed5
+                              ? Color(0xFFF4472B)
+                              : Color(0xFFA5AAAD),
+                          letterSpacing: 0.05 *
+                              (MediaQuery.of(context).size.width * 16) /
+                              360,
+                          fontWeight: FontWeight.w700,
+                          fontStyle: FontStyle.normal,
+                          fontSize: (MediaQuery.of(context).size.height * 16) /
+                                      800 >
+                                  (MediaQuery.of(context).size.width * 16) / 360
+                              ? (MediaQuery.of(context).size.width * 16) / 360
+                              : (MediaQuery.of(context).size.height * 16) / 800,
+                          lineHeight: 20 /
+                              ((MediaQuery.of(context).size.width * 16) / 360),
                         ),
                     borderSide: BorderSide(
-                      color: Color(0xFFA5AAAD),
-                      width: 1,
+                      color: FFAppState().hasBeenPressed1 ||
+                              FFAppState().hasBeenPressed2 ||
+                              FFAppState().hasBeenPressed3 ||
+                              FFAppState().hasBeenPressed4 ||
+                              FFAppState().hasBeenPressed5
+                          ? Color(0xFFF4472B)
+                          : Color(0xFFA5AAAD),
+                      width: (MediaQuery.of(context).size.width * 0.5) / 360,
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
